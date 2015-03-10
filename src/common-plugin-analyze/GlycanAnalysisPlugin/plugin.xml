@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Glycan Analysis</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>GlycanAnalysisPlugin</link>
+  <menu>
+    <menu-item id="0">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0">
+      <menu-name>Glycan Analysis...</menu-name>
+      <toolbar>glycan analysis toolbar</toolbar>
+      <menu-description>Analyze glycan structure of the selected spectrum</menu-description>
+      <menu-group>Glycan Analysis Group</menu-group>
+    </menu-item>
+  </menu>
+  <icons>
+    <icon id="1" type="png">
+      <icon-name>glycan_analysis_icon</icon-name>
+      <icon-file>images/glycan_analysis_icon_16x16.PNG</icon-file>
+    </icon>
+  </icons>
+  <function>
+    <call type="enable">
+      <call-name>menu glycan analysis enable</call-name>
+      <call-function>isEnableGlycanAnalysis</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>menu glycan enable</call-description>
+    </call>
+    <call type="execute" icon="1">
+      <call-name>open glycan analysis</call-name>
+      <call-function>openGlycanAnalysis</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>Perform glycan analysis...</call-description>
+    </call>
+    <call type="init_gui">
+      <call-name>init glycan analysis</call-name>
+      <call-function>initGlycanAnalysis</call-function>
+      <call-description>init glycan analysis</call-description>
+    </call>
+    <call type="on_close_spec">
+      <call-name>close glycan analysis</call-name>
+      <call-function>closeGlycanAnalysis</call-function>
+      <call-description>closeGlycanAnalysis</call-description>
+    </call>
+    <call type="draw_spec_bg" target ="spectrum">
+      <call-name>on spectrum double click</call-name>
+      <call-function>drawGlycanAnalysisSpectrum</call-function>
+      <call-description>on spectrum double click</call-description>
+    </call>
+    <call type="on_spec_dbl_clk" order="7">
+      <call-name>on spectrum double click 2</call-name>
+      <call-function>openGlycanStructureDialog</call-function>
+      <call-description>open glycan structure</call-description>
+    </call>
+    <call type="exit_gui">
+      <call-name>exit glycan analysis</call-name>
+      <call-function>closeGlycanAnalysis</call-function>
+      <call-description>exit glycan analysis</call-description>
+    </call>    
+  </function>
+  <components>
+    <component>
+      <component-name>glycan</component-name>
+      <component-desc>Glycan Analysis</component-desc>
+      <component-calls>
+        <component-call>menu glycan analysis enable</component-call>
+        <component-call>open glycan analysis</component-call>        
+        <component-call>init glycan analysis</component-call>        
+        <component-call>close glycan analysis</component-call>        
+        <component-call>on spectrum double click</component-call>        
+        <component-call>on spectrum double click 2</component-call>                
+        <component-call>exit glycan analysis</component-call>                
+      </component-calls>
+    </component>
+  </components>
+
+</plugin>

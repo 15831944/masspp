@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Matrix GroupPlot</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MatrixGroupPlotPlugin</link>
+  <icons>
+    <icon id="1" type="png">
+      <icon-name>mtrxgroup</icon-name>
+      <icon-file>images/mtrxgroup_icon16x16.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>group_plot</icon-name>
+      <icon-file>images/groupplot16x16.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>box_plot</icon-name>
+      <icon-file>images/boxplot16x16.png</icon-file>
+    </icon>
+  </icons>
+  <function>
+    <call type="on_matrix_peak" icon="1">
+      <call-name>showGroupPlot</call-name>
+      <call-function>showGroupPlot</call-function>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>group</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution Plot</param-value>
+        </param>
+      </params>
+      <call-description>show groupplot view</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>group plot</component-name>
+      <component-desc>Group Plot</component-desc>
+      <component-calls>
+        <component-call>showGroupPlot</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>group plot</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

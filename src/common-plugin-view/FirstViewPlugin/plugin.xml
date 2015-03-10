@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>FirstViewPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>FirstViewPlugin</link>
+  <function>
+    <call type="on_open_sample" order="1">
+      <call-name>openFirstView</call-name>
+      <call-function>openFirstView</call-function>
+      <call-description>open the first waveform when opening a sample.</call-description>      
+    </call>
+  </function>    
+  <components>
+    <component>
+      <component-name>first</component-name>
+      <component-desc>First View</component-desc>
+      <component-calls>
+        <component-call>openFirstView</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>first</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+</plugin>

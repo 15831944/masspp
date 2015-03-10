@@ -1,0 +1,36 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[Processing] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peaks">
+<param name="Local" value="ch01s01.html#id630578"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peak Detection">
+<param name="Local" value="ch01s01.html#id630584"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Spectrum Peak Detection">
+<param name="Local" value="ch01s01.html#Spectrum_Peak_Filtering"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Chromatogram Peak Detection">
+<param name="Local" value="ch01s01.html#id692226"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="2D Peak Detection">
+<param name="Local" value="ch01s01.html#id181591"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Clear Peaks">
+<param name="Local" value="ch01s01.html#id630604"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Clear Peaks">
+<param name="Local" value="ch01s01.html#id647069"></OBJECT></LI>
+</UL></UL></UL></UL></BODY></HTML>

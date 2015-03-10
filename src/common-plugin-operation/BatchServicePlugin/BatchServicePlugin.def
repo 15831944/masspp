@@ -1,0 +1,5 @@
+EXPORTS
+	batchProcessingMethodConfiguration
+	toggleBatchJobWindow
+	isVisibleBatchJob
+	batchSetFunctionTest

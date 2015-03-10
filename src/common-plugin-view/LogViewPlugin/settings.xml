@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0" order="9">Miscellaneous</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="int" default="3" required="true">
+      <enum>
+        <enum-name>None</enum-name>
+        <enum-value>0</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Fatal</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Error</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Warning</enum-name>
+        <enum-value>3</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Information</enum-name>
+        <enum-value>4</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Debug</enum-name>
+        <enum-value>5</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Trace</enum-name>
+        <enum-value>6</enum-value>
+      </enum>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>log level</param-name>
+      <param-section>log</param-section>
+      <param-key>LOG_FILE_LEVEL</param-key>
+    </param>
+    <param id="1" value="0">
+      <param-name>log level</param-name>
+      <param-section>log</param-section>
+      <param-key>LOG_VIEW_LEVEL</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Log File</group-name>
+    </group>
+    <group id="1">
+      <group-name>Log View</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page chapter="0" common="true">
+      <page-name>common</page-name>
+      <page-title>Log</page-title>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Log Level</form-title>
+        </form>
+        <form id="1" param="1" group="1">
+          <form-title>Log Level</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

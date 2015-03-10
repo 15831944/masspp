@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<labels>
+  <lab link="N">
+    <name>AQ</name>
+    <mz>144.0687</mz>
+  </lab>
+  <lab link="N">
+    <name>AB</name>
+    <mz>136.0637</mz>
+  </lab>
+  <lab link="N">
+    <name>None</name>
+    <mz>0.0</mz>
+  </lab>
+</labels>

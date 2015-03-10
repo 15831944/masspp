@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Linear Baseline Detection</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>LinearBaselineDetectionPlugin</link>
+  <function>
+    <call type="xydata_baseline">
+      <call-name>detectBaseline</call-name>
+      <call-function>detectBaseline</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Linear Baseline</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>linear</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Baseline</param-value>
+        </param>
+      </params>
+      <call-description>detect baseline</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>baseline</component-name>
+      <component-desc>Linear Baseline Detector</component-desc>
+      <component-calls>
+        <component-call>detectBaseline</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>baseline</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

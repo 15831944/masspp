@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>DataMap Canvas</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>DataMapCanvasPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>heatmap_select</icon-name>
+      <icon-file>images/heatmap_select_icon.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>heatmap_open</icon-name>
+      <icon-file>images/heatmap_open_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>DATA_MAP_WINDOW</status-name>
+      <status-value>Canvas</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+
+    <menu-item id="4" parent="0" accelerator="H" order="8" target="sample">
+      <menu-name>Heatmap</menu-name>
+      <menu-group order="8">window</menu-group>
+      <toolbar>datamap</toolbar>
+      <menu-description>Display the heatmap window for the current sample</menu-description>
+    </menu-item>
+    <menu-item id="5" >
+      <menu-name>Heatmap</menu-name>
+      <menu-group>window</menu-group>
+      <popup type="group_item"  order="5"  />
+    </menu-item>
+
+  </menu>
+  <function>
+    <call type="data_map_window" status="0">
+      <call-name>createDataMapCanvas</call-name>
+      <call-function>createDataMapCanvas</call-function>
+      <call-description>create data map canvas</call-description>
+    </call>
+
+    <call type="execute" icon="1">
+      <call-name>set data map status and open data map info</call-name>
+      <call-function>setDataMapStatusOpen</call-function>
+      <call-description>Display heatmap window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute" >
+      <call-name>context</call-name>
+      <call-function>setDataMapStatusOpen</call-function>
+      <call-description>Display heatmap window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+    </call>
+
+
+    <call type="on_data_map_mouse_move" >
+      <call-name>on DataMap mouse move</call-name>
+      <call-function>onDataMapMouseMoveStatusBar</call-function>
+      <call-description>on DataMap mouse move for StatusBar</call-description>
+    </call>
+    <call type="on_data_map_mouse_leave" >
+      <call-name>on DataMap mouse leave</call-name>
+      <call-function>onDataMapMouseLeaveStatusBar</call-function>
+      <call-description>on DataMap mouse leave for StatusBar</call-description>
+    </call>
+    <call type="on_data_map_button_down">
+      <call-name>on DataMap Button Down</call-name>
+      <call-function>onDataMapMouseButtonDown</call-function>
+      <call-description>data map mouse button down</call-description>
+    </call>
+    <call type="on_data_map_button_up">
+      <call-name>on DataMap Button Up</call-name>
+      <call-function>onDataMapMouseButtonUp</call-function>
+      <call-description>data map mouse button up</call-description>
+    </call>
+
+    <call type="on_data_map_dbl_clk">
+      <call-name>on DataMap Button Double Click</call-name>
+      <call-function>onDataMapMouseDblClick</call-function>
+      <call-description>data map mouse button double click</call-description>
+    </call>
+    <call type="operation">
+      <call-name>heatmap canvas operation</call-name>
+      <call-function>getHeatMapCanvasOperation</call-function>
+      <call-description>heatmap canvas operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>HeatMap Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>datamap_canvas</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <help>
+    <help-file ordedr="4">help/htmlhelp.hhp</help-file>
+  </help>
+  <gui>
+    <status-bar target="datamap"  order="4" width="150">
+      <status-bar-name>HeatMap</status-bar-name>
+    </status-bar>
+  </gui>
+  <components>
+    <component>
+      <component-name>heatmap</component-name>
+      <component-desc>Heatmap Window</component-desc>
+      <component-calls>
+        <component-call>createDataMapCanvas</component-call>
+        <component-call>set data map status and open data map info</component-call>
+        <component-call>context</component-call>
+        <component-call>heatmap canvas operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>status</component-name>
+      <component-desc>Display the Status</component-desc>
+      <component-calls>
+        <component-call>on DataMap mouse move</component-call>
+        <component-call>on DataMap mouse leave</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>range</component-name>
+      <component-desc>Heatmap Range Action</component-desc>
+      <component-calls>
+        <component-call>on DataMap Button Down</component-call>
+        <component-call>onDataMapMouseButtonUp</component-call>
+        <component-call>on DataMap Button Double Click</component-call>
+        <component-call>on DataMap Button Up</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+        <package-component>status</package-component>
+        <package-component>range</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+        <package-component>status</package-component>
+        <package-component>range</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+        <package-component>status</package-component>
+        <package-component>range</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+        <package-component>status</package-component>
+        <package-component>range</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

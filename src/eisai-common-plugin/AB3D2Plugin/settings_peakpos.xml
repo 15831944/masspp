@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<settings>
+  <values>
+    <!-- 2D Peak Picking Select (use only AB3D)-->
+    <value id="0" type="string" default="ab3d2" required="true">
+      <item-type>2D_PEAK_PICKING</item-type>
+    </value>
+    <!-- Peak Merge M/Z Tolerance -->
+    <value id="1" type="double" default="10.0" minInclusive="0.0" />
+    <!-- Peak Merge RT Tolerance -->
+    <value id="2" type="double" default="1.5" minInclusive="0.0" />
+  </values>
+  <params>
+    <param id="0" value="0" required="true">
+      <param-name>AB3DPeakParam</param-name>
+      <param-section>AB3Ds Peak Position</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="1" value="1" required="true">
+      <param-name>mz_tol</param-name>
+      <param-section>AB3D Peak Position</param-section>
+      <param-key>MZ_PPM_TOLERANCE</param-key>
+    </param>
+    <param id="2" value="2" required="true">
+      <param-name>rt_tol</param-name>
+      <param-section>AB3D Peak Position</param-section>
+      <param-key>RT_TOLERANCE</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>2D Peak Detector</group-name>
+    </group>
+    <group id="1">
+      <group-name>Merge Tolerance</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>Peak Position</page-name>
+      <page-title>AB3D Peak Position Settings</page-title>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>2D Peak Detector</form-title>
+        </form>
+        <form id="1" param="1" group="1">
+          <form-title>m/z (ppm)</form-title>
+        </form>
+        <form id="2" param="2" group="1">
+          <form-title>Retention Time (min)</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

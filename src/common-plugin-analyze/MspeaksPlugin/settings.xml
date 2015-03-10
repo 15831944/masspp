@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="int" default="4" minInclusive="2" maxInclusive="20" required="true"/>
+    <value id="1" type="int" default="10" minInclusive="1" maxInclusive="12" required="true"/>
+    <value id="2" type="string" default="0" required="true">
+      <enum>
+             <enum-name>MAD</enum-name>
+             <enum-value>0</enum-value>
+      </enum>
+      <enum>
+             <enum-name>STD</enum-name>
+             <enum-value>1</enum-value>
+      </enum>
+    </value>
+    <value id="3" type="double" default="1.0" minInclusive="0.0" required="true"/>
+    <value id="4" type="string" default="0" required="true">
+      <enum>
+             <enum-name>true</enum-name>
+             <enum-value>0</enum-value>
+      </enum>
+      <enum>
+             <enum-name>false</enum-name>
+             <enum-value>1</enum-value>
+      </enum>
+    </value>
+    <value id="5" type="double" default="1.0" minInclusive="0.0" maxInclusive="1.0" required="true"/>
+    <value id="6" type="double" default="0.0" minInclusive="0.0" required="true"/>
+    <value id="7" type="double" default="0.0" minInclusive="0.0" required="true"/>
+  </values>
+
+  <params>
+    <param id="0" value="0">
+      <param-name>base</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>BASE</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>levels</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>LEVELS</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>noise</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>NOISE</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>multipliner</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>MULTIPLINER</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>denoising</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>DENOISING</param-key>
+    </param>
+    <param id="5" value="5">
+      <param-name>peak_location</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>PEAK_LOCATION</param-key>
+    </param>
+    <param id="6" value="6">
+      <param-name>fwhm_filter</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>FWHM_FILTER</param-key>
+    </param>
+    <param id="7" value="7">
+      <param-name>over_segmentation</param-name>
+      <param-section>Mspeaks</param-section>
+      <param-key>OVER_SEGMENTATION</param-key>
+    </param>
+  </params>
+
+  <pages>
+    <page common="false">
+      <page-name>spectrum</page-name>
+      <page-title>Mspeaks</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Base</form-title>
+          <form-desc>Specify wavelet dase paremeter.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Levels</form-title>
+          <form-desc>Specify wavelet decomposition parameter.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>Noise</form-title>
+          <form-desc>Specify peak threshold paramter. Noise value is used as the threshold, and the noise is defined as following:
+・mad...Median absolute deviation.
+・std...standard deviation of peak intensity.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Multipliner</form-title>
+          <form-desc>Specify the threshold multipliner parameter.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="4" param="4">
+          <form-title>Denoising</form-title>
+          <form-desc>Specify whether or not to perform wavelet denoising.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="5" param="5">
+          <form-title>Peak Location</form-title>
+          <form-desc>Specify the ratio of the peak intensity, which are used to select data points to estimate the centroid separation-axis value of the respective peaks.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="6" param="6">
+          <form-title>FWHM Filter</form-title>
+          <form-desc>Specify FWHM peak filter value.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="7" param="7">
+          <form-title>Over Segmentation</form-title>
+          <form-desc>Specify the minimum adjacency peak-to-peak distance.
+Refer "mspeaks" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

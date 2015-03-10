@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="int" default="1" minInclusive="1" maxInclusive="99" required="true" />
+    <value id="1" type="double" default="1.0" minExclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>width</param-name>
+      <param-section>Linear Filter</param-section>
+      <param-key>LOWPASS_WIDTH</param-key>
+    </param>
+    <param id="1" value="0">
+      <param-name>width</param-name>
+      <param-section>Linear Filter</param-section>
+      <param-key>HIGHPASS_WIDTH</param-key>
+    </param>
+    <param id="2" value="1">
+      <param-name>strength</param-name>
+      <param-section>Linear Filter</param-section>
+      <param-key>HIGHPASS_STRENGTH</param-key>
+    </param>
+    <param id="3" value="0">
+      <param-name>width</param-name>
+      <param-section>Linear Filter</param-section>
+      <param-key>GAUSSIAN_WIDTH</param-key>
+    </param>
+    <param id="4" value="1">
+      <param-name>sigma</param-name>
+      <param-section>Linear Filter</param-section>
+      <param-key>GAUSSIAN_SIGMA</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Low-Pass</group-name>
+    </group>
+    <group id="1">
+      <group-name>High-Pass</group-name>
+    </group>
+    <group id="2">
+      <group-name>Gaussian</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>LowPass</page-name>
+      <page-title>Low-Pass (Linear)</page-title>
+      <forms>
+        <form id="5" param="0">
+          <form-title>Width</form-title>
+          <form-desc img="images/linear-lowpass.png">Set the width of the low-pass filter.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>HighPass</page-name>
+      <page-title>High-Pass (Linear)</page-title>
+      <forms>
+        <form id="6" param="1">
+          <form-title>Width</form-title>
+          <form-desc img="images/linear-highpass.png">Set the width of high-pass filter.</form-desc>
+        </form>
+        <form id="7" param="2">
+          <form-title>Strength</form-title>
+          <form-desc img="images/linear-highpass.png">Set the strength of high-pass filter.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>Gaussian</page-name>
+      <page-title>Gaussian (Linear)</page-title>
+      <forms>
+        <form id="8" param="3">
+          <form-title>Width</form-title>
+          <form-desc img="images/linear-gaussian.png">Set the width of gaussian filter.</form-desc>
+        </form>          
+        <form id="9" param="4">
+          <form-title>Sigma</form-title>
+          <form-desc img="images/linear-gaussian.png">Set the sigma of gaussian filter.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

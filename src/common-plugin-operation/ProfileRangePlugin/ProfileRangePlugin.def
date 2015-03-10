@@ -1,0 +1,31 @@
+EXPORTS
+	prepareSpectrum
+	prepareChromatogram
+	onCloseSpec
+	onCloseChrom
+	onSpecButtonDown
+	onChromButtonDown
+	onSpecMouseMove
+	onChromMouseMove
+	onSpecButtonUp
+	onChromButtonUp
+	onSpecDblClick
+	onChromDblClick
+	onSpecKeyDown
+	onChromKeyDown
+	onDrawSpecFg
+	onDrawChromFg
+	onDrawSpecBg
+	onDrawChromBg		
+	setRangeStatus		
+	changeSpecRange
+	changeChromRange
+	SetValStatusBar	
+	onMouseLeave
+	getSpecRangeOperation
+	getChromRangeOperation
+	showChangeSpectrumRange
+	showChangeChromatogramRange
+	resetZoomFromContextMenu
+	resetZoomSubSpecFromContextMenu
+

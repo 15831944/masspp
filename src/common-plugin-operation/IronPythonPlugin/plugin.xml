@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Iron Python</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>IronPythonPlugin</link>
+  <function>
+    <call type="script">
+      <call-name>python</call-name>
+      <call-method static="true">
+        <class-name>kome.script.python.IronPythonManager</class-name>
+        <method-name>getScript</method-name>
+      </call-method>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Iron Python</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>python</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>py</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>python</component-name>
+      <component-desc>Iron Python</component-desc>
+      <component-calls>
+        <component-call>python</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>python</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>  
+</plugin>

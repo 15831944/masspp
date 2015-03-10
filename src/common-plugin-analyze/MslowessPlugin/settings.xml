@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" default="1" required="true">
+      <enum>
+        <enum-name>0</enum-name>
+        <enum-value>0</enum-value>
+      </enum>
+      <enum>
+        <enum-name>1</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>2</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+    </value>
+    <value id="1" type="double" default="10.0" minInclusive="0.0" required="true"/>
+    <value id="2" type="string" default="0" required="true">
+      <enum>
+        <enum-name>tricubic</enum-name>
+        <enum-value>0</enum-value>
+      </enum>
+      <enum>
+        <enum-name>gaussian</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>liner</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+    </value>
+    <value id="3" type="double" default="0.0" minInclusive="0.0" required="true"/>
+  </values>
+
+  <params>
+     <param id="0" value="0">
+      <param-name>order</param-name>
+      <param-section>Mslowess</param-section>
+      <param-key>ORDER</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>span</param-name>
+      <param-section>Mslowess</param-section>
+      <param-key>SPAN</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>kernel</param-name>
+      <param-section>Mslowess</param-section>
+      <param-key>KERNEL</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>robust_iterations</param-name>
+      <param-section>Mslowess</param-section>
+      <param-key>ROBUST_ITERATIONS</param-key>
+    </param>
+  </params>
+
+  <pages>
+    <page common="false">
+      <page-name>Mslowess</page-name>
+      <page-title>Mslowess</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Order</form-title>
+          <form-desc>Specify the smoothing order from following:
+・1
+・2
+・0
+Refer "mslowess" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Span</form-title>
+          <form-desc>Specify the window width of smoothing kernel. Refer "mslowess" function of  Matlab Bioinfomatics Toolbox for more detail.
+          </form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>Kernel</form-title>
+          <form-desc>Specify the weighting function from follwing:
+・tricubic
+・gaussian
+・liner
+Refer "mslowess" function of  Matlab Bioinfomatics Toolbox for more detail.
+          </form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Robust Iterations</form-title>
+          <form-desc>Specify the number of iterations for a robust fit.
+Refer "mslowess" function of  Matlab Bioinfomatics Toolbox for more detail.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

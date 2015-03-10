@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+
+<plugin>
+  <name>AB3D</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>Ab3dPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>DRAWING_AB3D_PEAKS</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <function>
+    <call type="alignment">
+      <call-name>alignment by tic fitting</call-name>
+      <call-function>executeAlignmentByTIC</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>AB3D Alignment (TIC Pattern)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3d_tic</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Alignment TIC</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Aligning RT by fitting TIC (Total Ion Chromatogram) waveform pattern.</param-value>
+        </param>        
+      </params>
+      <call-description>AB3D Alignment (TIC Fitting)</call-description>
+    </call>
+    <call type="alignment">
+      <call-name>alignment by mc fitting</call-name>
+      <call-function>executeAlignmentByMC</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>AB3D Alignment (MC Pattern)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3d_mc</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Alignment MC</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Aligning RT by fitting MC (Mass Chromatogram) waveform pattern.</param-value>
+        </param>                
+      </params>
+      <call-description>AB3D Alignment (MC Fitting)</call-description>
+    </call>
+    <call type="composition">
+      <call-name>execute composition</call-name>
+      <call-function>executeComposition</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>AB3D Composition</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3d</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Composition</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Fusion samples using 2D peaks.</param-value>
+        </param>                
+      </params>
+      <call-description>AB3D Composition</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>alignment-tic</component-name>
+      <component-desc>RT Alignment (TIC)</component-desc>
+      <component-calls>
+        <component-call>alignment by tic fitting</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>alignment-mc</component-name>
+      <component-desc>RT Alignment (MC)</component-desc>
+      <component-calls>
+        <component-call>alignment by mc fitting</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>fusion</component-name>
+      <component-desc>Sample Fusion</component-desc>
+      <component-calls>
+        <component-call>execute composition</component-call>
+      </component-calls>
+    </component>
+  </components>    
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>alignment-tic</package-component>
+        <package-component>alignment-mc</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>alignment-tic</package-component>
+        <package-component>alignment-mc</package-component> 
+        <package-component>fusion</package-component>        
+      </package-components>
+    </package>
+  </packages>
+  <parameters>
+    <parameters-file>settings_alignment_tic.xml</parameters-file>
+    <parameters-file>settings_alignment_mc.xml</parameters-file>
+    <parameters-file>settings_composition.xml</parameters-file>
+    <!--
+    <parameters-file>settings_labeling.xml</parameters-file>
+    <parameters-file>settings_clustering.xml</parameters-file>
+    -->
+    <parameters-file>settings_fragment_match_score.xml</parameters-file>
+  </parameters>
+</plugin>

@@ -1,0 +1,8 @@
+EXPORTS
+	openGlycanAnalysis
+	closeGlycanAnalysis
+	drawGlycanAnalysisSpectrum
+	isEnableGlycanAnalysis
+	initGlycanAnalysis
+	openGlycanStructureDialog
+	exitGlycanAnalysis

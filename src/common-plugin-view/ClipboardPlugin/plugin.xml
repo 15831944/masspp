@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Clipboard</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ClipboardPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="E" order="1">
+      <menu-name>Edit</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="C">
+      <menu-name>Copy as</menu-name>
+      <menu-group>Edit</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="T" order="3" target="spec_chrom">
+      <menu-name>Text</menu-name>
+      <menu-description>Copy the current data window's XY data as text</menu-description>
+    </menu-item>
+    <menu-item id="3" parent="1" accelerator="B" order="5" target="not_null">
+      <menu-name>Bitmap</menu-name>
+      <menu-description>Copy the current data window as a bitmap</menu-description>
+    </menu-item>
+    <menu-item id="4" parent="1" accelerator="M" order="7" target="not_null">
+      <menu-name>Metafile</menu-name>
+      <menu-description>Copy the current data window and properties as a metafile</menu-description>
+    </menu-item>
+
+    <menu-item id="5">
+      <menu-name>Copy As</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="chrom_view" order="7"  />
+    </menu-item>
+    <menu-item id="6" parent="5" order="3">
+      <menu-name>Text</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="chrom_view" order="1"  />
+      <menu-description>Copy the current data window's XY data as text</menu-description>
+    </menu-item>
+    <menu-item id="7" parent="5" order="5">
+      <menu-name>Bitmap</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="chrom_view" order="2"  />
+      <menu-description>Copy the current data window as a bitmap</menu-description>
+    </menu-item>
+    <menu-item id="8" parent="5" order="7">
+      <menu-name>Metafile</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="chrom_view" order="3"  />
+      <menu-description>Copy the current data window and properties as a metafile</menu-description>
+    </menu-item>
+
+    <menu-item id="9" >
+      <menu-name>Copy As</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="spec_view" order="7"  />
+    </menu-item>
+    <menu-item id="10" parent="9" order="3">
+      <menu-name>Text</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="spec_view" order="1"  />
+      <menu-description>Copy the current data window's XY data as text</menu-description>
+    </menu-item>
+    <menu-item id="11" parent="9" order="5">
+      <menu-name>Bitmap</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="spec_view" order="2"  />
+      <menu-description>Copy the current data window as a bitmap</menu-description>
+    </menu-item>
+    <menu-item id="12" parent="9" order="7">
+      <menu-name>Metafile</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="spec_view" order="3"  />
+      <menu-description>Copy the current data window and properties as a metafile</menu-description>
+    </menu-item>
+
+    <menu-item id="13" >
+      <menu-name>Copy As</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="datamap_view" order="7"  />
+    </menu-item>
+<!-- Delete 2014/02/19 A.Ozaki
+    <menu-item id="14" parent="13" order="3">
+      <menu-name>Text</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="datamap_view" order="1"  />
+      <menu-description>Copy the current data window's XY data as text</menu-description>
+    </menu-item>
+-->
+    <menu-item id="15" parent="13" order="5">
+      <menu-name>Bitmap</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="datamap_view" order="2"  />
+      <menu-description>Copy the current data window as a bitmap</menu-description>
+    </menu-item>
+    <menu-item id="16" parent="13" order="7">
+      <menu-name>Metafile</menu-name>
+      <menu-group>Edit</menu-group>
+      <popup type="datamap_view" order="3"  />
+      <menu-description>Copy the current data window and properties as a metafile</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>copy text</call-name>
+      <call-function>copyTextData</call-function>
+      <call-description>Copy the Current Data Window's XY Data as Text</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>copy bitmap</call-name>
+      <call-function>copyBitmapData</call-function>
+      <call-description>Copy the Current Data Window as a Bitmap</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Bitmap -->
+    <call type="enable" fixed ="true">
+      <call-name>check bitmap</call-name>
+      <call-function>isVisibleBitmap</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>copy metafile</call-name>
+      <call-function>copyMetafileData</call-function>
+      <call-description>Copy the Current Data Window and Properties as a Metafile</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Metafile -->
+    <call type="enable">
+      <call-name>check metafile</call-name>
+      <call-function>isVisibleMetafile</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context text</call-name>
+      <call-function>copyTextData</call-function>
+      <call-description>Copy the Current Data Window's XY Data as Text</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>context bitmap</call-name>
+      <call-function>copyBitmapData</call-function>
+      <call-description>Copy the Current Data Window as a Bitmap</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Bitmap -->
+    <call type="enable">
+      <call-name>check context bitmap</call-name>
+      <call-function>isVisibleBitmap</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context metafile</call-name>
+      <call-function>copyMetafileData</call-function>
+      <call-description>Copy the Current Data Window and Properties as a Metafile</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>8</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="enable">
+      <call-name>check context metafile</call-name>
+      <call-function>isVisibleMetafile</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>8</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context text 2</call-name>
+      <call-function>copyTextData</call-function>
+      <call-description>Copy the Current Data Window's XY Data as Text</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>10</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>context bitmap 2</call-name>
+      <call-function>copyBitmapData</call-function>
+      <call-description>Copy the Current Data Window as a Bitmap</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>11</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Bitmap -->
+    <call type="enable" fixed ="true">
+      <call-name>check context bitmap 2</call-name>
+      <call-function>isVisibleBitmap</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>11</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context metafile 2</call-name>
+      <call-function>copyMetafileData</call-function>
+      <call-description>Copy the Current Data Window and Properties as a Metafile</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>12</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Metafile -->
+    <call type="enable">
+      <call-name>check context metafile 2</call-name>
+      <call-function>isVisibleMetafile</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>12</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context text 3</call-name>
+      <call-function>copyTextData</call-function>
+      <call-description>Copy the Current Data Window's XY Data as Text</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>14</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>context bitmap 3</call-name>
+      <call-function>copyBitmapData</call-function>
+      <call-description>Copy the Current Data Window as a Bitmap</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>15</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Bitmap -->
+    <call type="enable" fixed ="true">
+      <call-name>check context bitmap 3</call-name>
+      <call-function>isVisibleBitmap</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>15</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>context metafile 3</call-name>
+      <call-function>copyMetafileData</call-function>
+      <call-description>Copy the Current Data Window and Properties as a Metafile</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>16</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- Metafile -->
+    <call type="enable">
+      <call-name>check context metafile 3</call-name>
+      <call-function>isVisibleMetafile</call-function>
+      <call-description>check the visibility type of active frame</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>16</param-value>
+        </param>
+      </params>
+    </call>
+
+  </function>
+  <components>
+    <component>
+      <component-name>text</component-name>
+      <component-desc>text clipboard</component-desc>
+      <component-calls>
+        <component-call>copy text</component-call>
+        <component-call>context text</component-call>
+        <component-call>context text 2</component-call>
+        <component-call>context text 3</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>bitmap</component-name>
+      <component-desc>bitmap clipboard</component-desc>
+      <component-calls>
+        <component-call>copy bitmap</component-call>
+        <component-call>check bitmap</component-call>
+        <component-call>context bitmap</component-call>
+        <component-call>check context bitmap</component-call>
+        <component-call>context bitmap 2</component-call>
+        <component-call>check context bitmap 2</component-call>
+        <component-call>context bitmap 3</component-call>
+        <component-call>check context bitmap 3</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>metafile</component-name>
+      <component-desc>metafile clipboard</component-desc>
+      <component-calls>
+        <component-call>copy metafile</component-call>
+        <component-call>check metafile</component-call>
+        <component-call>context metafile</component-call>
+        <component-call>check context metafile</component-call>
+        <component-call>context metafile 2</component-call>
+        <component-call>check context metafile 2</component-call>
+        <component-call>context metafile 3</component-call>
+        <component-call>check context metafile 3</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>text</package-component>
+        <package-component>bitmap</package-component>
+        <package-component>metafile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>text</package-component>
+        <package-component>bitmap</package-component>
+        <package-component>metafile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>text</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

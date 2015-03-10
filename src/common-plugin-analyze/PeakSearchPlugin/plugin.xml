@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peak Search</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>PeakSearchPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" accelerator="F">
+      <menu-name>Filter</menu-name>
+      <menu-group>search</menu-group>
+      <menu-description>Peak Search</menu-description>
+    </menu-item>
+
+    <menu-item id="2" parent="1" accelerator="P" target="sample"  order="3">
+      <menu-name>Peaks...</menu-name>
+      <menu-group>search</menu-group>
+      <menu-description>Filter peaks using specified criteria</menu-description>
+    </menu-item>
+
+    <menu-item id="3" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="4" parent="3" accelerator="R">
+      <menu-name>Results</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+
+    <menu-item id="6" parent="4" accelerator="F" order="0">
+      <menu-name>Filtered Peak List</menu-name>
+      <menu-description>Show / hide the Filtered Peak List dialog</menu-description>
+    </menu-item>
+    
+  </menu>
+ 
+  <function>
+    <call type="execute">
+      <call-name>Peaks Difference Search</call-name>
+      <call-function>openPeaksDifferenceSearchDialog</call-function>
+      <call-description>Filter Peaks Using Specified Criteria</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>Peak Difference Search Result Dialog</call-name>
+      <call-function>togglePeakDifferenceSearchDialog</call-function>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo from -->
+      <packages>
+        <package>Identification</package>
+        <package>Quantitation</package>
+        <package>Viewer</package>
+      </packages>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo to -->
+      <call-description>Show / Hide the Filtered Peak List Dialog</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>Check Peak Difference Search Result Dialog</call-name>
+      <call-function>isVisiblePeakDifferenceSearchDialog</call-function>
+      <call-description>get visibility of the Peak Difference Search Result dialog</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="on_settings" ifloaded="true">
+      <call-name>on settings</call-name>
+      <call-function>updateSettings</call-function>
+      <call-description>update settings parameters</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit GUI</call-name>
+      <call-function>exitGui</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>filter</component-name>
+      <component-desc>Filter Peaks</component-desc>
+      <component-calls>
+        <component-call>Peaks Difference Search</component-call>
+        <component-call>Peak Difference Search Result Dialog</component-call>
+        <component-call>Check Peak Difference Search Result Dialog</component-call>
+        <component-call>on settings</component-call>
+        <component-call>exit GUI</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>filter</package-component>        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>filter</package-component>                
+      </package-components>
+    </package>
+  </packages>     
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>  
+</plugin>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Parameters</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="output" default="parameters.ini" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>param_file</param-name>
+      <param-section>Parameters</param-section>
+      <param-key>FILE_PATH</param-key>
+    </param>
+  </params>
+  <pages>
+    <page chapter="0" common="true">
+      <page-name>common</page-name>
+      <page-title>Parameters File</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>File Path</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

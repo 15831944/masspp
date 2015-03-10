@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peak Edit</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>PeakEditPlugin</link>
+  <statuses>
+    <status id="0" default="false">
+      <status-name>LABEL_EDIT_MODE</status-name>
+      <status-value>edit</status-value>
+    </status>
+<!-- add status for ToolBar	@Date:2013/09/07	<Add>	A.Ozaki	from -->
+    <status id="1" default="false">
+      <status-name>LABEL_EDIT_MODE</status-name>
+      <status-value>edit</status-value>
+    </status>
+<!-- add Status for ToolBar	@Date:2013/09/07	<Add>	A.Ozaki	to -->
+  </statuses>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>peaks_add</icon-name>
+      <icon-file>images/pkedit_icon16x16.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>pkedit_add_cursor</icon-name>
+      <icon-file>images/pkedit_add_cursor.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>pkedit_edit_cursor</icon-name>
+      <icon-file>images/pkedit_edit_cursor.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>pkedit_del_cursor</icon-name>
+      <icon-file>images/pkedit_del_cursor.png</icon-file>
+    </icon>
+  </icons>
+  <!--status bar-->
+  <gui>
+    <status-bar target="none" order="3" width="170">
+      <status-bar-name>EditPeaks</status-bar-name>
+    </status-bar>
+  </gui>
+  <menu>
+    <menu-item id="5" accelerator="P" order="6">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="6" parent="5" accelerator="L" order="0">
+      <menu-name>Peaks</menu-name>
+      <menu-group order="0">peaks</menu-group>
+    </menu-item>
+    <menu-item id="7" parent="6" accelerator="E" order="5" checked="1" >
+      <menu-name>Edit Peaks</menu-name>
+      <toolbar>peaks</toolbar>
+      <menu-description>Add / edit / delete chromatogram / spectrum peaks</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="init" status="0">
+      <call-name>init status</call-name>
+      <call-function>initLabelMode</call-function>
+      <call-description>initialize label mode</call-description>
+    </call>
+    <call type="exit" status="0">
+      <call-name>finalize status</call-name>
+      <call-function>finalizeLabelMode</call-function>
+      <call-description>finalize label mode</call-description>
+    </call>
+    <call type="draw_spec_fg" status="0" ifloaded="true">
+      <call-name>draw spec peak position</call-name>
+      <call-function>drawSpecPeakPos</call-function>
+      <call-description>draw spectrum peak position</call-description>
+    </call>
+    <call type="draw_spec_bg" status="0" order="7" ifloaded="true">
+      <call-name>draw spec peak shape</call-name>
+      <call-function>drawSpecPeakShape</call-function>
+      <call-description>draw spectrum peak shape</call-description>
+    </call>
+    <call type="draw_chrom_fg" status="0" ifloaded="true">
+      <call-name>draw chromatogram peak position</call-name>
+      <call-function>drawChromPeakPos</call-function>
+      <call-description>draw chromatogram peak position</call-description>
+    </call>
+    <call type="draw_chrom_bg" status="0" order="7" ifloaded="true">
+      <call-name>draw chrom peak shape</call-name>
+      <call-function>drawChromPeakShape</call-function>
+      <call-description>draw chromatogram peak shape</call-description>
+    </call>
+    <call type="on_spec_button_down" status="0" ifloaded="true" order ="0">
+      <call-name>start to edit spec label</call-name>
+      <call-function>onSpecButtonDown</call-function>
+      <call-description>start to edit spectrum label</call-description>
+    </call>
+    <call type="on_spec_mouse_move" status="0" ifloaded="true" order ="1">
+      <call-name>editing spec label</call-name>
+      <call-function>moveCursorInEditingSpecLabel</call-function>
+      <call-description>move cursor in editing spectrum label</call-description>
+    </call>
+    <call type="on_spec_button_up" status="0" ifloaded="true">
+      <call-name>finish to edit spec label</call-name>
+      <call-function>onSpecButtonUp</call-function>
+      <call-description>finish to edit spectrum label</call-description>
+    </call>
+    <call type="on_chrom_button_down" status="0" ifloaded="true" order ="0">
+      <call-name>start to edit chrom label</call-name>
+      <call-function>onChromButtonDown</call-function>
+      <call-description>start to edit chromatogram label</call-description>
+    </call>
+    <call type="on_chrom_mouse_move" status="0" ifloaded="true">
+      <call-name>editing chrom label</call-name>
+      <call-function>moveCursorInEditingChromLabel</call-function>
+      <call-description>move cursor in editing chromatogram label</call-description>
+    </call>
+    <call type="on_chrom_button_up" status="0" ifloaded="true">
+      <call-name>finish to edit chrom label</call-name>
+      <call-function>onChromButtonUp</call-function>
+      <call-description>finish to edit chromatogram label</call-description>
+    </call>
+    <call type="commit_spec_peaks">
+      <call-name>commitSpecPeaks</call-name>
+      <call-function>commitSpectrumPeaks</call-function>
+      <call-description>commit spectrum peaks</call-description>
+    </call>
+    <call type="commit_chrom_peaks">
+      <call-name>commitChromaPeaks</call-name>
+      <call-function>commitChromatogramPeaks</call-function>
+      <call-description>commit chromatogram peaks</call-description>
+    </call>
+    <call type="rollback_spec_peaks">
+      <call-name>rollbackSpecPeaks</call-name>
+      <call-function>rollbackSpectrumPeaks</call-function>
+      <call-description>rollback spectrum peaks</call-description>
+    </call>
+    <call type="rollback_chrom_peaks">
+      <call-name>rollbackChromaPeaks</call-name>
+      <call-function>rollbackChromatogramPeaks</call-function>
+      <call-description>rollback chromatogram peaks</call-description>
+    </call>
+    <call type="execute" icon="0">
+      <call-name>set edit</call-name>
+      <call-function>setLabelEditMode</call-function>
+      <call-description>Edit peaks mode</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="can_exit">
+      <call-name>canExitPeakEditMode</call-name>
+      <call-function>canExitPeakEditMode</call-function>
+      <call-description>can whether can exit the Peak Edit mode</call-description>
+    </call>
+<!-- add call	@Date:2013/09/07	<Add>	A.Ozaki	from -->
+    <call type="on_spec_mouse_move" status="1" ifloaded="true"  order ="4">
+      <call-name>editing spec label</call-name>
+      <call-function>moveMouseCursorInEditingSpec</call-function>
+      <call-description>move cursor in editing spectrum label</call-description>
+    </call>
+    <call type="on_chrom_mouse_move" status="1" ifloaded="true"  order ="4">
+      <call-name>editing chrom label</call-name>
+      <call-function>moveMouseCursorInEditingChrom</call-function>
+      <call-description>move cursor in editing chromatogram label</call-description>
+    </call>
+<!-- add call	@Date:2013/09/07	<Add>	A.Ozaki	to -->
+
+  </function>
+  <components>
+    <component>
+      <component-name>draw</component-name>
+      <component-desc>draw peaks</component-desc>
+      <component-calls>
+        <component-call>init status</component-call>
+        <component-call>finalize status</component-call>
+        <component-call>draw spec peak position</component-call>
+        <component-call>draw spec peak shape</component-call>
+        <component-call>draw chromatogram peak position</component-call>
+        <component-call>draw chrom peak shape</component-call>
+        <component-call>set edit</component-call>        
+      </component-calls>
+    </component>
+    <component>
+      <component-name>edit</component-name>
+      <component-desc>edit peaks</component-desc>
+      <component-calls>
+        <component-call>start to edit spec label</component-call>
+        <component-call>editing spec label</component-call>
+        <component-call>finish to edit spec label</component-call>
+        <component-call>start to edit chrom label</component-call>
+        <component-call>editing chrom label</component-call>
+        <component-call>finish to edit chrom label</component-call>
+        <component-call>commitSpecPeaks</component-call>
+        <component-call>commitChromaPeaks</component-call>
+        <component-call>rollbackSpecPeaks</component-call>
+        <component-call>rollbackChromaPeaks</component-call>
+        <component-call>canExitPeakEditMode</component-call>
+      </component-calls>
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>draw</package-component>
+        <package-component>edit</package-component>        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>draw</package-component>
+      </package-components>
+    </package>
+    
+  </packages>
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

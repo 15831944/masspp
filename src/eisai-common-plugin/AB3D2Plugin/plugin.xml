@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+
+<plugin>
+  <name>AB3D2</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>AB3D2Plugin</link>
+  <function>
+     <!-- Peak Detector -->
+     <call type="2d_peak_picking">
+      <call-name>detect 2D peaks</call-name>
+      <call-function>detect2dPeaks</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>AB3D Peak Detect</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3d2</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>AB3D</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>AB3D 2D peak detection algorithm. (AB3D: A suite of Algorithms for Biomarker Discovery in Diagnostics and Drug Development using LC-MS)</param-value>
+        </param>                        
+      </params>
+      <call-description>AB3D 2D Peak Picking</call-description>
+    </call>
+    <!-- Peak Positions -->
+    <call type="quant_peak_pos">
+    <!-- <call type="2d_peak_position"> -->
+      <call-name>detectPeakPosition</call-name>
+      <call-function>detectPeakPosition</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>AB3D Peak Position</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3dpos</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Peak Position</param-value>
+        </param>
+      </params>
+      <call-description>detect position</call-description>
+    </call>
+    <call type="ab3d_params_selection">
+      <call-name>ab3d_dummy_call_name</call-name>
+      <!--
+      <call-function>ab3d_dummy_call_name</call-function>
+      -->
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Advanced</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ab3dadvanced2</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>ab3d_advanced_params_page</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>advanced</param-value>
+        </param>
+      </params>
+      <call-description>AB3D Advanced</call-description>
+    </call>
+  </function>
+
+  <components>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>AB3D 2D Peak Detection</component-desc>
+      <component-calls>
+        <component-call>detect 2D peaks</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>positioins</component-name>
+      <component-desc>AB3D 2D Peak Detectino in Quantitation</component-desc>
+      <component-calls>
+        <component-call>detectPeakPosition</component-call>
+      </component-calls>
+    </component>
+  </components>    
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+        <package-component>positions</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+        <package-component>positions</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+        <package-component>positions</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+        <package-component>positions</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Test</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>ab3d_params_selection</package-call-type>
+      </package-call-types>
+    </package>
+  </packages>
+  
+  <parameters>
+    <!-- For 2dPeaks setting xml -->
+    <parameters-file>settings.xml</parameters-file>
+    <!-- For PeakPosition setting xml -->
+    <parameters-file>settings_peakpos.xml</parameters-file>
+    <!-- For AB3D advanced parameters -->
+    <!--
+    <parameters-file>settings_ab3d_advanced_params.xml</parameters-file>
+    -->
+  </parameters>
+</plugin>

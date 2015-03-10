@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Operation Manager</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>OperationManagerPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="P" order="4">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="B" order="3">
+      <menu-name>Basic Data Manipulation</menu-name>
+      <menu-group order="4">manipulation</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="H" order="8" target="spec_chrom">
+      <menu-name>History...</menu-name>
+      <toolbar>basic data manipulation</toolbar>
+      <menu-description>View and edit processing history</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>dialog</call-name>
+      <call-function>openOperationDialog</call-function>
+      <call-description>View and Edit Processing History</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>history</component-name>
+      <component-desc>Operation History</component-desc>
+      <component-calls>
+        <component-call>dialog</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>history</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

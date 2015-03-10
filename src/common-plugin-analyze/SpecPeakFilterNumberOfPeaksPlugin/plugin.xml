@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Spec Peak Filter Number Of Peaks Plugin</name>
+  <version>1.00</version>
+  <provider>ABC Company</provider>
+
+  <link>SpecPeakFilterNumberOfPeaksPlugin</link>
+
+  <function>
+    <call type="spec_peak_filter">
+      <call-name>SpecPeakFiltering</call-name>
+      <call-function>SpecPeakFilterNumberOfPeaks</call-function>
+      <call-description>Spec Peak Filtering Number Of Peaks.</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Number of Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>no_of_peaks</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>numberofpeaks</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>filter</component-name>
+      <component-desc>Peaks count filter</component-desc>
+      <component-calls>
+        <component-call>SpecPeakFiltering</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>    
+  </packages>   
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

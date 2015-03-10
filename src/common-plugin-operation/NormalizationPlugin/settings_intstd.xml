@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+ 
+    <value id="0" type="list" required="false" />
+    <value id="1" type="double" list="0" minInclusive="0.0" required="false" >
+      <value-name>RT</value-name>
+    </value>
+    <value id="2" type="double" list="0" default="0.5" minInclusive="0.0" required="false">
+      <value-name>RT Tolerance</value-name>
+    </value>
+    <value id="3" type="double" list="0" minInclusive="0.0" required="true">
+      <value-name>m/z</value-name>
+    </value>
+    <value id="4" type="double" list="0" default="0.5" minInclusive="0.0" required="true">
+      <value-name>m/z Tolerance</value-name>
+    </value>
+
+    <value id="5" type="list" required="false" />
+    <value id="6" type="double" list="5" minInclusive="0.0" required="true">
+      <value-name>m/z</value-name>
+    </value>
+    <value id="7" type="double" list="5" default="0.5" minInclusive="0.0" required="true">
+      <value-name>m/z Tolerance</value-name>
+    </value>
+  </values>
+  <params>
+    <!-- Internal Standard(Multi Sample) -->
+    <param id="0" value="0">
+      <param-name>sample_list</param-name>
+      <param-section>Internal Standard(Multi Sample)</param-section>
+      <param-key>Settings</param-key>
+    </param>
+
+    <!-- Internal Standards in all Fractions(Each Fraction) -->
+    <param id="1" value="5">
+      <param-name>fract_list</param-name>
+      <param-section>Normaliz Internal Standards in all Fractions(Each Fraction)</param-section>
+      <param-key>Settings</param-key>
+    </param>
+  </params>
+  
+  <pages>
+    <!-- Internal Standard(Multi Sample) -->
+    <page common="false" >
+      <page-name>IntStdMultiSample</page-name>
+      <page-title>Internal Standard(Multi Sample)</page-title>
+      <forms>        
+        <form id="0" param="0">
+          <form-title>Internal Standard(Multi Sample)</form-title>
+          <form-desc>Normalization setting list for multi sample normalization using internal standard.</form-desc>
+        </form>      
+      </forms>
+    </page>
+    
+    <!-- Internal Standards in all Fractions(Each Fraction) -->   
+    <page common="false">
+      <page-name>IntStdEachFrect</page-name>
+      <page-title>Internal Standards in all Fractions(Each Fraction)</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Internal Standard in all Fractions(Each Fraction)</form-title>
+          <form-desc>Normalization setting list for normalization between fractions in each sample using internal standard.</form-desc>
+        </form>
+      </forms>
+    </page>  
+    
+  </pages>
+</settings>

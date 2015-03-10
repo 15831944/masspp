@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<anions>
+  <an>
+    <name>H2PO4</name>
+    <mz>96.9691</mz>
+  </an>
+  <an>
+    <name>NO3</name>
+    <mz>61.9878</mz>
+  </an>
+  <an>
+    <name>Cl</name>
+    <mz>34.6989</mz>
+  </an>
+  <an>
+    <name>[-H]</name>
+    <mz>-1.0078</mz>
+  </an>
+</anions>

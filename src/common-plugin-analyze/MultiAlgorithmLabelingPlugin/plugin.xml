@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Multi Algorithm Labeling</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MultiAlgorithmLabelingPlugin</link>
+  <function>
+    <call type="spec_peak_picking">
+      <call-name>detectPeaks</call-name>
+      <call-function>detectPeaks</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Multi algorithm</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>multi</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Spectrum Peak Detection</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Multi algorithm detected peaks using peak detector selected according to the spectrum status.</param-value>
+        </param>        
+      </params>
+      <call-description>detect spectrum peaks</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>multi</component-name>
+      <component-desc>Multi Algorithm Peak Detector</component-desc>
+      <component-calls>
+        <component-call>detectPeaks</component-call>        
+      </component-calls>
+    </component>
+  </components>  
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

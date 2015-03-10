@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <values>
+    <value id="0" type="string" required="true">
+      <item-type>XYDATA_BASELINE</item-type>
+    </value>
+  </values>
+  
+  <params>
+    <param id="0" value="0">
+      <param-name>spec_manipulat</param-name>
+      <param-section>DataManipulation</param-section>
+      <param-key>SPEC_BASELINE</param-key>
+    </param>
+    <param id="1" value="0">
+      <param-name>charom_manipulat</param-name>
+      <param-section>Baseline</param-section>
+      <param-key>CHROM_BASELINE</param-key>
+    </param>
+  </params>
+
+  <pages>
+    <!-- spectrum page -->
+    <page>
+      <page-name>spec_params</page-name>
+      <page-title>Parameters</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Baseline</form-title>
+          <form-desc></form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- chromatogram page -->
+    <page>
+      <page-name>chrom_params</page-name>
+      <page-title>Parameters</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Baseline</form-title>
+          <form-desc></form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

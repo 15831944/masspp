@@ -1,0 +1,7 @@
+EXPORTS
+	openNextSpectrum
+	openPrevSpectrum
+	openNextPrevSpectrum
+	onSpecKeyDownX
+	enableNextSpectrum
+    enablePrevSpectrum

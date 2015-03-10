@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="1" type="string" required="true">
+      <item-type>SAVE_FILE</item-type>
+    </value>
+    <value id="2" type="string" required="true" />
+    <value id="3" type="output" required="true" />
+    <value id="4" type="int-range" list="true" minInclusive="0" required="true" />
+    <value id="5" type="string" list="true" required="true" />
+
+    <value id="6" type="string" required="true">
+      <item-type>GET_FILE_READER</item-type> <!-- Spec No.92926 @date 2103.10.01 <Add> M.Izumi -->
+    </value>
+    <value id="7" type="string" required="true" />
+
+  </values>
+  <params>
+    <param id="1" value="1">
+      <param-name>format</param-name>
+    </param>
+    <param id="2" value="2">
+      <param-name>str</param-name>
+    </param>
+    <param id="3" value="3">
+      <param-name>path</param-name>
+    </param>
+    <param id="4" value="4">
+      <param-name>samples</param-name>
+    </param>
+    <param id="5" value="5">
+      <param-name>samples</param-name>
+    </param>
+    <param id="6" value="5">
+      <param-name>samples</param-name>
+    </param>
+
+    <param id="7" value="6">
+      <param-name>type</param-name>
+    </param>
+    <param id="8" value="7">
+      <param-name>key</param-name>
+    </param>
+
+  </params>
+  <pages>
+    <page>
+      <page-name>out</page-name>
+      <page-title>Output File</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Format</form-title>
+          <form-desc>save file format</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>File Path</form-title>
+          <form-desc>output file path</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>suffix</page-name>
+      <page-title>Divide Output File</page-title>
+      <forms>
+        <form id="2" param="2">
+          <form-title>Suffix</form-title>
+          <form-desc>file name suffix</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>sample</page-name>
+      <page-title>Select Samples By Index</page-title>
+      <forms>
+        <form id="4" param="4">
+          <form-title>Range</form-title>
+          <form-desc>sample numbers</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>smplname</page-name>
+      <page-title>Select Samples By Name</page-title>
+      <forms>
+        <form id="5" param="5">
+          <form-title>Names (comma-separated)</form-title>
+          <form-desc>sample names</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>in</page-name>
+      <page-title>Input File</page-title>
+      <forms>
+        <form id="7" param="7">
+          <form-title>Data type</form-title>
+          <form-desc>Data Type</form-desc>
+        </form>
+        <form id="8" param="8">
+          <form-title>Data Key</form-title>
+          <form-desc>Data Key</form-desc>
+        </form>
+      </forms>
+    </page>
+
+  </pages>
+</settings>

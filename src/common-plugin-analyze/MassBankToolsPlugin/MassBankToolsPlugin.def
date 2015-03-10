@@ -1,0 +1,17 @@
+EXPORTS
+	callCreateSpectrumRecordDialog
+	callSpectrumSearchDialog
+	callPeakSearchDialog
+	callPeakDifferenceSearchDialog
+	drawMassBankRecordPeaks
+	toggleSearchResultsPane
+	ischeckSearchResultsPaneOpened
+	batchCommandCalled
+	getVendorArrayData
+	getInstrumentArrayData
+	getLicenseArrayData
+	getGettedInstrumentTypeArrayData
+	getGettedInstrumentTypeArrayDataWithFree
+	getAppendedValuesArrayData
+	initialiseSearchEngine
+	checkPrefixStatus

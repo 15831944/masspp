@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Profile Canvas</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ProfileCanvasPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>single_cursor</icon-name>
+      <icon-file>images/single_cursor.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>single_window</icon-name>
+      <icon-file>images/single_window16x16.png</icon-file>
+    </icon>
+  </icons>
+  <statuses>
+    <status id="1" default="true">
+      <status-name>WINDOW</status-name>
+      <status-value>Canvas</status-value>
+    </status>
+  </statuses>
+  <gui>
+    <status-bar target="none" order="1" width="160">
+      <status-bar-name>DispMode</status-bar-name>
+    </status-bar>
+  </gui>
+
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="D">
+      <menu-name>Display Mode</menu-name>
+      <menu-group order="7">graph</menu-group>
+    </menu-item>
+    <menu-item id="3" parent="1" accelerator="S" checked="1" order="3" >
+      <menu-name>Single</menu-name>
+      <toolbar order="0">window</toolbar>
+      <menu-description>Change the chromatogram / spectrum display mode to single</menu-description>
+    </menu-item>
+
+  </menu>
+  <function>
+    <call type="spectrum_window" status="1">
+      <call-name>createSpectrumCanvas</call-name>
+      <call-function>createSpectrumCanvas</call-function>
+      <call-description>create spectrum canvas</call-description>
+    </call>
+    <call type="chromatogram_window" status="1">
+      <call-name>createChromatogramCanvas</call-name>
+      <call-function>createChromatogramCanvas</call-function>
+      <call-description>create chromatogram canvas</call-description>
+    </call>
+
+    <call type="execute" icon="1">
+      <call-name>set spectrum and chromatogram status</call-name>
+      <call-function>setSpecAndChromStatus</call-function>
+      <call-description>Single display mode</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>spec profile canvas operation</call-name>
+      <call-function>getSpecProfileCanvasOperation</call-function>
+      <call-description>spectrum profile canvas operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum Profile Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_profile</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="operation" fixed="true">
+      <call-name>chrom profile canvas operation</call-name>
+      <call-function>getChromProfileCanvasOperation</call-function>
+      <call-description>chromatogram profile canvas operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Chromatogram Profile Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_profile</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>profile</component-name>
+      <component-desc>Profile Canvas</component-desc>
+      <component-calls>
+        <component-call>createSpectrumCanvas</component-call>
+        <component-call>createChromatogramCanvas</component-call>
+        <component-call>set spectrum and chromatogram status</component-call>
+        <component-call>spec profile canvas operation</component-call>
+        <component-call>chrom profile canvas operation</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

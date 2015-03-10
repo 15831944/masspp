@@ -1,0 +1,11 @@
+EXPORTS
+	initView
+	finalizeView
+	toggleTreeView
+	isVisibleTreeView
+	addSampleNode
+	updateGroup
+	updateSample
+	selectSamplePage
+	updateSpectrum
+	onActivateObject

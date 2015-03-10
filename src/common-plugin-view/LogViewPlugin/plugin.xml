@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Log View</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>LogViewPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>log</icon-name>
+      <icon-file>images/log_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <statuses>
+    <status id="0">
+      <status-name>LOG_VIEW</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="P" order="0">
+      <menu-name>Pane</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="L" order="3">
+      <menu-name>Diagnostic Log</menu-name>
+      <menu-description>Show / hide the Diagnostic Log pane</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="init" order="0">
+      <call-name>initialize log</call-name>
+      <call-function>initLog</call-function>
+      <call-description>initialize log file</call-description>
+    </call>
+    <call type="init_gui" status="0">
+      <call-name>initialize view</call-name>
+      <call-function>initView</call-function>
+      <call-description>initialize log view</call-description>
+    </call>
+    <call type="exit" order="9" fixed="true">
+      <call-name>finalize log</call-name>
+      <call-function>finalizeLog</call-function>
+      <call-description>finalize log</call-description>
+    </call>
+    <call type="exit_gui" fixed="true">
+      <call-name>finalize view</call-name>
+      <call-function>finalizeView</call-function>
+      <call-description>finalize view</call-description>
+    </call>
+    <call type="execute" icon="0">
+      <call-name>toggle log view</call-name>
+      <call-function>toggleLogView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the Diagnostic Log Pane</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>check visibility of the log view</call-name>
+      <call-function>isVisibleLogView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>check the visibility of the log view</call-description>
+    </call>
+    <call type="on_settings" fixed="true">
+      <call-name>on update settings</call-name>
+      <call-function>onUpdateSettings</call-function>
+      <call-description>on update settings</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>log</component-name>
+      <component-desc>Diagnostic Log</component-desc>
+      <component-calls>
+        <component-call>initialize log</component-call>
+        <component-call>initialize view</component-call>
+        <component-call>finalize log</component-call>
+        <component-call>finalize view</component-call>
+        <component-call>toggle log view</component-call>
+        <component-call>check visibility of the log view</component-call>
+        <component-call>on update settings</component-call>
+      </component-calls>
+    </component>
+  </components>  
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

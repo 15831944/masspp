@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Profile Range</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ProfileRangePlugin</link>
+  <statuses>
+    <status id="0">
+      <status-name>SYNCHRONIZED_RANGE</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <!-- @date 2011.06.16 <Add> M.Izumi -->
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>zoom_x</icon-name>
+      <icon-file>images/zoom_x_icon.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>zoom_y</icon-name>
+      <icon-file>images/zoom_y_icon.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>transe_x</icon-name>
+      <icon-file>images/parallelTrans_x_icon.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>transe_y</icon-name>
+      <icon-file>images/parallelTrans_y_icon.png</icon-file>
+    </icon>
+  </icons>
+  <!-- @date 2011.06.16 <Add> M.Izumi -->
+  <menu>
+    <menu-item id ="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="S" checked="0">
+      <menu-name>Synchronize Axes</menu-name>
+      <menu-group order="1">Flags</menu-group>
+      <menu-description>Synchronize axes for similar data display windows</menu-description>
+    </menu-item>
+
+    <!-- Context Menu -->
+    <menu-item id="2">
+      <menu-name>Reset Zoom</menu-name>
+      <menu-group>ResetZoom</menu-group>
+      <popup type="chrom_view" order="1" />
+    </menu-item>
+    <menu-item id="3">
+      <menu-name>Reset Zoom</menu-name>
+      <menu-group>ResetZoom</menu-group>
+      <popup type="spec_view" order="1" />
+    </menu-item>
+    <menu-item id="4">
+      <menu-name>Reset Zoom</menu-name>
+      <menu-group>ResetZoom</menu-group>
+      <popup type="spec_sub_view" order="1" />
+    </menu-item>
+
+  </menu>
+  <gui>
+    <status-bar target="spectrum"  order="7" width="170">
+      <status-bar-name>coordinate</status-bar-name>
+    </status-bar>
+    <status-bar target="chromatogram"  order="6" width="170">
+      <status-bar-name>coordinate</status-bar-name>
+    </status-bar>
+
+    <status-bar target="spectrum"  order="4" width="170">
+      <status-bar-name>range</status-bar-name>
+    </status-bar>
+    <status-bar target="chromatogram"  order="5" width="170">
+      <status-bar-name>range</status-bar-name>
+    </status-bar>
+
+    <status-bar target="none" order="2" width="130">
+      <status-bar-name>SyncAxes</status-bar-name>
+    </status-bar>
+  </gui>
+  
+  <function>
+    <call type="prepare_spec_window" order="1">
+      <call-name>prepare spectrum</call-name>
+      <call-function>prepareSpectrum</call-function>
+      <call-description>prepare to draw spectrum</call-description>
+    </call>
+    <call type="prepare_chrom_window" order="1">
+      <call-name>prepare chromatogram</call-name>
+      <call-function>prepareChromatogram</call-function>
+      <call-description>prepare to draw chromatogram</call-description>
+    </call>
+    <call type="on_close_spec" ifloaded="true" order="9">
+      <call-name>on close spectrum</call-name>
+      <call-function>onCloseSpec</call-function>
+      <call-description>on close spectrum</call-description>
+    </call>
+    <call type="on_close_chrom" ifloaded="true" order="9">
+      <call-name>on close chromatogram</call-name>
+      <call-function>onCloseChrom</call-function>
+      <call-description>on close chromatogram</call-description>
+    </call>
+    <call type="on_spec_button_down" order="9">
+      <call-name>on spectrum button down</call-name>
+      <call-function>onSpecButtonDown</call-function>
+      <call-description>on spectrum button down</call-description>
+    </call>
+    <call type="on_chrom_button_down" order="9">
+      <call-name>on chromatogram button down</call-name>
+      <call-function>onChromButtonDown</call-function>
+      <call-description>on chromatogram button down</call-description>
+    </call>
+    <call type="on_spec_mouse_move">
+      <call-name>on spectrum mouse move</call-name>
+      <call-function>onSpecMouseMove</call-function>
+      <call-description>on spectrum mouse move</call-description>
+    </call>
+    <call type="on_chrom_mouse_move">
+      <call-name>on chromatogram mouse move</call-name>
+      <call-function>onChromMouseMove</call-function>
+      <call-description>on chromatogram mouse move</call-description>
+    </call>
+    <call type="on_spec_mouse_move" order ="3">
+      <call-name>spec coordinates</call-name>
+      <call-function>SetValStatusBar</call-function>
+      <call-description>Set the value of status bar spectrum</call-description>
+    </call>
+    <call type="on_chrom_mouse_move" order ="3">
+      <call-name>chrom coordinates</call-name>
+      <call-function>SetValStatusBar</call-function>
+      <call-description>Set the value of status bar chromatogram</call-description>
+    </call>
+    <call type="on_spec_mouse_leave">
+      <call-name>on spectrum mouse leave</call-name>
+      <call-function>onMouseLeave</call-function>
+      <call-description>Set the value of status bar spectrum</call-description>
+    </call>
+    <call type="on_chrom_mouse_leave">
+      <call-name>on chromatogram mouse leave</call-name>
+      <call-function>onMouseLeave</call-function>
+      <call-description>Set the value of status bar chromatogram</call-description>
+    </call>
+    <call type="on_spec_button_up">
+      <call-name>on spectrum button up</call-name>
+      <call-function>onSpecButtonUp</call-function>
+      <call-description>on spectrum button up</call-description>
+    </call>
+    <call type="on_chrom_button_up">
+      <call-name>on chromatogram button up</call-name>
+      <call-function>onChromButtonUp</call-function>
+      <call-description>on chromatogram button up</call-description>
+    </call>
+    <call type="on_spec_dbl_clk" order="9">
+      <call-name>on spectrum double click</call-name>
+      <call-function>onSpecDblClick</call-function>
+      <call-description>on spectrum double click</call-description>
+    </call>
+    <call type="on_chrom_dbl_clk" order="9">
+      <call-name>on chromatogram double click</call-name>
+      <call-function>onChromDblClick</call-function>
+      <call-description>on chromatogram double click</call-description>
+    </call>
+    <call type="on_spec_key_down" order="9">
+      <call-name>on spectrum key down</call-name>
+      <call-function>onSpecKeyDown</call-function>
+      <call-description>on spectrum keybord down</call-description>
+    </call>
+    <call type="on_chrom_key_down" order="9">
+      <call-name>on chromatogram key down</call-name>
+      <call-function>onChromKeyDown</call-function>
+      <call-description>on chromatogram keybord down</call-description>
+    </call>
+
+    <call type="draw_spec_window_fg">
+      <call-name>draw spectrum foreground</call-name>
+      <call-function>onDrawSpecFg</call-function>
+      <call-description>draw spectrum foreground</call-description>
+    </call>
+    <call type="draw_chrom_window_fg">
+      <call-name>draw chromatogram foreground</call-name>
+      <call-function>onDrawChromFg</call-function>
+      <call-description>draw chromatogram foreground</call-description>
+    </call>
+    <call type="draw_spec_window_bg">
+      <call-name>draw spectrum background</call-name>
+      <call-function>onDrawSpecBg</call-function>
+      <call-description>draw spectrum background</call-description>
+    </call>
+    <call type="draw_chrom_window_bg">
+      <call-name>draw chromatogram background</call-name>
+      <call-function>onDrawChromBg</call-function>
+      <call-description>draw chromatogram background</call-description>
+    </call>
+    <call type="execute">
+      <call-name>set chromatogram range status</call-name>
+      <call-function>setRangeStatus</call-function>
+      <call-description>Synchronize Axes for Similar Data Display Windows</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+
+    <!-- Context Menu -->
+    <call type="execute">
+      <call-name>Reset Zoom Call 1</call-name>
+      <call-function>resetZoomFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>Reset Zoom Call 2</call-name>
+      <call-function>resetZoomFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+  
+    <call type="execute">
+      <call-name>Reset Zoom Call 3</call-name>
+      <call-function>resetZoomSubSpecFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="spectrum_range">
+      <call-name>spectrum range</call-name>
+      <call-function>changeSpecRange</call-function>
+      <call-description>changes spectrum range</call-description>
+    </call>
+    <call type="chromatogram_range">
+      <call-name>chromatogram range</call-name>
+      <call-function>changeChromRange</call-function>
+      <call-description>changes chromatogram range</call-description>
+    </call>
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>spec operation</call-name>
+      <call-function>getSpecRangeOperation</call-function>
+      <call-description>spectrum range operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum Profile Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_range</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>chrom operation</call-name>
+      <call-function>getChromRangeOperation</call-function>
+      <call-description>chromatotogram range operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Chromatogram Profile Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_range</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="spectrum_range_action">
+      <call-name>show Change Displayed Spectrum Range</call-name>
+      <call-function>showChangeSpectrumRange</call-function>
+      <call-description>show Change Displayed Spectrum Range</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Change Displayed Range...</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="chromatogram_range_action">
+      <call-name>show Change Displayed Chromatogram Range</call-name>
+      <call-function>showChangeChromatogramRange</call-function>
+      <call-description>show Change Displayed Chromatogram Range</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Change Displayed Range...</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>range</component-name>
+      <component-desc>change the waveform range</component-desc>
+      <component-calls>
+        <component-call>prepare spectrum</component-call>
+        <component-call>prepare chromatogram</component-call>
+        <component-call>on close spectrum</component-call>
+        <component-call>on close chromatogram</component-call>
+        <component-call>on spectrum button down</component-call>
+        <component-call>on chromatogram button down</component-call>
+        <component-call>on chromatogram button up</component-call>        
+        <component-call>on spectrum mouse move</component-call>        
+        <component-call>on chromatogram mouse move</component-call>        
+        <component-call>on spectrum button up</component-call>
+        <component-call>on spectrum double click</component-call>
+        <component-call>on chromatogram double click</component-call>                
+        <component-call>on spectrum key down</component-call>        
+        <component-call>on chromatogram key down</component-call>                
+        <component-call>draw spectrum foreground</component-call>                
+        <component-call>draw chromatogram foreground</component-call>                
+        <component-call>draw spectrum background</component-call>                
+        <component-call>draw chromatogram background</component-call>                
+        <component-call>Reset Zoom Call 1</component-call>                
+        <component-call>Reset Zoom Call 2</component-call>                        
+        <component-call>Reset Zoom Call 3</component-call>                
+        <component-call>spectrum range</component-call>                                
+        <component-call>chromatogram range</component-call>                                
+        <component-call>spec operation</component-call>                                
+        <component-call>chrom operation</component-call>                                
+        <component-call>show Change Displayed Spectrum Range</component-call>                                
+        <component-call>show Change Displayed Chromatogram Range</component-call>                                
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>synchronize</component-name>
+      <component-desc>set synchronized axes</component-desc>
+      <component-calls>
+        <component-call>set chromatogram range status</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>status</component-name>
+      <component-desc>display coordinates</component-desc>
+      <component-calls>
+        <component-call>spec coordinates</component-call>
+        <component-call>chrom coordinates</component-call>
+        <component-call>on spectrum mouse leave</component-call>
+        <component-call>on chromatogram mouse leave</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>range</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>range</package-component>
+        <package-component>synchronize</package-component>                
+        <package-component>status</package-component>        
+      </package-components>
+    </package>        
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>range</package-component>
+        <package-component>synchronize</package-component>                
+        <package-component>status</package-component>                
+      </package-components>
+    </package>            
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>range</package-component>
+        <package-component>synchronize</package-component>        
+        <package-component>status</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>range</package-component>
+        <package-component>synchronize</package-component>                
+        <package-component>status</package-component>                
+      </package-components>
+    </package>            
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>range</package-component>
+        <package-component>synchronize</package-component>                
+        <package-component>status</package-component>                
+      </package-components>
+    </package>            
+  </packages>
+  
+  <parameters>
+    <parameters-file>settings-batch.xml</parameters-file>    
+  </parameters>  
+  <help>
+    <help-file order="3">help/htmlhelp.hhp</help-file>
+  </help>  
+</plugin>

@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Spectra Search</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>SpectraSearchPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>spectra_search</icon-name>
+      <icon-file>images/specsearch_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="F">
+      <menu-name>Filter</menu-name>
+      <menu-group>search</menu-group>
+      <menu-description>Filter</menu-description>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="S" order="2" target="sample">
+      <menu-name>Spectra...</menu-name>
+      <menu-group>search</menu-group>
+      <toolbar>analyze</toolbar>
+      <menu-description>Filter spectra using specified criteria</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>spectra search</call-name>
+      <call-function>openSpectraSearchDialog</call-function>
+      <call-description>Filter spectra...</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="batch">
+      <call-name>rt filter</call-name>
+      <call-function>setSpectrumRtRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>RT Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>rt</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>rt</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>filter</param-value>
+        </param>
+      </params>
+      <call-description>set retention time range</call-description>
+    </call>
+    <call type="batch">
+      <call-name>precursor filter</call-name>
+      <call-function>setSpectrumPrecursorRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Precursor Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>precursor</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>precursor</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>filter</param-value>
+        </param>
+      </params>
+      <call-description>set precursor range</call-description>
+    </call>
+    <call type="batch">
+      <call-name>scan number filter</call-name>
+      <call-function>setSpectrumScanNumRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Scan Number Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>scannum</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>scannum</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>filter</param-value>
+        </param>
+      </params>
+      <call-description>set scan number range</call-description>
+    </call>
+    <call type="batch">
+      <call-name>ms stage filter</call-name>
+      <call-function>setSpectrumMsStageRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>MS Stage Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>msstage</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>msstage</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>filter</param-value>
+        </param>
+      </params>
+      <call-description>set MS stage range</call-description>
+    </call>
+    <call type="batch">
+      <call-name>properties filter</call-name>
+      <call-function>setSpectrumPropFilter</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum Property</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>propfilter</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>propfilter</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>filter</param-value>
+        </param>
+      </params>
+      <call-description>set properties filter</call-description>
+    </call>
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>operation</call-name>
+      <call-function>getFilterSpectraOperation</call-function>
+      <call-description>XXXX</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Filter Spectra</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>filter_spec</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- type filter spectra -->
+    <call type="filter_spectra">
+      <call-name>filter spectra</call-name>
+      <call-function>filterSpectraFunc</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>FILTER_SPEC</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>filter_spec</param-value>
+        </param>
+        
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>filter</component-name>
+      <component-desc>Spectrum Filter</component-desc>
+      <component-calls>
+        <component-call>spectra search</component-call>
+        <component-call>rt filter</component-call>
+        <component-call>precursor filter</component-call>
+        <component-call>scan number filter</component-call>
+        <component-call>ms stage filter</component-call>
+        <component-call>properties filter</component-call>
+        <component-call>operation</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>    
+  </packages>   
+  
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

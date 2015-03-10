@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ab3dPlugin", "Ab3dPlugin\Ab3dPlugin.vcxproj", "{E5B97152-8D29-4E0A-AD7D-BB525688296B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MRM3DPlugin", "MRM3DPlugin\MRM3DPlugin.vcxproj", "{172498B2-9183-463D-B097-51286B3CD99C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AB3D2Plugin", "AB3D2Plugin\AB3D2Plugin.vcxproj", "{EC277CEA-39A6-45B4-BF67-7022FF79BA74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Debug|Win32.Build.0 = Debug|Win32
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Debug|x64.ActiveCfg = Debug|x64
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Debug|x64.Build.0 = Debug|x64
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Release|Win32.ActiveCfg = Release|Win32
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Release|Win32.Build.0 = Release|Win32
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Release|x64.ActiveCfg = Release|x64
+		{E5B97152-8D29-4E0A-AD7D-BB525688296B}.Release|x64.Build.0 = Release|x64
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Debug|Win32.Build.0 = Debug|Win32
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Debug|x64.ActiveCfg = Debug|x64
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Debug|x64.Build.0 = Debug|x64
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Release|Win32.ActiveCfg = Release|Win32
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Release|Win32.Build.0 = Release|Win32
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Release|x64.ActiveCfg = Release|x64
+		{CE145D8F-447D-4D19-A62B-D867EAA383E2}.Release|x64.Build.0 = Release|x64
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Debug|Win32.Build.0 = Debug|Win32
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Debug|x64.ActiveCfg = Debug|x64
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Debug|x64.Build.0 = Debug|x64
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Release|Win32.ActiveCfg = Release|Win32
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Release|Win32.Build.0 = Release|Win32
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Release|x64.ActiveCfg = Release|x64
+		{70E26498-73B4-4038-AD7B-31DA76D8A8BC}.Release|x64.Build.0 = Release|x64
+		{172498B2-9183-463D-B097-51286B3CD99C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{172498B2-9183-463D-B097-51286B3CD99C}.Debug|Win32.Build.0 = Debug|Win32
+		{172498B2-9183-463D-B097-51286B3CD99C}.Debug|x64.ActiveCfg = Debug|x64
+		{172498B2-9183-463D-B097-51286B3CD99C}.Debug|x64.Build.0 = Debug|x64
+		{172498B2-9183-463D-B097-51286B3CD99C}.Release|Win32.ActiveCfg = Release|Win32
+		{172498B2-9183-463D-B097-51286B3CD99C}.Release|Win32.Build.0 = Release|Win32
+		{172498B2-9183-463D-B097-51286B3CD99C}.Release|x64.ActiveCfg = Release|x64
+		{172498B2-9183-463D-B097-51286B3CD99C}.Release|x64.Build.0 = Release|x64
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Debug|Win32.Build.0 = Debug|Win32
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Debug|x64.ActiveCfg = Debug|x64
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Debug|x64.Build.0 = Debug|x64
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Release|Win32.ActiveCfg = Release|Win32
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Release|Win32.Build.0 = Release|Win32
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Release|x64.ActiveCfg = Release|x64
+		{EC277CEA-39A6-45B4-BF67-7022FF79BA74}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

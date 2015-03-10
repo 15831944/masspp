@@ -1,0 +1,10 @@
+EXPORTS
+	prepareSpectrumScale
+	drawSpectrumScale
+	prepareChromatogramScale
+	drawChromatogramScale
+	prepareDataMapScale
+	drawDataMapScale	
+	setChromatogramDrawingScaleStatus
+	setSpectrumDrawingScaleStatus
+	setDatamapDrawingScaleStatus

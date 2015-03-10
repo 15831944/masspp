@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+
+<!-- The XML schema illustrating all the possible tags, attributes etc. -->
+<!-- which can be used in a settings XML file can be found in -->
+<!-- conf\settings.xsd under the installed Mass++ folder. -->
+<!-- All settings are contained within a high-level settings tag. -->
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- All the value types used by settings in this XML file are listed -->
+  <!-- within the <values> tag. -->
+  <values>
+    <!-- The value with id 0 is a string value -->
+    <!-- Since it is followed by <enum> tags, it will appear -->
+    <!-- as a dropdown list in the GUI. -->
+    <!-- Within each <enum> tag: -->
+    <!-- <enum-name>  This is the text displayed in the dropdown list. -->
+    <!-- <enum-value> This is the value that is returned when the -->
+    <!--              value is obtained programmatically using -->
+    <!--              SettingsParameterValues:: getParameterValue -->
+    <!-- The default attribute specifies the default selection -->
+    <!-- (NOTE: The <enum-value> string for an item is used. -->
+    <!-- The required attribute is set to true, which means that -->
+    <!-- the dropdown list must have an item selected. In the GUI, -->
+    <!-- this means that there will no "(none)" item included. -->
+    <value id="0" type="string" default="intensity" required="true">
+      <enum>
+        <enum-name>Intensity</enum-name>
+        <enum-value>intensity</enum-value>
+        <enum-desc>Intensity: Higher intensity peaks are filtered.</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>Area</enum-name>
+        <enum-value>area</enum-value>
+        <enum-desc>Area: Larger area peaks are filtered.</enum-desc>
+      </enum>
+    </value>
+    <!-- The value with id 1 is an integer value -->
+    <!-- The default attribute specifies its default value at 10. -->
+    <!-- The required attribute is set to true, which means that -->
+    <!-- this value cannot be empty when OK is pressed on a settings -->
+    <!-- dialog. -->
+    <!-- Additionally, minInclusive and maxInclusive attributes are -->
+    <!-- set to 1 and 10000 respectively, which will cause a -->
+    <!-- validation error to appear if a user enters a value -->
+    <!-- outside of this range. -->
+    <value id="1" type="int" default="10" minInclusive="1" maxInclusive="10000" required="true" />
+  </values>
+  <!-- All the parameter values used by settings in this XML file are listed -->
+  <!-- within the <params> tag. -->
+  <!-- For each parameter, there is a <param> tag with an id attribute, -->
+  <!-- and a value attribute, specifying which of the above value types -->
+  <!-- will be used to represent it. -->
+  <!-- Note: It is possible for the same value to be referenced by multiple -->
+  <!--       param tags, but care should be taken in cases where -->
+  <!--       default, required or other attirbutes should differ -->
+  <!--       between parameters. -->
+  <params>
+    <!-- The param with id 0 uses value type 0 -->
+    <!-- <param-name> can be used to reference it in calls to -->
+    <!-- SettingsParameterValues::getParameterValue. -->
+    <!-- <param-section> specifies the section in the parameters -->
+    <!-- INI file where its value will be saved. -->
+    <!-- <param-key> specifies the attribute name in which -->
+    <!-- its value will be saved in the INI file. -->
+    <param id="0" value="0">
+      <param-name>response</param-name>
+      <param-section>Peak Detection Filter</param-section>
+      <param-key>RESPONSE</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>number</param-name>
+      <param-section>Peak Detection Filter</param-section>
+      <param-key>NUMBER</param-key>
+    </param>
+   </params>
+  <!-- All the parameter groups (displayed with a surrounding -->
+  <!-- dividing line in the GUI) are listed within the -->
+  <!-- <groups> tag.  -->
+  <groups>
+    <!-- The group with id 0 will be labeled "Number of Peaks" -->
+    <group id="0">
+      <group-name>Number of Peaks</group-name>
+    </group>
+  </groups>
+  <!-- Parameter are arranged in the "GUI" in pages. -->
+  <!-- When the "Parameters" button next to a dropdown list -->
+  <!-- in the Mass++ GUI is clicked, a single parameter page -->
+  <!-- is displayed. -->
+  <pages>
+    <!-- A page referred to programmatically by its page-name -->
+    <!-- "numberofpeaks" is defined below. Its dialog title will -->
+    <!-- be "Number of Peaks". -->
+    <!-- The common attribute indicates whether the page should be -->
+    <!-- additionally included in the Processing -> Options dialog, -->
+    <page common="false">
+      <page-name>numberofpeaks</page-name>
+      <page-title>Number of Peaks</page-title>
+      <!-- Every control in a page is defined as a form element. -->
+      <!-- Each form has an id and a param attribute which specifies -->
+      <!-- which of the previously-defined param it represents. -->
+      <!-- Optionally, a group attribute can be specified -->
+      <!-- to indicate which group it will be displayed within. -->
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Response</form-title>
+          <form-desc>Select the response.</form-desc>
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title>Number</form-title>
+          <form-desc>Set the number of peaks.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

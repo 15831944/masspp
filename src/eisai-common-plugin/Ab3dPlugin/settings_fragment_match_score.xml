@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<settings>
+  <chapters>
+	<chapter id="0">Analysis</chapter>
+	<chapter id="1" parent="0">Fitting Score</chapter>
+  </chapters>
+  <values>
+	<value id="0" type="string" default="wa">
+	  <item-type>SPEC_PEAK_PICKING</item-type>
+	</value>
+	<value id="1" type="double" default="5.0" minInclusive="0.0" maxInclusive="100.0" />
+	<value id="2" type="double" default="0.25" minInclusive="0.0" />
+	<value id="3" type="bool" default="false" />
+  </values>
+  <params>
+	<param id="0" value="0" required="true">
+	  <param-name>peak_detector</param-name>
+	  <param-section>Fragment Match Score</param-section>
+	  <param-key>PEAK_DETECTOR</param-key>
+	  <prefix>AB3D_FRAGMENT_MATCH_SCORE</prefix>
+	</param>
+	<param id="1" value="1" required="true">
+	  <param-name>min_int</param-name>
+	  <param-section>Fragment Match Score</param-section>
+	  <param-key>MIN_INTENSITY</param-key>
+	</param>
+	<param id="2" value="2" required="true">
+	  <param-name>mz_tol</param-name>
+	  <param-section>Fragment Match Score</param-section>
+	  <param-key>MZ_TOLERANCE</param-key>
+	</param>
+	<param id="3" value="3" required="true">
+	  <param-name>int_weight</param-name>
+	  <param-section>Fragment Match Score</param-section>
+	  <param-key>INTENSITY_WEIGHT</param-key>
+	</param>
+  </params>
+  <groups>
+	<group id="0">
+	  <group-name>Fragment</group-name>
+	</group>
+	<group id="1">
+	  <group-name>Calculate</group-name>
+	</group>
+  </groups>
+  <pages>
+	<page chapter="1" common="true">
+	  <page-name>common</page-name>
+	  <page-title>Fragment Match Score</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Minimum Intensity (%)</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>m/z Tolerance</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>Using Intensity Weight</form-title>
+		</form>
+	  </forms>
+	</page>
+	<page common="false">
+	  <page-name>Fragment Match Score</page-name>
+	  <page-title>Fragment Match Score</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Minimum Intensity (%)</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>m/z Tolerance</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>Using Intensity Weight</form-title>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+</settings>

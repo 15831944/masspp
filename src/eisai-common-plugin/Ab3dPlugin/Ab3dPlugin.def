@@ -1,0 +1,6 @@
+EXPORTS
+		executeAlignmentByTIC
+		executeAlignmentByMC
+		executeComposition
+		detect2dPeaks
+		detect2dClusters

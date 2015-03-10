@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Chromatogram Operation</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ChromatogramOperationPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>CHROMATOGRAM_FILTER</status-name>
+      <status-value>all</status-value>
+    </status>
+    <status id="1">
+      <status-name>CHROMATOGRAM_FILTER</status-name>
+      <status-value>ms</status-value>
+    </status>
+    <status id="2">
+      <status-name>CHROMATOGRAM_FILTER</status-name>
+      <status-value>msms</status-value>
+    </status>
+  </statuses>
+  <!--status bar-->
+  <gui>
+    <status-bar target="none" order="1" width="160">
+      <status-bar-name>ChromFilter</status-bar-name>
+    </status-bar>
+  </gui>
+  <menu>
+    <menu-item id="0" accelerator="V">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="C">
+      <menu-name>Chromatogram Filter</menu-name>
+      <menu-group order="3">chromatogram</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="A" order="1" checked="0">
+      <menu-name>All</menu-name>
+      <menu-description>Display all data in chromatograms</menu-description>
+    </menu-item>
+    <menu-item id="3" parent="1" accelerator="M" order="3" checked="1">
+      <menu-name>MS</menu-name>
+      <menu-description>Display only MS data in  chromatograms</menu-description>
+    </menu-item>
+    <menu-item id="4" parent="1" accelerator="S" order="5" checked="2">
+      <menu-name>MSn</menu-name>
+      <menu-description>Display only MSn data in chromatograms</menu-description>
+    </menu-item>
+
+    <menu-item id="5">
+      <menu-name>Chromatogram Filter</menu-name>
+      <menu-group>chromatogram</menu-group>
+      <popup type="chrom_view" order="3" />
+    </menu-item>
+    <menu-item id="6" parent="5" checked="0">
+      <menu-name>All</menu-name>
+      <menu-group>chromatogram</menu-group>
+      <popup type="chrom_view" order="4" />
+    </menu-item>
+    <menu-item id="7" parent="5" checked="1">
+      <menu-name>MS</menu-name>
+      <menu-group>chromatogram</menu-group>
+      <popup type="chrom_view" order="5" />
+    </menu-item>
+    <menu-item id="8" parent="5" checked="2">
+      <menu-name>MSn</menu-name>
+      <menu-group>chromatogram</menu-group>
+      <popup type="chrom_view" order="6" />
+    </menu-item>
+
+    <menu-item id="9" parent="0" accelerator="r" target="group">
+      <menu-name>Chromatogram...</menu-name>
+      <menu-group order="8">generate</menu-group>
+      <menu-description>show Generate Chromatogram</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="on_open_chrom" order="0">
+      <call-name>set chromatogram filter</call-name>
+      <call-function>setChromatogramFilter</call-function>
+      <call-description>sets chromatogram filter on open</call-description>
+    </call>
+
+    <call type="execute" status="0">
+      <call-name>set filter all</call-name>
+      <call-function>setFilterAll</call-function>
+      <call-description>Display All Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute" status="1">
+      <call-name>set filter ms</call-name>
+      <call-function>setFilterMs</call-function>
+      <call-description>Display Only MS Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute" status="2">
+      <call-name>set filter msn</call-name>
+      <call-function>setFilterMsms</call-function>
+      <call-description>Display Only MSn Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>set filter all from context</call-name>
+      <call-function>setFilterAll</call-function>
+      <call-description>Display All Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>set filter ms from context</call-name>
+      <call-function>setFilterMs</call-function>
+      <call-description>Display Only MS Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>set filter msn from context</call-name>
+      <call-function>setFilterMsms</call-function>
+      <call-description>Display Only MSn Data in Chromatograms</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>8</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>open Generate Chromatogram Dialog</call-name>
+      <call-function>openGenerateChromatogramDlg</call-function>
+      <call-description>show Generate Chromatogram</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>9</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="spectrum_range_action">
+      <call-name>show Generate Chromatogram</call-name>
+      <call-function>showGenerateChromatogram</call-function>
+      <call-description>show Generate Chromatogram</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Generate Chromatogram...</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="datamap_range_action" order="2">
+      <call-name>show Generate Chromatogram from datamap</call-name>
+      <call-function>showGenerateChromatogram</call-function>
+      <call-description>show Generate Chromatogram</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Generate Chromatogram...</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>Genelate Chromatogram</call-name>
+      <call-function>getGenelateChrom</call-function>
+      <call-description>generate MC (Mass Chromatogram) or BPC (Base Peak Chromatogram)</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Genelate Chromatogram</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_opt</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+
+  <components>
+    <component>
+      <component-name>filter</component-name>
+      <component-desc>Chromatogram Filter</component-desc>
+      <component-calls>
+        <component-call>set chromatogram filter</component-call>
+        <component-call>set filter all</component-call>
+        <component-call>set filter ms</component-call>
+        <component-call>set filter msn</component-call>
+        <component-call>set filter all from context</component-call>
+        <component-call>set filter ms from context</component-call>
+        <component-call>set filter msn from context</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>mc bpc</component-name>
+      <component-desc>Generate Chromatogram (MC/BPC)</component-desc>
+      <component-calls>
+        <component-call>open Generate Chromatogram Dialog</component-call>
+        <component-call>show Generate Chromatogram</component-call>
+        <component-call>show Generate Chromatogram from datamap</component-call>
+        <component-call>Genelate Chromatogram</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+        <package-component>mc bpc</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+        <package-component>mc bpc</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+        <package-component>mc bpc</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <help>
+    <help-file order="2">help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

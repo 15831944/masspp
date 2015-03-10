@@ -1,0 +1,86 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[View] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Results">
+<param name="Local" value="ch01s01.html#id654736"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="MassBank Search">
+<param name="Local" value="ch01s01.html#id654742"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Search Results">
+<param name="Local" value="ch01s01.html#results"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="MassBank Search Results">
+<param name="Local" value="ch01s01.html#id716252"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Record Details">
+<param name="Local" value="ch01s01.html#details"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Overlapping">
+<param name="Local" value="ch01s01.html#id716424"></OBJECT></LI>
+</UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="MassBank Batch Job List">
+<param name="Local" value="ch01s01.html#id654753"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Batch Job List">
+<param name="Local" value="ch01s01.html#jobs"></OBJECT></LI>
+</UL></UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="[Tools] Menu">
+<param name="Local" value="ch01s02.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="MassBank">
+<param name="Local" value="ch01s02.html#id654772"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="MassBank Settings">
+<param name="Local" value="ch01s02.html#id654840"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Create Spectrum Records">
+<param name="Local" value="ch01s02.html#id654782"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Creating Spectrum Records">
+<param name="Local" value="ch01s02.html#id656164"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Spectrum Search">
+<param name="Local" value="ch01s02.html#id654792"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Spectrum Search">
+<param name="Local" value="ch01s02.html#id655132"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Batch Search">
+<param name="Local" value="ch01s02.html#id654803"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Batch Search">
+<param name="Local" value="ch01s02.html#id656162"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peak Search">
+<param name="Local" value="ch01s02.html#id654814"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peak Search">
+<param name="Local" value="ch01s02.html#id655134"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peak Difference Search">
+<param name="Local" value="ch01s02.html#id654825"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peak Difference Search">
+<param name="Local" value="ch01s02.html#id656159"></OBJECT></LI>
+</UL></UL></UL></UL></BODY></HTML>

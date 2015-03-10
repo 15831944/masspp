@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Raw Data 3D View</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>Sample3DViewPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>3d_zoom</icon-name>
+      <icon-file>images/3d_zoom_icon.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>heatmap</icon-name>
+      <icon-file>images/3d_open_icon16x16.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>3d_direction</icon-name>
+      <icon-file>images/3d_direction_icon.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>3d_open</icon-name>
+      <icon-file>images/3d_open_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <statuses>
+    <status id="0">
+      <status-name>DATA_MAP_WINDOW</status-name>
+      <status-value>3D</status-value>
+    </status>
+  </statuses>
+
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" accelerator="3" order="9" target="sample">
+      <menu-name>3D Display</menu-name>
+      <toolbar>datamap</toolbar>
+      <menu-group order="9">window</menu-group>
+      <menu-description>Display the 3D display window for the current sample</menu-description>
+    </menu-item>
+
+    <menu-item id="2">
+      <menu-name>3D Display</menu-name>
+      <menu-group>window</menu-group>
+      <popup type="group_item"  order="7" />
+    </menu-item>
+  </menu>
+  <function>
+    <call type="data_map_window" status="0">
+      <call-name>create3DCanvas</call-name>
+      <call-function>create3DCanvas</call-function>
+      <call-description>create 3D canvas</call-description>
+    </call>
+    <call type="on_update_data_map" ifloaded="true">
+      <call-name>update data map</call-name>
+      <call-function>updateGraphInfo</call-function>
+      <call-description>updates graph information</call-description>
+    </call>
+    <call type="on_settings" ifloaded="true">
+      <call-name>update settings</call-name>
+      <call-function>updateSettings</call-function>
+      <call-description>update settings</call-description>
+    </call>
+    <call type="execute" icon="3">
+      <call-name>3D (1)</call-name>
+      <call-function>setDataMapStatusOpen</call-function>
+      <call-description>Display 3D display window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>3D (2)</call-name>
+      <call-function>setDataMapStatusOpen</call-function>
+      <call-description>Display 3D display window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="on_data_map_mouse_move" >
+      <call-name>on DataMap mouse move</call-name>
+      <call-function>onDataMapMouseMoveMouseCursor</call-function>
+      <call-description>on DataMap mouse move for Change Mouse cursor</call-description>
+    </call>
+    <call type="operation">
+      <call-name>3d canvas operation</call-name>
+      <call-function>get3DCanvasOperation</call-function>
+      <call-description>3D operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>3D Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>3d_canvas</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="can_exit">
+      <call-name>kill timer</call-name>
+      <call-function>killTimers</call-function>      
+    </call>     
+  </function>
+  <components>
+    <component>
+      <component-name>3d</component-name>
+      <component-desc>3D View</component-desc>
+      <component-calls>
+        <component-call>create3DCanvas</component-call>
+        <component-call>update data map</component-call>
+        <component-call>update settings</component-call>
+        <component-call>3D (1)</component-call>
+        <component-call>3D (2)</component-call>
+        <component-call>on DataMap mouse move</component-call>
+        <component-call>3d canvas operation</component-call>
+        <component-call>kill timer</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>3d</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>3d</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>3d</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+  <help>
+    <help-file order="4">help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

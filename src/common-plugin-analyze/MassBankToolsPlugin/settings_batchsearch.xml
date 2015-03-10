@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<settings>
+  <values>
+    <value id="0" type="string" minLength="2" maxLength="3" required="true"/>
+    <value id="1" type="int" minInclusive="0"/>
+
+    <value id="3" type="string" required="true">
+      <enum-call>licensearr</enum-call>
+    </value>
+    <value id="10" type="string" required="true">
+      <enum-call>vendorarr</enum-call>
+    </value>
+    <value id="11" type="string" required="true" parent="10">
+      <enum-call>instarr</enum-call>
+    </value>
+    <value id="12" type="string" required="true">
+      <enum-call>insttypearrwithfree</enum-call>
+    </value>
+    <value id="20" type="list" />
+    <value id="21" type="string" list="20" required="true">
+      <enum-call>appendvaluearr</enum-call>
+      <value-name>Key</value-name>
+    </value>
+    <value id="22" type="string" list="20" required="true">
+      <value-name>Value</value-name>
+    </value>
+
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>prefix</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>PREFIX</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>prefixnum</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>PREFIXNUM</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>license</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>LICENSE</param-key>
+    </param>
+    <param id="10" value="10">
+      <param-name>vendor</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>VENDOR</param-key>
+    </param>
+    <param id="11" value="11">
+      <param-name>Instrument</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>INSTRUMENT</param-key>
+    </param>
+    <param id="12" value="12">
+      <param-name>InstrumentType</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>INSTRUMENTTYPE</param-key>
+    </param>
+    <param id="20" value="20">
+      <param-name>AppendValue</param-name>
+      <param-section>SaveMassBankRecord</param-section>
+      <param-key>APPENDVALUE</param-key>
+    </param>
+
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Accession</group-name>
+    </group>
+    <group id="1">
+      <group-name></group-name>
+    </group>
+    <group id="2">
+      <group-name>Instrument</group-name>
+    </group>
+    <group id="3">
+      <group-name></group-name>
+    </group>
+    <group id="4">
+      <group-name></group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>massbankrecord</page-name>
+      <page-title>Massbank Record</page-title>
+      <check-functions>
+        <check-fun>check_prefix_status</check-fun>
+      </check-functions>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Prefix</form-title>
+          <form-desc>[Prefix] consists of two or three alphabetical capital characters.</form-desc>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Base Num.</form-title>
+          <form-desc>[Base Num] is assigned to the first selected spectrucm and incremental numbers are assigned to later.</form-desc>
+        </form>
+        <form id="3" param="3" group="1">
+          <form-title>License</form-title>
+          <form-desc>Select a Creative Commons License. This value is set as the LICENSE item in the MassBank recored.</form-desc>
+        </form>
+        <form id="10" param="10" group="2">
+          <form-title>Vendor</form-title>
+          <form-desc>Select or input the vendor of the instrument.</form-desc>
+        </form>
+        <form id="11" param="11" group="2">
+          <form-title>Instrument Name</form-title>
+          <form-desc>Select or input the instrument.This value is set as the AC$INSTRUMENT item in the MassBank record.</form-desc>
+        </form>
+        <form id="12" param="12" group="3">
+          <form-title>Instrument Type</form-title>
+          <form-desc>Select or input the instrument type.This value is set as the AC$INSTRUMENT_TYPE item in the MassBank record.</form-desc>
+        </form>
+        <form id="20" param="20" group="4">
+          <form-title>Appende Values</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

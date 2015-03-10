@@ -1,0 +1,5 @@
+EXPORTS
+	openRawData
+	openSpectrumFromContextMenu
+	openChromatogramFromContextMenu
+	

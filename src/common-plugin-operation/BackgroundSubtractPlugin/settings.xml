@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <values>
+    <value id="0" type="double-range" minInclusive="0.0" required="true" />
+  </values>
+  
+  <params>
+    <param id="0" value="0">
+      <param-name>spec_manipulat</param-name>
+      <param-section>DataManipulation</param-section>
+      <param-key>BACKGROUND</param-key>
+    </param>  
+  </params>
+
+  <pages>
+    <page>
+      <page-name>params</page-name>
+      <page-title>Background Spectrum</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>RT</form-title>
+          <form-desc>Background Spectrum</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

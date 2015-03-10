@@ -1,0 +1,43 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="View and Operations">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Spectrum &amp; Chromatogram">
+<param name="Local" value="ch01s01.html#id646962"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Displayed Range">
+<param name="Local" value="ch01s01.html#id646968"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Range Zoom">
+<param name="Local" value="ch01s01.html#id131346"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Pan">
+<param name="Local" value="ch01s01.html#id647011"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Dynamic Zoom">
+<param name="Local" value="ch01s01.html#id647012"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Resetting Zoom and Pan">
+<param name="Local" value="ch01s01.html#id648336"></OBJECT></LI>
+</UL></UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="[View] Menu">
+<param name="Local" value="ch01s02.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Synchronize Axes">
+<param name="Local" value="ch01s02.html#id646998"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Synchronize Axes">
+<param name="Local" value="ch01s02.html#id647366"></OBJECT></LI>
+</UL></UL></UL></BODY></HTML>

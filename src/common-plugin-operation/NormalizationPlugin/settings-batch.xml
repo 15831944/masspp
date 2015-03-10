@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <values>
+    <value id="0" type="string" required="true">
+      <item-type>GET_FILE_READER</item-type>
+    </value>
+    <value id="1" type="rawdata" required="true" />
+
+    <!--
+    <value id="2" type="double" minInclusive="0.0" required="true" />
+    -->
+    <value id="2" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>Absolute</enum-name>
+        <enum-value>Absolute</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Relative (%)</enum-name>
+        <enum-value>Relative</enum-value>
+      </enum>
+    </value>
+
+    <value id="3" type="double-range" required="true" />
+    <value id="4" type="double-range" required="true" />
+    <value id="5" type="double-range" required="true" />
+
+    <value id="6" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="7" type="list" required="true" />
+    <value id="8" type="string" list="7" required="true">
+      <item-type>NORMALIZATION_METHOD</item-type>
+    </value>
+
+    <value id="9" type="string" required="true">
+      <item-type>2D_PEAK_PICKING</item-type>
+    </value>
+    <value id="10" type="list" required="true" />
+    <value id="11" type="string" list="10" required="true">
+      <item-type>NORMALIZATION_METHOD</item-type>
+    </value>
+
+
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>type</param-name>
+    </param>
+    <param id="1" value="1">
+      <param-name>key</param-name>
+    </param>
+
+    <param id="2" value="2">
+      <param-name>type</param-name>
+    </param>
+    <param id="3" value="3">
+      <!--
+      <param-name>int_range</param-name>
+      -->
+      <param-name>threshold</param-name>
+    </param>
+    <param id="4" value="4">
+      <param-name>rt_range</param-name>
+    </param>
+    <param id="5" value="5">
+      <param-name>mz_range</param-name>
+    </param>
+    <param id="6" value="6">
+      <!-- 2013/08/05 COMMENT OUT -->
+      <!--
+      <param-name>peak_detector</param-name>
+      -->
+      <param-name>Labeling</param-name>
+    </param>
+    <param id="7" value="7">
+      <!-- 2013/08/05 COMMENT OUT -->
+      <!--
+      <param-name>methods</param-name>
+      -->
+      <param-name>Clustering</param-name>
+    </param>
+    <param id="8" value="9">
+      <!-- 2013/08/05 COMMENT OUT -->
+      <!--
+      <param-name>peak_detector</param-name>
+      -->
+      <param-name>Labeling</param-name>
+    </param>
+    <param id="9" value="10">
+      <!-- 2013/08/05 COMMENT OUT -->
+      <!--
+      <param-name>methods</param-name>
+      -->
+      <param-name>Clustering</param-name>
+    </param>
+
+  </params>
+  <pages>
+    <page>
+      <page-name>norm_standard</page-name>
+      <page-title>Normalization Standard Sample</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Type</form-title>
+          <form-desc>data type of sample data.</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Key</form-title>
+          <form-desc>key string for specifying the sample such as raw data file path.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>norm_filter_int</page-name>
+      <page-title>Normalization Intensity Filter</page-title>
+      <forms>
+        <form id="2" param="2">
+          <form-title>Type</form-title>
+          <form-desc>intensity value type. (abs / rel).</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Threshold</form-title>
+          <!--
+          <form-title>int_range</form-title>
+          -->
+          <form-desc>intensity filter range.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>norm_filter_rt</page-name>
+      <page-title>Normalization RT Filter</page-title>
+      <forms>
+        <form id="4" param="4">
+          <form-title>RT Range</form-title>
+          <form-desc>RT filter range.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>norm_filter_mz</page-name>
+      <page-title>Normalization m/z Filter</page-title>
+      <forms>
+        <form id="5" param="5">
+          <form-title>m/z Range</form-title>
+          <form-desc>m/z filter range.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>norm_spec</page-name>
+      <page-title>Normalize samples using spectrum peaks</page-title>
+      <forms>
+        <form id="6" param="6">
+          <form-title>Peak Detector</form-title>
+          <form-desc>spectrum peak detector.</form-desc>
+        </form>
+        <form id="7" param="7">
+          <form-title>methods</form-title>
+          <form-desc>normalization methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>norm_2d</page-name>
+      <page-title>Normalize samples using 2D peaks</page-title>
+      <forms>
+        <form id="8" param="8">
+          <form-title>Peak Detector</form-title>
+          <form-desc>2D peak detector.</form-desc>
+        </form>
+        <form id="9" param="9">
+          <form-title>Methods</form-title>
+          <form-desc>normalization methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+
+
+  </pages>
+  
+</settings>

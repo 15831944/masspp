@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>HttpProxyPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>HttpProxyPlugin</link>
+  <function>
+    <call type="on_settings">
+      <call-name>proxy</call-name>
+      <call-function>setProxyInfo</call-function>
+      <call-description>set proxy server information.</call-description>
+    </call>
+    <call type="init">
+      <call-name>init</call-name>
+      <call-function>setProxyInfo</call-function>
+      <call-description>set proxy server information.</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>http</component-name>
+      <component-desc>Http Connection</component-desc>
+      <component-calls>
+        <component-call>proxy</component-call>
+        <component-call>init</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>http</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>http</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

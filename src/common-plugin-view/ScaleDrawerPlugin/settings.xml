@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">View</chapter>
+    <chapter id="1" parent="0">Drawing</chapter>
+  </chapters>
+
+  <values>
+    <value id="0" type="int"  default="1" minInclusive="1" maxInclusive="10" required="true" />
+    <value id="1" type="color" default="black" required="true" />
+    <value id="2" type="font" required="true" default="#000000,8,0,0,1,Calibri" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>width_axis</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>WIDTH_AXIS</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>color_axis</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>COLOR_AXIS</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>width_font</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>FONT_AXIS</param-key>      
+    </param>    
+  </params>
+  
+  <groups>
+    <group id="0">
+      <group-name>Axis</group-name>
+    </group>   
+  </groups>
+  
+  <pages>
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Axis</page-title>
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of axis line.</form-desc>
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of axis line.</form-desc>
+        </form>
+        <form id="2" group="0" param="2">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of the divisons.</form-desc>
+        </form>       
+      </forms>
+    </page>
+
+    <!-- Context Menu -->  
+    <!-- chromatogram axis -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Axis</page-title>
+      <properties-page type="chrom_view" />
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of axis line.</form-desc>
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of axis line.</form-desc>
+        </form>
+        <form id="2" group="0" param="2">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of the divisons.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- specturm axis -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Axis</page-title>
+      <properties-page type="spec_view" />
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of axis line.</form-desc>
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of axis line.</form-desc>
+        </form>
+        <form id="2" group="0" param="2">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of the divisons.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- heatmap axis -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Axis</page-title>     
+      <properties-page type="heatmap_view" />
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of axis line.</form-desc>
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of axis line.</form-desc>
+        </form>
+        <form id="2" group="0" param="2">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of the divisons.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+  
+</settings>

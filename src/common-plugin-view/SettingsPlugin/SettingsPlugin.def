@@ -1,0 +1,10 @@
+EXPORTS
+	showParametersDialog
+	showSettingsDialog
+	setParamsFile
+	updateParamsFile
+	saveParamsFile
+	showSettingsDialogFromContextMenu
+	showSettingsDialogFromContextMenuChromView
+	showSettingsDialogFromContextMenuSpecView
+	showSettingsDialogFromContextMenuHeatmapView

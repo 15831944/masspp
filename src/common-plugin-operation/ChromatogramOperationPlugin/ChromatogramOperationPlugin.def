@@ -1,0 +1,10 @@
+EXPORTS
+	setChromatogramFilter
+	setFilterAll
+	setFilterMs
+	setFilterMsms
+	showGenerateChromatogram
+	openGenerateChromatogramDlg
+	getGenelateChrom
+		
+

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="list">
+      <enum-call>operation_list</enum-call>
+      <value-name>Operation Name</value-name>
+    </value>
+    <value id="1" type="string" />
+    <value id="2" type="input" />
+  </values>
+   
+  <params>
+    <param id="0" value="0" required="true">
+      <param-name>operation</param-name>      
+    </param>
+     
+    <param id="1" value="1">
+      <param-name>parameter</param-name>
+    </param>
+
+    <param id="2" value="2">
+      <param-name>operation_xml</param-name>
+    </param>
+
+  </params>
+  <pages>
+    
+    <page>
+      <page-name>opt</page-name>
+      <page-title>Operation</page-title>
+      <forms>  
+       
+        <form id="0" param="0">
+          <form-title>Operation Name</form-title>
+          <form-desc>operation name list</form-desc>
+        </form>
+        <form id="0" param="1">
+          <form-title>Parameter</form-title>
+          <form-desc>operation parameter name</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>operation_xml</page-name>
+      <page-title>OperationXML</page-title>
+      <forms>
+        <form id="2" param="2">
+          <form-title>Operation Xml</form-title>
+          <form-desc>XML File Path</form-desc>
+        </form>
+      </forms>
+    </page>
+
+  </pages>
+</settings>

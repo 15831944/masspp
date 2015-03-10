@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Operation</chapter>
+    <chapter id="1" parent="0">Filter</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" required="true">
+      <item-type>spec_peak_picking</item-type>      
+    </value>      
+    <value id="1" type="double" default="0.1" minExclusive="0.0" required="true" />
+    <value id="2" type="int" default="4" minInclusive="1" maxInclusive="10" required="true" />
+    <value id="3" type="list" default="1,2,3,4" required="false" />
+    <value id="4" type="bool" list="3">
+      <value-name>Charge</value-name>      
+      <enum>
+        <enum-name>1</enum-name>        
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>2</enum-name>        
+        <enum-value>2</enum-value>
+      </enum>      
+      <enum>
+        <enum-name>3</enum-name>        
+        <enum-value>3</enum-value>
+      </enum>      
+      <enum>
+        <enum-name>4</enum-name>        
+        <enum-value>4</enum-value>
+      </enum>
+      <enum>
+        <enum-name>5</enum-name>        
+        <enum-value>5</enum-value>
+      </enum>
+      <enum>
+        <enum-name>6</enum-name>        
+        <enum-value>6</enum-value>
+      </enum>
+      <enum>
+        <enum-name>7</enum-name>        
+        <enum-value>7</enum-value>
+      </enum>
+      <enum>
+        <enum-name>8</enum-name>
+        <enum-value>8</enum-value>
+      </enum>
+      <enum>
+        <enum-name>9</enum-name>        
+        <enum-value>9</enum-value>
+      </enum>
+      <enum>
+        <enum-name>10</enum-name>
+        <enum-value>10</enum-value>
+      </enum>
+    </value>
+    <value id="5" type="double" default="1.0" minExclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>peaks</param-name>
+      <param-section>Simple Charge Detect2</param-section>
+      <param-key>PARENT_PEAK_DETECTOR</param-key>
+    </param>    
+    <param id="1" value="1">
+      <param-name>mz_tolerance</param-name>
+      <param-section>Simple Charge Detect2</param-section>
+      <param-key>MZ_TOLERANCE</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>max_charge</param-name>
+      <param-section>Simple Charge Detect2</param-section>
+      <param-key>MAX_CHARGE</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>default_charge</param-name>
+      <param-section>Simple Charge Detect2</param-section>      
+      <param-key>DEFAULT_CHARGE</param-key>      
+    </param>
+    <param id="4" value="5">
+      <param-name>precursor_tolerance</param-name>
+      <param-section>Simple Charge Detect2</param-section>
+      <param-key>PRECURSOR_TOLERANCE</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Simple Charge Detect</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>Simple Charge Detect</page-name>
+      <page-title>Simple Charge Detect</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Peak Detector (Parent)</form-title>
+          <form-desc>Select the peak detection method for precursor ion spectrum.</form-desc>
+        </form>        
+        <form id="1" param="1">
+          <form-title>m/z Tolerance</form-title>
+          <form-desc>Set the tolerance to find isotope peaks.</form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>Max Charge</form-title>
+          <form-desc>Set the max charge to find isotope peaks.</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Default Charge</form-title>
+          <form-desc>Set the default charge which is set when isotope peaks are not found.</form-desc>
+        </form>
+        <form id="4" param="4">
+          <form-title>Precursor Tolerance</form-title>
+          <form-desc>Set the tolerance of precursor peak.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

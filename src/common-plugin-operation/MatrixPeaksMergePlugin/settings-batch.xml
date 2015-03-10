@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double" minInclusive="0.0" required="true" />
+    <value id="1" type="double" minInclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>rt_tol </param-name>
+    </param>
+    <param id="1" value="1">
+      <param-name>mz_tol</param-name>
+    </param>
+  </params>
+  <pages>
+    <!-- 2013/07/26 Add OKADA task:#22 (18)-matrix_del_dup_peaks -->
+    <page>
+      <page-name>matrix_del_dup_peaks</page-name>
+      <page-title>Matrix Peak Analysis</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>RT Tolerance</form-title>
+          <form-desc>RT tolerance.</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>m/z Tolerance</form-title>
+          <form-desc>m/z tolerance.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Baseline Subtract</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>BaselineSubtractPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>baseline</icon-name>
+      <icon-file>images/bsline_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="P" order="6">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="B" order="3">
+      <menu-name>Basic Data Manipulation</menu-name>
+      <menu-group order="4">manipulation</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="L" target="spec_chrom" order="3">
+      <menu-name>Baseline Subtract...</menu-name>
+      <toolbar>Data Manipulation</toolbar>
+      <menu-description>Detect new baseline and subtract</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>subtract</call-name>
+      <call-function>openBaselineDialog</call-function>
+      <call-description>Baseline subtract...</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="draw_chrom_fg" ifloaded="true">
+      <call-name>draw chromatogram baseline</call-name>
+      <call-function>drawChromBaseline</call-function>
+      <call-description>draws chromatogram baseline</call-description>
+    </call>
+    <call type="draw_spec_fg" ifloaded="true">
+      <call-name>draw spectrum baseline</call-name>
+      <call-function>drawSpecBaseline</call-function>
+      <call-description>draws spectrum baseline</call-description>
+    </call>
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>chromatogram baseline subtraction</call-name>
+      <call-function>getChromBaselineOperation</call-function>
+      <call-description>draws chromatogram baseline</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Baseline Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_baseline_subtract</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>spectrum baseline subtraction</call-name>
+      <call-function>getSpecBaselineOperation</call-function>
+      <call-description>draws spectrum baseline</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Baseline Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_baseline_subtract</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+
+    <!-- 2013/07/18 Add OKADA task:#280-1 -baseline_subtract -->
+    <call type="batch" order="5" fixed="true">
+      <call-name>baseline_subtract</call-name>
+      <call-function>execBaselineSubtract</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Baseline Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>baseline_subtract</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>baseline_subtract</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Perform the baseline subtraction.</call-description>
+    </call>
+
+    <!-- spec data manipulation -->
+    <call type="spec_manipulation">
+      <call-name>Spectrum Baseline Subtract</call-name>
+      <call-function>getSpecXYDataOperation</call-function>      
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Baseline Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_baseline</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>spec_params</param-value>
+        </param>
+      </params>
+      <call-description></call-description>
+    </call>
+    <!-- chrom data manipulation -->
+    <call type="chrom_manipulation">
+      <call-name>Chromatogram Baseline Subtract</call-name>
+      <call-function>getChromXYDataOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Baseline Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_baseline</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>chrom_params</param-value>
+        </param>
+      </params>
+      <call-description></call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>baseline</component-name>
+      <component-desc>Baseline Subtraction</component-desc>
+      <component-calls>
+        <component-call>subtract</component-call>        
+        <component-call>draw chromatogram baseline</component-call>        
+        <component-call>draw spectrum baseline</component-call>        
+        <component-call>chromatogram baseline subtraction</component-call>        
+        <component-call>spectrum baseline subtraction</component-call>                
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>baseline</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>XYDATA_BASELINE</package-call-type>        
+      </package-call-types>      
+    </package>    
+  </packages>    
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+MRM3D Plugin Parameter Settings
+get Parameter 
+01. XYData Smoothing name
+02. Chromatogram Peak Picking Algorizum Name (Need)
+03. Intensity Filter Type (NoUse / ABS / REL)(Need)
+04,05. Intensity Filter Range (Min/Max)
+-->
+<settings>
+  <chapters>
+    <chapter id="0">Analyze</chapter>
+    <chapter id="1" parent="0">MRM3D Peak Detection</chapter>
+    <chapter id="2" parent="1">Peak Detector</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string">
+      <item-type>XYDATA_FILTER</item-type>
+    </value>
+    <value id="1" type="string" default="local" required="true">
+      <item-type>CHROM_PEAK_PICKING</item-type>
+    </value>
+    <value id="2" type="string" default="nouse">
+      <enum>
+        <enum-name>No Use</enum-name>
+        <enum-value>nouse</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Relative(%)</enum-name>
+        <enum-value>rel</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Absolute</enum-name>
+        <enum-value>abs</enum-value>
+      </enum>
+    </value>
+    <value id="3" type="double" minInclusive="0.0" required="false"/>
+  </values>
+  <params>
+    <param id="0" value="0" required="false">
+      <param-name>chrom_smoothing</param-name>
+      <param-section>MRM3D Labeling</param-section>
+      <param-key>CHROMATOGRAM_SMOOTHING</param-key>
+      <prefix>MRM3D_CHROM_SMOOTHING</prefix>
+    </param>
+    <param id="1" value="1" required="true">
+      <param-name>chrom_peak_detector</param-name>
+      <param-section>MRM3D Labeling</param-section>
+      <param-key>CHROM_PEAK_DETECTOR</param-key>
+    </param>
+    <param id="3" value="2" required="true">
+      <param-name>intensity_filter_type</param-name>
+      <param-section>MRM3D Labeling</param-section>
+      <param-key>INTENSITY_FILTER_TYPE</param-key>
+    </param>
+    <param id="4" value="3">
+      <param-name>minimum_range_value</param-name>
+      <param-section>MRM3D Labeling</param-section>
+      <param-key>MIN_Range</param-key>
+    </param>
+    <param id="5" value="3">
+      <param-name>maximum_range_value</param-name>
+      <param-section>MRM3D Labeling</param-section>
+      <param-key>MAX_Range</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0" >
+      <group-name>Chromatogram Labeling</group-name>
+    </group>
+    <group id="1">
+      <group-name>MRM3D Thresholds</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page chapter="2" common="true">
+      <page-name>common</page-name>
+      <page-title>MRM3D</page-title>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Smoothing</form-title>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Peak Detector</form-title>
+        </form>
+        <form id="3" param="3" group="1">
+          <form-title>Intensity Filter Type</form-title>
+        </form>
+        <form id="4" param="4" group="1">
+          <form-title>Intensity Range(Min)</form-title>
+        </form>
+        <form id="5" param="5" group="1">
+          <form-title>Intensity Range(Max)</form-title>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>Peak Picking</page-name>
+      <page-title>MRM3D Labeling</page-title>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Smoothing</form-title>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Peak Detector</form-title>
+        </form>
+        <form id="3" param="3" group="1">
+          <form-title>Intensity Filter Type</form-title>
+        </form>
+        <form id="4" param="4" group="1">
+          <form-title>Intensity Range(Min)</form-title>
+        </form>
+        <form id="5" param="5" group="1">
+          <form-title>Intensity Range(Max)</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

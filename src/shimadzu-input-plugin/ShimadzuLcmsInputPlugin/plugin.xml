@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Shimadzu LCMS Input</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ShimadzuLcmsInputPlugin</link>
+  <function>
+    <call type="open_file">
+      <call-name>lcms</call-name>
+      <call-method static="true">
+        <class-name>kome.io.lcms.LcmsInputManager</class-name>
+        <method-name>open</method-name>
+      </call-method>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Shimadzu LCMS File</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>lcd</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="open_file">
+      <call-name>gcms</call-name>
+      <call-method static="true">
+        <class-name>kome.io.lcms.LcmsInputManager</class-name>
+        <method-name>open</method-name>
+      </call-method>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Shimadzu GCMS File</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>qgd</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>gcms</component-name>
+      <component-desc>import GC/MS data</component-desc>
+      <component-calls>
+        <component-call>gcms</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>lcms</component-name>
+      <component-desc>import LC/MS data</component-desc>
+      <component-calls>
+        <component-call>lcms</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>gcms</package-component>
+        <package-component>lcms</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

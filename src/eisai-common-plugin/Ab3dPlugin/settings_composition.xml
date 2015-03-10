@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<settings>
+  <chapters>
+	<chapter id="0">Operation</chapter>
+	<chapter id="1" parent="0">Sample Fusion</chapter>
+  </chapters>
+  <values>
+	<value id="0" type="string" required="true" default="ab3d">
+	  <item-type>2D_PEAK_PICKING</item-type>
+	</value>
+	<value id="2" type="string" required="true" default="max">
+	  <enum>
+		<enum-name>Max Intensity</enum-name>
+		<enum-value>max</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Total Intensity</enum-name>
+		<enum-value>total</enum-value>
+	  </enum>
+	</value>
+	<value id="3" type="string" required="true" default="subtraction">
+	  <enum>
+		<enum-name>Subtraction</enum-name>
+		<enum-value>subtraction</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Merge</enum-name>
+		<enum-value>merge</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Ratio</enum-name>
+		<enum-value>ratio</enum-value>
+	  </enum>
+	</value>
+	<value id="4" type="double" default="1.0" minInclusive="0.0" required="true" />
+	<value id="5" type="double" default="3.0" minInclusive="0.0" required="true" />
+  </values>
+  <params>
+	<param id="0" value="0" required="true">
+	  <param-name>peak_detector</param-name>
+	  <param-section>AB3D Composition</param-section>
+	  <param-key>PEAK_DETECTOR</param-key>
+	</param>
+	<param id="2" value="2" required="true">
+	  <param-name>int_type</param-name>
+	  <param-section>AB3D Composition</param-section>
+	  <param-key>INTENSITY_TYPE</param-key>
+	</param>
+	<param id="3" value="3" required="true">
+	  <param-name>op</param-name>
+	  <param-section>AB3D Composition</param-section>
+	  <param-key>OPERATION</param-key>
+	</param>
+	<param id="4" value="4" required="true">
+	  <param-name>mz_tol</param-name>
+	  <param-section>AB3D Composition</param-section>
+	  <param-key>MASS_TOLERANCE</param-key>
+	</param>
+	<param id="5" value="5" required="true">
+	  <param-name>rt_tol</param-name>
+	  <param-section>AB3D Composition</param-section>
+	  <param-key>RT_TOLERANCE</param-key>
+	</param>
+  </params>
+  <pages>
+	<page chapter="1" common="true">
+	  <page-name>common</page-name>
+	  <page-title>AB3D</page-title>
+	  <forms>
+		<form id="0" param="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="2" param="2">
+		  <form-title>Intensity</form-title>
+		</form>
+		<form id="3" param="3">
+		  <form-title>Operation</form-title>
+		</form>
+		<form id="4" param="4">
+		  <form-title>Mass Tolerance</form-title>
+		</form>
+		<form id="5" param="5">
+		  <form-title>RT Tolerance</form-title>
+		</form>
+	  </forms>
+	</page>
+	<page common="false">
+	  <page-name>Composition</page-name>
+	  <page-title>AB3D Composition</page-title>
+	  <forms>
+		<form id="0" param="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="1" param="1">
+		  <form-title>Cluster Detector</form-title>
+		</form>
+		<form id="2" param="2">
+		  <form-title>Intensity</form-title>
+		</form>
+		<form id="3" param="3">
+		  <form-title>Operation</form-title>
+		</form>
+		<form id="4" param="4">
+		  <form-title>Mass Tolerance</form-title>
+		</form>
+		<form id="5" param="5">
+		  <form-title>RT Tolerance</form-title>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+</settings>

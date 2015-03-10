@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>XYData View</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>XYDataViewPlugin</link>
+  <statuses>
+    <status id="0">
+      <status-name>DATA_XY_DATA_VIEW</status-name>
+      <status-value>on</status-value>
+    </status>
+    <status id="1">
+      <status-name>PEAKS_XY_DATA_VIEW</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="P" order="3">
+      <menu-name>Pane</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="D" order="1">
+      <menu-name>Data Points</menu-name>
+      <menu-description>Show / hide the Data Points pane</menu-description>
+    </menu-item>
+    <menu-item id="5" parent="1" accelerator="P" order="2">
+      <menu-name>Peak List</menu-name>
+      <menu-description>Show / hide the Peak List pane</menu-description>
+    </menu-item>
+
+  </menu>
+  <function>
+    <call type="init_gui" status="0">
+      <call-name>init data grid</call-name>
+      <call-function>initPointsView</call-function>
+      <packages>
+        <package>Viewer</package>
+      </packages>
+      <call-description>initialize data points grid view</call-description>
+    </call>
+    <call type="init_gui" status="1">
+      <call-name>init peaks grid</call-name>
+      <call-function>initPeaksView</call-function>
+      <packages>
+        <package>Viewer</package>
+      </packages>
+      <call-description>initialize peaks grid view</call-description>
+    </call>
+    <call type="on_activate" ifloaded="true">
+      <call-name>set active object</call-name>
+      <call-function>changeActiveObject</call-function>
+      <call-description>active object is changed</call-description>
+    </call>
+
+    <call type="on_update_2d_peaks">
+      <call-name>updatePeaksView</call-name>
+      <call-function>updatePeaksView</call-function>
+      <call-description>update peaks view</call-description>
+    </call>
+
+    <call type="on_update_spec" ifloaded="true">
+      <call-name>update spectrum</call-name>
+      <call-function>updateSpecXYData</call-function>
+      <call-description>update spectrum</call-description>
+    </call>
+    <call type="on_update_spec_peaks" ifloaded="true">
+      <call-name>update spectrum peaks</call-name>
+      <call-function>updateSpecXYData</call-function>
+      <call-description>update spectrum peaks</call-description>
+    </call>
+    <call type="on_update_chrom_peaks" ifloaded="true">
+      <call-name>update schromatogram peaks</call-name>
+      <call-function>updateChromXYData</call-function>
+      <call-description>update chromatogram peaks</call-description>
+    </call>
+    <call type="on_update_chrom" ifloaded="true">
+      <call-name>update chromatogram</call-name>
+      <call-function>updateChromXYData</call-function>
+      <call-description>update chromatogram</call-description>
+    </call>
+    <call type="draw_data_map_fg">
+      <call-name>draw2dPeaks</call-name>
+      <call-function>draw2dPeaks</call-function>
+      <call-description>draws 2D peaks</call-description>
+    </call>
+    <call type="draw_data_map_fg">
+      <call-name>draw2dClusters</call-name>
+      <call-function>draw2dClusters</call-function>
+      <call-description>draws 2D clusters</call-description>
+    </call>
+    <call type="execute">
+      <call-name>toggle data grid</call-name>
+      <call-function>togglePointsXYData</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the Data Points Pane</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>check the data grid</call-name>
+      <call-function>isVisiblePointsXYData</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>check the visibility of the data grid view</call-description>
+    </call>
+
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit GUI</call-name>
+      <call-function>exitGui</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+
+    <call type="execute">
+      <call-name>toggle peaks grid</call-name>
+      <call-function>togglePeakXY2DData</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the Peak List Pane</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>check XY2D PeakView</call-name>
+      <call-function>isVisibleXY2DPeakView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+      <call-description>check the visibility of the 2D Peaks view</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>points</component-name>
+      <component-desc>Data Points Pane</component-desc>
+      <component-calls>
+        <component-call>init data grid</component-call>
+        <component-call>set active object</component-call>
+        <component-call>update spectrum</component-call>
+        <component-call>update chromatogram</component-call>
+        <component-call>toggle data grid</component-call>
+        <component-call>check the data grid</component-call>
+        <component-call>exit GUI</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>Peaks Pane</component-desc>
+      <component-calls>
+        <component-call>init peaks grid</component-call>
+        <component-call>set active object</component-call>
+        <component-call>updatePeaksView</component-call>
+        <component-call>update spectrum</component-call>
+        <component-call>update spectrum peaks</component-call>
+        <component-call>update schromatogram peaks</component-call>
+        <component-call>update chromatogram</component-call>
+        <component-call>exit GUI</component-call>
+        <component-call>toggle peaks grid</component-call>
+        <component-call>check XY2D PeakView</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>draw</component-name>
+      <component-desc>Show Peak Position</component-desc>
+      <component-calls>
+        <component-call>draw2dPeaks</component-call>
+        <component-call>draw2dClusters</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>points</package-component>
+        <package-component>peaks</package-component>
+        <package-component>draw</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

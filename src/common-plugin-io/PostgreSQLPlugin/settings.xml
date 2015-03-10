@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" default="localhost" required="true" />
+    <value id="1" type="int" minInclusive="0" maxInclusive="65535" default="5432" required="true" />
+    <value id="2" type="string" default="" required="true">
+      <exclude>pstgres</exclude>      
+    </value>
+    <value id="3" type="string" default="" required="true" />
+    <value id="4" type="passwd" default="" required="false" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>db</param-name>
+      <param-section>PostgreSQL</param-section>
+      <param-key>COMMON_DB_SERVER</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>port</param-name>
+      <param-section>PostgreSQL</param-section>
+      <param-key>COMMON_DB_PORT</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>name</param-name>
+      <param-section>PostgreSQL</param-section>
+      <param-key>COMMON_DB_NAME</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>user</param-name>
+      <param-section>PostgreSQL</param-section>
+      <param-key>COMMON_DB_USER</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>password</param-name>
+      <param-section>PostgreSQL</param-section>
+      <param-key>COMMON_DB_PASSWORD</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>postgresql</page-name>
+      <page-title>PostgreSQL</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Server</form-title>
+          <form-desc>Set the PostgreSQL server. (e.g., localhost, 192.168.1.1)</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Port</form-title>
+          <form-desc>Set the server port number.</form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>Db Name</form-title>
+          <form-desc>Set the dabatabase name.</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>User</form-title>
+          <form-desc>Set the PostgreSQL user account name.</form-desc>
+        </form>
+        <form id="4" param="4">
+          <form-title>Password</form-title>
+          <form-desc>Set the PostgreSQL user account password.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

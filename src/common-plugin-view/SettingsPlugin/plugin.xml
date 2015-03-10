@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Parameters</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>SettingsPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>settings</icon-name>
+      <icon-file>images/settings16x16.png</icon-file>
+    </icon>
+  </icons>
+
+  <menu>
+    <menu-item id="0" accelerator="P">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="O" order="9">
+      <menu-name>Options...</menu-name>
+      <menu-group order="9">options</menu-group>
+      <menu-description>View / edit processing settings</menu-description>
+    </menu-item>
+    <menu-item id="2" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+    <menu-item id="3" parent="2" accelerator="O" order="9">
+      <menu-name>Options...</menu-name>
+      <menu-group order="9">options</menu-group>
+      <menu-description>View / edit general Mass++ settings</menu-description>
+      <toolbar order="8">Config</toolbar>      
+    </menu-item>
+    
+    <!-- Context Menu -->
+    <menu-item id="4" >
+      <menu-name>Properties</menu-name>
+      <menu-group>options</menu-group>
+      <popup type="chrom_view" order="8" />
+    </menu-item>
+    <menu-item id="5" >
+      <menu-name>Properties</menu-name>
+      <menu-group>options</menu-group>
+      <popup type="spec_view" order="8" />
+    </menu-item>
+    <menu-item id="6" >
+      <menu-name>Properties</menu-name>
+      <menu-group>options</menu-group>
+      <popup type="datamap_view" order="8" />
+    </menu-item>
+
+  </menu>
+
+  <function>
+    <call type="init">
+      <call-name>init</call-name>
+      <call-function>updateParamsFile</call-function>
+      <call-description>initialize parameters file</call-description>
+    </call>
+    <call type="exit">
+      <call-name>save</call-name>
+      <call-function>saveParamsFile</call-function>
+      <call-description>save parameters file</call-description>
+    </call>
+    <call type="on_settings">
+      <call-name>update</call-name>
+      <call-function>updateParamsFile</call-function>
+      <call-description>update parameters file</call-description>
+    </call>
+    <call type="exit">
+      <call-name>save params</call-name>
+      <call-function>saveParamsFile</call-function>
+      <call-description>save parameters file</call-description>
+    </call>
+    <call type="execute">
+      <call-name>show parameters dialog</call-name>
+      <call-function>showParametersDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>View / Edit Processing Settings</call-description>
+    </call>
+    <call type="execute" icon="0">
+      <call-name>show settings dialog</call-name>
+      <call-function>showSettingsDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>Mass++ general settings</call-description>
+    </call>
+
+    <!-- Context Menu -->
+    <call type="execute">
+      <call-name>show settings dialog from Popup Menu 1</call-name>
+      <call-function>showSettingsDialogFromContextMenuChromView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+      <call-description>Mass++ general settings</call-description>
+    </call>
+    <call type="execute">
+      <call-name>show settings dialog from Popup Menu 2</call-name>
+      <call-function>showSettingsDialogFromContextMenuSpecView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+      <call-description>Mass++ general settings</call-description>
+    </call>
+    <call type="execute">
+      <call-name>show settings dialog from Popup Menu 3</call-name>
+      <call-function>showSettingsDialogFromContextMenuHeatmapView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+      <call-description>Mass++ general settings</call-description>
+    </call>
+    <call type="batch" order="0">
+      <call-name>setParamsFile</call-name>
+      <call-function>setParamsFile</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Parameters File Path</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>params</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>params</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>set parameters file path</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>tools</component-name>
+      <component-desc>Tools - Options</component-desc>
+      <component-calls>
+        <component-call>init</component-call>
+        <component-call>save</component-call>
+        <component-call>update</component-call>
+        <component-call>show settings dialog</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>processing</component-name>
+      <component-desc>Processing - Options</component-desc>
+      <component-calls>
+        <component-call>init</component-call>
+        <component-call>save params</component-call>
+        <component-call>update</component-call>        
+        <component-call>show parameters dialog</component-call>
+        <component-call>show settings dialog from Popup Menu 1</component-call>
+        <component-call>show settings dialog from Popup Menu 2</component-call>        
+        <component-call>show settings dialog from Popup Menu 3</component-call>                
+        <component-call>setParamsFile</component-call>
+      </component-calls>
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>tools</package-component>
+        <package-component>processing</package-component>        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>tools</package-component>
+        <package-component>processing</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>tools</package-component>
+        <package-component>processing</package-component>                        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>tools</package-component>
+        <package-component>processing</package-component>                                
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>tools</package-component>
+        <package-component>processing</package-component>                                        
+      </package-components>
+    </package>
+  </packages>
+    
+  <settings>
+    <settings-file>settings.xml</settings-file>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+</plugin>

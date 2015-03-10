@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Simple Peak Position Appender</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>SimplePeakPositionAppenderPlugin</link>
+  <function>
+    <call type="quant_peak_pos">
+      <call-name>addPeakPosition</call-name>
+      <call-function>addPeakPositions</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Simple Appender</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>simple</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Peak Position</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Appending a peak position manually.</param-value>
+        </param>        
+      </params>
+      <call-description>add position</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>Add Peak Positions Manually</component-desc>
+      <component-calls>
+        <component-call>addPeakPosition</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+  </packages>   
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

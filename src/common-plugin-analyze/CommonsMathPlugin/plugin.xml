@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>CommonsMathPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>CommonsMathPlugin</link>
+  <java>
+    <classpath>commons-math-2.2.jar</classpath>
+  </java>
+  <function>
+    <call type="matrix_peak_analysis">
+      <call-name>ttest</call-name>
+      <call-function>calcTTestPValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>t-test</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>ttest</param-value>
+        </param>
+      </params>
+      <call-description>ttest</call-description>
+    </call>
+    <call type="matrix_peak_analysis">
+      <call-name>anova</call-name>
+      <call-function>calcAnovaValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>ANOVA</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>anova</param-value>
+        </param>
+      </params>
+      <call-description>ANOVA</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>tTest</component-name>
+      <component-desc>t-Test</component-desc>
+      <component-calls>
+        <component-call>ttest</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>anova</component-name>
+      <component-desc>ANOVA (Analysis of Variance)</component-desc>
+      <component-calls>
+        <component-call>anova</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>ttest</package-component>
+        <package-component>anova</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

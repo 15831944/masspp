@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Normalization Plugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>NormalizationPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="P" order="4">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="A" order="5">
+      <menu-name>Advanced Data Manipulation</menu-name>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="N" order="8" target="sample">
+      <menu-name>Normalization...</menu-name>
+      <menu-group>advanced data manipulation</menu-group>
+      <menu-description>normalization method</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>open dialog</call-name>
+      <call-function>openNormalizationDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normalization_filter">
+      <call-name>Threshold</call-name>
+      <call-function>NormalizFilterThreshold</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Threshold</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>call_threshold</param-value>
+        </param>
+      </params>
+      <call-description>Threshold</call-description>
+    </call>
+    <call type="normalization_filter">
+      <call-name>RT Range</call-name>
+      <call-function>NormalizFilterRtRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>RT Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>call_rt_range</param-value>
+        </param>
+      </params>
+      <call-description>RT Range</call-description>
+    </call>
+    <call type="normalization_filter">
+      <call-name>m/z Range</call-name>
+      <call-function>NormalizFilterMzRange</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>m/z Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>call_mz_range</param-value>
+        </param>
+      </params>
+      <call-description>m/z Range</call-description>
+    </call>
+    <call type="normalization_method">
+      <call-name>Internal Standard(Multi Sample)</call-name>
+      <call-function>NormalizMethodInteMultiSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Internal Standard(Multi Sample)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>int_std_multi_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>IntStdMultiSample</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Internal Standards in all Fractions(Each Fraction)</call-name>
+      <call-function>NormalizMethodInteEachFract</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Internal Standards in all Fractions(Each Fraction)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>int_std_each_fract</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>IntStdEachFrect</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Integration(Each Fraction)</call-name>
+      <call-function>NormalizMethodIntegratEachFrect</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Integration(Each Fraction)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>integrat_each_fact</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>IntegratEachFrect</param-value>
+        </param>
+
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Integration(Multi Sample)</call-name>
+      <call-function>NormalizMethodIntegratMultiSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Integration(Multi Sample)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>integrat_multi_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>IntegratMultiSample</param-value>
+        </param>
+
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Distribution(Max Intensity)(Each Fraction)</call-name>
+      <call-function>NormalizMethodDistributMaxIntentEachFract</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Max Intensity)(Each Fraction)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_maxIntent_each_fract</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributMaxIntentEachFract</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="normalization_method">
+      <call-name>Distribution(Max Intensity)(Multi Sample)</call-name>
+      <call-function>NormalizMethodDistributMaxIntentMultSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Max Intensity)(Multi Sample)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_maxIntent_multi_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributMaxIntentMultSample</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Distribution(Median)(Each Fraction)</call-name>
+      <call-function>NormalizMethodDistributMedianEachFract</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Median)(Each Fraction)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_median_each_fract</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributMedianEachFract</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Distribution(Median)(Multi Sample)</call-name>
+      <call-function>NormalizMethodDistributMedianMultiSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Median)(Multi Sample)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_median_multi_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributMedianMultiSample</param-value>
+        </param>
+
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Distribution(Percentile)(Each Fraction)</call-name>
+      <call-function>NormalizMethodDistributPrecentileEachFract</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Percentile)(Each Fraction)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_precentile_each_fract</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributPrecentileEachFract</param-value>
+        </param>
+
+      </params>
+    </call>
+    <call type="normalization_method">
+      <call-name>Distribution(Percentile)(Multi Sample)</call-name>
+      <call-function>NormalizMethodDistributPrecentileMultiSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Distribution(Percentile)(Multi Sample)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>distribut_precentile_multi_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>DistributPrecentileMultiSample</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>norm_standard</call-name>
+      <call-function>setNormStandard</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Set Normalization Standard Sample</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_standard</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_standard</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Specify the standard sample for normalization.</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>norm_filter_int</call-name>
+      <call-function>setNormFilterInt</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Set Normalization Intensity Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_filter_int</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_filter_int</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Set intensity filter of normalization.</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>norm_filter_rt</call-name>
+      <call-function>setNormFilterRt</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Set Normalization RT Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_filter_rt</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_filter_rt</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Set RT filter of normalization.</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>norm_filter_mz</call-name>
+      <call-function>setNormFilterMz</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Set Normalization m/z Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_filter_mz</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_filter_mz</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Set m/z filter of normalization.</call-description>
+    </call>
+
+    <call type="batch" order="5" fixed="true">
+      <call-name>norm_spec</call-name>
+      <call-function>execNormSpec</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Normalize samples using spectrum peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_spec</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_spec</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Normalize samples using spectrum peaks.</call-description>
+    </call>
+
+    <call type="batch" order="5" fixed="true">
+      <call-name>norm_2d</call-name>
+      <call-function>execNorm2d</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Normalize samples using 2D peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>norm_2d</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>norm_2d</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Manipulate</param-value>
+        </param>
+      </params>
+      <call-description>Normalize samples using 2D peaks.</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>normalization</component-name>
+      <component-desc>Open normalization dialog</component-desc>
+      <component-calls>
+        <component-call>open dialog</component-call>
+        <component-call>norm_standard</component-call>
+        <component-call>norm_filter_int</component-call>
+        <component-call>norm_filter_rt</component-call>
+        <component-call>norm_filter_mz</component-call>
+        <component-call>norm_spec</component-call>
+        <component-call>norm_2d</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>intensity filter</component-name>
+      <component-desc>Normalization Filter (Intensity Threshold)</component-desc>
+      <component-calls>
+        <component-call>Threshold</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>RT filter</component-name>
+      <component-desc>Normalization Filter (RT Range)</component-desc>
+      <component-calls>
+        <component-call>RT Range</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>m/z filter</component-name>
+      <component-desc>Normalization Filter (m/z Range)</component-desc>
+      <component-calls>
+        <component-call>m/z Range</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>is samples</component-name>
+      <component-desc>Internal Standard (Samples)</component-desc>
+      <component-calls>
+        <component-call>Internal Standard(Multi Sample)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>is spectra</component-name>
+      <component-desc>Internal Standard (Spectra)</component-desc>
+      <component-calls>
+        <component-call>Internal Standards in all Fractions(Each Fraction)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>int samples</component-name>
+      <component-desc>Integration (Samples)</component-desc>
+      <component-calls>
+        <component-call>Integration(Multi Sample)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>int spectra</component-name>
+      <component-desc>Integration (Spectra)</component-desc>
+      <component-calls>
+        <component-call>Integration(Each Fraction)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>max samples</component-name>
+      <component-desc>Distribution by Maximum Intensity (Samples)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Max Intensity)(Multi Sample)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>max spectra</component-name>
+      <component-desc>Distribution by Maximum Intensity (Spectra)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Max Intensity)(Each Fraction)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>med samples</component-name>
+      <component-desc>Distribution by Median (Samples)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Median)(Multi Sample)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>med spectra</component-name>
+      <component-desc>Distribution by Median (Spectra)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Median)(Each Fraction)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>percent samples</component-name>
+      <component-desc>Percentile (Samples)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Percentile)(Multi Sample)</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>percent spectra</component-name>
+      <component-desc>Percentile (Spectra)</component-desc>
+      <component-calls>
+        <component-call>Distribution(Percentile)(Each Fraction)</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>normalization</package-component>
+        <package-component>intensity filter</package-component>
+        <package-component>RT filter</package-component>
+        <package-component>m/z filter</package-component>
+        <package-component>is samples</package-component>
+        <package-component>is spectra</package-component>
+        <package-component>int samples</package-component>
+        <package-component>int spectra</package-component>
+        <package-component>max samples</package-component>
+        <package-component>max spectra</package-component>
+        <package-component>med samples</package-component>
+        <package-component>med spectra</package-component>
+        <package-component>percent samples</package-component>
+        <package-component>percent spectra</package-component>
+      </package-components>
+    </package>
+    <package-name>Data Processing</package-name>
+    <package-components>
+      <package-component>normalization</package-component>
+      <package-component>intensity filter</package-component>
+      <package-component>RT filter</package-component>
+      <package-component>m/z filter</package-component>
+      <package-component>is samples</package-component>
+      <package-component>is spectra</package-component>
+      <package-component>int samples</package-component>
+      <package-component>int spectra</package-component>
+      <package-component>max samples</package-component>
+      <package-component>max spectra</package-component>
+      <package-component>med samples</package-component>
+      <package-component>med spectra</package-component>
+      <package-component>percent samples</package-component>
+      <package-component>percent spectra</package-component>
+    </package-components>
+  </packages>
+
+  <parameters>
+    <parameters-file>settings_intstd.xml</parameters-file>
+    <parameters-file>settings_integrat.xml</parameters-file>
+    <parameters-file>settings_max_intent.xml</parameters-file>
+    <parameters-file>settings_median.xml</parameters-file>
+    <parameters-file>settings_percentile.xml</parameters-file>
+    <parameters-file>settings-batch.xml</parameters-file>
+  </parameters>
+</plugin>

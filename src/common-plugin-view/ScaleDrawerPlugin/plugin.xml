@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Scale Drawer</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ScaleDrawerPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>DRAWING_SPEC_SCALE</status-name>
+      <status-value>standard</status-value>
+    </status>
+    <status id="1" default="true">
+      <status-name>DRAWING_CHROM_SCALE</status-name>
+      <status-value>standard</status-value>
+    </status>
+    <status id="2" default="true">
+      <status-name>DRAWING_DATAMAP_SCALE</status-name>
+      <status-value>standard</status-value>
+    </status>
+  </statuses>
+  <function>
+    <call type="prepare_spec_window">
+      <call-name>prepare spectrum</call-name>
+      <call-function>prepareSpectrumScale</call-function>
+      <call-description>prepare to draw spectrum scale</call-description>
+    </call>
+    <call type="draw_spec_window_fg">
+      <call-name>draw spectrum foreground</call-name>
+      <call-function>drawSpectrumScale</call-function>
+      <call-description>draw spectrum scale</call-description>
+    </call>
+    <call type="prepare_chrom_window">
+      <call-name>prepare chromatogram</call-name>
+      <call-function>prepareChromatogramScale</call-function>
+      <call-description>prepare to draw chromatogram scale</call-description>
+    </call>
+    <call type="draw_chrom_window_fg">
+      <call-name>draw chromatogram foreground</call-name>
+      <call-function>drawChromatogramScale</call-function>
+      <call-description>draw chromatogram scale</call-description>
+    </call>
+    <call type="prepare_data_map_window">
+      <call-name>prepare data map</call-name>
+      <call-function>prepareDataMapScale</call-function>
+      <call-description>prepare to draw data map scale</call-description>
+    </call>
+    <call type="draw_data_map_window_fg">
+      <call-name>draw data map foreground</call-name>
+      <call-function>drawDataMapScale</call-function>
+      <call-description>draw data map scale</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>spectrum</component-name>
+      <component-desc>Spectrum Scale</component-desc>
+      <component-calls>
+        <component-call>prepare spectrum</component-call>
+        <component-call>draw spectrum foreground</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chromatogram</component-name>
+      <component-desc>Chromatogram Scale</component-desc>
+      <component-calls>
+        <component-call>prepare chromatogram</component-call>
+        <component-call>draw chromatogram foreground</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>datamap</component-name>
+      <component-desc>Datamap Scale</component-desc>
+      <component-calls>
+        <component-call>prepare data map</component-call>
+        <component-call>draw data map foreground</component-call>
+      </component-calls>
+    </component>        
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+        <package-component>datamap</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+        <package-component>datamap</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+        <package-component>datamap</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+        <package-component>datamap</package-component>                
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+        <package-component>datamap</package-component>                
+      </package-components>
+    </package>
+  </packages>
+  
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

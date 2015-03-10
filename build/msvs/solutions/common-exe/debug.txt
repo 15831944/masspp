@@ -1,0 +1,6 @@
+Command :
+   $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin\$(TargetFileName)
+
+Environment :
+    PATH=$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+    MASSPP_DB_HOME=$(SolutionDir)..\..\..\..\database

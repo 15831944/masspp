@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>DB Manager</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>DbManagerPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>db</icon-name>
+      <icon-file>images/db16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="F" order="0">
+      <menu-name>File</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="D">
+      <menu-name>Database...</menu-name>
+      <menu-group order="8">db</menu-group>
+      <toolbar order="1">database</toolbar>
+      <menu-description>Select database and perform database operations</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="init">
+      <call-name>initDb</call-name>
+      <call-function>prepareDb</call-function>
+      <call-description>initialize DB</call-description>
+    </call>
+    <call type="init_gui">
+      <call-name>check schema</call-name>
+      <call-function>checkDatabaseSchema</call-function>
+      <call-description>check the database schema</call-description>
+    </call>
+    <call type="on_settings">
+      <call-name>changeDb</call-name>
+      <call-function>changeDb</call-function>
+      <call-description>change current DB</call-description>
+    </call>
+    <call type="execute" icon="0">
+      <call-name>open DB Dialog</call-name>
+      <call-function>openDbDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>Database configuration...</call-description>
+    </call>
+    <call type="batch" order="0">
+      <call-name>selectDb</call-name>
+      <call-function>selectDb</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Database</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>db</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>db</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="exit">
+      <call-name>releaseDb</call-name>
+      <call-function>releaseDb</call-function>
+      <call-description>release DB</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>internal DB</component-name>
+      <component-desc>Internal Database Management</component-desc>
+      <component-calls>
+        <component-call>initDb</component-call>        
+        <component-call>check schema</component-call>                
+        <component-call>changeDb</component-call>                        
+        <component-call>open DB Dialog</component-call>
+        <component-call>selectDb</component-call>
+        <component-call>releaseDb</component-call>        
+      </component-calls>      
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>internal DB</package-component>
+      </package-components>      
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>internal DB</package-component>
+      </package-components>      
+    </package>    
+  </packages>  
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

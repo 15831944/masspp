@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings100.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double-range" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>range</param-name>
+      <param-section>Displaying Range</param-section>
+      <param-key>RANGE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>range</page-name>
+      <page-title>Displaying Range</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Range</form-title>
+          <form-desc>
+            Displaying m/z or RT range when exporting a spectrum or a chromatogram
+            waveform image file.
+          </form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>    
+</settings>

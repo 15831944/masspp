@@ -1,0 +1,18 @@
+EXPORTS
+	initPointsView
+	initPeaksView
+	changeActiveObject
+	updateSpecXYData
+	updateChromXYData
+	togglePointsXYData
+	togglePeaksXYData
+	isVisiblePointsXYData
+	isVisiblePeaksXYData
+	exitGui
+	toggle2dPeaksView
+	isVisiblePeaksView
+	updatePeaksView
+	togglePeakXY2DData
+	isVisibleXY2DPeakView
+	draw2dPeaks
+	draw2dClusters

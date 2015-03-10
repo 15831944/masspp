@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peak Waveform</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>PeakWaveformPlugin</link>
+
+  <menu>
+    <menu-item id="0" accelerator="V">
+      <menu-name>View</menu-name>
+      <menu-description></menu-description>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="S">
+      <menu-name>Spectrum</menu-name>
+      <menu-description></menu-description>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="R" order="9">
+      <menu-name>Display Peaks</menu-name>
+      <menu-group>openData</menu-group>
+      <menu-description></menu-description>
+    </menu-item>
+
+    <!-- context menu -->
+    <menu-item id="3">
+      <menu-name>Display Peaks</menu-name>
+      <menu-group>io</menu-group>
+      <popup type="spec_item" order="6" />
+    </menu-item>
+    <menu-item id="4">
+      <menu-name>Display Peaks</menu-name>
+      <menu-group>io</menu-group>
+      <popup type="chrom_item" order="6" />
+    </menu-item>
+  </menu>
+
+  <function>
+    <call type="execute">
+      <call-name>open Peaks</call-name>
+      <call-function>openDispPeaks</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>OpenSpectrum</call-name>
+      <call-function>openSpectPeaksFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>open spectrum</call-description>
+    </call>
+
+    <call type="execute">
+      <call-name>OpenChromatogram</call-name>
+      <call-function>openChromPeaksFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+      <call-description>open chromatogram</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>Peaks View</component-desc>
+      <component-calls>
+        <component-call>open Peaks</component-call>
+        <component-call>OpenSpectrum</component-call>
+        <component-call>OpenChromatogram</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

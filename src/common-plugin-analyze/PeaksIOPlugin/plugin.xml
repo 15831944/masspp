@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peaks IO</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>PeaksIOPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+
+    <menu-item id="1" accelerator="F" order="0">
+      <menu-name>File</menu-name>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="I" order="2">
+      <menu-name>Import</menu-name>
+    </menu-item>
+    <menu-item id="3" parent="2" accelerator="P" order="9" target="not_null">
+      <menu-name>Peaks...</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>Import peaks from text file</menu-description>
+    </menu-item>
+    <menu-item id="4" parent="1" accelerator="E" order="3">
+      <menu-name>Export</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>Export</menu-description>
+    </menu-item>
+    <menu-item id="6" parent="4" accelerator="P" order="5" target="not_null">
+      <menu-name>Peaks...</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>Export detected peaks to a text file</menu-description>
+    </menu-item>
+
+    <!-- Context Menu -->
+    <menu-item id="7">
+      <menu-name>Import Peaks...</menu-name>
+      <menu-group>Peaks</menu-group>
+      <popup type="datamap_view" order="2" />
+    </menu-item>
+    <menu-item id="8">
+      <menu-name>Export Peaks...</menu-name>
+      <menu-group>Peaks</menu-group>
+      <popup type="datamap_view" order="2" />
+    </menu-item>
+
+  </menu>
+  <function>
+    <call type="draw_data_map_fg" order="9">
+      <call-name>drawOverlappingPeaks</call-name>
+      <call-function>drawOverlappingPeaks</call-function>
+      <call-description>draw overlapping peaks</call-description>
+    </call>
+    <call type="execute">
+      <call-name>menuImportPeaks</call-name>
+      <call-function>menuImportPeaks</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>Import Peaks from Text File to a Heatmap</call-description>
+    </call>
+    <call type="execute">
+      <call-name>exportPeaks</call-name>
+      <call-function>exportPeaks</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+      <call-description>Export Heatmap Detected Peaks to a Text File</call-description>
+    </call>
+
+    <!-- Context Menu -->
+    <call type="execute">
+      <call-name>menuImportPeaks2</call-name>
+      <call-function>menuImportPeaks</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+      <call-description>Import Peaks from Text File to a Heatmap</call-description>
+    </call>
+    <call type="execute">
+      <call-name>exportPeaks2</call-name>
+      <call-function>exportPeaks</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>8</param-value>
+        </param>
+      </params>
+      <call-description>Export Heatmap Detected Peaks to a Text File</call-description>
+    </call>
+
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>export operation</call-name>
+      <call-function>getExportPeakOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Export Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>export_peaks</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+      <call-description>XXX</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>Peaks IO</component-desc>
+      <component-calls>
+        <component-call>drawOverlappingPeaks</component-call>
+        <component-call>menuImportPeaks</component-call>
+        <component-call>exportPeaks</component-call>
+        <component-call>menuImportPeaks2</component-call>
+        <component-call>exportPeaks2</component-call>
+        <component-call>export operation</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+    
+  </packages>   
+      
+</plugin>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Matrix Peak Merge</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>MatrixPeaksMergePlugin</link>
+
+  <function>
+    <call type="quantitation_window">
+      <call-name>merge peaks</call-name>
+      <call-function>getMergePeakPanel</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Merge Matrix Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>mergePeaks</param-value>
+        </param>
+      </params>
+    </call>
+
+  </function>
+  <components>
+    <component>
+      <component-name>merge peaks</component-name>
+      <component-desc>Merge peaks in peak matrix</component-desc>
+      <component-calls>
+        <component-call>merge peaks</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>merge peaks</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+</plugin>

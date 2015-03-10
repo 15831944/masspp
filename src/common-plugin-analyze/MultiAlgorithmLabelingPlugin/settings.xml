@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" default="gion"  required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+      <exclude>multi</exclude>
+    </value>
+    <value id="1" type="string" default="centroid" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+      <exclude>multi</exclude>
+    </value>
+  </values>
+  <groups>
+    <group id="0">
+      <group-name>Spectrum Peak Detection</group-name>
+    </group>
+    <group id="1">
+      <group-name>IDA Survey</group-name>
+    </group>
+  </groups>
+  <params>
+    <param id="0" value="0">
+      <param-name>prof_mode</param-name>
+      <param-section>Multi Algorithm Labeling</param-section>
+      <param-key>PROFILE_PEAK_DETECTOR</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>centroid_mode</param-name>
+      <param-section>Multi Algorithm Labeling</param-section>
+      <param-key>CENTROID_PEAK_DETECTOR</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Spectrum Peak Detection</page-name>
+      <page-title>Multi Algorithm</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Profile Mode</form-title>
+          <form-desc>Select the peak detection method for profile mode spectra.</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Centroid Mode</form-title>
+          <form-desc>Select the peak detection method for centroid mode spectra.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>
+

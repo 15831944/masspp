@@ -1,0 +1,7 @@
+EXPORTS
+	onCloseSpec
+	onSpecButtonDown
+	onSpecButtonDblClick
+	showMagnify
+	onDrawSpecWindowFg
+	getMagnifyingViewOperation

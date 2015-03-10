@@ -1,0 +1,37 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[File] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Open">
+<param name="Local" value="ch01s01.html#id628408"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Opening Files">
+<param name="Local" value="ch01s01.html#id179406"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Export">
+<param name="Local" value="ch01s01.html#id628419"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Sample">
+<param name="Local" value="ch01s01.html#id628425"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Exporting Samples">
+<param name="Local" value="ch01s01.html#id628450"></OBJECT></LI>
+</UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Close">
+<param name="Local" value="ch01s01.html#id628437"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Closing Files">
+<param name="Local" value="ch01s01.html#id628452"></OBJECT></LI>
+</UL></UL></UL></BODY></HTML>

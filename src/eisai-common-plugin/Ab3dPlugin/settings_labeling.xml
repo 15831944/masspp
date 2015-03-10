@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+
+<settings>
+  <chapters>
+	<chapter id="0">Analysis</chapter>
+	<chapter id="1" parent="0">2D Peak Detection</chapter>
+	<chapter id="2" parent="1">Peak Detector</chapter>
+  </chapters>
+  <values>
+	<value id="0" type="string">
+	  <item-type>XYDATA_FILTER</item-type>
+	</value>
+	<value id="1" type="string" default="local" required="true">
+	  <item-type>SPEC_PEAK_PICKING</item-type>
+	</value>
+	<value id="2" type="double" default="0.25" minInclusive="0.0" />
+	<value id="3" type="double" default="0.5" minInclusive="0.0" />
+	<value id="4" type="double" default="10.0" minInclusive="0.0" maxInclusive="100.0" />
+	<value id="5" type="bool" default="false" />
+	<value id="6" type="double" default="0.25" minInclusive="0.0" />
+	<value id="7" type="double" default="0.5" minInclusive="0.0" />
+	<value id="8" type="string" default="rel">
+	  <enum>
+		<enum-name>Absolute</enum-name>
+		<enum-value>abs</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Relative (%)</enum-name>
+		<enum-value>rel</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Auto</enum-name>
+		<enum-value>auto</enum-value>
+	  </enum>
+	</value>
+	<value id="9" type="double" default="1.0" minInclusive="0.0" />
+  </values>
+  <params>
+	<param id="0" value="0" required="false">
+	  <param-name>spec_smoothing</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>SPECTRUM_SMOOTHING</param-key>
+	  <prefix>AB3D_LABELING_SPEC_SMOOTHING</prefix>
+	</param>
+	<param id="1" value="1" required="true">
+	  <param-name>spec_peak_detector</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>SPEC_PEAK_DETECTOR</param-key>
+	</param>
+	<param id="2" value="2" required="true">
+	  <param-name>mz_d</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>MS_MERGE_DISTANCE</param-key>
+	</param>
+	<param id="3" value="3" required="true">
+	  <param-name>rt_d</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>RT_MERGE_DISTANCE</param-key>
+	</param>
+	<param id="4" value="4" required="true">
+	  <param-name>end_height</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>PEAK_END_HEIGHT_PERCENTAGE</param-key>
+	</param>
+	<param id="5" value="5" required="true">
+	  <param-name>del_shoulder</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>DELETE_SHOULDER_PEAKS</param-key>
+	</param>
+	<param id="6" value="6" required="true">
+	  <param-name>shld_mz_range</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>SHOULDER_MASS_RANGE</param-key>
+	</param>
+	<param id="7" value="7" required="true">
+	  <param-name>shld_rt_range</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>SHOULDER_RT_RANGE</param-key>
+	</param>
+	<param id="8" value="8" required="true">
+	  <param-name>int_type</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>INTENSITY_THRESHOLD_TYPE</param-key>
+	</param>
+	<param id="9" value="9" required="true">
+	  <param-name>int_threshold</param-name>
+	  <param-section>AB3D Labeling</param-section>
+	  <param-key>INTENSITY_THRESHOLD</param-key>
+	</param>
+  </params>
+  <groups>
+	<group id="0" >
+	  <group-name>Spectrum Peak Detection</group-name>
+	</group>
+	<group id="1">
+	  <group-name>Merge</group-name>
+	</group>
+	<group id="2" >
+	  <group-name>Shoulder Peaks</group-name>
+	</group>
+	<group id="3" >
+	  <group-name>Intensity</group-name>
+	</group>
+  </groups>
+  <pages>
+	<page chapter="2" common="true">
+	  <page-name>common</page-name>
+	  <page-title>AB3D</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Smoothing</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>Mass Tolerance</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>RT Tolerance</form-title>
+		</form>
+		<form id="4" param="4" group="1">
+		  <form-title>Peak End Height Percentage (%)</form-title>
+		</form>
+		<form id="5" param="5" group="2">
+		  <form-title>Delete Shoulder Flag</form-title>
+		</form>
+		<form id="6" param="6" group="2">
+		  <form-title>Shoulder Mass Range</form-title>
+		</form>
+		<form id="7" param="7" group="2">
+		  <form-title>Shoulder RT Range</form-title>
+		</form>
+		<form id="8" param="8" group="3">
+		  <form-title>Intensity Threshold Type</form-title>
+		</form>
+		<form id="9" param="9" group="3">
+		  <form-title>Intensity Threshold</form-title>
+		</form>
+	  </forms>
+	</page>
+	<page common="false">
+	  <page-name>Peak Picking</page-name>
+    <page-title>AB3D Peak Detection</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Smoothing</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Peak Detector</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>Mass Tolerance</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>RT Tolerance</form-title>
+		</form>
+		<form id="4" param="4" group="1">
+		  <form-title>Peak End Height Percentage (%)</form-title>
+		</form>
+		<form id="5" param="5" group="2">
+		  <form-title>Delete Shoulder Flag</form-title>
+		</form>
+		<form id="6" param="6" group="2">
+		  <form-title>Shoulder Mass Range</form-title>
+		</form>
+		<form id="7" param="7" group="2">
+		  <form-title>Shoulder RT Range</form-title>
+		</form>
+		<form id="8" param="8" group="3">
+		  <form-title>Intensity Threshold Type</form-title>
+		</form>
+		<form id="9" param="9" group="3">
+		  <form-title>Intensity Threshold</form-title>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+</settings>

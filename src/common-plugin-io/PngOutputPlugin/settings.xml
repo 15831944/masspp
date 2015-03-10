@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings100.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="int" default="480" required="true" />
+    <value id="1" type="int" default="360" required="true" />
+  </values>    
+  <params>
+    <param id="0" value="0">
+      <param-name>width</param-name>
+      <param-section>Png Output</param-section>
+      <param-key>WIDTH</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>height</param-name>
+      <param-section>Png Output</param-section>
+      <param-key>HEIGHT</param-key>
+    </param>    
+  </params>
+  <pages>
+    <page>
+      <page-name>png</page-name>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Width</form-title>
+          <form-desc>The width of PNG image size.</form-desc>          
+        </form>
+        <form id="1" param="1">
+          <form-title>Height</form-title>
+          <form-desc>The height of PNG image size.</form-desc>
+        </form>        
+      </forms>
+    </page>
+  </pages>
+</settings>

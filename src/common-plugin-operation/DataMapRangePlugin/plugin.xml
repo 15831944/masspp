@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>DataMap Range</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>DataMapRangePlugin</link>
+
+  <!-- Context Menu -->
+  <menu>
+    <menu-item id="0">
+      <menu-name>Reset Zoom</menu-name>
+      <menu-group>ResetZoom</menu-group>
+      <popup type="datamap_view" order="1" />
+    </menu-item>
+
+    <menu-item id="1">
+      <menu-name>Change Displayed Range</menu-name>
+      <menu-group>ResetZoom</menu-group>
+      <popup type="datamap_view" order="1" />
+    </menu-item>
+
+  </menu>
+
+  <function>
+    <call type="on_open_data_map">
+      <call-name>create data map</call-name>
+      <call-function>createDataMap</call-function>
+      <call-description>create data map</call-description>
+    </call>
+    <call type="prepare_data_map_window" order="1">
+      <call-name>prepare data map</call-name>
+      <call-function>prepareDataMap</call-function>
+      <call-description>prepare to draw data map</call-description>
+    </call>
+    <call type="on_close_data_map" ifloaded="true">
+      <call-name>on close data map</call-name>
+      <call-function>closeDataMapRange</call-function>
+      <call-description>on close DataMap</call-description>
+    </call>
+    <call type="on_data_map_button_down" order="9" >
+      <call-name>on data map button down</call-name>
+      <call-function>onDataMapInfoButtonDown</call-function>
+      <call-description>on data map button down</call-description>
+    </call>
+    <call type="on_data_map_mouse_move">
+      <call-name>on data map mouse move</call-name>
+      <call-function>onDataMapInfoMouseMove</call-function>
+      <call-description>on data map mouse move</call-description>
+    </call>
+    <call type="on_data_map_button_up">
+      <call-name>on data map button up</call-name>
+      <call-function>onDataMapInfoButtonUp</call-function>
+      <call-description>on data map button up</call-description>
+    </call>
+    <call type="draw_data_map_window_fg">
+      <call-name>draw data map foreground</call-name>
+      <call-function>onDrawDataMapFg</call-function>
+      <call-description>draw data map foreground</call-description>
+    </call>
+
+    <call type="set_datamap_status">
+      <call-name>set data map range status</call-name>
+      <call-function>setRangeStatus</call-function>
+      <call-description>Synchronize Axes for Similar Data Display Windows</call-description>
+    </call>
+
+    <!-- Context Menu -->
+    <call type="execute">
+      <call-name>Reset Zoom Call</call-name>
+      <call-function>resetZoomDatamapFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>0</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="execute">
+      <call-name>Change Displayed Range Dialog</call-name>
+      <call-function>openChangeDisplayedRangeDlg</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="datamap_range_action" order="6">
+      <call-name>Change Displayed Range Dialog 2</call-name>
+      <call-function>openChangeDisplayedRangeDlg</call-function>
+      <call-description>show Change Displayed Datamap Range</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Change Displayed Range...</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="on_data_map_dbl_clk">
+      <call-name>on DataMap Button Double Click</call-name>
+      <call-function>onDataMapInfoDblClick</call-function>
+      <call-description>data map mouse button double click</call-description>
+    </call>
+
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>DataMap Range Operation</call-name>
+      <call-function>getDataMapRangeOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>DataMap Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>datamp_range</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+      <call-description>data map range operation</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>data map</component-name>
+      <component-desc>Opening data map</component-desc>
+      <component-calls>
+        <component-call>create data map</component-call>
+        <component-call>prepare data map</component-call>
+        <component-call>on close data map</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>data map range</component-name>
+      <component-desc>Data map range operation</component-desc>
+      <component-calls>
+        <component-call>prepare data map</component-call>
+        <component-call>on close data map</component-call>
+        <component-call>on data map button down</component-call>
+        <component-call>on data map mouse move</component-call>
+        <component-call>on data map button up</component-call>
+        <component-call>draw data map foreground</component-call>
+        <component-call>Reset Zoom Call</component-call>
+        <component-call>Change Displayed Range Dialog</component-call>
+        <component-call>Change Displayed Range Dialog 2</component-call>
+        <component-call>DataMap Range Operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>synchronize</component-name>
+      <component-desc>Synchronize data maps</component-desc>
+      <component-calls>
+        <component-call>set data map range status</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>range action</component-name>
+      <component-desc>Data map range action</component-desc>
+      <component-calls>
+        <component-call>Change Displayed Range Dialog</component-call>
+        <component-call>on DataMap Button Double Click</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>data map</package-component>
+        <package-component>data map range</package-component>
+        <package-component>range action</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>data map</package-component>
+        <package-component>data map range</package-component>
+        <package-component>range action</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>data map</package-component>
+        <package-component>data map range</package-component>
+        <package-component>range action</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>data map</package-component>
+        <package-component>data map range</package-component>
+        <package-component>synchronize</package-component>
+        <package-component>range action</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

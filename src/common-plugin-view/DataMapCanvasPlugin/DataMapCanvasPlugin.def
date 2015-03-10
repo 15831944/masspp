@@ -1,0 +1,10 @@
+EXPORTS
+	createDataMapCanvas
+	setDataMapStatus
+	setDataMapStatusOpen
+	onDataMapMouseMoveStatusBar
+	onDataMapMouseLeaveStatusBar
+	onDataMapMouseButtonDown
+	onDataMapMouseButtonUp
+	onDataMapMouseDblClick
+	getHeatMapCanvasOperation

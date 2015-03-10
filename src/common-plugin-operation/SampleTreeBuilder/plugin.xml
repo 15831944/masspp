@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>SampleTreebuilder</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>SampleTreebuilder</link>
+
+  <function>
+    
+    <call type="batch">
+      <call-name>sample tree build</call-name>
+      <call-function>execSampleTreeBuilderCommandline</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Sample tree Build</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>smpl_tree</param-value>
+          <!-- option -->
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>smpl_tree_params</param-value>
+          
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>input</param-value>
+          <!-- option -->
+        </param>
+      </params>
+      <call-description>specify input file path</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>tree builder</component-name>
+      <component-desc>Sample Tree Builder</component-desc>
+      <component-calls>
+        <component-call>sample tree build</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+
+</plugin>

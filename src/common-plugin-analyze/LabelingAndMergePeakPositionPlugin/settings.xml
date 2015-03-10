@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="1" type="string" default="ab3d" required="true">
+      <item-type>2D_PEAK_PICKING</item-type>
+    </value>
+    <value id="4" type="double" default="0.5" minInclusive="0.0" required="true" />
+    <value id="5" type="double" default="0.25" minInclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="1" value="1">
+      <param-name>peak</param-name>
+      <param-section>Labeling And Merge Peak Position</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>rt_tol</param-name>
+      <param-section>Labeling And Merge Peak Position</param-section>
+      <param-key>RT_TOLERANCE</param-key>
+    </param>
+    <param id="5" value="5">
+      <param-name>mz_tol</param-name>
+      <param-section>Labeling And Merge Peak Position</param-section>
+      <param-key>MZ_TOLERANCE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Peak Position</page-name>
+      <page-title>Labeling And Merge</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Peak Detector</form-title>
+        </form>
+        <form id="4" param="4">
+          <form-title>RT Tolerance</form-title>
+        </form>
+        <form id="5" param="5">
+          <form-title>m/z Tolerance</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

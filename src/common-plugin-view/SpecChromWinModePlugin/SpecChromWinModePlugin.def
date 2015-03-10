@@ -1,0 +1,8 @@
+EXPORTS
+    setSpecChromWindowStatus
+    onClientSize
+	openSpectrumFrame
+	openChromatogramFrame
+	openDataMapFrame
+    onChromKeyDown
+    closeAllChildFrames

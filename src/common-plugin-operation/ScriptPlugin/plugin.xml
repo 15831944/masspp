@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>ScriptPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>ScriptPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>run</icon-name>
+      <icon-file>images/script_list_run_icon16x16.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>run_disabled</icon-name>
+      <icon-file>images/script_list_run_icon16x16.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>add</icon-name>
+      <icon-file>images/script_list_add_icon16x16.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>add_disabled</icon-name>
+      <icon-file>images/script_list_add_icon16x16.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>edit</icon-name>
+      <icon-file>images/script_list_edit_icon16x16.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>edit_disabled</icon-name>
+      <icon-file>images/script_list_edit_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="6" type="png">
+      <icon-name>delete</icon-name>
+      <icon-file>images/script_list_del_icon16x16.png</icon-file>
+    </icon>
+    <icon id="7" type="png">
+      <icon-name>delete_disabled</icon-name>
+      <icon-file>images/script_list_del_disabled_icon16x16.png</icon-file>
+    </icon>   
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" accelerator="S">
+      <menu-name>Script Console...</menu-name>
+      <menu-group>script</menu-group>
+      <menu-description>Run script</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>script</call-name>
+      <call-function>openScriptDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="init" fixed="true" order="9">
+      <call-name>init</call-name>
+      <call-function>initScriptPlugin</call-function>
+    </call>
+  </function>
+  
+  <components>
+    <component>
+      <component-name>script</component-name>
+      <component-desc>Script Console</component-desc>
+      <component-calls>
+        <component-call>script</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>script</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

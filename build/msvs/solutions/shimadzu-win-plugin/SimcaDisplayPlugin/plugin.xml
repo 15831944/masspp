@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+  <name>SimcaDisplayPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  
+  <link>SimcaDisplayPlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="P" order="4">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" accelerator="Q" order="2" parent="0">
+      <menu-name>Quantitation</menu-name>
+      <menu-group order="0">peaks</menu-group>      
+    </menu-item>
+    <menu-item id="2" accelerator="D" order="9" parent="1">
+      <menu-name>Simca Display...</menu-name>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>show display</call-name>
+      <call-method>
+        <class-name>SimcaDisplay.SimcaDisplayPlugin</class-name>
+        <method-name>SimcaDisplayPluginFunction</method-name>
+      </call-method>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>SIMCA</component-name>
+      <component-desc>SIMCA Display</component-desc>
+      <component-calls>
+        <component-call>show display</component-call>        
+      </component-calls>      
+    </component>    
+  </components>
+</plugin>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="email" default="" required="true" />
+    <value id="2" type="string" default="both" required="true">
+      <enum>
+        <enum-name>Both</enum-name>
+        <enum-value>both</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Positive</enum-name>
+        <enum-value>positive</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Negative</enum-name>
+        <enum-value>negative</enum-value>
+      </enum>
+    </value>
+    <value id="10" type="bool" default="true" />
+    <value id="11" type="list" hideAllChk="false" required="true" parent="10" />
+    <value id="12" type="bool" list="11" required="true">
+      <enum-call>insttypearr</enum-call>
+      <value-name>Instrument</value-name>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>mailAddress</param-name>
+      <param-section>MassBank</param-section>
+      <param-key>MAILADDRESS</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>ionMode</param-name>
+      <param-section>MassBank</param-section>
+      <param-key>IONMODE</param-key>
+    </param>
+    <param id="10" value="11">
+      <param-name>insttype</param-name>
+      <param-section>MassBank</param-section>
+      <param-key>INSTTYPES</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name></group-name>
+    </group>
+  </groups>
+  <page common="false">
+    <page-name>massbankbatchsearch</page-name>
+    <page-title>Massbank Batch Search</page-title>
+    <forms>
+      <form id="0" param="0" group="0">
+        <form-title>Email</form-title>
+        <form-desc>The result of MassBank batch search is sent as email.</form-desc>
+      </form>
+      <form id="2" param="2" group="0">
+        <form-title>Ion Mode</form-title>
+        <form-desc>Select the positive or negative ion mode.</form-desc>
+      </form>
+      <form id="10" param="10" group="0">
+        <form-title>Instruments</form-title>
+        <form-desc>Select the instruments to acquire data.</form-desc>
+      </form>
+    </forms>
+  </page>
+</settings>

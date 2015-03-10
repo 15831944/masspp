@@ -1,0 +1,7 @@
+EXPORTS
+	createSpectrumCanvas
+	createChromatogramCanvas
+	setSpecAndChromStatus
+	getSpecProfileCanvasOperation
+	getChromProfileCanvasOperation
+		

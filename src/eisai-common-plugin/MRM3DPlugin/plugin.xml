@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<plugin>
+  <name>MRM3D</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MRM3DPlugin</link>
+  <function>
+    <call type="2d_peak_picking">
+      <call-name>detectMRM3DPeaks</call-name>
+      <call-function>detectMRM3DPeaks</call-function>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo from -->
+      <packages>
+        <package>Quantitation</package>
+      </packages>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo to -->
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>detect MRM3D Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>mrm3d</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Peak Picking</param-value>
+        </param>
+       </params>
+      <call-description>MRM 3D Detector</call-description>
+    </call>
+  </function>
+  <parameters>
+    <parameters-file>settings_labeling.xml</parameters-file>
+  </parameters>
+</plugin>
+<!--
+    <call type="alignment">
+    <call-name>alignment with LOWESS</call-name>
+    <call-function>executeAlignmentWithLOWESS</call-function>
+    <params>
+      <param>
+        <param-name>long name</param-name>
+        <param-value>AB3D Alignment (TIC Pattern, LOWESS)</param-value>
+      </param>
+      <param>
+        <param-name>short name</param-name>
+        <param-value>ab3d_lowess</param-value>
+      </param>
+      <param>
+        <param-name>page</param-name>
+        <param-value>Alignment LOWESS</param-value>
+      </param>
+    </params>
+    <call-description>AB3D Alignment (TIC Fitting, LOWESS)</call-description>
+  </call>
+-->

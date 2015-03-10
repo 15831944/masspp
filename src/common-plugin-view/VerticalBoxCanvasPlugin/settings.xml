@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <chapters>
+    <chapter id="0">View</chapter>
+    <chapter id="1" parent="0">Window</chapter>
+  </chapters>
+
+  <values>
+    <value id="0" type="int" default="200" minInclusive="30" />
+  </values>
+
+
+  <params>
+	<param id="0" value="0" required="true">
+	  <param-name>Vertical Box Window Size</param-name>
+	  <param-section>Vertical Box Window Size</param-section>
+	  <param-key>VERTICAL_BOX_SIZE</param-key>
+	</param>
+  </params>
+  <groups>
+	<group id="0">
+	  <group-name>Window Size</group-name>
+	</group>
+  </groups>
+  <pages>
+	<page chapter="1" common="true" eachmachine="true">
+	  <page-name>common</page-name>
+	  <page-title>Stacked</page-title>
+	  <forms>
+		<form id="0" group ="0" param="0">
+		  <form-title>Size</form-title>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+
+</settings>

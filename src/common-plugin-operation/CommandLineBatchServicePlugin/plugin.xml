@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>CommandLineBatchServicePlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>CommandLineBatchServicePlugin</link>
+  <function>
+    <call type="get_batch_service">
+      <call-name>batch service</call-name>
+      <call-function>getBatchService</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Background Process Server</param-value>          
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>bgproc</param-value>          
+        </param>        
+      </params>
+      <call-description>gets the command line batch service.</call-description>      
+    </call>
+  </function>    
+</plugin>

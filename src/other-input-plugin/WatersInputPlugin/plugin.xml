@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Waters Input</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>WatersInputPlugin</link>
+  <function>
+    <call type="open_file">
+      <call-name>open</call-name>
+      <call-method static="true">
+        <class-name>kome.io.waters.WatersInputManager</class-name>
+        <method-name>open</method-name>
+      </call-method>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Waters sample file</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>raw</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="supported_file">
+      <call-name>checkMicromassFolder</call-name>
+      <call-method static="true">
+        <class-name>kome.io.waters.WatersInputManager</class-name>
+        <method-name>isMicromassFolder</method-name>
+      </call-method>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>import</component-name>
+      <component-desc>import Thermo file</component-desc>
+      <component-calls>
+        <component-call>open</component-call>
+        <component-call>checkMicromassFolder</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+        <package-component>export</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

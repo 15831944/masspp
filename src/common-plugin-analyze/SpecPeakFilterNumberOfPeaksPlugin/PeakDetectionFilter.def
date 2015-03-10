@@ -1,0 +1,3 @@
+EXPORTS
+; All Mass++ plug-in functions must be exported so that they can be called externally.
+	SpecPeakFilterNumberOfPeaks

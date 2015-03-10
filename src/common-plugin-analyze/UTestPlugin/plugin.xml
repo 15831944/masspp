@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>UTestPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>UTestPlugin</link>
+  <function>
+    <call type="matrix_peak_analysis">
+      <call-name>utest</call-name>
+      <call-function>calcUTestPValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Mann-Whitney U test</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>utest</param-value>
+        </param>
+      </params>      
+      <call-description>utest</call-description>      
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>utest</component-name>
+      <component-desc>Mann-Whitney's u-test</component-desc>
+      <component-calls>
+        <component-call>utest</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>utest</package-component>
+      </package-components>
+    </package>
+  </packages>   
+</plugin>

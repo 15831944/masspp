@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double" default="0.1" minInclusive="0.0" required="true" />
+    <value id="1" type="double" default="3.0" minInclusive="0.0" required="true" />
+    <value id="2" type="int" default="10" minInclusive="0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>window_width</param-name>
+      <param-section>ABC Baseline Detection</param-section>
+      <param-key>WINDOW_WIDTH</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>noise_factor</param-name>
+      <param-section>ABC Baseline Detection</param-section>
+      <param-key>NOISE_FACTOR</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>smoothing_width</param-name>
+      <param-section>ABC Baseline Detection</param-section>
+      <param-key>SMOOTHING_WIDTH</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Baseline</page-name>
+      <page-title>ABC Baseline</page-title>
+      <forms>
+        <form id="3" param="0">
+          <form-title>Window Width</form-title>
+          <form-desc img="images/abc-baseline-0.png">Set the "window width" of ABC baseline detection method.</form-desc>
+        </form>
+        <form id="4" param="1">
+          <form-title>Noise Factor</form-title>
+          <form-desc img="images/abc-baseline-1.png">Set the "noise factor" of ABC baseline detection method.</form-desc>
+        </form>
+        <form id="5" param="2">
+          <form-title>Smoothing Width</form-title>
+          <form-desc img="images/abc-baseline-2.png">Set the "smoothing width" of ABC baseline detection method.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

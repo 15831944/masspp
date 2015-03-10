@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Spec Info Export</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+
+  <link>SpectrumChangerPlugin</link>
+
+  <icons>
+    <icon id="3" type="png">
+      <icon-name>spectrum_change_down_icon</icon-name>
+      <icon-file>images/spec_chg_dn_icon_16x16.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>spectrum_change_down_icon</icon-name>
+      <icon-file>images/spec_chg_up_icon_16x16.png</icon-file>
+    </icon>
+  </icons>
+
+  <statuses>
+    <status id="0" default="true">
+      <status-name>NEXT_PREV_SPECTRUM</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+
+  <menu>
+    <menu-item id="0" accelerator="V">      
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0">
+      <menu-name>Spectrum</menu-name>
+      <menu-group order="2">Spectrum</menu-group>
+    </menu-item>
+
+    <menu-item id="2" parent="1" target="spectrum" order="2" accelerator="N">
+      <menu-name>Next</menu-name>
+      <toolbar>Spectrum</toolbar>
+      <menu-description>Display the next spectrum in the data file</menu-description>
+      <menu-group>Operation</menu-group>
+    </menu-item>
+    <menu-item id="3" parent="1" target="spectrum" order="1" accelerator="P">
+      <menu-name>Previous</menu-name>
+      <toolbar>Spectrum</toolbar>
+      <menu-description>Display the previous spectrum in the data file</menu-description>
+      <menu-group>Operation</menu-group>
+    </menu-item>
+  </menu>
+
+  <function>
+    <call type="execute" icon="3">
+      <call-name>next</call-name>
+      <call-function>openNextSpectrum</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show next spectrum</call-description>
+    </call>
+    <call type="enable">
+      <call-name>check next spectrum</call-name>
+      <call-function>enableNextSpectrum</call-function>
+      <call-description>check next spectrum</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute" icon="4">
+      <call-name>previous</call-name>
+      <call-function>openPrevSpectrum</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>Show previous spectrum</call-description>
+    </call>
+    <call type="enable">
+      <call-name>check prev spectrum</call-name>
+      <call-function>enablePrevSpectrum</call-function>
+      <call-description>check prev spectrum</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="on_spec_key_down" order="9" status="0">
+    <call-name>on spectrum key down</call-name>
+      <call-function>onSpecKeyDownX</call-function>
+      <call-description>on spectrum keybord down</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>next prev</component-name>
+      <component-desc>Next &amp; Previous spectrum</component-desc>
+      <component-calls>
+        <component-call>next</component-call>
+        <component-call>check next spectrum</component-call>
+        <component-call>previous</component-call>
+        <component-call>check prev spectrum</component-call>
+        <component-call>on spectrum key down</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>next prev</package-component>
+      </package-components>
+    </package>
+  </packages>  
+</plugin>

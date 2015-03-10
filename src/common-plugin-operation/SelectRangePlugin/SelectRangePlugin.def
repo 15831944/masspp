@@ -1,0 +1,19 @@
+EXPORTS
+	onCloseSpec
+	onCloseChrom
+	onSpecButtonDown
+	onChromButtonDown
+	onSpecMouseMove
+	onChromMouseMove
+	onSpecButtonUp
+	onChromButtonUp
+	onDrawSpecFg
+	onDrawChromFg
+	onDrawSpecBg
+	onDrawChromBg
+	onSpecDblClick
+	onChromDblClick
+	SetValStatusBarSpec
+	SetValStatusBarChrom
+	onMouseLeave
+		

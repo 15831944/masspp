@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">View</chapter>
+    <chapter id="1" parent="0">Drawing</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="int" default="2" minInclusive="0" maxInclusive="10"/>
+    <value id="1" type="string" default="rt_mass" >
+      <enum>
+        <enum-name>RT / Mass</enum-name>
+        <enum-value>rt_mass</enum-value>
+        <enum-desc>Peak positions are drawn.</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>Difference</enum-name>
+        <enum-value>difference</enum-value>
+        <enum-desc>Peak differences are drawn.</enum-desc>
+      </enum>
+    </value>
+    <value id="2" type="font" required="true" default="#000000,8,0,0,1,Calibri" />
+    <value id="3" type="int" default="1" minInclusive="1" maxInclusive="10" required="true" />
+    <value id="4" type="color" default="aqua" required="true" />
+    <value id="5" type="color" default="lime" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <!-- SPEC 89091: -->
+      <param-name>Chrom Accuracy</param-name>
+      <param-section>Label Drawing</param-section>
+      <param-key>CHROM_ACCURACY</param-key>
+    </param>
+
+    <param id="1" value="0">
+      <param-name>Spec Accuracy</param-name>
+      <param-section>Label Drawing</param-section>
+      <param-key>SPEC_ACCURACY</param-key>
+    </param>
+    
+    <param id="2" value="1">
+      <param-name>Type</param-name>
+      <param-section>Label Drawing</param-section>
+      <param-key>LABEL_TYPE</param-key>
+    </param>
+    <param id="3" value="2">
+      <param-name>font</param-name>
+      <param-section>Label Drawing</param-section>
+      <param-key>LABEL_FONT</param-key>
+    </param>
+
+    <param id="4" value="3">
+      <param-name>width_2dPeak</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>WIDTH_PEAK_2D</param-key>
+    </param>
+    <param id="5" value="4">
+      <param-name>color_2dPeak</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>COLOR_PEAK_2D</param-key>
+    </param>
+    <param id="6" value="3">
+      <param-name>width_2dCluster</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>WIDTH_CLUSTER_2D</param-key>
+    </param>
+    <param id="7" value="5">
+      <param-name>color_2dCluster</param-name>
+      <param-section>Drawing</param-section>
+      <param-key>COLOR_CLUSTER_2D</param-key>
+    </param>
+  </params>
+  
+  <groups>
+    <group id="0">
+      <group-name>Accuracy (Decimal Places)</group-name>
+    </group>
+    <group id="1">
+      <group-name>2D Peak</group-name>
+    </group>
+    <group id="2">
+      <group-name>2D Cluster</group-name>
+    </group>
+  </groups>
+ 
+  <pages>   
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Labels</page-title>
+      <forms>
+        <form id="0" param="2">
+          <form-title>Label Type</form-title>
+          <form-desc>Set the peak label type.</form-desc>
+        </form>
+
+        <form id="1" param="3">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of peak label.</form-desc>
+        </form>
+        <form id="2" group="0" param="0" >
+          <form-title>Chromatogram Accuracy (Decimal Places)</form-title>
+          <form-desc>Set the accuracy of peak label.</form-desc>
+        </form>
+        
+        <form id="3" group="0" param="1" >
+          <form-title>Spectrum Accuracy (Decimal Places)</form-title>
+          <form-desc>Set the accuracy of peak label.</form-desc>
+        </form>      
+       
+      </forms>
+     </page>
+    <!-- Peak 2D Label -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Peak 2D Label</page-title>
+      <forms>
+        <form id="0" group="1" param="4">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of rectangle line for representing peak positions.</form-desc>
+        </form>
+        <form id="1" group="1" param="5">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of rectangle line for representing peak positions.</form-desc>
+        </form>
+
+        <form id="2" group="2" param="6">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of rectangle line for representing cluster positions.</form-desc>
+        </form>
+        <form id="3" group="2" param="7">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of rectangle line for representing cluster positions.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- Context Menu -->
+    <!-- chromatogram label -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Labels</page-title>
+      <properties-page type="chrom_view" />
+      <forms>
+        <form id="0" param="2">
+          <form-title>Label Type</form-title>
+          <form-desc>Set the peak label type.</form-desc>
+        </form>
+        <form id="1" param="3">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of peak label.</form-desc>
+        </form>              
+        <form id="2" group="0" param="0" >
+          <form-title>Accuracy (Decimal Places)</form-title>
+          <form-desc>Set the accuracy of peak label.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- spectrum label -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Labels</page-title>
+      <properties-page type="spec_view" />
+      <forms>
+        <form id="0" param="2">
+          <form-title>Label Type</form-title>
+          <form-desc>Set the peak label type.</form-desc>
+        </form>
+        <form id="1" param="3">
+          <form-title>Font</form-title>
+          <form-desc>Set the font of peak label.</form-desc>
+        </form>
+        <form id="2" group="0" param="1" >
+          <form-title>Accuracy (Decimal Places)</form-title>
+          <form-desc>Set the accuracy of peak label.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- heatmap -->
+    <page chapter="1" common="true" eachmachine="true">
+      <page-name>common</page-name>
+      <page-title>Peak 2D Label</page-title>
+      <properties-page type="heatmap_view" />
+       <forms>
+        <form id="0" group="1" param="4">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of rectangle line for representing peak positions.</form-desc>
+        </form>
+        <form id="1" group="1" param="5">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of rectangle line for representing peak positions.</form-desc>
+        </form>
+
+        <form id="2" group="2" param="6">
+          <form-title>Width</form-title>
+          <form-desc>Set the width of rectangle line for representing cluster positions.</form-desc>
+        </form>
+        <form id="3" group="2" param="7">
+          <form-title>Color</form-title>
+          <form-desc>Set the color of rectangle line for representing cluster positions.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

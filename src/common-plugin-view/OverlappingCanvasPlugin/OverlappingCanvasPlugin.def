@@ -1,0 +1,14 @@
+EXPORTS
+	getSpectrumCanvas
+	getChromatogramCanvas
+	setSpecAndChromStatus
+	toggleOverlappingDialog
+	checkOverlappingDialog
+	initGui
+	changeActiveObject
+	exitGui
+	SelectCanvasOfSpectrum
+	SelectCanvasOfChromatogram
+	onSpecKeyUp
+	getSpecOverlapCanvasOperation
+	getChromOverlapCanvasOperation

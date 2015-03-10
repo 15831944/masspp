@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>MsmsSpectraMergePlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>MsmsSpectraMergePlugin</link>
+  <menu>
+    <menu-item id="0" accelerator="P" order="4">
+      <menu-name>Processing</menu-name>
+      <menu-description>Processing</menu-description>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="A" order="5">
+      <menu-name>Advanced Data Manipulation</menu-name>
+      <menu-group order="4">manipulation</menu-group>
+      <menu-description>Advanced Data Manipulation</menu-description>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="M" target="sample">
+      <menu-name>Merge MS/MS Spectra</menu-name>
+      <menu-group>advanced data manipulation</menu-group>
+      <menu-description>Merge near MS/MS spectra.</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>merge</call-name>
+      <call-function>mergeMs2Spectra</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>merges ner MS/MS spectra.</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>merge</component-name>
+      <component-desc>Merge MS/MS spectra</component-desc>
+      <component-calls>
+        <component-call>merge</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>merge</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

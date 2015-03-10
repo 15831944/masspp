@@ -1,0 +1,8 @@
+EXPORTS
+	initLog
+	initView
+	finalizeLog
+	finalizeView
+	toggleLogView
+	isVisibleLogView
+	onUpdateSettings

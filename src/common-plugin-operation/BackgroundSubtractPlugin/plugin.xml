@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Background Subtract</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>BackgroundSubtractPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>background</icon-name>
+      <icon-file>images/bgsub_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+ 
+  <!--Processing > Basic Data Manipulation > Background Subtraction... -->
+  <menu>
+    <menu-item id="0" accelerator="P" order="6">
+      <menu-name>Processing</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="B" order="3">
+      <menu-name>Basic Data Manipulation</menu-name> 
+      <menu-group order="4">manipulation</menu-group>      
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="B" target="spectra" order="1">
+      <menu-name>Background Subtract...</menu-name>
+      <toolbar>Data Manipulation</toolbar>
+      <menu-description>Perform background subtraction on the active spectrum</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>subtract</call-name>
+      <call-function>openBackgroundDialog</call-function>
+      <call-description>Background subtract...</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="draw_spec_fg" ifloaded="true">
+      <call-name>drawBackgroundLabel</call-name>
+      <call-function>drawBackgroundLabel</call-function>
+      <call-description>draws background label</call-description>
+    </call>
+    <call type="spectrum_open_bg_dialog" ifloaded="true">
+      <call-name>open background dialog</call-name>
+      <call-function>openSpectrumCanvas</call-function>
+      <call-description>open spectrum canvas</call-description>
+    </call>
+    <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo from -->
+    <call type="on_close_spec" ifloaded="true" fixed="true">
+      <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo to -->
+      <call-name>on close spectrum</call-name>
+      <call-function>closeSpectrumCanvas</call-function>
+      <call-description>on close spectrum</call-description>
+    </call>
+    <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo from -->
+    <call type="exit_gui" ifloaded="true" fixed="true">
+      <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo to -->
+      <call-name>close all spectrum</call-name>
+      <call-function>closeAllSpectrumCanvas</call-function>
+      <call-description>close all spectrum canvas</call-description>
+    </call>
+    <!-- Operation -->
+    <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo from -->
+    <call type="operation" fixed="true">
+      <!-- add package fixed option @date 2013.02.01 <Add> S.Sugo to -->
+      <call-name>background subtraction</call-name>
+      <call-function>getBackgroundOperation</call-function>
+      <call-description>XXXX</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Background Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>background_subtract</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- spectrum data manipulation -->
+    <call type="spec_manipulation">
+      <call-name>Background</call-name>
+      <call-function>getSpecXYDataOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Background Subtraction</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>background</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>params</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>background</component-name>
+      <component-desc>Background Subtraction</component-desc>
+      <component-calls>
+        <component-call>subtract</component-call>        
+        <component-call>drawBackgroundLabel</component-call>                
+        <component-call>open background dialog</component-call>                        
+        <component-call>on close spectrum</component-call>                        
+        <component-call>close all spectrum</component-call>                        
+        <component-call>background subtraction</component-call>                        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>background</package-component>
+      </package-components>
+    </package>    
+  </packages>        
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

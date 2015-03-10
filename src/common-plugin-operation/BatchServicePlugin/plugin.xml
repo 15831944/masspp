@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Batch Service</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>BatchServicePlugin</link>
+
+  <icon id="0" type="png">
+    <icon-name>batch_plugin</icon-name>
+    <icon-file>images/batch_plugin_icon16x16.png</icon-file>
+  </icon>
+  <icon id="1" type="png">
+    <icon-name>batch_item_add</icon-name>
+    <icon-file>images/item_add_icon32x32.png</icon-file>
+  </icon>
+  <icon id="2" type="png">
+    <icon-name>item_del</icon-name>
+    <icon-file>images/item_del_icon16x16.png</icon-file>
+  </icon>
+  <icon id="3" type="png">
+    <icon-name>item_down</icon-name>
+    <icon-file>images/item_down_icon16x16.png</icon-file>
+  </icon>
+  <icon id="4" type="png">
+    <icon-name>item_save</icon-name>
+    <icon-file>images/item_save_icon16x16.png</icon-file>
+  </icon>
+  <icon id="5" type="png">
+    <icon-name>item_save_new</icon-name>
+    <icon-file>images/item_save_new_icon16x16.png</icon-file>
+  </icon>
+  <icon id="6" type="png">
+    <icon-name>item_up</icon-name>
+    <icon-file>images/item_up_icon16x16.png</icon-file>
+  </icon>
+  <icon id="7" type="png">
+    <icon-name>edit</icon-name>
+    <icon-file>images/edit_icon16x16.png</icon-file>
+  </icon>
+  <icon id="8" type="png">
+    <icon-name>new</icon-name>
+    <icon-file>images/new_icon16x16.png</icon-file>
+  </icon>
+  <icon id="9" type="png">
+    <icon-name>sample_add</icon-name>
+    <icon-file>images/sample_add_icon16x16.png</icon-file>
+  </icon>
+  <icon id="10" type="png">
+    <icon-name>sample_del</icon-name>
+    <icon-file>images/sample_del_icon16x16.png</icon-file>
+  </icon>
+  <icon id="11" type="png">
+    <icon-name>select_format</icon-name>
+    <icon-file>images/select_format_icon16x16.png</icon-file>
+  </icon>
+  <icon id="12" type="png">
+    <icon-name>folder-open</icon-name>
+    <icon-file>images/folder-open16x16.png</icon-file>
+  </icon>
+
+
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" accelerator="B">
+      <menu-name>Batch Processing...</menu-name>
+      <menu-group>batch</menu-group>
+      <menu-description>Configure a batch method and submit for batch processing</menu-description>
+    </menu-item>
+    <menu-item id="2" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="3" parent="2" accelerator="R">
+      <menu-name>Results</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+    <menu-item id="4" parent="3" accelerator="B" order="7" checked="1">
+      <menu-name>Batch Job List</menu-name>
+      <menu-description>Show / hide the Search Engine Results dialog</menu-description>
+    </menu-item>
+  </menu>
+
+  <function>
+    <call type="execute">
+      <call-name>Batch Processing Method Configuration</call-name>
+      <call-function>batchProcessingMethodConfiguration</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>Batch Processing Method Configuration</call-description>
+    </call>
+    <call type="execute">
+      <call-name>toggleBatchJobs</call-name>
+      <call-function>toggleBatchJobWindow</call-function>
+      <call-description>toggle the visibility of the batch job window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>          
+        </param>        
+      </params>      
+    </call>
+    <call type="checked">
+      <call-name>isVisibleBatchJob</call-name>
+      <call-function>isVisibleBatchJob</call-function>
+      <call-description>check the visibility of the batch job window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <!-- 2013/08/20 TEST -->
+    <call type="batch_set">
+      <call-name>batch set</call-name>
+      <call-function>batchSetFunctionTest</call-function>
+      <packages>
+        <package>Data Processing</package>
+      </packages>
+      <call-description>Batch Set Function Test</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Batch Set Test</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>batch_set_test</param-value>
+        </param>
+      </params>
+    </call>    
+    
+  </function>
+  <components>
+    <component>
+      <component-name>batch</component-name>
+      <component-desc>Batch Processing</component-desc>
+      <component-calls>
+        <component-call>Batch Processing Method Configuration</component-call>        
+        <component-call>toggleBatchJobs</component-call>        
+        <component-call>isVisibleBatchJob</component-call>        
+      </component-calls>
+    </component>
+  </components>
+</plugin>

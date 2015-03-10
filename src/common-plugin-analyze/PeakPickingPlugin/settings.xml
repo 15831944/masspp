@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Analysis</chapter>
+    <chapter id="1" parent="0">Labeling</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" default="local" required="false">
+      <item-type>CHROM_PEAK_PICKING</item-type>
+    </value>
+    <value id="1" type="string" default="local" required="false">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="2" type="string" default="local" required="false">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="3" type="string" default="simple" required="false">
+      <item-type>CHARGE_DETECT</item-type>
+    </value>
+    <value id="5" type="bool" default="true" required="true" />
+    <value id="6" type="bool" default="false" required="true" />
+    <!-- Peak Filtering Setting -->
+    <value id="7" type="double" default="0.0" minExclusive="0.0" required="true" />
+    <value id="8" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>Absolute</enum-name>
+        <enum-value>Absolute</enum-value>
+        <enum-desc>Absolute: absolute value.</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>Relative (%)</enum-name>
+        <enum-value>Relative</enum-value>
+        <enum-desc>Relative: relative value. (0-100)</enum-desc>
+      </enum>
+    </value>
+    <value id="9" type="double" required="false" />
+    <value id="10" type="double" default="0.5" required="false" />
+    <value id="11" type="list" required="false" />
+    <value id="12" type="double" list="11" minExclusive="0.0" required="true" >
+      <value-name>m/z</value-name>      
+    </value>
+    <value id="13" type="string" list="11" maxExclusive="255" required="false">
+      <value-name>Comment</value-name>
+    </value>
+    <!-- Normalization -->
+    <value id="14" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="15" type="string" default="defaultcharge" required="true">
+      <item-type>CHARGE_DETECT</item-type>
+    </value>
+    <value id="16" type="string" required="true">
+      <item-type>2D_PEAK_PICKING</item-type>
+    </value>
+    
+     <!-- S/N Filter/Mslowess @Date:2013/08/01 <Modify> A.Ozaki from -->
+    <value id="18" type="string" default="mslowess" required="true" >
+      <item-type>"sn_peak_filtering"</item-type>
+    </value>
+    <value id="19" type="double" default="5.0" minInclusive="0.0" required="true" />
+    <!-- No.20 is missing -->
+    <value id="21" type="double" required="true"/>
+    <!-- S/N Filter/Mslowess @Date:2013/08/01 <Modify> A.Ozaki from -->
+
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>chrom_alg</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHROM_LABELING</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>ms_alg</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_MS_SPEC_LABELING</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>ms2_alg</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_MSMS_SPEC_LABELING</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>charge_alg</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_DETECTOR</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>parent_alg</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_PARENT_PEAK_DETECTOR</param-key>
+    </param>
+    <param id="5" value="5">
+      <param-name>charge1</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_1</param-key>
+    </param>
+    <param id="6" value="5">
+      <param-name>charge2</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_2</param-key>
+    </param>
+    <param id="7" value="5">
+      <param-name>charge3</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_3</param-key>
+    </param>
+    <param id="8" value="5">
+      <param-name>charge4</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_4</param-key>
+    </param>
+    <param id="9" value="6">
+      <param-name>charge5</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_5</param-key>
+    </param>
+    <param id="10" value="6">
+      <param-name>charge6</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_6</param-key>
+    </param>
+    <param id="11" value="6">
+      <param-name>charge7</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_7</param-key>
+    </param>
+    <param id="12" value="6">
+      <param-name>charge8</param-name>
+      <param-section>Auto Labeling</param-section>
+      <param-key>DEFAULT_CHARGE_8</param-key>
+    </param>
+    <!-- Peak Filtering Setting -->
+    <!-- Height Threshold -->
+    <param id="13" value="8">
+      <param-name>type</param-name>
+      <param-section>Height Threshold</param-section>
+      <param-key>type</param-key>
+    </param>
+    <param id="14" value="7">
+      <param-name>value</param-name>
+      <param-section>Height Threshold</param-section>
+      <param-key>value</param-key>
+    </param>
+    <!-- Mz Range -->
+    <param id="15" value="9">
+      <param-name>start</param-name>
+      <param-section>Mz Range</param-section>
+      <param-key>Start</param-key>
+    </param>
+    <param id="16" value="9">
+      <param-name>end</param-name>
+      <param-section>Mz Range</param-section>
+      <param-key>End</param-key>
+    </param>
+    <!-- Elimination List -->
+    <param id="17" value="11">
+      <param-name>elimination_list</param-name>
+      <param-section>Elimination List</param-section>
+      <param-key>Elimination_Peaks</param-key>
+    </param>
+    <param id="18" value="10">
+      <param-name>tolerance</param-name>
+      <param-section>Elimination List</param-section>
+      <param-key>Tolerance</param-key>
+    </param>
+    <!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki from -->
+    <param id="23" value="18">
+      <param-name>smoothing_method</param-name>
+      <param-section>S/N</param-section>
+      <param-key>"sn_peak_filtering"</param-key>
+    </param>
+    <param id="24" value="19">
+      <param-name>s/n</param-name>
+      <param-section>S/N</param-section>
+      <param-key>S/N</param-key>
+    </param>
+    <!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki to -->
+    <!-- Normalization -->
+    <param id="19" value="14">
+      <param-name>peakDetector</param-name>
+      <param-section>Normaliz Peak</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="20" value="15">
+      <param-name>chargeDetector</param-name>
+      <param-section>Normaliz Peak</param-section>
+      <param-key>CHARGE_DETECTOR</param-key>
+    </param>
+    <param id="21" value="16">
+      <param-name>Labeling</param-name>
+      <param-section>Normaliz 2D Peak</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+   
+    <param id="26" value="21">
+      <param-name>Difference</param-name>
+      <param-section>Difference</param-section>
+      <param-key>DIFF_ELIMINAT</param-key>
+    </param>
+    <param id="27" value="21">
+      <param-name>diffTol</param-name>
+      <param-section>Difference</param-section>
+      <param-key>DIFF_TOL</param-key>  
+    </param>
+
+   </params>
+  <groups>
+    <group id="0">
+      <group-name>Default Chromatogram Labeling</group-name>
+    </group>
+    <group id="1">
+      <group-name>Default Spectrum Labeling</group-name>
+    </group>
+    <group id="2">
+      <group-name>Default Charge Detect</group-name>
+    </group>
+    <group id="3">
+      <group-name>Chromatogram</group-name>
+    </group>
+    <group id="4">
+      <group-name>Spectrum</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page chapter="1" common="true">
+      <page-name>Default Labeling</page-name>
+      <page-title>Default Labeling</page-title>
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title />
+        </form>
+        <form id="1" group="1" param="1">
+          <form-title>MS</form-title>
+        </form>
+        <form id="2" group="1" param="2">
+          <form-title>MS/MS</form-title>
+        </form>
+        <form id="3" group="2" param="3">
+          <form-title>Charge</form-title>
+          <list-menu edit="1" add="0" updown="1" delete="0" copy="1" save="0" selectall="1" editName="edithoge" addName="addhoge" />
+        </form>
+      </forms>
+    </page>
+    <!-- Peak Filtering Setting -->
+    <page common="false">
+      <page-name>HeightThroshold</page-name>
+      <page-title>Height Threshold</page-title>
+      <forms>
+        <form id="13" param="13">
+          <form-title>Type</form-title>
+          <form-desc>Set the intensity type.</form-desc>          
+        </form>
+        <form id="14" param="14">
+          <form-title>Value</form-title>
+          <form-desc>Set the intensity threshold.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>mzRange</page-name>
+      <page-title>m/z Range</page-title>
+      <forms>
+        <form id="15" param="15">
+          <form-title>Start</form-title>
+          <form-desc>Set the start of m/z range for peak filter.</form-desc>
+        </form>
+        <form id="16" param="16">
+          <form-title>End</form-title>
+          <form-desc>Set the end of m/z range for peak filter.</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>EliminationList</page-name>
+      <page-title>Elimination List</page-title>
+      <forms>
+        <form id="18" param="18">
+          <form-title>Tolerance(Da)</form-title>
+          <form-desc>Set the tolerance for eliminating peaks.</form-desc>
+        </form>
+        <form id="17" param="17">
+          <form-title>Elimination Peaks</form-title>
+          <form-desc>Set elimination m/z values.</form-desc>
+        </form>
+      </forms>
+    </page>
+<!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki from -->
+    <page common="false">
+      <page-name>S/N</page-name>
+      <page-title>S/N</page-title>
+      <forms>
+        <form id="23" param="23">
+          <form-title>Smoothing Method</form-title>
+          <form-desc>Specify the noise definition.
+Noise is defined as standard deviation of difference between raw data and smooothed data.
+          </form-desc>
+          
+        </form>
+        <form id="24" param="24">
+          <form-title>S/N</form-title>
+          <form-desc img="images/noise_definition.png">Specify S/N value for peak filter. The peak less than setting S/N value is excluded.</form-desc>
+        </form>
+      </forms>
+    </page>
+<!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki to -->
+     <page common="false">
+      <page-name>normalizSpec</page-name>
+      <page-title>Peak Detection</page-title>
+      <forms>
+        <form id="19" param="19">
+          <form-title>Peak Detector</form-title>
+          <form-desc>peak detector</form-desc>
+        </form>
+        <form id="20" param="20">
+          <form-title>Charge</form-title>
+          <form-desc>charge detector</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>normaliz2D</page-name>
+      <page-title>Peak Detection</page-title>
+      <forms>
+        <form id="21" param="21">
+          <form-title>Peak Detector</form-title>
+          <form-desc>peak detector</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false">
+      <page-name>difference</page-name>
+      <page-title>Difference Elimination</page-title>
+      <forms>
+        <form id="26" param="26">
+          <form-title>Difference</form-title>
+          <form-desc>Set the peak differences for eliminating peaks.
+If positive value is set, higher m/z peaks are removed, otherwise lower m/z peaks are removed.</form-desc>
+        </form>
+        <form id="27" param="27">
+          <form-title>Tolerance</form-title>
+          <form-desc>Set the tolerance of difference.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

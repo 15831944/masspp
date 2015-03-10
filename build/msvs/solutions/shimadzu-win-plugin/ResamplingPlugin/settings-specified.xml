@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<settings>
+  <values>
+    <value id="0" type="double" minExclusive="0" maxInclusive="10" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>Sampling Pitch Specified</param-name>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Specified</page-name>
+      <page-title>Specified</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Specified</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

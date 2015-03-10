@@ -1,0 +1,4 @@
+EXPORTS
+		execRectangularWindow
+		execBartlettWindow
+		execGaussianWindow

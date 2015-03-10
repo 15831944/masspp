@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+
+<settings>
+  
+  <values>
+    <value id="0" type="string" default="parameters.ini" required="false" />
+    <value id="1" type="input" required="true" />
+
+    <!-- Spectrum name and Scan name -->
+    <!-- list -->
+    <value id="2" type="list" required="false" />
+    <value id="3" type="input" list="2" required="false" />
+    <value id="4" type="string" list="2" required="false" />
+    <!-- operation type -->
+    <value id="5" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>Average of target spectra</enum-name>
+        <enum-value>average</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Subtract from first specrum</enum-name>
+        <enum-value>subtract</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Sum of target spectra</enum-name>
+        <enum-value>sum</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Divide by first spectrum</enum-name>
+        <enum-value>divide</enum-value>
+      </enum>
+    </value>
+    <!-- Sampling Pitch Sitei -->
+    <value id="6" type="string" required="true" >
+      <item-type>SAMPLING_PITCH</item-type>
+    </value>
+    <value id="7" type="double-range" required="true">
+      <value-name>m/z</value-name>
+    </value>
+
+    <!-- Resample Pitch -->
+    <value id="8" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>firstspec</enum-name>
+        <enum-value>firstspec</enum-value>
+      </enum>
+      <enum>
+        <enum-name>minpitch</enum-name>
+        <enum-value>minpitch</enum-value>
+      </enum>
+      <enum>
+        <enum-name>average</enum-name>
+        <enum-value>average</enum-value>
+      </enum>
+    </value>
+
+    <value id="9" type="" />
+
+    <!-- output-range -->
+    <value id="10" type="double-range" minInclusive="0" required="false" />
+
+    <!-- Interpolate Algorithm -->
+    <value id="11" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>linear</enum-name>
+        <enum-value>linear</enum-value>
+      </enum>
+      <enum>
+        <enum-name>PCHIP (Piecewise cubic Hermite interpolation)</enum-name>
+        <enum-value>PCHIP</enum-value>
+      </enum>
+    </value>
+  </values>
+  
+  <params>
+    <param id="0" value="0">
+      <param-name>resample parameters</param-name>
+      <param-section>Resample</param-section>
+      <param-key>RESAMPLE</param-key>
+    </param>
+
+    <param id="1" value="2">
+      <param-name>path</param-name>
+      <param-section>file_path</param-section>
+      <param-key>SAMPLE_LIST_FILE</param-key>
+    </param>
+
+    <param id="2" value="5">
+      <param-name>operation type</param-name>
+    </param>
+
+    <param id="5" value="6">
+      <param-name>sampling pitch</param-name>
+    </param>
+
+    <param id="6" value="7">
+      <param-name>m/z_range</param-name>
+      <param-section>Vast Scaling</param-section>
+      <param-key>m/z range settings</param-key>
+    </param>
+
+    <param id="7" value="7">
+      <param-name>m/z_range</param-name>
+      <param-section>Vast Scaling</param-section>
+      <param-key>m/z range settings</param-key>
+    </param>
+
+    <param id="10" value="10">
+      <param-name>output range</param-name>
+    </param>
+
+    <param id="11" value="11">
+      <param-name>Interpolate Algorithm</param-name>
+    </param>
+  </params>
+  
+  <pages>
+    <page>
+      <page-name>resample_params_old</page-name>
+      <page-title>resample parameters</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Resample Parameters</form-title>
+        </form>
+      </forms>
+    </page>
+
+    <page>
+      <page-name>resample_params</page-name>
+      <page-title>resample parameters</page-title>
+      <forms>
+        
+        <!-- file and spectrum -->
+        <form id="1" param="1">
+          <form-title>Path</form-title>
+          <form-desc>File names containg target spectra</form-desc>
+        </form>
+
+        <!-- operation type -->
+        <form id="2" param="2">
+          <form-title>operation type</form-title>
+          <form-desc>operation type(average / subtract / sum / divide).</form-desc>
+        </form>
+
+        <!-- sampling pitch sitei -->
+        <form id="3" param="5">
+          <form-title>Sampling Pitch</form-title>
+          <form-desc>Sampling Interval(firstspec / minpitch / maxpitch / specified[10]).</form-desc>
+        </form>
+
+        <!-- output-range -->
+        <form id="4" param="10">
+          <form-title>output-range</form-title>
+          <form-desc>output range of spectra (0 Da-9999 Da).</form-desc>
+        </form>
+
+        <!-- Interpolate Algorithm -->
+        <form id="5" param="11">
+          <form-title>Interpolate Algorithm</form-title>
+          <form-desc>Interpolation algorithm (linear / PCHIP).</form-desc>
+        </form>
+      </forms>
+
+      <page common="false">
+        <page-name>resample_pitch_params</page-name>
+        <page-title>Resample Pitch Params</page-title>
+        <forms>
+          <form id="6" param="7">
+            <form-title>Resample Pitch</form-title>
+            <form-desc>Resample Pitch.</form-desc>
+          </form>
+        </forms>
+      </page>
+    </page>
+  </pages>
+  
+</settings>

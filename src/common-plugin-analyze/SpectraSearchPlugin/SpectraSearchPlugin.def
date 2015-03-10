@@ -1,0 +1,9 @@
+EXPORTS
+	openSpectraSearchDialog
+	setSpectrumRtRange
+	setSpectrumPrecursorRange
+	setSpectrumScanNumRange
+	setSpectrumMsStageRange
+	setSpectrumPropFilter
+	getFilterSpectraOperation
+	filterSpectraFunc

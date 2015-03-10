@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Labeling And Merge Peak Position Detection</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>LabelingAndMergePeakPositionPlugin</link>
+  <function>
+    <call type="quant_peak_pos">
+      <call-name>detectPeakPositions</call-name>
+      <call-function>detectPeakPosition</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Labeling And Merge</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>merge</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Peak Position</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Get peak positions by detecting 2D peaks from registered samples and merge them.</param-value>
+        </param>
+      </params>
+      <call-description>detect position</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>peak positions</component-name>
+      <component-desc>Get peak positions by peak detection and merge.</component-desc>
+      <component-calls>
+        <component-call>detectPeakPositions</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>peak positions</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

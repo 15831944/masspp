@@ -1,0 +1,525 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>File IO</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>FileIOPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>file-open</icon-name>
+      <icon-file>images/fileio_open16x16.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>close</icon-name>
+      <icon-file>images/fileio_close16x16.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>chromatogram</icon-name>
+      <icon-file>images/fileio_chromatogram16x16.png</icon-file>
+    </icon>
+    <icon id="6" type="png">
+      <icon-name>TIC</icon-name>
+      <icon-file>images/fileio_TIC16x16.png</icon-file>
+    </icon>
+    <icon id="7" type="png">
+      <icon-name>MC</icon-name>
+      <icon-file>images/fileio_MC16x16.png</icon-file>
+    </icon>
+    <icon id="8" type="png">
+      <icon-name>BPC</icon-name>
+      <icon-file>images/fileio_BPC16x16.png</icon-file>
+    </icon>
+    <icon id="9" type="png">
+      <icon-name>SIM_chrom</icon-name>
+      <icon-file>images/fileio_SIM_chrom16x16.png</icon-file>
+    </icon>
+    <icon id="10" type="png">
+      <icon-name>MRM_chrom</icon-name>
+      <icon-file>images/fileio_MRM_chrom16x16.png</icon-file>
+    </icon>
+    <icon id="11" type="png">
+      <icon-name>MS1</icon-name>
+      <icon-file>images/fileio_ms1-16x16.png</icon-file>
+    </icon>
+    <icon id="12" type="png">
+      <icon-name>MS2</icon-name>
+      <icon-file>images/fileio_ms2-16x16.png</icon-file>
+    </icon>
+    <icon id="13" type="png">
+      <icon-name>MS3</icon-name>
+      <icon-file>images/fileio_ms3-16x16.png</icon-file>
+    </icon>
+    <icon id="14" type="png">
+      <icon-name>MS4</icon-name>
+      <icon-file>images/fileio_ms4-16x16.png</icon-file>
+    </icon>
+    <icon id="15" type="png">
+      <icon-name>MS5</icon-name>
+      <icon-file>images/fileio_ms5-16x16.png</icon-file>
+    </icon>
+    <icon id="16" type="png">
+      <icon-name>MS6</icon-name>
+      <icon-file>images/fileio_ms6-16x16.png</icon-file>
+    </icon>
+    <icon id="17" type="png">
+      <icon-name>MS7</icon-name>
+      <icon-file>images/fileio_ms7-16x16.png</icon-file>
+    </icon>
+    <icon id="18" type="png">
+      <icon-name>MSn</icon-name>
+      <icon-file>images/fileio_msn-16x16.png</icon-file>
+    </icon>
+    <icon id="19" type="png">
+      <icon-name>SIM_spec</icon-name>
+      <icon-file>images/fileio_SIM_spec16x16.png</icon-file>
+    </icon>
+    <icon id="20" type="png">
+      <icon-name>cnl_spec</icon-name>
+      <icon-file>images/fileio_cnl16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="F" order="0">
+      <menu-name>File</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="I" order="2">
+      <menu-name>Import</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>import data</menu-description>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="R" order="0" >
+      <menu-name>Raw data...</menu-name>     
+      <toolbar order="0">io</toolbar>
+    </menu-item>
+    <menu-item id="3" parent="0" accelerator="E" order="3">
+      <menu-name>Export</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>Export</menu-description>
+    </menu-item>
+    <menu-item id="4" parent="3" accelerator="S" order="3" target="sample">
+      <menu-name>Sample...</menu-name>
+      <menu-group>io</menu-group>
+      <menu-description>Export sample or spectra to a file</menu-description>
+    </menu-item>
+    <menu-item id="5" parent="0" accelerator="C" order="9" target="tab_sample">
+      <menu-name>Close...</menu-name>
+      <menu-group>io</menu-group>
+      <toolbar order="0">io</toolbar>
+      <menu-description>Select and close raw data files</menu-description>
+    </menu-item>
+    <menu-item id="6">
+      <menu-name>Close Sample</menu-name>
+      <menu-group>io</menu-group>
+      <popup type="group_item" order="3" />
+    </menu-item>
+
+    <menu-item id="7">
+      <menu-name>Open</menu-name>
+      <menu-group>io</menu-group>
+      <popup type="spec_item" order="3" />
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>open with dialog</call-name>
+      <call-function>openFileWithDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Open raw data file(s)...</call-description>
+    </call>
+    <call type="execute">
+      <call-name>export with dialog</call-name>
+      <call-function>openExportSampleDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+      <call-description>Export sample...</call-description>
+    </call>
+    <call type="execute" icon="4">
+      <call-name>close sample</call-name>
+      <call-function>openDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+       </params>
+      <call-description>Close raw data file(s)...</call-description>
+    </call>
+
+    <call type="execute">
+      <call-name>close current sample</call-name>
+      <call-function>closeSampleFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+       </params>
+      <call-description>Close raw data file</call-description>
+    </call>
+
+    <call type="execute">
+      <call-name>OpenSpectrum</call-name>
+      <call-function>openSpectrumFromContextMenu</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+      <call-description>open spectrum</call-description>
+    </call>
+    <call type="execute">
+      <call-name>OpenChromatogram</call-name>
+      <call-function>openChromatogramFromContextMenu</call-function>
+      <params>
+      <param>
+        <param-name>menu</param-name>
+        <param-value>8</param-value>
+      </param>
+      </params>
+      <call-description>open Chromatogram</call-description>
+    </call>    
+    <call type="init_gui" fixed="true">
+      <call-name>initialize GUI</call-name>
+      <call-function>initGUI</call-function>
+      <call-description>initializes GUI</call-description>
+    </call>
+    <call type="exit">
+      <call-name>close all files</call-name>
+      <call-function>closeAllFiles</call-function>
+      <call-description>closes all sample files</call-description>
+    </call>
+    <call type="on_open_sample_set">
+      <call-name>select samples</call-name>
+      <call-function>selectSamples</call-function>
+      <call-description>selects samples</call-description>
+    </call>
+    <call type="command">
+      <call-name>openOnCommand</call-name>
+      <call-function>openFileOnBatch</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Open Raw Data File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>in</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>in</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>input</param-value>
+        </param>
+      </params>
+      <call-description>The user specifies a sample file with this option.</call-description>
+    </call>
+    <call type="batch">
+      <call-name>openOnBatch</call-name>
+      <call-function>openFileOnBatch</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Open Raw Data File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>in</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>in</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>input</param-value>
+        </param>
+      </params>
+      <call-description>The user specifies a sample file with this option.</call-description>
+    </call>
+    <call type="batch">
+      <call-name>divide files</call-name>
+      <call-function>setFileNameSuffix</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Divide Output File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>divfile</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>suffix</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>set output file name suffix</call-description>
+    </call>
+    <call type="batch">
+      <call-name>set output file path</call-name>
+      <call-function>setOutputFilePath</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Output File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>out</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>out</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>output</param-value>
+        </param>
+      </params>
+      <call-description>specify output file path</call-description>
+    </call>
+    <call type="batch">
+      <call-name>sample numbers</call-name>
+      <call-function>setSampleNumbers</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Select Samples By Index</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>sample</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>set sample numbers</call-description>
+    </call>
+    <call type="batch">
+      <call-name>sample names</call-name>
+      <call-function>setSampleNames</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Select Samples By Name</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>smplname</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>smplname</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>set sample numbers</call-description>
+    </call>
+    <call type="batch">
+      <call-name>sample count</call-name>
+      <call-function>printNumberOfSamples</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Samples Count</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>smplcnt</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>output</param-value>
+        </param>
+      </params>
+      <call-description>print the number of samples</call-description>
+    </call>
+
+    <call type="open_rawdata">
+      <call-name>file open</call-name>
+      <call-function>openRawdataFile</call-function>
+      <call-description>open the raw data file</call-description>
+    </call>
+
+    <call type="operation">
+      <call-name>input operation</call-name>
+      <call-function>getFileOpenOperation</call-function>
+      <call-description>Open Raw Data Files</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>File Open</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>file_open</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>output operation</call-name>
+      <call-function>getExportSampleOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Export Sample</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>export_sample</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+      <call-description>export samples</call-description>
+    </call>
+    <call type="get_file_reader">
+      <call-name>file reader</call-name>
+      <call-function>readSampleFile</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Raw Data File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>file</param-value>
+        </param>
+      </params>
+      <call-description>read sample from file.</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>import</component-name>
+      <component-desc>import raw data file</component-desc>
+      <component-calls>
+        <component-call>open with dialog</component-call>
+        <component-call>close sample</component-call>
+        <component-call>close current sample</component-call>        
+        <component-call>initialize GUI</component-call>
+        <component-call>close all files</component-call>
+        <component-call>select samples</component-call>
+        <component-call>openOnCommand</component-call>        
+        <component-call>openOnBatch</component-call>                
+        <component-call>sample numbers</component-call>                        
+        <component-call>sample names</component-call>
+        <component-call>file open</component-call>
+        <component-call>input operation</component-call>                
+        <component-call>file reader</component-call>                        
+      </component-calls>      
+    </component>
+    <component>
+      <component-name>export</component-name>
+      <component-desc>export sample</component-desc>
+      <component-calls>
+        <component-call>export with dialog</component-call>
+        <component-call>divide files</component-call>
+        <component-call>set output file path</component-call>
+        <component-call>output operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>utilities</component-name>
+      <component-desc>commandline utilities</component-desc>
+      <component-calls>
+        <component-call>sample count</component-call>        
+      </component-calls>     
+    </component>        
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>OPEN_FILE</package-call-type>
+      </package-call-types>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>OPEN_FILE</package-call-type>
+      </package-call-types>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>OPEN_FILE</package-call-type>
+      </package-call-types>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>OPEN_FILE</package-call-type>
+      </package-call-types>
+    </package>    
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+      <package-call-types>
+        <package-call-type>OPEN_FILE</package-call-type>
+      </package-call-types>
+    </package>        
+  </packages>  
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

@@ -1,0 +1,23 @@
+EXPORTS
+	drawSpecPeaksLabel
+	setSpecGraphMargin
+	deleteSpectrumPeakInfo
+	drawChromPeaksLabel
+	setChromGraphMargin
+	deleteChromatogramPeakInfo
+	setChromatogramDrawingPeaksStatus
+	setSpectrumDrawingPeaksStatus
+	updateDrawingLabelSeetings
+	onSpecButtonDown
+	onSpecMouseMove	
+	onSpecButtonUp
+	onDrawSpecFg
+	onSpecDblClick
+	onChromButtonDown
+	onChromMouseMove
+	onChromButtonUp
+	onDrawChromFg
+	onChromDblClick
+	draw2dPeaks
+	draw2dClusters
+	

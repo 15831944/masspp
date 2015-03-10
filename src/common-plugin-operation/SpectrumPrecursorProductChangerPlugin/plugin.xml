@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Spectrum Precursor Product Changer</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+
+  <link>SpectrumPrecursorProductChangerPlugin</link>
+
+  <icons>
+    <icon id="1" type="png">
+      <icon-name>precursor_ion_spectrum_change_icon</icon-name>
+      <icon-file>images/SpectrumPrecursorProductChanger1_16x16.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>prpduct_ion_spectrum_change_icon</icon-name>
+      <icon-file>images/SpectrumPrecursorProductChanger2_16x16.png</icon-file>
+    </icon>
+  </icons>
+
+  <menu>
+    <menu-item id="0" accelerator="V">
+     
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="S">
+      <menu-name>Spectrum</menu-name>
+      <menu-group order="2">Spectrum</menu-group>
+    </menu-item>
+
+    <menu-item id="2" parent="1" target="spectrum" accelerator="c">
+      <menu-name>Precursor Ion</menu-name>
+      <toolbar>Spectrum</toolbar>
+      <menu-description>Display the precursor ion spectrum for the current spectrum</menu-description>
+      <menu-group>PrecursorProductOperation</menu-group>
+    </menu-item>
+    <menu-item id="3" parent="1" target="spectrum" accelerator="d">
+      <menu-name>Product Ion</menu-name>
+      <toolbar>Spectrum</toolbar>
+      <menu-description>Display a product ion spectrum from the current spectrum</menu-description>
+      <menu-group>PrecursorProductOperation</menu-group>
+    </menu-item>
+  </menu>
+
+  <function>
+    <call type="execute" icon="1">
+      <call-name>precursor</call-name>
+      <call-function>openPrecursorIonSpectrum</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show precursor ion spectrum</call-description>
+    </call>
+
+    <call type="execute" icon="2">
+      <call-name>product</call-name>
+      <call-function>openProductIonSpectrum</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>Show product ion spectrum</call-description>
+    </call>
+
+    <call type="enable">
+      <call-name>enable precursor ion spectrum</call-name>
+      <call-function>enablePrecursorIonSpectrum</call-function>
+      <call-description>check whether active spectrum has a precursor ion spectrum or not</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="enable">
+      <call-name>enable product ion spectrum</call-name>
+      <call-function>enableProductIonSpectrum</call-function>
+      <call-description>check whether active spectrum has a product ion spectrum or not</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>precursor product</component-name>
+      <component-desc>Precursor &amp; Product ion spectrum</component-desc>
+      <component-calls>
+        <component-call>precursor</component-call>
+        <component-call>product</component-call>
+        <component-call>enable precursor ion spectrum</component-call>
+        <component-call>enable product ion spectrum</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>precursor product</package-component>
+      </package-components>
+    </package>
+  </packages>  
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>  
+</plugin>
+

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[View] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Spectrum">
+<param name="Local" value="ch01s01.html#id639199"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Precursor Ion">
+<param name="Local" value="ch01s01.html#id639205"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Navigating to the Precursor Ion Spectrum">
+<param name="Local" value="ch01s01.html#id639231"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Product Ion">
+<param name="Local" value="ch01s01.html#id639217"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Navigating to a Product Ion Spectrum">
+<param name="Local" value="ch01s01.html#id701089"></OBJECT></LI>
+</UL></UL></UL></UL></BODY></HTML>

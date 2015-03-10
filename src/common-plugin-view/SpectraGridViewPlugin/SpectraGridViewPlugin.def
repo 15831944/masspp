@@ -1,0 +1,9 @@
+EXPORTS
+	initGridView
+	changeActiveObject
+	unsetSample
+	updateSpectra
+	updateSample
+	toggleView
+	isVisibleView
+	exitGui

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Details View</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>DetailsViewPlugin</link>
+  <statuses>
+    <status id="0">
+      <status-name>PROPERTIES_GRID_VIEW</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="P" order="0">
+      <menu-name>Pane</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="r" order="4">
+      <menu-name>Properties</menu-name>
+      <menu-description>Show / hide the Properties pane</menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="init_gui" status="0">
+      <call-name>initialize file details view</call-name>
+      <call-function>initPropertiesView</call-function>
+      <call-description>initialize file details view</call-description>
+    </call>
+    <call type="on_activate" ifloaded="true">
+      <call-name>set active object</call-name>
+      <call-function>changeActiveObject</call-function>
+      <call-description>active object is changed</call-description>
+    </call>
+    <call type="on_update_spec" ifloaded="true">
+      <call-name>update spectrum</call-name>
+      <call-function>updateSpecDetails</call-function>
+      <call-description>update spectrum details</call-description>
+    </call>
+    <call type="on_update_chrom" ifloaded="true">
+      <call-name>update chromatogram</call-name>
+      <call-function>updateChromDetails</call-function>
+      <call-description>update chromatogram details</call-description>
+    </call>
+    <call type="on_update_spec_peaks" ifloaded="true">
+      <call-name>update spectrum peaks</call-name>
+      <call-function>updateSpecDetails</call-function>
+      <call-description>update spectrum peaks</call-description>
+    </call>
+    <call type="on_update_chrom_peaks" ifloaded="true">
+      <call-name>update chromatogram_peaks</call-name>
+      <call-function>updateChromDetails</call-function>
+      <call-description>update chromatogram peaks</call-description>
+    </call>
+    <call type="execute" icon="0">
+      <call-name>toggle file details view</call-name>
+      <call-function>togglePropertiesView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the Properties Pane</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>check the properties</call-name>
+      <call-function>isVisibleProperties</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>check the visibility of the properties view</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit GUI</call-name>
+      <call-function>exitGui</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>properties</component-name>
+      <component-desc>Properties Pane</component-desc>
+      <component-calls>
+        <component-call>initialize file details view</component-call>
+        <component-call>set active object</component-call>
+        <component-call>update spectrum</component-call>
+        <component-call>update chromatogram</component-call>
+        <component-call>update spectrum peaks</component-call>
+        <component-call>update chromatogram_peaks</component-call>
+        <component-call>toggle file details view</component-call>
+        <component-call>check the properties</component-call>
+        <component-call>exit GUI</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>properties</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>properties</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>properties</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>properties</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>properties</package-component>
+      </package-components>
+    </package>    
+  </packages>
+  
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>    
+  </help>  
+</plugin>

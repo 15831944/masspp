@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Neighbor Peaks</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>NeighborPeaksPlugin</link>
+  <function>
+    <call type="quant_peak_val">
+      <call-name>searchSpectrumPeak</call-name>
+      <call-function>searchSpectrumPeak</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum Peak Search</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spectrum</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>spectrum</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Calculating peak values from spectrum peaks.</param-value>
+        </param>        
+      </params>
+    </call>
+    <call type="quant_peak_val">
+      <call-name>searchChromatogramPeak</call-name>
+      <call-function>searchChromatogramPeak</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Chromatogram Peak Search</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chromatogram</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>chromatogram</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>Calculating peak values from chromatogram peaks.</param-value>
+        </param>                
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>spectrum</component-name>
+      <component-desc>Search spectrum peaks</component-desc>
+      <component-calls>
+        <component-call>searchSpectrumPeak</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chromatogram</component-name>
+      <component-desc>Search chromatogram peaks</component-desc>
+      <component-calls>
+        <component-call>searchChromatogramPeak</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>        
+      </package-components>
+    </package>
+  </packages>    
+  <parameters>
+    <parameters-file>settings_spec.xml</parameters-file>
+    <parameters-file>settings_chrom.xml</parameters-file>
+  </parameters>
+</plugin>

@@ -1,0 +1,46 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[Edit] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Undo / Redo">
+<param name="Local" value="ch01s01.html#id620748"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="History">
+<param name="Local" value="ch01s01.html#id620754"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Operation Log">
+<param name="Local" value="ch01s01.html#operation_log"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Undoing and Redoing the Operations">
+<param name="Local" value="ch01s01.html#id682582"></OBJECT></LI>
+</UL></UL></UL></UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="[View] Menu">
+<param name="Local" value="ch01s02.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Pane">
+<param name="Local" value="ch01s02.html#id620773"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Operation Log">
+<param name="Local" value="ch01s02.html#id620779"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="History">
+<param name="Local" value="ch01s02.html#id620785"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Operation Log">
+<param name="Local" value="ch01s02.html#operation_log"></OBJECT></LI>
+</UL></UL></UL></UL></UL></BODY></HTML>

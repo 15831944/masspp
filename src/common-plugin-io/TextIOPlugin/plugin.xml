@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Text Output</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>TextIOPlugin</link>
+  <function>
+    <call type="open_file">
+      <call-name>openTextFile</call-name>
+      <call-function>openText</call-function>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Data Points Tab Separated Values</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>txt</param-value>
+        </param>
+      </params>
+      <call-description>open text file (tab separated values)</call-description>
+    </call>
+    <call type="save_file">
+      <call-name>saveTextFile</call-name>
+      <call-function>saveText</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Data Points Tab Separated Values</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>text</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>select_txt</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>txt</param-value>
+        </param>
+        <param>
+          <param-name>target</param-name>
+          <param-value>spectra</param-value>
+        </param>
+      </params>
+
+       <call-description>save text file (tab separated values)</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>import</component-name>
+      <component-desc>import text file</component-desc>
+      <component-calls>
+        <component-call>openTextFile</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>export</component-name>
+      <component-desc>export text file</component-desc>
+      <component-calls>
+        <component-call>saveTextFile</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+        <package-component>export</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+  </packages>  
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

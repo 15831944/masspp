@@ -1,0 +1,9 @@
+EXPORTS
+	openBaselineDialog
+	drawChromBaseline		
+	drawSpecBaseline
+	getSpecBaselineOperation
+	getChromBaselineOperation
+	execBaselineSubtract
+	getSpecXYDataOperation
+	getChromXYDataOperation

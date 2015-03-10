@@ -1,0 +1,67 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS"><title>[Processing] Menu</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1"><link rel="home" href="index.html" title="Peak Detection"><link rel="up" href="index.html" title="Peak Detection"><link rel="prev" href="index.html" title="Peak Detection"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="section" title="[Processing] Menu"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="id630572"></a>[Processing] Menu</h2></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch01s01.html#id630578">Peaks</a></span></dt><dd><dl><dt><span class="section"><a href="ch01s01.html#id630584">Peak Detection</a></span></dt><dd><dl><dt><span class="section"><a href="ch01s01.html#Spectrum_Peak_Filtering">Spectrum Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id692226">Chromatogram Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id181591">2D Peak Detection</a></span></dt></dl></dd><dt><span class="section"><a href="ch01s01.html#id630604">Clear Peaks</a></span></dt><dd><dl><dt><span class="section"><a href="ch01s01.html#id647069">Clear Peaks</a></span></dt></dl></dd></dl></dd></dl></div><div class="section" title="Peaks"><div class="titlepage"><div><div><h3 class="title"><a name="id630578"></a>Peaks</h3></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch01s01.html#id630584">Peak Detection</a></span></dt><dd><dl><dt><span class="section"><a href="ch01s01.html#Spectrum_Peak_Filtering">Spectrum Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id692226">Chromatogram Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id181591">2D Peak Detection</a></span></dt></dl></dd><dt><span class="section"><a href="ch01s01.html#id630604">Clear Peaks</a></span></dt><dd><dl><dt><span class="section"><a href="ch01s01.html#id647069">Clear Peaks</a></span></dt></dl></dd></dl></div><div class="section" title="Peak Detection"><div class="titlepage"><div><div><h4 class="title"><a name="id630584"></a>Peak Detection</h4></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch01s01.html#Spectrum_Peak_Filtering">Spectrum Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id692226">Chromatogram Peak Detection</a></span></dt><dt><span class="section"><a href="ch01s01.html#id181591">2D Peak Detection</a></span></dt></dl></div><div class="section" title="Spectrum Peak Detection"><div class="titlepage"><div><div><h5 class="title"><a name="Spectrum_Peak_Filtering"></a>Spectrum Peak Detection</h5></div></div></div><a name="id692790"></a><a name="id692799"></a><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+        While a spectrum is active, select [Processing] in the menu bar and then select [Peaks] &gt; [Detect Peaks] from the drop down menu.
+      </p><p>
+        The Detect Peaks dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/sp_peak_detect.PNG" align="middle"></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+            The Detect Peaks dialog can also be displayed by clicking the
+            <span class="inlinemediaobject"><img src="../images/peak_detection_icon.png"></span>
+            icon in the toolbar.
+          </p></li></ul></div></li><li class="listitem"><p>
+        Select the peak detector and charge detector from the drop down lists.
+      </p></li><li class="listitem"><p>
+        Enter the peak filter settings so that only the necessary peaks will be detected.
+      </p><p>
+Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_1.PNG"></span>
+icon.
+      </p><p>
+        The dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_1.PNG" align="middle"></div></li><li class="listitem"><p>
+Select the method and set the parameters.
+      </p><div class="variablelist"><dl><dt><span class="term">Method:</span></dt><dd><p></p></dd><dt><span class="term">Height Threshold</span></dt><dd><p>The peaks with intensity lower than the threshold will be excluded from the target of peak detection.</p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_2.PNG" align="middle"></div><div class="orderedlist"><ol class="orderedlist" type="A"><li class="listitem"><p>Select [Absolute] or [Relative%] and enter the threshold value. </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>When [Relative%] is selected, enter a value between 0 and 100. </p></li></ul></div></li><li class="listitem"><p>Click [OK].</p></li></ol></div></dd><dt><span class="term">m/z Range</span></dt><dd><p>Only the peaks located in the specified m/z range will be detected.</p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_3.PNG" align="middle"></div><div class="orderedlist"><ol class="orderedlist" type="A"><li class="listitem"><p>Enter the start and end m/z values to specify a range. </p></li><li class="listitem"><p>Click [OK].</p></li></ol></div></dd><dt><span class="term">Elimination List</span></dt><dd><p>The peak at the specified m/z value will be excluded from the peak list.</p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_4.PNG" align="middle"></div><div class="orderedlist"><ol class="orderedlist" type="A"><li class="listitem"><p>Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_1.PNG"></span>
+icon in the Elimination List dialog.</p><p>
+        The dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_5.PNG" align="middle"></div></li><li class="listitem"><p>Enter the m/z value of the peak of an unwanted foreign substance, and enter comment if necessary.</p></li><li class="listitem"><p>Click [OK].</p></li><li class="listitem"><p>Repeat steps A-C to enter other m/z values.</p></li></ol></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Click [Export] to save the elimination list in a file.</p></li><li class="listitem"><p>Click [Import] to load the elimination list from a file.</p></li><li class="listitem"><p>Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_2.PNG"></span> icon to edit the selected item.</p></li><li class="listitem"><p>Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_3.PNG"></span> icon to remove the selected item.</p></li></ul></div></dd><dt><span class="term">Number of Peaks</span></dt><dd><p>The peaks with top intensity or area will be detected to the specified number.</p><div class="mediaobject" align="center"><img src="../images/peak_filter_dialog_6.PNG" align="middle"></div><div class="orderedlist"><ol class="orderedlist" type="A"><li class="listitem"><p>Select [Intensity] or [Area] and enter the number.</p></li><li class="listitem"><p>Click [OK].</p></li></ol></div></dd></dl></div></li><li class="listitem"><p>
+        Repeat steps 1-2 to enter other conditions.
+      </p><div class="mediaobject" align="center"><img src="../images/sp_peak_2.PNG" align="middle"></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Click [Export] to save the filter setting in a file.</p></li><li class="listitem"><p>Click [Import] to load the filter setting from a file.</p></li><li class="listitem"><p>Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_2.PNG"></span> icon to edit the selected method.</p></li><li class="listitem"><p>Click the <span class="inlinemediaobject"><img src="../images/peak_filter_button_3.PNG"></span> icon to remove the selected method.</p></li></ul></div></li><li class="listitem"><p>
+        Click [Detect].
+      </p><p>
+        The m/z value of each detected peak appears.
+      </p><div class="mediaobject" align="center"><img src="../images/sp_peak_3.PNG" align="middle"></div></li></ol></div></div><div class="section" title="Chromatogram Peak Detection"><div class="titlepage"><div><div><h5 class="title"><a name="id692226"></a>Chromatogram Peak Detection</h5></div></div></div><a name="id647159"></a><a name="id647167"></a><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+        While a chromatogram is active, select [Processing] in the menu bar and then select [Peaks] &gt; [Detect Peaks] from the drop down menu.
+      </p><p>
+        The Detect Peaks dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/ch_peak_detect.PNG" align="middle"></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+            The Detect Peaks dialog can also be displayed by clicking the
+            <span class="inlinemediaobject"><img src="../images/peak_detection_icon.png"></span>
+            icon in the toolbar.
+          </p></li></ul></div></li><li class="listitem"><p>
+        Set the parameters.
+      </p></li><li class="listitem"><p>
+        Click [Detect].
+      </p><p>
+        The RT value of each detected peak appears.
+      </p><div class="mediaobject" align="center"><img src="../images/ch_peak.PNG" align="middle"></div></li></ol></div></div><div class="section" title="2D Peak Detection"><div class="titlepage"><div><div><h5 class="title"><a name="id181591"></a>2D Peak Detection</h5></div></div></div><a name="id671517"></a><a name="id671525"></a><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+        While a heatmap is active, select [Processing] in the menu bar and then select [Peaks] &gt; [Detect Peaks] from the drop down menu.
+      </p><p>
+        The Detect 2D Peaks dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/hm_peak_detect.PNG" align="middle"></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+            The Detect 2D Peaks dialog can also be displayed by clicking the
+            <span class="inlinemediaobject"><img src="../images/peak_detection_icon.png"></span>
+            icon in the toolbar.
+          </p></li></ul></div></li><li class="listitem"><p>
+        Set the parameters.
+      </p></li><li class="listitem"><p>
+        Click [Detect].
+      </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Clicking [Test] starts peak detection only in the area currently displayed. You can quickly check if the parameters you have set work as expected.
+          </p></li></ul></div><p>
+        Peaks are marked in cyan and clusters are marked in green.
+      </p><div class="mediaobject" align="center"><img src="../images/hm_peak.PNG" align="middle"></div></li></ol></div></div></div><div class="section" title="Clear Peaks"><div class="titlepage"><div><div><h4 class="title"><a name="id630604"></a>Clear Peaks</h4></div></div></div><div class="toc"><dl><dt><span class="section"><a href="ch01s01.html#id647069">Clear Peaks</a></span></dt></dl></div><div class="section" title="Clear Peaks"><div class="titlepage"><div><div><h5 class="title"><a name="id647069"></a>Clear Peaks</h5></div></div></div><a name="id666102"></a><a name="id666110"></a><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>
+	Select [Processing] in the menu bar and then select [Peaks] &gt; [Clear Peaks] from the drop down menu.
+      </p><p>
+      A confirmation dialog appears.
+      </p><div class="mediaobject" align="center"><img src="../images/clear_peaks.PNG" align="middle"></div></li><li class="listitem"><p>
+	Click [Yes].
+      </p><p>
+      The peak labels disappear.
+      </p></li></ol></div></div></div></div></div></body></html>

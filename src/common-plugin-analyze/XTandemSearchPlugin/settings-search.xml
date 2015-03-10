@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" required="true">
+      <enum-call>enzymes</enum-call>
+    </value>
+    <value id="1" type="bool" required="true" />
+    <value id="2" type="bool" required="true" />
+    <value id="3" type="double" minInclusive="0" default="0.4" required="true"/>
+    <value id="4" type="string" default="Daltons" required="true">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>Daltons</enum-value>
+      </enum>
+      <enum>
+        <enum-name>ppm</enum-name>
+        <enum-value>ppm</enum-value>
+      </enum>
+    </value>
+    <value id="5" type="double" minInclusive="0" maxInclusive="90" required="false" /> <!-- Spec No.91778 @date 2013.03.28 <Mod> M.Izumi -->
+    <value id="6" type="double" minExclusive="0" required="false" />
+    <value id="7" type="double" minExclusive="0" required="false" />
+    <value id="8" type="double" minInclusive="0" default="100" required="true"/>
+    <value id="9" type="double" minInclusive="0" default="100" required="true"/>
+    <value id="10" type="string" default="ppm" required="true">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>Daltons</enum-value>
+      </enum>
+      <enum>
+        <enum-name>ppm</enum-name>
+        <enum-value>ppm</enum-value>
+      </enum>
+    </value>
+    <value id="11" type="list" default="b-ion,y-ion" hideAllChk="true" required="false" />
+    <value id="12" type="bool" list="11">
+      <value-name>Ion Name</value-name>
+      <enum>
+        <enum-name>a-ion</enum-name>
+        <enum-value>a-ion</enum-value>
+      </enum>
+      <enum>
+        <enum-name>b-ion</enum-name>
+        <enum-value>b-ion</enum-value>
+      </enum>
+      <enum>
+        <enum-name>c-ion</enum-name>
+        <enum-value>c-ion</enum-value>
+      </enum>
+      <enum>
+        <enum-name>x-ion</enum-name>
+        <enum-value>x-ion</enum-value>
+      </enum>
+      <enum>
+        <enum-name>y-ion</enum-name>
+        <enum-value>y-ion</enum-value>
+      </enum>
+      <enum>
+        <enum-name>z-ion</enum-name>
+        <enum-value>z-ion</enum-value>
+      </enum>
+    </value>
+    <value id="13" type="bool" default="false" />
+    <value id="14" type="list" hideAllChk="true" required="false" parent="13" />
+    <value id="15" type="bool" list="14">
+      <value-name>Modification Name</value-name>
+      <enum-call>modifications</enum-call>
+    </value>
+    <value id="16" type="list" hideAllChk="true" required="false" parent="13" />
+    <value id="17" type="bool" list="16">
+      <value-name>Modification Name</value-name>
+      <enum-call>modifications</enum-call>
+    </value>
+    <value id="18" type="list" hideAllChk="true" required="false" parent="13" />
+    <value id="19" type="bool" list="18">
+      <value-name>Modification Name</value-name>
+      <enum-call>modifications</enum-call>
+    </value>
+    <value id="20" type="bool" required="true" />
+    <value id="21" type="bool" required="true"/>
+    <value id="22" type="bool" required="true"/>
+    <value id="23" type="double" minExclusive="0" maxExclusive="100" default="0.01" required="true"/>
+    <value id="24" type="string" required="true">
+      <enum-call>databases</enum-call>
+    </value>
+    <value id="25" type="list" parent="24" required="true" />
+    <value id="26" type="bool" list="25" required="true">
+      <value-name>Database Files</value-name>
+      <enum-call>db files</enum-call>      
+    </value>
+    <value id="27" type="bool" default="false" />
+    <value id="28" type="double" minExclusive="0.0" default="0.1" />
+    <value id="29" type="int" minInclusive="0" default="1" />
+  </values>
+
+  <params>
+    <param id="0" value="24">
+      <param-name>db</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>DATABASE</param-key> 
+    </param>
+    <param id="1" value="25">
+      <param-name>db files</param-name>      
+      <param-section>X! Tandem Search</param-section>
+      <param-key>DATABASE_FILES</param-key> 
+    </param>
+    <param id="3" value="0">
+      <param-name>enzyme</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>ENZYME</param-key>
+    </param>
+    <param id="4" value="1">
+      <param-name>use annotations</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>USE_ANNOTATIONS</param-key>
+    </param>
+    <param id="5" value="2">
+      <param-name>semi-style cleavage</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>SEMI_STYLE_CLEAVAGE</param-key>
+    </param>
+    <param id="6" value="3">
+      <param-name>fragment mass error</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>FRAGMENT_MASS_ERROR</param-key>
+    </param>
+    <param id="7" value="4">
+      <param-name>fragment mass error unit</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>FRAGMENT_MASS_ERROR_UNIT</param-key>
+    </param>
+    <param id="8" value="5">
+      <param-name>remove redundant angle</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>REMOVE_REDUNDANT_ANGLE</param-key>
+    </param>
+    <param id="9" value="6">
+      <param-name>neutral loss mass</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>NEUTRAL_LOSS_MASS</param-key>
+    </param>
+    <param id="10" value="7">
+      <param-name>neutral loss window</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>NEUTRAL_LOSS_WINDOW</param-key>
+    </param>
+    <param id="11" value="8">
+      <param-name>parent monoisotopic mass error minus</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>PARENT_MONOISOTOPIC_MASS_ERROR_MINUS</param-key>
+    </param>
+    <param id="12" value="9">
+      <param-name>parent monoisotopic mass error plus</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>PARENT_MONOISOTOPIC_MASS_ERROR_PLUS</param-key>
+    </param>
+    <param id="13" value="10">
+      <param-name>parent monoisotopic mass error unit</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>PARENT_MONOISOTOPIC_MASS_ERROR_UNIT</param-key>
+    </param>
+    <param id="14" value="11">
+      <param-name>ions</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>IONS</param-key>
+    </param>
+    <param id="15" value="14">
+      <param-name>complete modifications</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>COMPLETE_MODIFICATIONS</param-key>
+    </param>
+    <param id="16" value="16">
+      <param-name>potential modifications</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>POTENTIAL_MODIFICATIONS</param-key>
+    </param>
+    <param id="17" value="18">
+      <param-name>refinement potential modifications</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>REFINEMENT_POTENTIAL_MODIFICATIONS</param-key>
+    </param>
+    <param id="18" value="20">
+      <param-name>refinement use annotations</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>REFINEMENT_USE_ANNOTATION</param-key>
+    </param>
+    <param id="19" value="21">
+      <param-name>refinement semi-style cleavage</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>REFINEMENT_SEMI_STYLE_CLEAVAGE</param-key>
+    </param>
+    <param id="20" value="22">
+      <param-name>check point mutations</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>CHECK_POINT_MUTATIONS</param-key>
+    </param>
+    <param id="21" value="23">
+      <param-name>valid expectation value</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>VALID_EXPECTION_VALUE</param-key>
+    </param>
+    <param id="22" value="13">
+      <param-name>allmod</param-name>
+      <param-section>Identification</param-section>
+      <param-key>SHOW_ALL_MODIFICATION</param-key>      
+    </param>
+    <param id="23" value="27">
+      <param-name>use refinement</param-name>
+      <param-section>X! Tandem Search</param-section>
+      <param-key>USE_REFINEMENT</param-key>
+    </param>
+    <param id="24" value="28">
+      <param-name>max valid expectation value</param-name>      
+      <param-section>X! Tandem Search</param-section>
+      <param-key>MAX_VALID_EXPECT</param-key>
+    </param>
+    <param id="25" value="29">
+      <param-name>missed cleavages</param-name>   
+      <param-section>X! Tandem Search</param-section>
+      <param-key>MAX_MISSED_CLEAVAGES</param-key>      
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Database</group-name>      
+    </group>
+    <group id="1">
+      <group-name></group-name>
+    </group>
+    <group id="2">
+      <group-name>Fragment Mass Error</group-name>
+    </group>
+    <group id="3">
+      <group-name>Neutral Loss</group-name>
+    </group>
+    <group id="4">
+      <group-name>Parent Monoisotopic Mass Error</group-name>
+    </group>
+    <group id="5">
+      <group-name>Modification</group-name>
+    </group>
+    <group id="6">
+      <group-name>Refinement</group-name>
+    </group>
+    <group id="7">
+      <group-name>Scoring</group-name>      
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>search</page-name>
+      <page-title>X! Tandem</page-title>
+      <check-functions>
+        <check-fun>tandem_mods</check-fun>        
+      </check-functions>                        
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Database</form-title>
+          <form-desc>Select the sequence database to be searched.</form-desc>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Database Files</form-title>
+          <form-desc>Select DB files to be searched.</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Enzyme</form-title>
+          <form-desc>Select the enzyme used in sample preparation.</form-desc>
+        </form>
+        <form id="4" param="4">
+          <form-title>Use Annotations</form-title>
+          <form-desc>Use the annotation file specified in the taxonomy file.</form-desc>
+        </form>
+        <form id="5" param="5">
+          <form-title>Semi-style Cleavage</form-title>
+          <form-desc>Use semi-enzymatic cleavage rules</form-desc>
+        </form>
+        <form id="6" param="6" group="2">
+          <form-title>Fragment Mass Error</form-title>
+        </form>
+        <form id="7" param="7" group="2">
+          <form-title>Fragment Mass Error Unit</form-title>
+        </form>
+        <form id="8" param="8">
+          <form-title>Remove Redundant Angle</form-title>
+          <form-desc>Sets contrast angle for removing duplicate spectra. If empty, contrast angle duplicate spectrum deletion is not performed.</form-desc>
+        </form>
+        <form id="9" param="9" group="3">
+          <form-title>Neutral Loss Mass</form-title>
+          <form-desc>Sets the centre of the window for ignoring neutral molecule losses. If empty, neutral loss window is not used.</form-desc>
+        </form>
+        <form id="10" param="10" group="3">
+          <form-title>Neutral Loss Window</form-title>
+          <form-desc>Sets the width of the window for ignoring neutral molecule losses.</form-desc>
+        </form>
+        <form id="11" param="11" group="4">
+          <form-title>Mass Error Minus</form-title>
+          <form-desc>Moiety added to peptide C-terminus by cleavage.</form-desc>
+        </form>
+        <form id="12" param="12" group="4">
+          <form-title>Mass Error Plus</form-title>
+          <form-desc>Moiety added to peptide N-terminus by cleavage.</form-desc>
+        </form>
+        <form id="13" param="13" group="4">
+          <form-title>Mass Error Unit</form-title>
+          <form-desc>Parent ion M+H mass tolerance window units.</form-desc>
+        </form>
+        <form id="14" param="14" group="7">
+          <form-title>Ions</form-title>
+          <form-desc>Sets the allowance of the a-ion, b-ion, c-ion, x-ion, y-ion and z-ion scoreing.</form-desc>
+        </form>
+        <form id="15" param="25" group="7">
+          <form-title>Max. Missed Cleavages</form-title>
+          <form-desc>Maximum the number of missed cleavages.</form-desc>
+        </form>          
+        <form id="16" param="15">
+          <form-title>Complete Modifications</form-title>
+          <form-desc>Specification of modifications of residues.</form-desc>
+        </form>
+        <form id="17" param="16">
+          <form-title>Potential Modifications</form-title>
+          <form-desc>Specificiation of potential modifications of residues.</form-desc>
+        </form>
+        <form id="18" param="22">
+          <form-title>Display all modifications</form-title>          
+        </form>
+        <form id="19" param="23" group="6">
+          <form-title>Use Refinement</form-title>
+          <form-desc>Controls the use of the refinement modules.</form-desc>
+        </form>
+        <form id="20" param="17" group="6">
+          <form-title>Refinement Potential Modifications</form-title>
+          <form-desc>Potential modifications to test.</form-desc>
+        </form>
+        <form id="21" param="18" group="6">
+          <form-title>Refinement Use Annotation</form-title>
+          <form-desc>Use the annotation file specified in the taxonomy file.</form-desc>
+        </form>
+        <form id="22" param="19" group="6">
+          <form-title>Refinement Semi-style Cleavage</form-title>
+          <form-desc>Use semi-enzymatic cleavage rules.</form-desc>
+        </form>
+        <form id="23" param="20" group="6">
+          <form-title>Check Point Mutations</form-title>
+          <form-desc>Test for sAPs.</form-desc>
+        </form>
+        <form id="24" param="21" group="6">
+          <form-title>Valid Expectation Value</form-title>
+          <form-desc>Highest value for recorded peptides.</form-desc>
+        </form>
+        <form id="25" param="24">
+          <form-title>Max. Valid Expectation Value</form-title>          
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

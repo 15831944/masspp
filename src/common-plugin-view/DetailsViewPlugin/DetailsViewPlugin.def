@@ -1,0 +1,8 @@
+EXPORTS
+	initPropertiesView
+	changeActiveObject
+	updateSpecDetails
+	updateChromDetails
+	togglePropertiesView
+	isVisibleProperties
+	exitGui

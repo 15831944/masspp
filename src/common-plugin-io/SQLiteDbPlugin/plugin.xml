@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>SQLite Db</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>SQLiteDbPlugin</link>
+  <function>
+    <call type="get_db">
+      <call-name>getDb</call-name>
+      <call-function>getSQLiteDatabaseObject</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>SQLite Database</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>sqlite</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>sqlite</param-value>
+        </param>
+      </params>
+      <call-description>get SQLite Database Object</call-description>
+    </call>
+    <call type="init_gui">
+      <call-name>checkFile</call-name>
+      <call-function>checkDbFile</call-function>
+      <call-description>check DB file.</call-description>      
+    </call>    
+  </function>
+  <components>
+    <component>
+      <component-name>SQLite</component-name>
+      <component-desc>Using SQLite database for Mass++ internal database</component-desc>
+      <component-calls>
+        <component-call>getDb</component-call>
+        <component-call>checkFile</component-call>        
+      </component-calls>
+    </component>
+  </components>  
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>SQLite</package-component>
+      </package-components>      
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>SQLite</package-component>
+      </package-components>      
+    </package>    
+  </packages>  
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

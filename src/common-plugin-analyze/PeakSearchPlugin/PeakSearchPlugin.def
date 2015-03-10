@@ -1,0 +1,8 @@
+EXPORTS
+	openPeaksDifferenceSearchDialog
+	togglePeakSearchDialog
+	togglePeakDifferenceSearchDialog
+	isVisiblePeakSearchDialog
+	isVisiblePeakDifferenceSearchDialog
+	updateSettings
+	exitGui

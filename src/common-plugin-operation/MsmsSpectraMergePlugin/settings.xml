@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double" default="1.0" minExclusive="0.0" required="true" />
+    <value id="1" type="double" default="0.03" minInclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>rt tol</param-name>
+      <param-section>Merge MS/MS Spectra</param-section>
+      <param-key>RT_TOLERANCE</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>mz tol</param-name>
+      <param-section>Merge MS/MS Spectra</param-section>
+      <param-key>MZ_TOLERANCE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>merge</page-name>
+      <page-title>Merge MS/MS Spectra</page-title>
+      <forms>      
+        <form id="1" param="1">
+          <form-title>Precursor Tol.</form-title>
+          <form-desc>Set the precursor mass tolerance.</form-desc>
+        </form>
+        <form id="0" param="0">
+          <form-title>RT Tol.</form-title>
+          <form-desc>Set the RT tolerance.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

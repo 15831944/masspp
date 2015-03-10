@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Data Map Filter</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>DataMapFilterPlugin</link>
+
+  <function>
+    <call type="on_settings">
+      <call-name>filter</call-name>
+      <call-function>updateSettings</call-function>
+      <call-description>update settings</call-description>
+    </call>  
+  </function>
+  <components>
+    <component>
+      <component-name>filter</component-name>
+      <component-desc>set the Heatmap filter</component-desc>
+      <component-calls>
+        <component-call>filter</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>filter</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

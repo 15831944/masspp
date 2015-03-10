@@ -1,0 +1,7 @@
+EXPORTS
+	openFilterDialog
+	getSpecFilterOperation
+	getChromFilterOperation
+    filterWaveformOnBatch
+	getSpecXYDataOperation
+	getChromXYDataOperation

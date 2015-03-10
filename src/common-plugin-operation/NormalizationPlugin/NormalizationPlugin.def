@@ -1,0 +1,21 @@
+EXPORTS
+	openNormalizationDialog
+	NormalizFilterThreshold
+	NormalizFilterRtRange
+	NormalizFilterMzRange
+	NormalizMethodInteMultiSample
+	NormalizMethodInteEachFract
+	NormalizMethodIntegratEachFrect
+	NormalizMethodIntegratMultiSample
+	NormalizMethodDistributMaxIntentEachFract
+	NormalizMethodDistributMaxIntentMultSample
+	NormalizMethodDistributMedianEachFract
+	NormalizMethodDistributMedianMultiSample
+	NormalizMethodDistributPrecentileEachFract
+	NormalizMethodDistributPrecentileMultiSample
+	setNormStandard
+	setNormFilterInt
+	setNormFilterRt
+	setNormFilterMz
+	execNormSpec
+	execNorm2d

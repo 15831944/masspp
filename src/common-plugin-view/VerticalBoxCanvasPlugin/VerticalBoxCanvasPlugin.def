@@ -1,0 +1,14 @@
+EXPORTS
+	getSpectrumVerticalBox
+	getChromatogramVerticalBox
+	setSpecAndChromStatus
+	updateSettings
+	initGui
+	changeActiveObject
+	exitGui
+	toggleVerticalBoxDialog
+	checkVerticalBoxDialog
+	SelectCanvasOfSpectrum
+	SelectCanvasOfChromatogram
+	getSpecStackedCanvasOperation
+	getChromStackedCanvasOperation

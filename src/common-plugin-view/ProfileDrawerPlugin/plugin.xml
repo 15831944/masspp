@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Profile Drawer</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ProfileDrawerPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>DRAWING_SPECTRUM</status-name>
+      <status-value>profile</status-value>
+    </status>
+    <status id="1" default="true">
+      <status-name>DRAWING_CHROMATOGRAM</status-name>
+      <status-value>profile</status-value>
+    </status>
+    <status id="2">
+      <status-name>DRAWING_SPECTRUM</status-name>
+      <status-value>impulse</status-value>
+    </status>
+    <status id="3">
+      <status-name>DRAWING_CHROMATOGRAM</status-name>
+      <status-value>impulse</status-value>
+    </status>
+  </statuses>
+  <function>
+    <call type="draw_spec">
+      <call-name>draw spectrum</call-name>
+      <call-function>drawSpectrumProfile</call-function>
+      <call-description>draw spectrum profile</call-description>
+    </call>
+    <call type="on_update_spec" order="0" ifloaded="true">
+      <call-name>update spectrum</call-name>
+      <call-function>updateSpectrum</call-function>
+      <call-description>close spectrum to update spectrum data</call-description>
+    </call>
+    <call type="draw_chrom">
+      <call-name>draw chromatogram</call-name>
+      <call-function>drawChromatogramProfile</call-function>
+      <call-description>draw chromatogram profile</call-description>
+    </call>
+    <call type="on_update_chrom" order="0" ifloaded="true">
+      <call-name>update chromatogram</call-name>
+      <call-function>updateChromatogram</call-function>
+      <call-description>close chromatogram to update chromatogram data</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>profile</component-name>
+      <component-desc>Profile Drawer</component-desc>
+      <component-calls>
+        <component-call>draw spectrum</component-call>
+        <component-call>update spectrum</component-call>
+        <component-call>draw chromatogram</component-call>
+        <component-call>update chromatogram</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>profile</package-component>
+      </package-components>
+    </package>
+  </packages>  
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

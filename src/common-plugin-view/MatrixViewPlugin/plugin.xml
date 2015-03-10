@@ -1,0 +1,865 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Differential Analysis Matrix View</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MatrixViewPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>diff_matrix</icon-name>
+      <icon-file>images/mtxview_icon16x16.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>peak_mtrx_new</icon-name>
+      <icon-file>images/peak_mtrx_new_icon16x16.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>peak_mtrx_edit</icon-name>
+      <icon-file>images/peak_mtrx_edit_icon16x16.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>peak_mtrx_del</icon-name>
+      <icon-file>images/peak_mtrx_del_icon16x16.png</icon-file>
+    </icon>
+    <icon id="6" type="png">
+      <icon-name>peak_mtrx_export</icon-name>
+      <icon-file>images/peak_mtrx_export_icon16x16.png</icon-file>
+    </icon>
+    <icon id="7" type="png">
+      <icon-name>item_add</icon-name>
+      <icon-file>images/item_add_icon16x16.png</icon-file>
+    </icon>
+    <icon id="8" type="png">
+      <icon-name>item_edit</icon-name>
+      <icon-file>images/item_edit_icon16x16.png</icon-file>
+    </icon>
+    <icon id="9" type="png">
+      <icon-name>item_del</icon-name>
+      <icon-file>images/item_del_icon16x16.png</icon-file>
+    </icon>
+    <icon id="10" type="png">
+      <icon-name>item_up</icon-name>
+      <icon-file>images/item_up_icon16x16.png</icon-file>
+    </icon>
+    <icon id="11" type="png">
+      <icon-name>item_down</icon-name>
+      <icon-file>images/item_down_icon16x16.png</icon-file>
+    </icon>
+    <icon id="12" type="png">
+      <icon-name>sample_add</icon-name>
+      <icon-file>images/sample_add_icon16x16.png</icon-file>
+    </icon>
+    <icon id="13" type="png">
+      <icon-name>sample_de</icon-name>
+      <icon-file>images/sample_del_icon16x16.png</icon-file>
+    </icon>
+    <icon id="14" type="png">
+      <icon-name>setting_color</icon-name>
+      <icon-file>images/setting_color_icon16x16.png</icon-file>
+    </icon>
+    <icon id="15" type="png">
+      <icon-name>peak_mtrx_edit_disabled</icon-name>
+      <icon-file>images/peak_mtrx_edit_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="16" type="png">
+      <icon-name>peak_mtrx_del_disabled</icon-name>
+      <icon-file>images/peak_mtrx_del_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="17" type="png">
+      <icon-name>peak_mtrx_export_disabled</icon-name>
+      <icon-file>images/peak_mtrx_export_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="18" type="png">
+      <icon-name>item_edit_disabled</icon-name>
+      <icon-file>images/item_edit_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="19" type="png">
+      <icon-name>item_del_disabled</icon-name>
+      <icon-file>images/item_del_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="20" type="png">
+      <icon-name>item_up_disabled</icon-name>
+      <icon-file>images/item_up_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="21" type="png">
+      <icon-name>item_down_disabled</icon-name>
+      <icon-file>images/item_down_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="22" type="png">
+      <icon-name>sample_add_disabled</icon-name>
+      <icon-file>images/sample_add_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="23" type="png">
+      <icon-name>sample_de_disabled</icon-name>
+      <icon-file>images/sample_del_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="24" type="png">
+      <icon-name>setting_color_disabled</icon-name>
+      <icon-file>images/setting_color_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="25" type="png">
+      <icon-name>peak_pos</icon-name>
+      <icon-file>images/peak_positions.png</icon-file>
+    </icon>
+    <icon id="26" type="png">
+      <icon-name>peak_pos_disabled</icon-name>
+      <icon-file>images/peak_positions-disable.png</icon-file>
+    </icon>
+    <icon id="27" type="png">
+      <icon-name>peak_val</icon-name>
+      <icon-file>images/peak_values.png</icon-file>
+    </icon>
+    <icon id="28" type="png">
+      <icon-name>peak_val_disable</icon-name>
+      <icon-file>images/peak_values-disable.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="P" order="4">
+      <menu-name>Processing</menu-name>
+      <menu-description></menu-description>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="Q" order="2">
+      <menu-name>Quantitation</menu-name>
+      <menu-group order="0">peaks</menu-group>
+      <menu-description>Show / hide the Quantitation dialog to edit peak matrix settings and perform quantitation processing</menu-description>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="S" order="5">
+      <menu-name>Show Peak Matrix...</menu-name>
+      <menu-description></menu-description>
+    </menu-item>
+    <menu-item id="3" parent="1" accelerator="C" order="4">
+      <menu-name>Create Peak Matrix...</menu-name>
+      <menu-description></menu-description>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>togglePeakMatrixOpened</call-name>
+      <call-function>togglePeakMatrixOpened</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the Quantitation Dialog to Edit Peak Matrix Settings and Perform Quantitation Processing</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>isPeakMatrixOpened</call-name>
+      <call-function>isPeakMatrixOpened</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>judges whether the peaks matrix dialog is opened</call-description>
+    </call>
+    <call type="execute">
+      <call-name>create peak matrix opend</call-name>
+      <call-function>openCreatePeakMatrixDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="exit_gui">
+      <call-name>exitGui</call-name>
+      <call-function>onExitPeakMatrixDialog</call-function>
+      <call-description>exit</call-description>
+    </call>
+    <call type="on_update_peak_matrix">
+      <call-name>updateMatrixDialog</call-name>
+      <call-function>updateMatrixDialog</call-function>
+      <call-description>updates matrix dialog</call-description>
+    </call>
+    <call type="exit_gui">
+      <call-name>exitGui2</call-name>
+      <call-function>onExitGUI</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+    <call type="open_matrix">
+      <call-name>openMatrixDialog</call-name>
+      <call-function>openMatrixDialog</call-function>
+      <call-description>open the matrix view</call-description>
+    </call>
+
+    <call type="can_exit">
+      <call-name>canExitQuantitationDialog</call-name>
+      <call-function>canExitQuantitationDialog</call-function>
+      <call-description>can whether can exit the Quantitation dialog</call-description>
+    </call>
+    <call type="batch" order="0">
+      <call-name>matrix name</call-name>
+      <call-function>selectPeakMatrix</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Peak Matrix</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_name</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_name</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Select/Create specified peak matrix.</call-description>
+    </call>
+    <call type="batch" order="7">
+      <call-name>init matrix</call-name>
+      <call-function>initializeMatrix</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Initialize Matrix</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>init_matrix</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>initialize peak matrix</call-description>
+    </call>
+    <call type="batch" order="1">
+      <call-name>init matrix row</call-name>
+      <call-function>initializeMatrixRow</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Initialize All Matrix Rows</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>init_matrix_row</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>initialize peak matrix rows</call-description>
+    </call>
+    <call type="batch" order="1">
+      <call-name>init matrix col</call-name>
+      <call-function>initializeMatrixCol</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Initialize All Matrix Columns</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>init_matrix_col</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>initialize peak matrix columns</call-description>
+    </call>
+    <call type="batch">
+      <call-name>add sample group</call-name>
+      <call-function>addMatrixSampleWithGroup</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Add Matrix Sample with Group</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_smpl_group</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_sample</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>input</param-value>
+        </param>
+      </params>
+      <call-description>add matrix sample with group</call-description>
+    </call>
+    <call type="batch">
+      <call-name>sample list file</call-name>
+      <call-function>readSampleListFile</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Sample List File</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_smpl_list</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>sample_list</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>input</param-value>
+        </param>
+      </params>
+      <call-description>read matrix sample list file</call-description>
+    </call>
+    <call type="batch">
+      <call-name>standard file</call-name>
+      <call-function>setStandardFilePath</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Standard Sample</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_standard</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>standard_file</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>initialize</param-value>
+        </param>
+      </params>
+      <call-description>set standard sample raw data</call-description>
+    </call>
+    <call type="batch" order="3">
+      <call-name>matrix row</call-name>
+      <call-function>createMatrixRow</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Peak Positions</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_peak_pos</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_row</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>analyze</param-value>
+        </param>
+      </params>
+      <call-description>specify matrix peak position detector</call-description>
+    </call>
+    <call type="batch" order="7">
+      <call-name>matrix fill</call-name>
+      <call-function>calculatePeakValues</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Fill Matrix</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_fill</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_fill</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>analyze</param-value>
+        </param>
+      </params>
+      <call-description>fill the peak matrix</call-description>
+    </call>
+    <call type="batch">
+      <call-name>matrix_out</call-name>
+      <call-function>outputPeakMatrix</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Output Matrix</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_out</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_out</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>output</param-value>
+        </param>
+      </params>
+      <call-description>output peak matrix</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>matrix_group</call-name>
+      <call-function>addMatrixGroup</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Add Matrix Group</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_group</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_group</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Define a sample group in the peak matrix.</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>matrix_sample</call-name>
+      <call-function>addMatrixViewSample</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Add Matrix Sample</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_sample</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_sample_add</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Add a sample to the peak matrix.</call-description>
+    </call>
+
+    <call type="batch" order="2">
+      <call-name>matrix_samples</call-name>
+      <call-function>addMatrixViewSamples</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Add Matrix Samples</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_samples</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_samples_add</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Import samples to the peak matrix from text file.</call-description>
+    </call>
+
+    <call type="batch" order="3">
+      <call-name>matrix_norm_filter_int</call-name>
+      <call-function>setMatrixNormFilterInt</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Norm Filter Intensity</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_norm_filter_int</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_norm_filter_int</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Set intensity filter of normalization in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="3">
+      <call-name>matrix_norm_filter_rt</call-name>
+      <call-function>setMatrixNormFilterRt</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Norm Filter RT</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_norm_filter_rt</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_norm_filter_rt</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Set RT filter of normalization in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="3">
+      <call-name>matrix_norm_filter_mz</call-name>
+      <call-function>setMatrixNormFilterMz</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Norm Filter MZ</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_norm_filter_mz</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_norm_filter_mz</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Set MZ filter of normalization in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="4">
+      <call-name>matrix_norm_spec</call-name>
+      <call-function>execMatrixNormSpec</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Norm Spec</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_norm_spec</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_norm_spec</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Normalize samples using spectrum peaks in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="4">
+      <call-name>matrix_norm_2d</call-name>
+      <call-function>execMatrixNorm2D</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Norm 2D</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_norm_2d</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_norm_2d</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Normalize samples using 2D peaks in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="4">
+      <call-name>matrix_rt_alignment</call-name>
+      <call-function>execMatrixRtAlignment</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix RT Alignment</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_rt_alignment</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_rt_alignment</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Perform RT alignment method in quantitation.</call-description>
+    </call>
+    <call type="batch" order="5">
+      <call-name>matrix_peak_positions</call-name>
+      <call-function>setMatrixPeakPositions</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Peak Positions</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_peak_positions</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_peak_positions</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Perform the peak positions determination in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="6">
+      <call-name>matrix_peak_values</call-name>
+      <call-function>setMatrixPeakValues</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Peak Values</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_peak_values</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_peak_values</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Perform the peak values calculation in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="7">
+      <call-name>matrix_peak_scaling</call-name>
+      <call-function>setMatrixPeakScaling</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Peak Scaling</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_peak_scaling</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_peak_scaling</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Perform the peak scaling in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="7">
+      <call-name>matrix_peak_analysis</call-name>
+      <call-function>setMatrixPeakAnalysis</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Matrix Peak Analysis</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_peak_analysis</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_peak_analysis</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Perform the peak analysis in quantitation.</call-description>
+    </call>
+
+    <call type="batch" order="8">
+      <call-name>duplicate peaks</call-name>
+      <call-function>delMatrixDupPeaks</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Delete Duplex Matrix Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>matrix_del_dup_peaks</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>matrix_del_dup_peaks</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+      <call-description>Delete duplicate peaks in quantitation.</call-description>
+    </call>
+
+    <call type="refresh">
+      <call-name>refresh</call-name>
+      <call-function>refreshWindow</call-function>
+      <call-description>refreshes the Peak Matrix window.</call-description>      
+    </call>
+    <call type="activate_matrix_peak">
+      <call-name>activate peak</call-name>
+      <call-function>activateMatrixPeak</call-function>
+      <call-description>activates the matrix peak.</call-description>      
+    </call>
+    
+    <call type="save_file">
+      <call-name>savePeakMatrixDataFile</call-name>
+      <call-function>savePeakMatrixDataFile</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Peak Matrix Text</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>peak_matrix</param-value>
+          <!--
+          <param-value>textPeakMatrixText</param-value>
+          -->
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>txt</param-value>
+        </param>
+
+        <param>
+          <param-name>target</param-name>
+          <param-value>spectra</param-value>
+        </param>
+
+      </params>
+
+      <call-description>save Peak Matrix (tab separated values)</call-description>
+    </call>
+
+
+
+  </function>
+  <components>
+    <component>
+      <component-name>create</component-name>
+      <component-desc>Create Peak Matrix</component-desc>
+      <component-calls>
+        <component-call>create peak matrix opend</component-call>
+        <component-call>onExitPeakMatrixDialog</component-call>
+        <component-call>canExitQuantitationDialog</component-call>
+        <component-call>matrix name</component-call>
+        <component-call>init matrix</component-call>
+        <component-call>init matrix row</component-call>
+        <component-call>init matrix col</component-call>
+        <component-call>add sample group</component-call>
+        <component-call>sample list file</component-call>
+        <component-call>standard file</component-call>
+        <component-call>matrix row</component-call>
+        <component-call>matrix fill</component-call>
+        <component-call>matrix_out</component-call>        
+        <component-call>matrix_group</component-call>
+        <component-call>matrix_sample</component-call>
+        <component-call>matrix_samples</component-call>
+        <component-call>matrix_norm_filter_int</component-call>
+        <component-call>matrix_norm_filter_rt</component-call>                
+        <component-call>matrix_norm_filter_mz</component-call>
+        <component-call>matrix_norm_spec</component-call>
+        <component-call>matrix_norm_2d</component-call>                
+        <component-call>matrix_rt_alignment</component-call>
+        <component-call>matrix_peak_positions</component-call>        
+        <component-call>matrix_peak_values</component-call>
+        <component-call>matrix_peak_scaling</component-call>                
+        <component-call>matrix_peak_analysis</component-call>
+        <component-call>comparative_ident</component-call>
+        <component-call>duplicate peaks</component-call>                
+      </component-calls>
+    </component>
+    <component>
+      <component-name>show</component-name>
+      <component-desc>Show Peak Matrix</component-desc>
+      <component-calls>
+        <component-call>togglePeakMatrixOpened</component-call>
+        <component-call>isPeakMatrixOpened</component-call>
+        <component-call>onExitPeakMatrixDialog</component-call>
+        <component-call>updateMatrixDialog</component-call>
+        <component-call>exitGui</component-call>
+        <component-call>exitGui2</component-call>        
+        <component-call>openMatrixDialog</component-call>
+        <component-call>canExitQuantitationDialog</component-call>
+        <component-call>refresh</component-call>
+        <component-call>activate peak</component-call>
+      </component-calls>
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>create</package-component>
+        <package-component>show</package-component>        
+      </package-components>
+    </package>
+  </packages>    
+  
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>    
+  </help>    
+</plugin>

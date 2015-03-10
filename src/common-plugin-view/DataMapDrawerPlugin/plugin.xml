@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Data Map Drawer</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>DataMapDrawerPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>DRAWING_DATAMAP</status-name>
+      <status-value>colormap</status-value>
+    </status>
+  </statuses>
+  <function>
+    <call type="draw_data_map">
+      <call-name>drawColorMap</call-name>
+      <call-function>drawColorMap</call-function>
+      <call-description>draw color map</call-description>
+    </call>
+    <call type="draw_data_map_window_fg">
+      <call-name>draw bar</call-name>
+      <call-function>drawBar</call-function>
+      <call-description>draw bar</call-description>
+    </call>
+    <call type="prepare_data_map_window">
+      <call-name>prepareDataMap</call-name>
+      <call-function>prepareDataMap</call-function>
+      <call-description>prepare data map window</call-description>
+    </call>
+    <call type="on_update_data_map" ifloaded="true">
+      <call-name>update data map</call-name>
+      <call-function>deleteBitmap</call-function>
+      <call-description>delete bit map info</call-description>
+    </call>
+    <call type="on_close_sample" ifloaded="true">
+      <call-name>close sample</call-name>
+      <call-function>deleteSampleBitmap</call-function>
+      <call-description>delete sample info</call-description>
+    </call>
+    <call type="on_settings" ifloaded="true">
+      <call-name>update settings</call-name>
+      <call-function>updateSettings</call-function>
+      <call-description>update settings</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>heatmap</component-name>
+      <component-desc>Heatmap Draw</component-desc>
+      <component-calls>
+        <component-call>drawColorMap</component-call>
+        <component-call>draw bar</component-call>
+        <component-call>prepareDataMap</component-call>
+        <component-call>update data map</component-call>
+        <component-call>close sample</component-call>
+        <component-call>update settings</component-call>
+        <component-call>setStatus</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>heatmap</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

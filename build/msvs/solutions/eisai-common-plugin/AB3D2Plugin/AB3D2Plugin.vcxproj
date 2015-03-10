@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EC277CEA-39A6-45B4-BF67-7022FF79BA74}</ProjectGuid>
+    <RootNamespace>AB3D2Plugin</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Parallel-Release|x64	'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectName)</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;AB3D2PLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*.png" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.ini" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;AB3D2PLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*.png" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.ini" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;AB3D2PLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*.png" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.ini" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;AB3D2PLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <AddModuleNamesToAssembly>%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*.png" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images"
+copy "$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.ini" "$(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AB3D2Plugin.def" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\advanced_parameters.ini" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\clustering_charge.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\clustering_mztol.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\clustering_rttol.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\filtering_fwhm.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\filtering_snratio.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\peakpicking_mztol.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\images\peakpicking_rttol.png" />
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\plugin.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\settings.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\settings_peakpos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AB3DPeakPosDetector.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AB3DPeakPosition.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AlchemyLib\AlchmyLib.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AlchemyLib\Refining.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AlchemyLib\TragingPost.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Algo_LWA.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\DbAccess.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\DbController.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\EmsDb.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\MsppDb.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\ProxyDbClass.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\stdafxwp.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\TempContainer.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\TempTableCtrl.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\NewAB3DLabeling.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressAB3D.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressAdapter.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressMatrix.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Algo_inline.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Def_All.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Def_Peaks.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Def_Points.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Func\LR_x_LCR.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Func\PeakFusion.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\hpp\Check2DPeakPicking.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\hpp\CheckPeakPicking.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\hpp\CheckPeakPositions.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Peaks\Peak3DBase.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Peaks\Peak3DBase_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Peaks\PeakBase.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Peaks\PeakBase_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Peaks\SpectrumPeak_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\PluginToolHelper.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\LCRPoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\LCRPoint_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\LRPoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\LRPoint_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\XYPoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\XYPoint_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\XYZPoint.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Points\XYZPoint_Def.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Thoto\Standardinline.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AB3DPeakPosDetector.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AB3DPeakPosition.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AlchemyLib\Refinig.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\AlchemyLib\TradingPost.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Algo_LWA.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\DbAccess.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\DbController.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\EmsDb.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\MsppDb.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\ProxyDbClass.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\DbTools\TempTableCtrl.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\NewAB3DLabeling.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\Ab3dPluginTop.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressAB3D.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressAdapter.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\eisai-common-plugin\AB3D2Plugin\progress\ProgressMatrix.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

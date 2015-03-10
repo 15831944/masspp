@@ -1,0 +1,32 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[Tools] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Script Console">
+<param name="Local" value="ch01s01.html#id628408"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Using the Script Console">
+<param name="Local" value="ch01s01.html#id628414"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Scripting Settings">
+<param name="Local" value="ch01s01.html#id106224"></OBJECT></LI>
+</UL><LI><OBJECT type="text/sitemap">
+<param name="Name" value="Loading a Script">
+<param name="Local" value="ch01s01.html#id628440"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Saving a Script">
+<param name="Local" value="ch01s01.html#id628441"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Running a Script">
+<param name="Local" value="ch01s01.html#id629764"></OBJECT></LI>
+</UL></UL></UL></BODY></HTML>

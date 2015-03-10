@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <values>
+    <value id="0" type="string" required="true">
+      <item-type>xydata_baseline</item-type>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>baseline_subtract</param-name>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>baseline_subtract</page-name>
+      <page-title>Baseline Subtraction</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Baseline Detector</form-title>
+          <form-desc>baseline detection algorithm.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+  
+</settings>

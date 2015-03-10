@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Vertical Box Canvas Plugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+
+  <link>VerticalBoxCanvasPlugin</link>
+
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>vertical_box_window</icon-name>
+      <icon-file>images/vertical_box_icon_16x16.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>vertical_box_cursor</icon-name>
+      <icon-file>images/vertical_box_cursor.png</icon-file>
+    </icon>
+    <!-- support delete function @Date:2013/05/23 <Add> A.Ozaki  from -->
+    <icon id="2" type="png">
+      <icon-name>vertical_box_del</icon-name>
+      <icon-file>images/vertical_box_del_icon16x16.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>vertical_box_dis_del</icon-name>
+      <icon-file>images/vertical_box_del_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>vertical_box_up</icon-name>
+      <icon-file>images/vertical_box_up_icon16x16.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>vertical_box_dis_up</icon-name>
+      <icon-file>images/vertical_box_up_disabled_icon16x16.png</icon-file>
+    </icon>
+    <icon id="6" type="png">
+      <icon-name>vertical_box_down</icon-name>
+      <icon-file>images/vertical_box_down_icon16x16.png</icon-file>
+    </icon>
+    <icon id="7" type="png">
+      <icon-name>vertical_box_dis_down</icon-name>
+      <icon-file>images/vertical_box_down_disabled_icon16x16.png</icon-file>
+    <!-- support delete fuction @Date:2013/05/23 <Add> A.Ozaki  to -->
+	</icon>
+  </icons>
+
+  <statuses>
+    <!-- support delete function @Date:2013/05/23 <Add> A.Ozaki  from -->
+    <status id="0">
+      <status-name>VERTICALBOX_SETTINGS_VIEW</status-name>
+      <status-value>on</status-value>
+    </status>
+    <!-- support delete fuction @Date:2013/05/23 <Add> A.Ozaki  to -->
+    <status id="1">
+      <status-name>WINDOW</status-name>
+      <status-value>vertical</status-value>
+    </status>    
+  </statuses>
+
+  <menu> 
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" accelerator="D">
+      <menu-name>Display Mode</menu-name>
+      <menu-group order="7">graph</menu-group>      
+    </menu-item>
+
+    <menu-item id="2" parent="1" checked="1" accelerator="t">
+      <menu-name>Stacked</menu-name>
+      <toolbar order="0">window</toolbar>
+      <menu-description>Change the chromatogram / spectrum display mode to stacked</menu-description>
+    </menu-item>
+
+    <!-- support delete function @Date:2013/05/23 <Add> A.Ozaki  from -->
+    <menu-item id="3" parent="0" accelerator="P" order="0">
+      <menu-name>Pane</menu-name>
+    </menu-item>
+    <menu-item id="4" parent="3" accelerator="V" >
+      <menu-name>Stacked Settings</menu-name>
+      <menu-description>Show / hide the Stacked Settings pane</menu-description>
+    </menu-item>
+    <!-- support delete fuction @Date:2013/05/23 <Add> A.Ozaki  to -->
+  </menu>
+
+  <!--status bar-->
+  <gui>
+    <status-bar target="none" order="1" width="160">
+      <status-bar-name>DispMode</status-bar-name>
+    </status-bar>
+  </gui>
+   
+  <function>
+    <call type="spectrum_window" status="1">
+      <call-name>getSpectrumVerticalBox</call-name>
+      <call-function>getSpectrumVerticalBox</call-function>
+      <call-description>getSpectrumVerticalBox</call-description>
+    </call>
+
+    <call type="chromatogram_window" status="1">
+      <call-name>getChromatogramVerticalBox</call-name>
+      <call-function>getChromatogramVerticalBox</call-function>
+      <call-description>getChromatogramVerticalBox</call-description>
+    </call>
+
+    <call type="init_gui" status="0">
+      <call-name>initialize stacked veiw settings pane</call-name>
+      <call-function>initGui</call-function>
+      <call-description>initialize stacked view settings pane</call-description>
+    </call>
+    <call type="on_activate" ifloaded="true" fixed="true">
+      <call-name>set active object</call-name>
+      <call-function>changeActiveObject</call-function>
+      <call-description>active object is changed</call-description>
+    </call>
+    <!-- support delete fuction @Date:2013/05/23 <Add> A.Ozaki  to -->
+
+    <!-- View > Display Mode > Stacked -->
+    <call type="execute" icon="0">
+    <call-name>set spectrum and chromatogram status</call-name>
+      <call-function>setSpecAndChromStatus</call-function>
+      <call-description>Stacked display mode</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+
+    <!-- support delete function @Date:2013/05/23 <Add> A.Ozaki  from -->
+    <call type="select_spectrum">
+      <call-name>Select canvas of spectrum</call-name>
+      <call-function>SelectCanvasOfSpectrum</call-function>
+      <call-description>Select canvas of spectrum</call-description>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>verticalbox</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="select_chromatogram">
+      <call-name>Select canvas of chromatogram</call-name>
+      <call-function>SelectCanvasOfChromatogram</call-function>
+      <call-description>Select canvas of chromatogram</call-description>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>verticalbox</param-value>
+        </param>
+      </params>
+    </call>
+ 
+    <call type="execute">
+      <call-name>toggle vertical box dialog</call-name>
+      <call-function>toggleVerticalBoxDialog</call-function>
+      <packages>
+        <package>Viewer</package>
+      </packages>
+      <call-description>Show / Hide the Stacked Settings Pane</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="checked" ifloaded="true" fixed="true">
+       <call-name>check vertical box dialog</call-name>
+      <call-function>checkVerticalBoxDialog</call-function>
+      <call-description>check the visibility of the stacked view dialog</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="exit_gui" ifloaded="true" fixed="true">
+      <call-name>exit GUI</call-name>
+      <call-function>exitGui</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+    <!-- support delete fuction @Date:2013/05/23 <Add> A.Ozaki  to -->
+
+    <call type="on_settings" ifloaded="true">
+      <call-name>update settings</call-name>
+      <call-function>updateSettings</call-function>
+      <call-description>update settings</call-description>
+    </call>
+
+    <!-- Operation -->
+    <call type="operation" fixed="true">
+      <call-name>spec stacked canvas operation</call-name>
+      <call-function>getSpecStackedCanvasOperation</call-function>
+      <call-description>spectrum stacked view operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum Stacked Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_stack</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="operation">
+      <call-name>chrom stacked canvas operation</call-name>
+      <call-function>getChromStackedCanvasOperation</call-function>
+      <call-description>chromatogram stacked view operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Chromatogram Stacked Canvas</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_stack</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>stacked</component-name>
+      <component-desc>Stacked View</component-desc>
+      <component-calls>
+        <component-call>getSpectrumVerticalBox</component-call>
+        <component-call>getChromatogramVerticalBox</component-call>
+        <component-call>initialize stacked veiw settings pane</component-call>
+        <component-call>set active object</component-call>
+        <component-call>set spectrum and chromatogram status</component-call>
+        <component-call>Select canvas of spectrum</component-call>
+        <component-call>Select canvas of chromatogram</component-call>
+        <component-call>toggle vertical box dialog</component-call>
+        <component-call>check vertical box dialog</component-call>
+        <component-call>exit GUI</component-call>
+        <component-call>update settings</component-call>
+        <component-call>spec stacked canvas operation</component-call>
+        <component-call>chrom stacked canvas operation</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>stacked</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>stacked</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>stacked</package-component>
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>stacked</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>stacked</package-component>
+      </package-components>
+    </package>    
+  </packages>    
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>  
+
+</plugin>

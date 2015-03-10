@@ -1,0 +1,467 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>MassBank Tools</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MassBankToolsPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>massbank</icon-name>
+      <icon-file>images/massbank_icon.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>massbank_create_spec_</icon-name>
+      <icon-file>images/massbank_create_spec_record32x32.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>massbank_spec_search</icon-name>
+      <icon-file>images/massbank_spec_search32x32.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>massbank_peak_search</icon-name>
+      <icon-file>images/massbank_peak_search32x32.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>massbank_peakDifference_search</icon-name>
+      <icon-file>images/massbank_peakDifference_search32x32.png</icon-file>
+    </icon>
+    <!-- Add ver 2.6.0 -->
+    <icon id="6" type="png">
+      <icon-name>showDetailes</icon-name>
+      <icon-file>images/wave_16x16.png</icon-file>
+    </icon>
+    <icon id="7" type="png">
+      <icon-name>showDetailesProfile</icon-name>
+      <icon-file>images/props_16x16.png</icon-file>
+    </icon>
+    <icon id="8" type="png">
+      <icon-name>overLapping</icon-name>
+      <icon-file>images/overlapping_16x16.png</icon-file>
+    </icon>
+
+  </icons>
+  <statuses>
+    <status id="0">
+      <status-name>RESULTLISTPANE</status-name>
+      <status-value>off</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+<!-- Call Search Dialogs -->
+    <menu-item id="1" parent="0" accelerator="A" order="0">
+      <menu-name>MassBank</menu-name>
+      <menu-group order="2">massbank</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="R" target="sample" order="0">
+      <menu-name>Create Spectrum Records...</menu-name>
+      <menu-group order="2">massbank</menu-group>
+      <menu-description>Create MassBank spectrum records</menu-description>
+    </menu-item>
+    <menu-item id="3" parent="1" accelerator="S" target="spectrum" order="3">
+      <menu-name>Spectrum Search...</menu-name>
+      <menu-group order="2">massbank</menu-group>
+      <menu-description>Submit a spectrum to MassBank search</menu-description>
+    </menu-item>
+    <menu-item id="5" parent="1" accelerator="P" order="7">
+      <menu-name>Peak Search...</menu-name>
+      <menu-group order="2">massbank</menu-group>
+      <menu-description>Perform a MassBank peak search</menu-description>
+    </menu-item>
+    <menu-item id="6" parent="1" accelerator="D" order="8">
+      <menu-name>Peak Difference Search...</menu-name>
+      <menu-description>Perform a MassBank peak difference search</menu-description>
+      <menu-group order="2">massbank</menu-group>
+    </menu-item>
+<!-- View Results -->
+  </menu>
+
+  <function>
+    <call type="execute" icon="1">
+      <call-name>callCreateSpectrumRecordDialog</call-name>
+      <call-function>callCreateSpectrumRecordDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+      <call-description>call Create Spectrum Record Dialog</call-description>
+    </call>    
+    <call type="execute" icon="2">
+      <call-name>callSpectrumSearchDialog</call-name>
+      <call-function>callSpectrumSearchDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+      <call-description>call Similar Spectrum Search Dialog</call-description>
+    </call>
+    
+    <call type="execute"  icon="4">
+      <call-name>callPeakSearchDialog</call-name>
+      <call-function>callPeakSearchDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+      <call-description>call Peak Search Dialog</call-description>
+    </call>
+    
+    <call type="execute"  icon="5">
+      <call-name>callPeakDifferenceSearchDialog</call-name>
+      <call-function>callPeakDifferenceSearchDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+      <call-description>call Peak Difference Search Dialog</call-description>
+    </call>
+    <!--
+    <call type="on_activate">
+      <call-name>setActiveSpectrum</call-name>
+      <call-function>setActiveSpectrum</call-function>
+      <call-desctiption>set Active Spectrum</call-desctiption>
+    </call>
+    -->
+    <call type="draw_spec">
+      <call-name>drawMassBankRecordPeaks</call-name>
+      <call-function>drawMassBankRecordPeaks</call-function>
+      <call-description>draw MassBank record peaks</call-description>
+    </call>
+    
+    <call type="execute">
+      <call-name>toggleSearchResultsPane</call-name>
+      <call-function>toggleSearchResultsPane</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>9</param-value>
+        </param>
+      </params>
+      <call-description>Show / Hide the MassBank Search Results Pane</call-description>
+    </call>
+    <call type="checked" ifloaded="true">
+      <call-name>checkSearchResultsPane</call-name>
+      <call-function>ischeckSearchResultsPaneOpened</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>9</param-value>
+        </param>
+      </params>
+      <call-description>judges whether the MassBank search result dialog is opened</call-description>
+    </call>
+    
+    <call type="save_file">
+      <call-name>MassBank Record</call-name>
+      <call-function>batchCommandCalled</call-function>
+      <packages>
+        <package>MassBank</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>MassBank Record</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>massbankrec</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>massbankrecord</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>txt</param-value>
+        </param>
+        <param>
+          <param-name>target</param-name>
+          <param-value>spectrum</param-value>
+        </param>
+      </params>
+      <call-description>save and tranceform to massbank record</call-description>
+    </call>
+
+    <call type="identification">
+      <call-name>initialiseSearchEngine</call-name>
+      <call-function>initialiseSearchEngine</call-function>
+      <packages>
+        <package>Identification</package>
+        <package>Quantitation</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>MassBankBatchSearch</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>massbank</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>massbankbatchsearch</param-value>
+        </param>
+      </params>
+      <call-description>database search</call-description>
+    </call>
+
+    <call type="massbank_search_result" icon="6">
+      <call-name>toggleResultDetailsDialog</call-name>
+      <call-function>toggleResultDetailsDialog</call-function>
+      <packages>
+        <package>MassBank</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>toggleResultDetailsDialog</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>toggle Result Details Dialog</param-value>
+        </param>
+      </params>
+      <call-description>toggle the visibility of the result Details window</call-description>
+    </call>
+    
+    <call type="massbank_search_result" icon="7">
+      <call-name>toggleResultDetailsProfile</call-name>
+      <call-function>toggleResultDetailsProfile</call-function>
+      <packages>
+        <package>MassBank</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>toggleResultDetailsProfile</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>toggle Result DetailProfile</param-value>
+        </param>
+      </params>
+      <call-description>toggle the visibility of the result details profile</call-description>
+    </call>
+    
+    <call type="massbank_search_result" icon="8">
+      <call-name>toggleResultOverlap</call-name>
+      <call-function>toggleResultOverlap</call-function>
+      <packages>
+        <package>MassBank</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>toggleResultOverlap</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>toggle Result Overlap</param-value>
+        </param>
+      </params>
+      <call-description>toggle the visibility of the result Overlap</call-description>
+    </call>
+
+    <!-- Enum -->
+    <call type="enumeration" fixed="true">
+      <call-name>vendor data array</call-name>
+      <call-function>getVendorArrayData</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Vendor Array</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>vendorarr</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="enumeration" fixed="true">
+      <call-name>Inst data array</call-name>
+      <call-function>getInstrumentArrayData</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Inst Array</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>instarr</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="enumeration" fixed="true">
+      <call-name>License data array</call-name>
+      <call-function>getLicenseArrayData</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>License Array</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>licensearr</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="enumeration" fixed="true">
+      <call-name>Inst type data array</call-name>
+      <call-function>getGettedInstrumentTypeArrayData</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Inst Type Array</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>insttypearr</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="enumeration" fixed="true">
+      <call-name>Inst type data array has free area</call-name>
+      <call-function>getGettedInstrumentTypeArrayDataWithFree</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Inst Type Array with free</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>insttypearrwithfree</param-value>
+        </param>
+      </params>
+    </call>
+
+
+    <call type="enumeration" fixed="true">
+      <call-name>append value array</call-name>
+      <call-function>getAppendedValuesArrayData</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Append Values Array</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>appendvaluearr</param-value>
+        </param>
+      </params>
+    </call>
+    <call type ="check_params">
+      <call-name>check_prefix</call-name>
+      <call-function>checkPrefixStatus</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Prefix check Function</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>check_prefix_status</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>record</component-name>
+      <component-desc>Create MassBank records</component-desc>
+      <component-calls>
+        <component-call>callCreateSpectrumRecordDialog</component-call>
+        <component-call>MassBank Record</component-call>
+        <component-call>vendor data array</component-call>
+        <component-call>Inst data array</component-call>
+        <component-call>License data array</component-call>
+        <component-call>Inst type data array</component-call>
+        <component-call>append value array</component-call>
+        <component-call>check_prefix_status</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>spectrum</component-name>
+      <component-desc>Search similar spectra</component-desc>
+      <component-calls>
+        <component-call>callSpectrumSearchDialog</component-call>
+        <component-call>drawMassBankRecordPeaks</component-call>
+        <component-call>toggleSearchResultsPane</component-call>
+        <component-call>checkSearchResultsPane</component-call>
+        <component-call>toggleResultDetailsDialog</component-call>
+        <component-call>toggleResultDetailsProfile</component-call>
+        <component-call>toggleResultOverlap</component-call>
+      </component-calls>      
+    </component>
+    <component>
+      <component-name>batch</component-name>
+      <component-desc>Batch Search</component-desc>
+      <component-calls>
+        <component-call>initialiseSearchEngine</component-call>
+        <component-call>toggleResultDetailsDialog</component-call>
+        <component-call>toggleResultDetailsProfile</component-call>
+        <component-call>toggleResultOverlap</component-call>        
+      </component-calls>      
+    </component>    
+    <component>
+      <component-name>peak</component-name>
+      <component-desc>Search spectra by peak positions or differences</component-desc>
+      <component-calls>
+        <component-call>callPeakSearchDialog</component-call>
+        <component-call>callPeakDifferenceSearchDialog</component-call>
+        <component-call>drawMassBankRecordPeaks</component-call>
+        <component-call>toggleSearchResultsPane</component-call>
+        <component-call>checkSearchResultsPane</component-call>
+        <component-call>toggleResultDetailsDialog</component-call>
+        <component-call>toggleResultDetailsProfile</component-call>
+        <component-call>toggleResultOverlap</component-call>
+      </component-calls>      
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>batch</package-component>
+        <package-component>peak</package-component>        
+      </package-components>
+    </package>    
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>record</package-component>
+        <package-component>spectrum</package-component>
+        <package-component>batch</package-component>
+        <package-component>peak</package-component>        
+      </package-components>
+    </package>
+  </packages>
+  
+  <settings>
+    <settings-file>settings.xml</settings-file>
+    <settings-file>settings_batchsearch.xml</settings-file>
+    <settings-file>settings_searchengine.xml</settings-file>
+  </settings>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>    
+  </help>  
+</plugin>

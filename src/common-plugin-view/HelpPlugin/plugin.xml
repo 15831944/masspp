@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Help</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>HelpPlugin</link>
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>help</icon-name>
+      <icon-file>images/help_icon16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="H" order="9">
+      <menu-name>Help</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="H">
+      <menu-name>Help...</menu-name>
+      <menu-group>help</menu-group>
+      <toolbar order="9">help</toolbar>
+      <menu-description>Display Mass++ Help</menu-description>
+      <shortcut>
+        <shortcut-key key="f1" />
+      </shortcut>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute" icon="0">
+      <call-name>show help</call-name>
+      <call-function>showHelp</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>Display Mass++ help</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>help</component-name>
+      <component-desc>Help</component-desc>
+      <component-calls>
+        <component-call>show help</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>help</package-component>
+      </package-components>
+    </package>
+  </packages>    
+  <help>
+    <help-file order="0">help/htmlhelp.hhp</help-file>    
+  </help>  
+</plugin>

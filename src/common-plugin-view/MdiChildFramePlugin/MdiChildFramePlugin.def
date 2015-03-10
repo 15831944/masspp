@@ -1,0 +1,21 @@
+EXPORTS
+	openSpectrumFrame
+	openChromatogramFrame
+	openDataMapFrame
+	closeAllSpectrumFrames
+	closeAllChromatogramFrames
+	closeAllDataMapFrames
+	toggleAutoArrangeMode
+	setMdiWindowStatus
+	cascadeChildren
+	tileChildrenVertically
+	tileChildren
+	arrangeIcons
+	onMoveChildFrame
+	onMovingChildFrame
+	onClientSize
+	onChangeSettings
+	activateNextChild
+	activatePreviousChild
+	isNotAutoArrange
+	layoutChildrenOnClose

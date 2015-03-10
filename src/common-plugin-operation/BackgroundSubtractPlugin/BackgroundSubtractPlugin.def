@@ -1,0 +1,9 @@
+EXPORTS
+	openBackgroundDialog
+	drawBackgroundLabel
+	openSpectrumCanvas
+	closeSpectrumCanvas
+	closeAllSpectrumCanvas
+	getBackgroundOperation
+	getSpecXYDataOperation
+		

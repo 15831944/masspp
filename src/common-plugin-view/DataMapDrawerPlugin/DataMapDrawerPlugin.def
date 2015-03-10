@@ -1,0 +1,8 @@
+EXPORTS
+	drawColorMap
+	drawBar		
+	prepareDataMap
+	deleteBitmap
+	deleteSampleBitmap
+	updateSettings
+	setStatusValue		

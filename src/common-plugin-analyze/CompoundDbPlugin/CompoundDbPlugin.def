@@ -1,0 +1,8 @@
+EXPORTS
+    getCasDb
+    getChebiDb
+    getKeggDb
+    getKnapsackDb
+    getLipidbankDb
+    getLipidmapsDb
+    getPubchemDb

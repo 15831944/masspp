@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>PluginManagerPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>PluginManagerPlugin</link>
+
+  <menu>
+
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+
+    <menu-item id="1" parent="0" order="9">
+      <menu-name>Plugin Manager...</menu-name>
+      <menu-group>plugin_manager</menu-group>
+      <menu-description>Plug-ins is managed</menu-description>
+    </menu-item>
+
+  </menu>
+
+  <function>
+    <call type="execute">
+      <call-name>Plugin Manager View</call-name>
+      <call-function>openPluginManagerView</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+      <call-description>Plugin Manager View</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>plugin</component-name>
+      <component-desc>Plugin Manager</component-desc>
+      <component-calls>
+        <component-call>Plugin Manager View</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>plugin</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+</plugin>

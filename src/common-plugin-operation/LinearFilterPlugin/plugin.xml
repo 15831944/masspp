@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Linear Filter</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>LinearFilterPlugin</link>
+  <function>
+    <call type="xydata_filter">
+      <call-name>LowPass</call-name>
+      <call-function>executeLowPass</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Low-Pass Filter (Linear)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>linear_lowpass</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>LowPass</param-value>
+        </param>
+      </params>
+      <call-description>Low-Pass Filter</call-description>
+    </call>
+    <call type="xydata_filter">
+      <call-name>HighPass</call-name>
+      <call-function>executeHighPass</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>High-Pass Filter (Linear)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>linear_highpass</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>HighPass</param-value>
+        </param>
+      </params>
+      <call-description>High-Pass Filter</call-description>
+    </call>
+    <call type="xydata_filter">
+      <call-name>Gaussian</call-name>
+      <call-function>executeGaussian</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Gaussian Filter (Linear)</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>linear_gaussian</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Gaussian</param-value>
+        </param>
+      </params>
+      <call-description>Gaussian Filter</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>lowpass</component-name>
+      <component-desc>Low-Pass Filter</component-desc>
+      <component-calls>
+        <component-call>LowPass</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>highpass</component-name>
+      <component-desc>High-Pass Filter</component-desc>
+      <component-calls>
+        <component-call>HighPass</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>gaussian</component-name>
+      <component-desc>Gaussian Filter</component-desc>
+      <component-calls>
+        <component-call>Gaussian</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>lowpass</package-component>
+        <package-component>highpass</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>lowpass</package-component>
+        <package-component>highpass</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>lowpass</package-component>
+        <package-component>highpass</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

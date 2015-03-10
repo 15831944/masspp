@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+  <name>TppPlugin </name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>TppPlugin</link>
+
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="T">
+      <menu-name>TPP...</menu-name>
+      <menu-group>tpp</menu-group>
+      <menu-description>Open TPP Dialog</menu-description>
+    </menu-item>
+    <menu-item id="2" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="3" parent="2" accelerator="R">
+      <menu-name>Results</menu-name>
+      <menu-group order="0">addition</menu-group>
+    </menu-item>
+    <menu-item id="4" parent="3" order="6">
+      <menu-name>TPP...</menu-name>
+      <menu-group>tppResult</menu-group>
+      <menu-description>Open TPP Result Dialog</menu-description>
+    </menu-item>
+  </menu>
+  
+  <function>
+    <call type="execute">
+      <call-name>tpp</call-name>
+      <call-function>openTppDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>tppResult</call-name>
+      <call-function>openTppResultDialog</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>  
+  </function>
+  <components>
+    <component>
+      <component-name>tpp</component-name>
+      <component-desc>Protein Prophet, Peptide Prophet and iProphet</component-desc>
+      <component-calls>
+        <component-call>tpp</component-call>
+        <component-call>tppResult</component-call>        
+      </component-calls>
+    </component>
+  </components>
+</plugin>

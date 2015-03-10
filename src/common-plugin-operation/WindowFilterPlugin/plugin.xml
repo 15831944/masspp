@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Window Filter</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>WindowFilterPlugin</link>
+  <function>
+    <call type="xydata_filter">
+      <call-name>RectangularW</call-name>
+      <call-function>execRectangularWindow</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Rectangular Window Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>rectangular_window</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Rectangular</param-value>
+        </param>
+      </params>
+      <call-description>Rectangular Window Filter</call-description>
+    </call>
+    <call type="xydata_filter">
+      <call-name>BartlettW</call-name>
+      <call-function>execBartlettWindow</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Triangular Window Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>triangular_window</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Triangular</param-value>
+        </param>
+      </params>
+      <call-description>Triangular Window Filter</call-description>
+    </call>
+    <call type="xydata_filter">
+      <call-name>GaussianW</call-name>
+      <call-function>execGaussianWindow</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Gaussian Window Filter</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>gaussian_window</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Gaussian</param-value>
+        </param>
+      </params>
+      <call-description>Gaussian Window Filter</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>rectangular</component-name>
+      <component-desc>Rectangular Filter</component-desc>
+      <component-calls>
+        <component-call>RectangularW</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>bartlett</component-name>
+      <component-desc>Bartlett Filter</component-desc>
+      <component-calls>
+        <component-call>BartlettW</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>gaussian</component-name>
+      <component-desc>Gaussian Filter</component-desc>
+      <component-calls>
+        <component-call>GaussianW</component-call>
+      </component-calls>
+    </component>        
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>rectangular</package-component>
+        <package-component>bartlett</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>rectangular</package-component>
+        <package-component>bartlett</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>rectangular</package-component>
+        <package-component>bartlett</package-component>
+        <package-component>gaussian</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>

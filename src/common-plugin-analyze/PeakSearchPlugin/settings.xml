@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Analysis</chapter>
+    <chapter id="1" parent="0">Search</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="double" default="3.0" minExclusive="0.0"  required="true"/>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>Spectrum View Range</param-name>
+      <param-section>Peak Search</param-section>
+      <param-key>SPECTRUM_VIEW_RANGE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page chapter="1" common="true">
+      <page-name>common</page-name>
+      <page-title>Peaks</page-title>
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Spectrum View Range</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

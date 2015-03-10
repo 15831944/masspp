@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>SpecChromWinModePlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>SpecChromWinModePlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>WINDOW_MODE</status-name>
+      <status-value>SPEC_CHROM</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="W">
+      <menu-name>Window Mode</menu-name>
+      <menu-group order="7">graph</menu-group>
+    </menu-item>
+    <menu-item id="2" parent="1" accelerator="S" checked="0">
+      <menu-name>Spectrum and Chromatogram</menu-name>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="execute">
+      <call-name>spec_chrom</call-name>
+      <call-function>setSpecChromWindowStatus</call-function>
+      <call-description>sets window mode as Spectrum &amp; Chromatogram</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="on_client_size" fixed="true">
+      <call-name>client size</call-name>
+      <call-function>onClientSize</call-function>
+      <call-description>This function is called when a client size is changed.</call-description>
+    </call>
+    <call type="spectrum" status="0">
+      <call-name>openSpectrum</call-name>
+      <call-function>openSpectrumFrame</call-function>
+    </call>
+    <call type="chromatogram" status="0">
+      <call-name>openChromatogram</call-name>
+      <call-function>openChromatogramFrame</call-function>
+    </call>
+    <call type="data_map" status="0">
+      <call-name>openDataMap</call-name>
+      <call-function>openDataMapFrame</call-function>
+    </call>
+    <call type="on_chrom_key_down" status="0">
+      <call-name>chrom key</call-name>
+      <call-function>onChromKeyDown</call-function>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>spec chrom</component-name>
+      <component-desc>Spectrum &amp; Chromatogram Window Mode</component-desc>
+      <component-calls>
+        <component-call>spec_chrom</component-call>
+        <component-call>client size</component-call>
+        <component-call>openSpectrum</component-call>
+        <component-call>openChromatogram</component-call>
+        <component-call>openDataMap</component-call>
+        <component-call>chrom key</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>spec chrom</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

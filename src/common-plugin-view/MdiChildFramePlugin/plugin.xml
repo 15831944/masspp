@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>MDI Child Frame</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MdiChildFramePlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>WINDOW_MODE</status-name>
+      <status-value>MDI</status-value>
+    </status>
+    <status id="1" default="false">
+      <status-name>MDI_AUTO_ARRANGE_MODE</status-name>
+      <status-value>on</status-value>
+    </status>
+  </statuses>
+  <menu>
+    <menu-item id="0" accelerator="W" order="8">
+      <menu-name>Window</menu-name>
+    </menu-item>
+    <menu-item id="1" parent="0" accelerator="A" order="1" checked="1">
+      <menu-name>Auto Arrange Mode...</menu-name>
+      <menu-group order="0">mdi mode</menu-group>
+      <menu-description>Toggle the Auto Arrange Mode on/off.</menu-description>
+    </menu-item>
+    <menu-item id="2" parent="0" accelerator="C" order="1" target="not_null">
+      <menu-name>Cascade</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Cascade all open windows</menu-description>
+    </menu-item>
+    <menu-item id="3" parent="0" accelerator="V" order="2" target="not_null">
+      <menu-name>Tile Vertically</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Tile all open windows</menu-description>
+    </menu-item>
+    <menu-item id="4" parent="0" accelerator="T" order="3" target="not_null">
+      <menu-name>Tile</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Tile all open windows</menu-description>
+    </menu-item>
+    <menu-item id="5" parent="0" accelerator="I" order="4" target="not_null">
+      <menu-name>Arrange Icons</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Arrange icons for minimized windows</menu-description>
+    </menu-item>
+    <menu-item id="6" parent="0" accelerator="N" order="6" target="not_null">
+      <menu-name>Next</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Activate next window</menu-description>
+      <shortcut>
+        <shortcut-key key="ctrl" />
+        <shortcut-key key="tab" />
+      </shortcut>
+    </menu-item>
+    <menu-item id="7" parent="0" accelerator="P" order="7" target="not_null">
+      <menu-name>Previous</menu-name>
+      <menu-group>mdi</menu-group>
+      <menu-description>Activate previous window</menu-description>
+      <shortcut>
+        <shortcut-key key="ctrl" />
+        <shortcut-key key="shift" />
+        <shortcut-key key="tab" />
+      </shortcut>
+    </menu-item>
+    <menu-item id="8" accelerator="V" order="3">
+      <menu-name>View</menu-name>
+    </menu-item>
+    <menu-item id="9" parent="8" accelerator="W">
+      <menu-name>Window Mode</menu-name>
+      <menu-group order="7">graph</menu-group>
+    </menu-item>
+    <menu-item id="10" parent="9" accelerator="F" checked="0">
+      <menu-name>Free Layout</menu-name>
+    </menu-item>
+  </menu>
+  <function>
+    <call type="spectrum" status="0">
+      <call-name>openSpectrum</call-name>
+      <call-function>openSpectrumFrame</call-function>
+      <call-description>open spectrum frame</call-description>
+    </call>
+    <call type="chromatogram" status="0">
+      <call-name>openChromatogram</call-name>
+      <call-function>openChromatogramFrame</call-function>
+      <call-description>open chromatogram frame</call-description>
+    </call>
+    <call type="data_map" status="0">
+      <call-name>openDataMap</call-name>
+      <call-function>openDataMapFrame</call-function>
+      <call-description>open data map frame</call-description>
+    </call>
+    <call type="close_all_spec" status="0">
+      <call-name>close all spectrum</call-name>
+      <call-function>closeAllSpectrumFrames</call-function>
+      <call-description>close all spectrum frames</call-description>
+    </call>
+    <call type="close_all_chrom" status="0">
+      <call-name>close all chromatogram</call-name>
+      <call-function>closeAllChromatogramFrames</call-function>
+      <call-description>close all chromatogram frames</call-description>
+    </call>
+    <call type="close_all_data_map" status="0">
+      <call-name>close all data map</call-name>
+      <call-function>closeAllDataMapFrames</call-function>
+      <call-description>close all chromatogram frames</call-description>
+    </call>
+    <call type="execute">
+      <call-name>auto</call-name>
+      <call-function>toggleAutoArrangeMode</call-function>
+      <call-description>Auto Arrange Mode</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>1</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>cascade</call-name>
+      <call-function>cascadeChildren</call-function>
+      <call-description>cascade</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>tile vertically</call-name>
+      <call-function>tileChildrenVertically</call-function>
+      <call-description>tile all child frames vertically</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>tile</call-name>
+      <call-function>tileChildren</call-function>
+      <call-description>tile all child frames</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>icons</call-name>
+      <call-function>arrangeIcons</call-function>
+      <call-description>arrange icons</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>next</call-name>
+      <call-function>activateNextChild</call-function>
+      <call-description>activate next window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>6</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>prev</call-name>
+      <call-function>activatePreviousChild</call-function>
+      <call-description>activate previous window</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>mdi</call-name>
+      <call-function>setMdiWindowStatus</call-function>
+      <call-description>sets window mode as MDI</call-description>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>10</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="enable">
+      <call-name>checkCascade</call-name>
+      <call-function>isNotAutoArrange</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>2</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="enable">
+      <call-name>checkTileVertically</call-name>
+      <call-function>isNotAutoArrange</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>3</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="enable">
+      <call-name>checkTile</call-name>
+      <call-function>isNotAutoArrange</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="enable">
+      <call-name>checkIcon</call-name>
+      <call-function>isNotAutoArrange</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>5</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="on_child_frame_move" status="0,1">
+      <call-name>move child</call-name>
+      <call-function>onMoveChildFrame</call-function>
+      <call-description>This function is called when a child frame is moved.</call-description>
+    </call>
+    <call type="on_child_frame_moving" status="1">
+      <call-name>moving child</call-name>
+      <call-function>onMovingChildFrame</call-function>
+      <call-description>This function is called when a child frame is being moved.</call-description>
+    </call>
+    <call type="on_client_size">
+      <call-name>client size</call-name>
+      <call-function>onClientSize</call-function>
+      <call-description>This function is called when a client size is changed.</call-description>
+    </call>
+    <call type="on_settings" status="1">
+      <call-name>settings</call-name>
+      <call-function>onChangeSettings</call-function>
+      <call-description>This function is called when the settings is changed.</call-description>
+    </call>
+    <call type="on_close_spec" status="1">
+      <call-name>closeSpec</call-name>
+      <call-function>layoutChildrenOnClose</call-function>
+      <call-description>This function is called when a spectrum is closed.</call-description>
+    </call>
+    <call type="on_close_chrom" status="1">
+      <call-name>closeChrom</call-name>
+      <call-function>layoutChildrenOnClose</call-function>
+      <call-description>This function is called when a chromatogram is closed.</call-description>
+    </call>
+    <call type="on_close_data_map" status="1">
+      <call-name>closeDatamap</call-name>
+      <call-function>layoutChildrenOnClose</call-function>
+      <call-description>This function is called when a data map is closed.</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit-spec</call-name>
+      <call-function>closeAllSpectrumFrames</call-function>
+      <call-description>close all spectrum frames</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit-chrom</call-name>
+      <call-function>closeAllChromatogramFrames</call-function>
+      <call-description>close all chromatogram frames</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit-datamap</call-name>
+      <call-function>closeAllDataMapFrames</call-function>
+      <call-description>close all data map frames</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>mdi</component-name>
+      <component-desc>MDI Windows</component-desc>
+      <component-calls>
+        <component-call>mdi</component-call>        
+        <component-call>openSpectrum</component-call>
+        <component-call>openChromatogram</component-call>
+        <component-call>openDataMap</component-call>
+        <component-call>close all spectrum</component-call>
+        <component-call>close all chromatogram</component-call>
+        <component-call>close all data map</component-call>
+        <component-call>setMdiWindowStatus</component-call>
+        <component-call>exit-spec</component-call>
+        <component-call>exit-chrom</component-call>
+        <component-call>exit-datamap</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>auto</component-name>
+      <component-desc>Auto Arrange Window Mode</component-desc>
+      <component-calls>
+        <component-call>auto</component-call>
+        <component-call>move child</component-call>
+        <component-call>moving child</component-call>
+        <component-call>client size</component-call>
+        <component-call>settings</component-call>
+        <component-call>closeSpec</component-call>
+        <component-call>closeChrom</component-call>
+        <component-call>closeDatamap</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>arrange</component-name>
+      <component-desc>Arrange Windows</component-desc>
+      <component-calls>
+        <component-call>cascade</component-call>
+        <component-call>tile vertically</component-call>
+        <component-call>tile</component-call>
+        <component-call>icons</component-call>
+        <component-call>next</component-call>
+        <component-call>prev</component-call>
+        <component-call>checkCascade</component-call>
+        <component-call>checkTileVertically</component-call>
+        <component-call>checkTile</component-call>
+        <component-call>checkIcon</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+        <package-component>auto</package-component>
+        <package-component>arrange</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+        <package-component>auto</package-component>
+        <package-component>arrange</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+        <package-component>auto</package-component>
+        <package-component>arrange</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+        <package-component>auto</package-component>
+        <package-component>arrange</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>mdi</package-component>
+        <package-component>auto</package-component>
+        <package-component>arrange</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" default="ms" required="true">
+      <enum>
+        <enum-name>All</enum-name>
+        <enum-value>all</enum-value>
+      </enum>
+      <enum>
+        <enum-name>MS</enum-name>
+        <enum-value>ms</enum-value>
+      </enum>
+      <enum>
+        <enum-name>MS/MS</enum-name>
+        <enum-value>ms2</enum-value>
+      </enum>
+    </value>
+    <!--
+    <value id="2" type="string" required="false">
+      <item-type>XYDATA_FILTER</item-type>
+    </value>
+    -->
+    <value id="3" type="string" default="local" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="4" type="string" default="area" required="true">
+      <enum>
+        <enum-name>Intensity</enum-name>
+        <enum-value>int</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Area</enum-name>
+        <enum-value>area</enum-value>
+      </enum>
+    </value>
+    <value id="5" type="string" default="score2" required="true">
+      <enum>
+        <enum-name>Nearest</enum-name>
+        <enum-value>nearest</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Max Value</enum-name>
+        <enum-value>max</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Score (Peak Value / 2D Distance)</enum-name>
+        <enum-value>score</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Score (3D Distance)</enum-name>
+        <enum-value>score2</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Sum</enum-name>
+        <enum-value>sum</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Average</enum-name>
+        <enum-value>avg</enum-value>
+      </enum>
+    </value>
+    <value id="6" type="double" default="0.5" required="true" />
+    <value id="7" type="double" default="0.25" required="true" />
+    <!-- @date 2013.10.29 <Add> M.Izumi -->
+    <value id="8" type="list" />
+    <value id="9" type="string" list="8" required="true">
+      <item-type>SPEC_MANIPULATION</item-type>
+      <value-name>Data Manipulation</value-name>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>filter</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>FILTER</param-key>
+    </param>
+    <!--
+    <param id="2" value="2">
+      <param-name>smoothing</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>SMOOTHING</param-key>
+    </param>
+    -->
+    <param id="3" value="3">
+      <param-name>peak_detector</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>val_type</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>VALUE_TYPE</param-key>
+    </param>
+    <param id="5" value="5">
+      <param-name>sel_method</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>SELECTION</param-key>
+    </param>
+    <param id="6" value="6">
+      <param-name>rt_tol</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>RT_TOL</param-key>
+    </param>
+    <param id="7" value="7">
+      <param-name>mz_tol</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>MZ_TOL</param-key>
+    </param>
+    <param id="8" value="8">
+      <param-name>spec_data_manipulat</param-name>
+      <param-section>Neighbor Spectrum Peaks</param-section>
+      <param-key>SPEC_DATA_MANIPULATION</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Spectra</group-name>
+    </group>
+    <!--
+    <group id="1">
+      <group-name>Operation</group-name>
+    </group>
+    -->
+    <group id="2">
+      <group-name>Peak Search</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>spectrum</page-name>
+      <page-title>Neighbor Spectrum Peaks</page-title>
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title>Filter</form-title>
+        </form>
+        <form id="8" param="8">
+          <form-title>Data Manipulation</form-title>
+        </form>
+        <!--
+        <form id="2" group="1" param="2">
+          <form-title>Smoothing</form-title>
+        </form>
+        -->
+        <form id="3" group="2" param="3">
+          <form-title>Peak Detector</form-title>
+        </form>
+        <form id="4" group="2" param="4">
+          <form-title>Value</form-title>
+        </form>
+        <form id="5" group="2" param="5">
+          <form-title>Selection</form-title>
+        </form>
+        <form id="6" group="2" param="6">
+          <form-title>RT Tolerance</form-title>          
+        </form>
+        <form id="7" group="2" param="7">
+          <form-title>m/z Tolerance</form-title>          
+        </form>        
+      </forms>
+    </page>
+  </pages>
+</settings>

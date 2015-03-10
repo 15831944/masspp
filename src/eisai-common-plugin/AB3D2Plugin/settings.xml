@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+
+<settings>
+  <chapters>
+    <chapter id="0">Analyze</chapter>
+    <chapter id="1" parent="0">2D Labeling</chapter>
+    <chapter id="2" parent="1">Peak Detector</chapter>
+  </chapters>
+  <values>
+    <!-- [ADV] Data range - m/z -->
+    <value id="0" type="double-range" minExclusive="0.0"/>
+    <!-- [ADV] Data range - RT -->
+    <value id="1" type="double-range" minExclusive="0.0"/>
+    <!-- [SMP] Peak picking - m/z tol. -->
+    <value id="10" type="double" minExclusive="0.0" default="10.0" required="true"/>
+    <!-- [SMP] Peak picking - RT tol. -->
+    <value id="11" type="double" minExclusive="0.0" default="0.5" required="true"/>
+    <!-- [ADV] Peak picking - Merge intensity ratio -->
+    <value id="12" type="double" minExclusive="0.0" default="0.1" required="true"/>
+    <!-- [ADV] Peak picking - Intensity -->
+    <value id="13" type="double" minExclusive="0.0" default="10000.0" required="true"/>
+    <!-- [ADV] Peak picking - Weight of local maximum -->
+    <value id="14" type="double" minExclusive="0.0" default="0.5" required="true"/>
+    <!-- [ADV] Peak picking - Remove non-isotopic data points -->
+    <value id="15" type="bool" default="true"/>
+    <!-- [ADV] Peak filter - Peak span -->
+    <value id="22" type="double" minInclusive="0.0" default="0.1" required="true"/>
+    <!-- [SMP] Peak filter - Peak FWHM -->
+    <value id="23" type="double" minInclusive="0.0" default="0.04" required="true"/>
+    <!-- [ADV] Peak filter - Number of undulations on peak-->
+    <value id="24" type="int" minInclusive="0" default="5" required="true"/>
+    <!-- [SMP] Peak filter - Number of data points -->
+    <value id="25" type="int" minExclusive="0" default="4" required="true"/>
+    <!-- [SMP] Peak filter - Peak S/N ratio -->
+    <value id="26" type="double" minInclusive="0.0" default="1.0" required="true"/>
+    <!-- [ADV] Peak filter - Baseline method -->
+    <value id="27" type="string" default="baseline_median">
+        <enum>
+          <enum-name>Median of Data Points</enum-name>
+          <enum-value>baseline_median</enum-value>
+        </enum>
+        <enum>
+          <enum-name>Mean of Data Points</enum-name>
+          <enum-value>baseline_mean</enum-value>
+        </enum>
+    </value>
+    <!-- [ADV] Peak filter - Baseline intensity ratio -->
+    <value id="29" type="double" minInclusive="0.0" default="0.8" required="true"/>
+    <!-- [ADV] Remove shoulder peaks - m/z tol. -->
+    <value id="30" type="double" minExclusive="0.0" default="150.0" required="true"/>
+    <!-- [ADV] Remove shoulder peaks - RT tol. -->
+    <value id="31" type="double" minExclusive="0.0" default="0.05" required="true"/>
+    <!-- [ADV] Remove shoulder peaks - Intensity ratio -->
+    <value id="32" type="double" minExclusive="0.0" default="20.0" required="true"/>
+    <!-- [ADV] Remove continuous peaks - m/z Tol. -->
+    <value id="40" type="double" minExclusive="0.0" default="10.0" required="true"/>
+    <!-- [ADV] Remove continuous peaks - RT Tol. -->
+    <value id="41" type="double" minExclusive="0.0" default="0.5" required="true"/>
+    <!-- [ADV] Remove continuous peaks - Intnsity ratio -->
+    <value id="42" type="double" minExclusive="0.0" default="0.5" required="true"/>
+    <!-- [SMP] Isotopic clustering - m/z Tol. -->
+    <value id="50" type="double" minInclusive="0.0" default="10.0" required="true"/>
+    <!-- [SMP] Isotopic clustering - RT Tol. -->
+    <value id="51" type="double" minInclusive="0.0" default="0.1" required="true"/>
+    <!-- [ADV] Isotopic clustering - Intensity ratio -->
+    <value id="52" type="double-range" minExclusive="0.0" default="0.1:1.5" required="true"/>
+    <!-- [SMP] Isotopic clustering - Charge -->
+    <value id="53" type="int-range" minInclusive="1" maxInclusive="8" default="2:4" required="true"/>
+    <!-- [ADV] Isotopic clustering - Minimum number of peaks -->
+    <value id="56" type="int" minInclusive="2" maxInclusive="4" default="3" required="true"/>
+    <!-- [ADV] Isotopic clustering - Remove non-clustered peaks -->
+    <value id="54" type="bool" default="true"/>
+    <!-- [ADV] Isotopic clustering - Output only monoisotopic peaks -->
+    <value id="55" type="bool" default="true"/>
+    <!-- [SMP] ("Advanced" list and button) -->
+    <value id="60" type="string" default="ab3dadvanced2" required="true">
+      <item-type>ab3d_params_selection</item-type>
+    </value>
+  </values>
+  <!-- params -->
+  <params>
+    <param id="0" value="0" required="false">
+      <param-name>MzRange</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MZ_RANGE</param-key>
+    </param>
+    <param id="1" value="1" required="false">
+      <param-name>RtRange</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>RT_RANGE</param-key>
+    </param>
+    <param id="10" value="10" required="true">
+      <param-name>MergeDataPointsMzTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_DATA_POINTS_MZ_TOL</param-key>
+    </param>
+    <param id="11" value="11" required="true">
+      <param-name>MergeDataPointsRtTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_DATA_POINTS_RT_TOL</param-key>
+    </param>
+    <param id="12" value="12" required="true">
+      <param-name>MergeDataPointsIntRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_DATA_POINTS_INT_RATIO</param-key>
+    </param>
+    <param id="13" value="13" required="true">
+      <param-name>MergeMinIntensity</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_MIN_INT</param-key>
+    </param>
+    <param id="14" value="14" required="true">
+      <param-name>MergeDataPointsWeightOfLocalMaximum</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_DATA_POINTS_WEIGHT_OF_LOCAL_MAXIMUM</param-key>
+    </param>
+    <param id="15" value="15" required="true">
+      <param-name>MergeDataPointsRemoveNonIsotopicDataPoints</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>MERGE_DATA_POINTS_REMOVE_NON_ISOTOPIC_DATA_POINTS</param-key>
+    </param>
+    <param id="22" value="22" required="true">
+      <param-name>VerificationPeakSpan</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_PEAK_SPAN</param-key>
+    </param>
+    <param id="23" value="23" required="true">
+      <param-name>VerificationPeakFWHM</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_PEAK_FWHM</param-key>
+    </param>
+    <param id="24" value="24" required="true">
+      <param-name>VerificationPeakUndulations</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_PEAK_UNDULATIONS</param-key>
+    </param>
+    <param id="25" value="25" required="true">
+      <param-name>VerificationNumOfDataPoints</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_NUM_OF_DATA_POINTS</param-key>
+    </param>
+    <param id="26" value="26" required="true">
+      <param-name>VerificationPeakSNRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_PEAK_SN_RATIO</param-key>
+    </param>
+    <param id="27" value="27" required="true">
+      <param-name>VerificationBaselineMethod</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_BASELINE_METHOD</param-key>
+    </param>
+    <param id="29" value="29" required="true">
+      <param-name>VerificationBaselineIntRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>VERIFICATION_BASELINE_INT_RATIO</param-key>
+    </param>
+    <param id="30" value="30" required="true">
+      <param-name>RemoveShoulderPeaksMzTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_SHOULDER_PEAKS_MZ_TOL</param-key>
+    </param>
+    <param id="31" value="31" required="true">
+      <param-name>RemoveShoulderPeaksRtTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_SHOULDER_PEAKS_RT_TOL</param-key>
+    </param>
+    <param id="32" value="32" required="true">
+      <param-name>RemoveShoulderPeaksIntRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_SHOULDER_PEAKS_INT_RATIO</param-key>
+    </param>
+    <param id="40" value="40" required="true">
+      <param-name>RemoveContinuousPeaksMzTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_CONTINUOUS_PEAKS_MZ_TOL</param-key>
+    </param>
+    <param id="41" value="41" required="true">
+      <param-name>RemoveContinuousPeaksRtTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_CONTINUOUS_PEAKS_RT_TOL</param-key>
+    </param>
+    <param id="42" value="42" required="true">
+      <param-name>RemoveContinuousPeaksIntRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>REMOVE_CONTINUOUS_PEAKS_INT_RATIO</param-key>
+    </param>
+    <param id="50" value="50" required="true">
+      <param-name>ClusteringMzTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_MZ_TOL</param-key>
+    </param>
+    <param id="51" value="51" required="true">
+      <param-name>ClusteringRtTol</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_RT_TOL</param-key>
+    </param>
+    <param id="52" value="52" required="true">
+      <param-name>ClusteringIntRatio</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_INT_RATIO</param-key>
+    </param>
+    <param id="53" value="53" required="true">
+      <param-name>ClusteringCharge</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_CHARGE</param-key>
+    </param>
+    <param id="56" value="56" required="true">
+      <param-name>ClusteringNumberOfPeaks</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_NUMBER_OF_PEAKS</param-key>
+    </param>
+    <param id="54" value="54" required="true">
+      <param-name>ClusteringRemoveNonClustered</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_REMOVE_NON_CLUSTERED</param-key>
+    </param>
+    <param id="55" value="55" required="true">
+      <param-name>ClusteringOutputOnlyMonoisotopic</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>CLUSTERING_OUTPUT_ONLY_MONOISOTOPIC</param-key>
+    </param>
+    <param id="60" value="60" required="true">
+      <param-name>AdvancedParams</param-name>
+      <param-section>AB3DLabeling</param-section>
+      <param-key>AB3D_PARAMS</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Data Range</group-name>
+    </group>
+    <group id="1">
+      <group-name>Peak Picking</group-name>
+    </group>
+    <group id="2">
+      <group-name>Peak Filter</group-name>
+    </group>
+    <group id="3">
+      <group-name>Remove Shoulder Peaks</group-name>
+    </group>
+    <group id="4">
+      <group-name>Remove Continuous Peaks</group-name>
+    </group>
+    <group id="5">
+      <group-name>Isotopic Clustering</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false" eachmachine="true">
+      <page-name>AB3D</page-name>
+      <page-title>AB3D</page-title>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>m/z (Da)</form-title>
+          <form-desc img="">Targeted m/z range(Da)</form-desc>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Retention Time (min)</form-title>
+          <form-desc img="">Targeted Retention Time range (min)</form-desc>
+        </form>
+        <form id="10" param="10" group="1">
+          <form-title>m/z Tol. (ppm)</form-title>
+          <form-desc img="images/peakpicking_mztol.png">m/z tolerance will be used to determine the m/z range.</form-desc>
+        </form>
+        <form id="11" param="11" group="1">
+          <form-title>Retention Time Tol. (min)</form-title>
+          <form-desc img="images/peakpicking_rttol.png">Retention time tolerance will be used to determine the m/z range.</form-desc>
+        </form>
+        <form id="13" param="13" group="1">
+          <form-title>Intensity</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="26" param="26" group="2">
+          <form-title>Peak S/N Ratio</form-title>
+          <form-desc img="images/filtering_snratio.png">Peak S/N ratio will be used to filter peaks.</form-desc>
+        </form>
+        <form id="23" param="23" group="2">
+          <form-title>Peak FWHM (min)</form-title>
+          <form-desc img="images/filtering_fwhm.png">Peak FWHM (Full Width at Half Maximum) will be used to filter peaks.</form-desc>
+        </form>
+        <form id="25" param="25" group="2">
+          <form-title>Number of Data Points</form-title>
+          <form-desc img="">Number of data points will be used to filter peaks.</form-desc>
+        </form>
+        <form id="50" param="50" group="5">
+          <form-title>m/z Tol. (ppm)</form-title>
+          <form-desc img="images/clustering_mztol.png">m/z tolerance will be used to isotopic clustering.</form-desc>
+        </form>
+        <form id="51" param="51" group="5">
+          <form-title>Retention Time Tol. (min)</form-title>
+          <form-desc img="images/clustering_rttol.png">Retention time tolerance will be used to isotopic clustering.</form-desc>
+        </form>
+        <form id="53" param="53" group="5">
+          <form-title>Charge</form-title>
+          <form-desc img="images/clustering_charge.png">Charge range will be used to isotopic clustering.</form-desc>
+        </form>
+        <form id="60" param="60" group="">
+          <form-title></form-title>
+          <form-desc></form-desc>
+        </form>
+      </forms>
+    </page>
+    <page common="false" eachmachine="true">
+      <page-name>ab3d_advanced_params_page</page-name>
+      <page-title>AB3D Advanced Parameters</page-title>
+      <forms>
+        <form id="12" param="12" group="1">
+          <form-title>Merge Intensity Ratio</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="14" param="14" group="1">
+          <form-title>Weight of Local Maximum</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="15" param="15" group="1">
+          <form-title>Remove Non-Isotopic Data Points</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="22" param="22" group="2">
+          <form-title>Peak Span (min)</form-title>
+          <form-desc img="images/filtering_fwhm.png">Peak span will be used to filter peaks.</form-desc>
+        </form>
+        <form id="24" param="24" group="2">
+          <form-title>Number of Undulations on Peak</form-title>
+          <form-desc img="images/filtering_fwhm.png">Number of undulations on peak will be used to filter peaks.</form-desc>
+        </form>
+        <form id="27" param="27" group="2">
+          <form-title>Baseline Method</form-title>
+          <form-desc img="images/filtering_snratio.png">Baseline method will be used to filter peaks.</form-desc>
+        </form>
+        <form id="29" param="29" group="2">
+          <form-title>Baseline Intensity Ratio</form-title>
+          <form-desc img="images/filtering_snratio.png">Baseline intensity ratio will be used to filter peaks.</form-desc>
+        </form>
+        <form id="30" param="30" group="3">
+          <form-title>m/z Tol. (ppm)</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="31" param="31" group="3">
+          <form-title>Retention Time Tol. (min)</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="32" param="32" group="3">
+          <form-title>Intensity Ratio</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="40" param="40" group="4">
+          <form-title>m/z Tol. (ppm)</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="41" param="41" group="4">
+          <form-title>Retention Time Tol. (min)</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="42" param="42" group="4">
+          <form-title>Intensity Ratio</form-title>
+          <form-desc img=""></form-desc>
+        </form>
+        <form id="52" param="52" group="5">
+          <form-title>Intensity Ratio</form-title>
+          <form-desc img="images/clustering_rttol.png">Intensity ratio will be used to isotopic clustering.</form-desc>
+        </form>
+        <form id="56" param="56" group="5">
+          <form-title>Minimum Number of Peaks</form-title>
+          <form-desc img="images/clustering_rttol.png"></form-desc>
+        </form>
+        <form id="54" param="54" group="5">
+          <form-title>Remove Non-Clustered Peaks</form-title>
+          <form-desc img="images/clustering_rttol.png"></form-desc>
+        </form>
+        <form id="55" param="55" group="5">
+          <form-title>Output Only Monoisotopic Peaks</form-title>
+          <form-desc img="images/clustering_rttol.png"></form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

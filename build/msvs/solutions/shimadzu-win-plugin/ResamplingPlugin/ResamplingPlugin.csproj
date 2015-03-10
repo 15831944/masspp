@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54DB9D76-EC0A-4D7E-83FD-36C9C89D1041}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ResamplingPlugin</RootNamespace>
+    <AssemblyName>ResamplingPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>$(masspp_home)\bin\mspp.exe</StartProgram>
+    <ReferencePath>$(masspp_home)\bin\</ReferencePath>
+    <StartWorkingDirectory>$(masspp_home)\bin\</StartWorkingDirectory>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CLRManager">
+      <HintPath>..\..\..\..\..\lib\msvs\Win32-Release\CLRManager.dll</HintPath>
+    </Reference>
+    <Reference Include="CLRPluginTools">
+      <HintPath>..\..\..\..\..\lib\msvs\Win32-Release\CLRPluginTools.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RemoveContaminantPeak\Cal\RemoveContaminantPeakCalculation.cs" />
+    <Compile Include="RemoveContaminantPeak\Data\BaselineSubtractionParameter.cs" />
+    <Compile Include="RemoveContaminantPeak\Data\RemoveResult.cs" />
+    <Compile Include="RemoveContaminantPeak\RemoveContaminantPeakManager.cs" />
+    <Compile Include="ResamplingTools\GUI\ProgressDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResamplingTools\GUI\ProgressDlg.designer.cs">
+      <DependentUpon>ProgressDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResamplingTools\Other\HelpMessageControl.cs" />
+    <Compile Include="ResamplingTools\Other\XmlReadWrite.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SpectrumCalculation\Cal\SpectrumCalculation.cs" />
+    <Compile Include="SpectrumCalculation\Data\GridDataSpectrumCalculation.cs" />
+    <Compile Include="RemoveContaminantPeak\GUI\RemoveContaminantPeakDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveContaminantPeak\GUI\RemoveContaminantPeakDialog.Designer.cs">
+      <DependentUpon>RemoveContaminantPeakDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpectrumCalculation\Data\SpectrumCalculationResult.cs" />
+    <Compile Include="SpectrumCalculation\GUI\ResamplingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpectrumCalculation\GUI\ResamplingDialog.Designer.cs">
+      <DependentUpon>ResamplingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResamplingPlugin.cs" />
+    <Compile Include="ResamplingTools\Cal\ResamplingCaluculation.cs" />
+    <Compile Include="ResamplingTools\Data\ResamplingParameter.cs" />
+    <Compile Include="ResamplingTools\Data\ResamplingResult.cs" />
+    <Compile Include="ResamplingTools\Data\SampleResampling.cs" />
+    <Compile Include="ResamplingTools\Data\SampleSetResampling.cs" />
+    <Compile Include="ResamplingTools\Data\SpectrumResampling.cs" />
+    <Compile Include="ResamplingTools\GUI\ResamplingPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResamplingTools\GUI\ResamplingPanel.Designer.cs">
+      <DependentUpon>ResamplingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpectrumCalculation\GUI\SpectrumCalculationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpectrumCalculation\GUI\SpectrumCalculationDialog.Designer.cs">
+      <DependentUpon>SpectrumCalculationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpectrumCalculation\SpectrumCalculationManager.cs" />
+    <Content Include="plugin.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="settings-batch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="settings-specified.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RemoveContaminantPeak\GUI\RemoveContaminantPeakDialog.resx">
+      <DependentUpon>RemoveContaminantPeakDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResamplingTools\GUI\ProgressDlg.resx">
+      <DependentUpon>ProgressDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpectrumCalculation\GUI\ResamplingDialog.resx">
+      <DependentUpon>ResamplingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResamplingTools\GUI\ResamplingPanel.resx">
+      <DependentUpon>ResamplingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpectrumCalculation\GUI\SpectrumCalculationDialog.resx">
+      <DependentUpon>SpectrumCalculationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mklink /J $(SolutionDir)..\..\stage\x86-$(ConfigurationName)  $(SolutionDir)..\..\stage\Win32-$(ConfigurationName)
+mkdir $(SolutionDir)..\..\stage\$(Platform)-$(ConfigurationName)\plugins\$(ProjectName)
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(ConfigurationName)\plugins\$(ProjectName)
+copy $(ProjectDir)*.xml $(SolutionDir)..\..\stage\$(Platform)-$(ConfigurationName)\plugins\$(ProjectName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

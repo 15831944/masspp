@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<settings>
+  <chapters>
+	<chapter id="0">Operation</chapter>
+	<chapter id="1" parent="0">Alignment</chapter>
+  </chapters>
+  <values>
+	<value id="0" type="string" default="None">
+	  <item-type>XYDATA_BASELINE</item-type>
+	</value>
+	<value id="1" type="string" default="None">
+	  <item-type>XYDATA_FILTER</item-type>
+	</value>
+	<value id="2" type="double" default="10.0" minInclusive="1.0" />
+	<value id="3" type="int" default="5" minInclusive="2" />
+	<value id="4" type="double" default="0.4" minInclusive="0.0"/>
+	<value id="5" type="double" default="-100.0" maxExclusive="0.0" />
+	<value id="6" type="string" default="linear_interpolation">
+	  <enum>
+		<enum-name>Linear Interpolation</enum-name>
+		<enum-value>linear_interpolation</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Spline Interpolation</enum-name>
+		<enum-value>spline_interpolation</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Least Square Method (Linear Polynomial)</enum-name>
+		<enum-value>least_square_linear</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Least Square Method (Cubic Polynomial)</enum-name>
+		<enum-value>least_square_cubic</enum-value>
+	  </enum>
+	  <enum>
+		<enum-name>Logistic Regression</enum-name>
+		<enum-value>logistic_fitting</enum-value>
+	  </enum>
+	</value>
+  </values>
+  <params>
+	<param id="0" value="0" required="false">
+	  <param-name>base_sub</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>BASELINE_SUBTRACT</param-key>
+	</param>
+	<param id="1" value="1" required="false">
+	  <param-name>smoothing</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>SMOOTHING</param-key>
+	</param>
+	<param id="2" value="2" required="true">
+	  <param-name>window_width</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>WINDOW_WIDTH</param-key>
+	</param>
+	<param id="3" value="3" required="true">
+	  <param-name>density</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>POINT_DENSITY</param-key>
+	</param>
+	<param id="4" value="4" required="true">
+	  <param-name>gap_penalty</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>GAP_PENALTY</param-key>
+	</param>
+	<param id="5" value="5" required="true">
+	  <param-name>min_score</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>MIN_VALID_SCORE</param-key>
+	</param>
+	<param id="6" value="6" required="true">
+	  <param-name>fit_method</param-name>
+	  <param-section>AB3D Alignment TIC</param-section>
+	  <param-key>FITTING_METHOD</param-key>
+	</param>
+  </params>
+  <groups>
+	<group id="0">
+	  <group-name>Chromatogram Operation</group-name>
+	</group>
+	<group id="1">
+	  <group-name>Chromatogram Points</group-name>
+	</group>
+	<group id="2">
+	  <group-name>DP</group-name>
+	</group>
+	<group id="3">
+	  <group-name>Fitting</group-name>
+	</group>
+  </groups>
+  <pages>
+	<page chapter="1" common="true">
+	  <page-name>common</page-name>
+	  <page-title>AB3D (TIC Pattern)</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Baseline Subtract</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Smoothing</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>Window Width (Sec)</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>Point Density (points/window)</form-title>
+		</form>
+		<form id="4" param="4" group="2">
+		  <form-title>Gap Penalty</form-title>
+		</form>
+		<form id="5" param="5" group="2">
+		  <form-title>Min Valid Score</form-title>
+		</form>
+		<form id="6" param="6" group="3">
+		  <form-title>Method</form-title>
+		</form>
+	  </forms>
+	</page>
+	<page common="false">
+	  <page-name>Alignment TIC</page-name>
+	  <page-title>AB3D Alignment (TIC Pattern)</page-title>
+	  <forms>
+		<form id="0" param="0" group="0">
+		  <form-title>Baseline Subtract</form-title>
+		</form>
+		<form id="1" param="1" group="0">
+		  <form-title>Smoothing</form-title>
+		</form>
+		<form id="2" param="2" group="1">
+		  <form-title>Window Width (Sec)</form-title>
+		</form>
+		<form id="3" param="3" group="1">
+		  <form-title>Point Density (points/window)</form-title>
+		</form>
+		<form id="4" param="4" group="2">
+		  <form-title>Gap Penalty</form-title>
+		</form>
+		<form id="5" param="5" group="2">
+		  <form-title>Min Valid Score</form-title>
+		</form>
+		<form id="6" param="6" group="3">
+		  <form-title>Method</form-title>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+</settings>

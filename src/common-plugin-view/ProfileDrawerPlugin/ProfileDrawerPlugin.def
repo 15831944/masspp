@@ -1,0 +1,12 @@
+EXPORTS
+	drawSpectrumProfile	
+	drawSpectrumImpulse
+	updateSpectrum
+	drawChromatogramProfile
+	drawChromatogramImpulse
+	updateChromatogram
+	setChromatogramDrawingGraphStatusProfile
+	setChromatogramDrawingGraphStatusImpulse
+	setSpectrumDrawingGraphStatusProfile
+	setSpectrumDrawingGraphStatusImpulse
+	

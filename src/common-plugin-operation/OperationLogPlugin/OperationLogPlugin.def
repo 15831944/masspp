@@ -1,0 +1,18 @@
+EXPORTS
+	toggleOperationDialog
+	checkOperationLogDialog
+	ProcUndo
+	ProcRedo
+	SendOptInfo
+	exitGui
+	initOperationLogView
+	enableMenuUndo
+	enableMenuRedo
+	batchSetFunction
+	runBatchOperations
+	getOperationList
+	SaveMspXmlFile
+	SaveAsMspXmlFile
+	openMspXmlFile
+	exitFuncSaveMspXml
+	runBatchOperationXml

@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CBE10A89-BEF3-44AD-BD01-E6D214A10B46}</ProjectGuid>
+    <RootNamespace>MassBankToolsPlugin</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Parallel-Release|x64	'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectName)</TargetName>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\Code;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\External</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>
+WIN32;_DEBUG;_WINDOWS;_USRDLL;MASSBANKTOOLSPLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>
+      </MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\help\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\Code;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\External</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;MASSBANKTOOLSPLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\help\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\Code;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\External</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;MASSBANKTOOLSPLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\help\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\Code;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\External</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;MASSBANKTOOLSPLUGIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;$(SolutionDir)..\..\contrib\forPlugins\$(Platform)\RDKit\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>$(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(TargetPath)  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.xml  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\images\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\images
+mkdir  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\help\*  $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\plugins\$(ProjectName)\help</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\CommonLicenseArray.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\01_TargetSpectra.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\02_ExportSettings.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\03_PeakDetection.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\04_RecordSettings.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\05_ChemicalStructure.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\06_SampleInformation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\07_Instrument.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\08_SpectrumInformation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\09_ChromatographyInformation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\10_PrecurosrMolecularIon.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\11_SoftwareInformation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\12_PeakAnnotation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\15_FinalSequence.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\getNowDate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\levenshtein.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\StrFunc.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constHelp.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constMaterial.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\createRecordDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ErrorCheck.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\ExternalDbSearchDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBAccessClass.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBSelectDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\NameSelectToAccession.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\AnnotationElement.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\SpecElmSetter.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\XPeakDetector.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\IdentMgrAcc.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\AuxiliaryToolOfCreatingPanel.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\CreatePanelTool.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\DataProcessing.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\ExtendSettingsPanel.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\InstrumentAccessPanel.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SampleCheckList.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectrumCheckGridList.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectraGridList.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\templ.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\VenderInstrumentFunctions.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElements.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElementSport.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElemSubTags.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankSearchEngine.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsFunctions.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentSelectDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentTypesMgr.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\NetWorkCtrl.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\SearchDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\RDKit\RDKitAccesser.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ImageCanvas.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\OverlaySpectrumTool.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\PeaksCanvas.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\RecordPeaksDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ResultListCtrl.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultDialog.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultPanel.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\constXMLTagName.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankInstrumentsHandler.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankJobStatusHandler.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankPeaksHandler.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankRecordHandler.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankSearchResultHandler.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\settingParamsKeywords.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\XMLMaker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsPlugin.def" />
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\plugin.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings_batchsearch.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings_searchengine.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\CommonLicenseArray.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\01_TargetSpectra.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\02_ExportSettings.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\03_PeakDetection.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\04_RecordSettings.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\05_ChemicalStructure.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\06_SampleInformation.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\07_Instrument.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\08_SpectrumInformation.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\09_ChromatographyInformation.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\10_PrecurosrMolecularIon.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\11_SoftwareInformation.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\12_PeakAnnotation.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\15_FinalSequence.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\getNowDate.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\levenshtein.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\StrFunc.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constHelp.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constMaterial.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\createRecordDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ErrorCheck.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\ExternalDbSearchDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBAccessClass.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBSelectDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\NameSelectToAccession.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\AnnotationElement.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\SpecElmSetter.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\XPeakDetector.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\IdentMgrAcc.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\objectsName.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\AuxiliaryToolOfCreatingPanel.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\CreatePanelTool.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\DataProcessing.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\ExtendSettingsPanel.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\InstrumentAccessPanel.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SampleCheckList.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectrumCheckGridList.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectraGridList.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\templ.hpp" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\VenderInstrument.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElements.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElemSubTags.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\rel_stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\WizardConstHeaders.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankSearchEngine.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsFunctions.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentSelectDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentTypesMgr.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\NetWorkCtrl.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\SearchDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\RDKit\RDKitAccesser.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ImageCanvas.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\OverlaySpectrumTool.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\PeaksCanvas.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\RecordPeaksDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ResultListCtrl.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultDialog.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultPanel.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\constXMLTagName.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankInstrumentsHandler.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankJobStatusHandler.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankPeaksHandler.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankRecordHandler.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankSearchResultHandler.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\settingParamsKeywords.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\XMLMaker.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

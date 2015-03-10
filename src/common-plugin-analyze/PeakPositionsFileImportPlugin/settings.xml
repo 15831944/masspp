@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="input" required="true">
+      <filter>
+        <filter-name>Tab Separated Values File</filter-name>
+        <filter-extension>*.txt</filter-extension>
+        <filter-desc>Text file containing tab separated value data</filter-desc>
+      </filter>
+      <filter>
+        <filter-name>CSV (Comma Separated Values)</filter-name>
+        <filter-extension>*.csv</filter-extension>
+        <filter-desc>Text file containing comma separated value data</filter-desc>
+      </filter>
+    </value>
+    <value id="1" type="int" required="true">
+      <enum>
+        <enum-name>None</enum-name>
+        <enum-value>0</enum-value>
+      </enum>
+      <enum>
+        <enum-name>1</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>2</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+      <enum>
+        <enum-name>3</enum-name>
+        <enum-value>3</enum-value>
+      </enum>
+      <enum>
+        <enum-name>4</enum-name>
+        <enum-value>4</enum-value>
+      </enum>
+      <enum>
+        <enum-name>5</enum-name>
+        <enum-value>5</enum-value>
+      </enum>
+      <enum>
+        <enum-name>6</enum-name>
+        <enum-value>6</enum-value>
+      </enum>
+      <enum>
+        <enum-name>7</enum-name>
+        <enum-value>7</enum-value>
+      </enum>
+      <enum>
+        <enum-name>8</enum-name>
+        <enum-value>8</enum-value>
+      </enum>                  
+      <enum>
+        <enum-name>9</enum-name>
+        <enum-value>9</enum-value>
+      </enum>                  
+      <enum>
+        <enum-name>10</enum-name>
+        <enum-value>10</enum-value>
+      </enum>                  
+    </value>    
+    <value id="2" type="string" default="tab" required="true">
+      <enum>
+        <enum-name>Tab [   ]</enum-name>
+        <enum-value>tab</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Comma [ , ]</enum-name>
+        <enum-value>comma</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Pipe [ | ]</enum-name>
+        <enum-value>pipe</enum-value>
+      </enum>
+    </value>
+    <value id="3" type="list" required="false" />
+    <value id="4" type="int" minInclusive="1" list="3" required="true">
+      <value-name>Column Number</value-name>      
+    </value>
+    <value id="5" type="string" list="3" required="true">
+      <value-name>Column Name</value-name>
+    </value>
+    <value id="6" type="string" list="3" required="true">
+      <value-name>Data Type</value-name>      
+      <enum>
+        <enum-name>Text</enum-name>
+        <enum-value>str</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Integer Number</enum-name>
+        <enum-value>int</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Real Number</enum-name>
+        <enum-value>real</enum-value>
+      </enum>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>file</param-name>
+      <param-section>Peak Position Import</param-section>
+      <param-key>INPUT_FILE</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>rt_column</param-name>      
+      <param-section>Peak Position Import</param-section>
+      <param-key>RT_COLUMN</param-key>      
+    </param>
+    <param id="2" value="1">
+      <param-name>mz_column</param-name>      
+      <param-section>Peak Position Import</param-section>
+      <param-key>MZ_COLUMN</param-key>      
+    </param>    
+    <param id="3" value="1">
+      <param-name>charge_column</param-name>      
+      <param-section>Peak Position Import</param-section>
+      <param-key>CHARGE_COLUMN</param-key>      
+    </param>    
+    <param id="4" value="2">
+      <param-name>separator</param-name>
+      <param-section>Peak Position Import</param-section>
+      <param-key>SEPARATOR</param-key>
+    </param>
+    <param id="5" value="3">
+      <param-name>appended</param-name>      
+      <param-section>Peak Position Import</param-section>
+      <param-key>APPENDED_VALUES</param-key>      
+    </param>
+  </params>    
+  <pages>
+    <page common="false">
+      <page-name>Peak Position</page-name>
+      <page-title>Import Peak Positions</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>File</form-title>
+        </form>
+        <form id="1" param="1">
+          <form-title>RT Column Number</form-title>
+        </form>
+        <form id="2" param="2">
+          <form-title>m/z Column Number</form-title>
+        </form>
+        <form id="3" param="3">
+          <form-title>Charge Column Number</form-title>
+        </form>
+        <form id="4" param="4">
+          <form-title>Separator</form-title>
+        </form>
+        <form id="5" param="5">
+          <form-title>Appended Values</form-title>                    
+        </form>        
+      </forms>
+    </page>
+  </pages>
+</settings>

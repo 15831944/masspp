@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="1" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="2" type="string" default="int" required="true">
+      <enum>
+        <enum-name>Intensity</enum-name>
+        <enum-value>int</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Area</enum-name>
+        <enum-value>area</enum-value>
+      </enum>
+    </value>
+    <value id="3" type="double-range" minInclusive="0.0" />
+    <value id="4" tyupe="string" default="mz" required="true">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>mz</enum-value>
+      </enum>
+      <enum>
+        <enum-name>ppm</enum-name>
+        <enum-value>ppm</enum-value>
+      </enum>
+    </value>
+    <value id="5" type="double" minInclusive="0.0" default="0.25" required="true" />
+    <value id="6" type="list" required="false" />
+    <value id="7" list="6" required="true">
+      <item-type>SPEC_PEAK_FILTER</item-type>      
+      <value-name>Spectrum Peak Filtering</value-name>
+    </value>
+  </values>
+  <params>
+    <param id="1" value="1">
+      <param-name>peak_detector</param-name>
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="2" value="6">
+      <param-name>peak_filter</param-name>      
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>PEAK_FILTER</param-key>      
+    </param>
+    <param id="3" value="2">
+      <param-name>val_type</param-name>
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>VALUE_TYPE</param-key>
+    </param>
+    <param id="4" value="3">
+      <param-name>rt_range</param-name>
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>RT_RANGE</param-key>
+    </param>
+    <param id="5" value="4">
+      <param-name>unit</param-name>
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>MASS_TOL_UNIT</param-key>
+    </param>
+    <param id="6" value="5">
+      <param-name>tol</param-name>
+      <param-section>Merged Spectrum Peaks</param-section>
+      <param-key>MASS_TOLERANCE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Peak Position</page-name>
+      <page-title>Merged Spectrum Peaks</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Peak Detector</form-title>
+        </form>
+        <form id="2" param="2">
+          <form-title>Peak Filter</form-title>          
+        </form>
+        <form id="3" param="3">
+          <form-title>Peak Value</form-title>
+        </form>
+        <form id="4" param="4">
+          <form-title>RT Range for Averaging Spectra</form-title>
+        </form>
+        <form id="5" param="5">
+          <form-title>Mass Tolerance Unit</form-title>
+        </form>
+        <form id="6" param="6">
+          <form-title>Mass Tolerance</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

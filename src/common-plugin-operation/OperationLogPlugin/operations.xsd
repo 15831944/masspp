@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:dx="http://xml.first-ms3d.jp/masspp/operations" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.first-ms3d.jp/masspp/operations" version="1.2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>operations schema</xsd:documentation>
+  </xsd:annotation>
+
+  <!-- elements -->
+  <xsd:element name="operations">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:operation" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>each operation</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="type" type="dx:operationType">
+        <xsd:annotation>
+          <xsd:documentation>operation type</xsd:documentation>          
+        </xsd:annotation>        
+      </xsd:attribute>
+      <xsd:attribute name="state" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>operation status</xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>    
+  </xsd:element>
+  <xsd:element name="operation">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>the name of the operation</xsd:documentation>            
+          </xsd:annotation>          
+        </xsd:element>
+        <xsd:element name="short-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>the short name of the operation</xsd:documentation>
+          </xsd:annotation>          
+        </xsd:element>
+        <xsd:element name="desc" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>the description of the operation</xsd:documentation>            
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="param" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>parameter string</xsd:documentation>            
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="data" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="before" type="xsd:base64Binary">
+                <xsd:annotation>
+                  <xsd:documentation>
+                    the status data before operation.
+                  </xsd:documentation>                  
+                </xsd:annotation>                
+              </xsd:element>
+              <xsd:element name="after" type="xsd:base64Binary">
+                <xsd:annotation>
+                  <xsd:documentation>
+                    the status data after operation.
+                  </xsd:documentation>
+                </xsd:annotation>                
+              </xsd:element>              
+            </xsd:sequence>            
+          </xsd:complexType>          
+        </xsd:element>        
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:simpleType name="operationType">
+    <xsd:annotation>
+      <xsd:documentation>type definition of operation type</xsd:documentation>      
+    </xsd:annotation>    
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="standard">
+        <xsd:annotation>
+          <xsd:documentation>standard operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="gui">
+        <xsd:annotation>
+          <xsd:documentation>GUI operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="input">
+        <xsd:annotation>
+          <xsd:documentation>input operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="output">
+        <xsd:annotation>
+          <xsd:documentation>output operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="auto">
+        <xsd:annotation>
+          <xsd:documentation>auto operation</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

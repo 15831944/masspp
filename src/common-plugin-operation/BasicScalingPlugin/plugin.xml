@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <name>BasicScalingPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>BasicScalingPlugin</link>
+
+  <function>
+    <call type="matrix_peak_scaling">
+      <call-name>UV</call-name>
+      <call-function>calcUvValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>UV</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>uv</param-value>
+        </param>
+      </params>
+      <call-description>UV(Unit Variance)</call-description>
+    </call>
+    <call type="matrix_peak_scaling">
+      <call-name>pareto</call-name>
+      <call-function>calcParetoValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Pareto</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>pareto</param-value>
+        </param>
+      </params>
+      <call-description>pareto</call-description>
+    </call>
+    <call type="matrix_peak_scaling">
+      <call-name>log</call-name>
+      <call-function>calcLogValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>log</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>Log</param-value>
+        </param>
+      </params>
+      <call-description>Log</call-description>
+    </call>
+    <call type="matrix_peak_scaling">
+      <call-name>ln</call-name>
+      <call-function>calcLnValue</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>ln</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>Ln</param-value>
+        </param>
+      </params>
+      <call-description>Ln</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>pareto</component-name>
+      <component-desc>Pareto Scaling</component-desc>
+      <component-calls>
+        <component-call>pareto</component-call>        
+      </component-calls>
+    </component>
+    <component>
+      <component-name>log</component-name>
+      <component-desc>Log Scaling</component-desc>
+      <component-calls>
+        <component-call>log</component-call>        
+        <component-call>ln</component-call>                
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>pareto</package-component>
+        <package-component>log</package-component>
+      </package-components>
+    </package>
+  </packages>    
+</plugin>

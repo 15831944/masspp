@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<settings>
+  <values>
+    <value id="0" type="string" default="parameters.ini" required="false" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>csv_filename</param-name>
+      <param-section>SampleTreeBuilder</param-section>
+      <param-key>SAMPLE_TREE_BUILDER</param-key>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>smpl_tree_params</page-name>
+      <page-title>csv filename</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Csv Filename</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

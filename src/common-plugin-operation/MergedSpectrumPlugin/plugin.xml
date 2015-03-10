@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Merged Spectrum</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>MergedSpectrumPlugin</link>
+  <statuses>
+    <status id="0" default="true">
+      <status-name>CHROMATOGRAM_RANGE_ACTION</status-name>
+      <status-value>merged spectrum</status-value>
+    </status>
+  </statuses>
+
+  <function>
+
+    <call type="chromatogram_range_action">
+      <call-name>show Averaged Spectrum</call-name>
+      <call-function>showAveragedSpectrum</call-function>
+      <call-description>show Averaged Spectrum</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Average Spectrum...</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="datamap_range_action" order="4">
+      <call-name>datamap range</call-name>
+      <call-function>showAveragedSpectrum</call-function>
+      <call-description>show Averaged Spectrum</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Average Spectrum...</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="batch" order="9">
+      <call-name>batch</call-name>
+      <call-function>mergeSpectra</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Average Spectra</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>specmerge</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>manipulate</param-value>
+        </param>
+      </params>
+      <call-description>merge spectra</call-description>
+    </call>
+    <call type="operation">
+      <call-name>operation</call-name>
+      <call-function>getAverageSpec</call-function>
+      <call-description>Average spectrum operation</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Averaged Spectrum</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>average_spec</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>averaged spectrum</component-name>
+      <component-desc>Show averaged spectrum</component-desc>
+      <component-calls>
+        <component-call>show Averaged Spectrum</component-call>
+        <component-call>datamap range</component-call>
+        <component-call>batch</component-call>
+        <component-call>operation</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>averaged spectrum</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>averaged spectrum</package-component>
+      </package-components>
+    </package>
+  </packages>
+
+  <help>
+    <help-file order="2">help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

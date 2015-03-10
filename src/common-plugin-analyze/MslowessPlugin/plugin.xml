@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>MslowessPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>MslowessPlugin</link>
+  <function>
+    <call type="sn_peak_filtering">
+      <call-name>Mslowess</call-name>
+      <call-function>mslowessFilter</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Mslowess</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>mslowess</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Mslowess</param-value>
+        </param>
+        <param>
+          <param-name>desc</param-name>
+          <param-value>....</param-value>
+        </param>
+      </params>
+      <call-description>Mslowess Filter</call-description>
+    </call>
+    <call type="exit" ifloaded="true">
+      <call-name>exit plugin</call-name>
+      <call-function>exitPlugin</call-function>
+      <call-description>exit plugin</call-description>
+    </call>
+  </function>
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+  <components>
+    <component>
+      <component-name>MATLAB Function</component-name>
+      <component-desc>S/N filter using MATLAB function(mslowess)</component-desc>
+      <component-calls>
+        <component-call>Mslowess</component-call>
+        <component-call>exit plugin</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>MATLAB Function</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>MATLAB Function</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

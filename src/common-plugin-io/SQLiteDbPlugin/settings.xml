@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+	<value id="0" type="output" default="common.db" required="true" />
+  </values>
+  <params>
+	<param id="0" value="0">
+	  <param-name>db</param-name>
+	  <param-section>SQLite</param-section>
+	  <param-key>COMMON_DB_FILE_PATH</param-key>
+	</param>
+  </params>
+  <pages>
+	<page common="false">
+	  <page-name>sqlite</page-name>
+	  <page-title>SQLite</page-title>
+	  <forms>
+		<form id="0" param="0">
+		  <form-title>DB File</form-title>
+      <form-desc>SQLite is managed dababase as a file. Set the SQLite database file path.</form-desc>
+		</form>
+	  </forms>
+	</page>
+  </pages>
+</settings>

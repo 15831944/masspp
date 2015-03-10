@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>CompoundDbPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>CompoundDbPlugin</link>
+  <function>
+    <call type="external_db">
+      <call-name>cas</call-name>
+      <call-function>getCasDb</call-function>
+      <call-description>get CAS DB</call-description>      
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>cas</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>CAS</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param> 
+      </params>  
+    </call>
+    <call type="external_db">
+      <call-name>chebi</call-name>
+      <call-function>getChebiDb</call-function>
+      <call-description>get ChEBI DB</call-description>            
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chebi</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>ChEBI</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>        
+      </params>      
+    </call>
+    <call type="external_db">
+      <call-name>kegg</call-name>
+      <call-function>getKeggDb</call-function>
+      <call-description>get KEGG DB</call-description>                  
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>kegg</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>KEGG</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>
+      </params>
+    </call>
+    <call type="external_db">
+      <call-name>knapsack</call-name>
+      <call-function>getKnapsackDb</call-function>
+      <call-description>get KNApSAcK DB</call-description>                  
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>knapsack</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>KNApSAcK</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>        
+      </params>      
+    </call>    
+    <call type="external_db">
+      <call-name>lipidbank</call-name>
+      <call-function>getLipidbankDb</call-function>
+      <call-description>get LipidBank DB</call-description>                        
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>lipidbank</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>LipidBank</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>        
+      </params>      
+    </call>        
+    <call type="external_db">
+      <call-name>lipidmaps</call-name>
+      <call-function>getLipidmapsDb</call-function>
+      <call-description>get LIPID MAPS DB</call-description>                        
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>lipidmaps</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>LIPID MAPS</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>        
+      </params>      
+    </call>        
+    <call type="external_db">
+      <call-name>pubchem</call-name>
+      <call-function>getPubchemDb</call-function>
+      <call-description>get PubChem DB</call-description>                        
+      <params>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>pubchem</param-value>
+        </param>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>PubChem</param-value>
+        </param>
+        <param>
+          <param-name>type</param-name>
+          <param-value>compound</param-value>          
+        </param>        
+      </params>      
+    </call>         
+  </function>
+  <components>
+    <component>
+      <component-name>cas</component-name>
+      <component-desc>CAS (External Database)</component-desc>
+      <component-calls>
+        <component-call>cas</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chebi</component-name>
+      <component-desc>ChEBI (External Database)</component-desc>
+      <component-calls>
+        <component-call>chebi</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>kegg</component-name>
+      <component-desc>KEGG (External Database)</component-desc>
+      <component-calls>
+        <component-call>kegg</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>knapsack</component-name>
+      <component-desc>KNApSAcK (External Database)</component-desc>
+      <component-calls>
+        <component-call>knapsack</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>lipidbank</component-name>
+      <component-desc>LipidBank (External Database)</component-desc>
+      <component-calls>
+        <component-call>lipidbank</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>lipiemaps</component-name>
+      <component-desc>LIPID MAPS (External Database)</component-desc>
+      <component-calls>
+        <component-call>lipidmaps</component-call>
+      </component-calls>
+    </component>    
+    <component>
+      <component-name>pubchem</component-name>
+      <component-desc>PubChem (External Database)</component-desc>
+      <component-calls>
+        <component-call>pubchem</component-call>
+      </component-calls>
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>cas</package-component>
+        <package-component>chebi</package-component>        
+        <package-component>kegg</package-component>
+        <package-component>knapsack</package-component>        
+        <package-component>lipidbank</package-component>        
+        <package-component>lipidmaps</package-component>
+        <package-component>pubchem</package-component>
+      </package-components>
+    </package>
+  </packages>    
+</plugin>

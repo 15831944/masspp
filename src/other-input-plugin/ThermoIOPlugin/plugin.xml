@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Thermo IO</name>
+  <version>2.50S</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>ThermoIOPlugin</link>
+  <function>
+    <call type="open_file">
+      <call-name>openThermoFile</call-name>
+      <call-function>openRaw</call-function>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Thermo File</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>raw</param-value>
+        </param>
+      </params>
+      <call-description>open Thermo Raw format file</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>import</component-name>
+      <component-desc>import Thermo file</component-desc>
+      <component-calls>
+        <component-call>openThermoFile</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>import</package-component>
+        <package-component>export</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>import</package-component>
+      </package-components>
+    </package>
+  </packages>
+</plugin>

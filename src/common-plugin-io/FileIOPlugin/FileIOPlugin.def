@@ -1,0 +1,22 @@
+EXPORTS
+	openFileOnBatch
+	openFileWithDialog
+	openDialog
+	openExportSampleDialog
+	closeOpenedSample
+	initGUI
+	selectSamples
+	closeAllFiles
+	setFileNameSuffix
+	setOutputFilePath
+	setSampleNumbers
+	setSampleNames
+	printNumberOfSamples
+	openRawdataFile
+	getFileOpenOperation
+	getExportSampleOperation
+	readSampleFile
+	closeSampleFromContextMenu
+	openSpectrumFromContextMenu
+	openChromatogramFromContextMenu
+	

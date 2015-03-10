@@ -1,0 +1,29 @@
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="[Processing] Menu">
+<param name="Local" value="ch01s01.html"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Peaks">
+<param name="Local" value="ch01s01.html#id643328"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Edit Peaks">
+<param name="Local" value="ch01s01.html#id643334"></OBJECT></LI>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Adding Peaks">
+<param name="Local" value="ch01s01.html#id122608"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Changing a Peak Area">
+<param name="Local" value="ch01s01.html#id643356"></OBJECT></LI>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="Deleting Peaks">
+<param name="Local" value="ch01s01.html#id643357"></OBJECT></LI>
+</UL></UL></UL></UL></BODY></HTML>

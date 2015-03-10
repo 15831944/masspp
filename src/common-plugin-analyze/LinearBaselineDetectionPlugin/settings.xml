@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double" default="2.0" minInclusive="0.0" required="true" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>width</param-name>
+      <param-section>Linear Baseline Detection</param-section>
+      <param-key>WINDOW_WIDTH</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Baseline</page-name>
+      <page-title>Linear Baseline</page-title>
+      <forms>
+        <form id="1" param="0">
+          <form-title>Window Width</form-title>
+          <form-desc>Linear baseline method detects baseline point of each data point by the following steps:
+1) Set the window whose center is specified point and whose width is "window width".
+2) Find left side minimum and right side minimum intensity points.
+3) Calculate baseline intensity by linear interpolation of left side minimum and right side minimum.
+          </form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Network</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" required="false" />
+    <value id="1" type="passwd" required="false" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>server</param-name>
+      <param-section>Proxy</param-section>
+      <param-key>SERVER</param-key>
+    </param>
+    <param id="1" value="0">
+      <param-name>pass</param-name>
+      <param-section>Proxy</param-section>
+      <param-key>PASS</param-key>
+    </param>
+    <param id="2" value="0">
+      <param-name>user</param-name>
+      <param-section>Proxy</param-section>
+      <param-key>USER</param-key>
+    </param>
+    <param id="3" value="1">
+      <param-name>passwd</param-name>
+      <param-section>Proxy</param-section>
+      <param-key>PASSWORD</param-key>      
+    </param>
+  </params>
+  <pages>
+    <page chapter="0" common="true">
+      <page-name>common</page-name>
+      <page-title>Proxy</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Server</form-title>
+        </form>
+        <form id="1" param="1">
+          <form-title>Exception</form-title>
+        </form>
+        <form id="2" param="2">
+          <form-title>User</form-title>
+        </form>
+        <form id="3" param="3">
+          <form-title>Password</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>   <!-- @date 2012.08.21 <Add> Fujita -->
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">File_Format</chapter>
+    <chapter id="1" parent="0">Labeling</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" default="status_raw" required="true">
+      <enum>
+        <enum-name>raw data</enum-name>
+        <enum-value>false</enum-value>
+        <enum-desc>Export waveform in raw data file as it it.</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>processed data</enum-name>
+        <enum-value>true</enum-value>
+        <enum-desc>If spectra are manipulated on the software, export processed data.</enum-desc>
+      </enum>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>data_status</param-name>
+      <param-section>file IO</param-section>
+      <param-key>file IO key</param-key>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>select_txt</page-name>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Export Data Status</form-title>
+          <form-desc>Select export data status.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

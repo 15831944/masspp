@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="bool" default="true" required="true" />
+    <value id="1" type="bool" default="false" required="true" />
+    <value id="2" type="string" default="prop" required="false">
+      <enum>
+        <enum-name>Use spectrum property.</enum-name>
+        <enum-value>prop</enum-value>
+        <enum-desc>If the spectrum has Precursor Charge property, set it. Otherwise set default charges.</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>Force</enum-name>
+        <enum-value>force</enum-value>
+        <enum-desc>Set default charges even if charges are set when detecting peaks.</enum-desc>        
+      </enum>      
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>charge1</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_1</param-key>
+    </param>
+    <param id="1" value="0">
+      <param-name>charge2</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_2</param-key>
+    </param>
+    <param id="2" value="0">
+      <param-name>charge3</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_3</param-key>
+    </param>
+    <param id="3" value="0">
+      <param-name>charge4</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_4</param-key>
+    </param>
+    <param id="4" value="1">
+      <param-name>charge5</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_5</param-key>
+    </param>
+    <param id="5" value="1">
+      <param-name>charge6</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_6</param-key>
+    </param>
+    <param id="6" value="1">
+      <param-name>charge7</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_7</param-key>
+    </param>
+    <param id="7" value="1">
+      <param-name>charge8</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>DEFAULT_CHARGE_8</param-key>
+    </param>
+    <param id="8" value="2">
+      <param-name>type</param-name>
+      <param-section>Default Charge</param-section>
+      <param-key>TYPE</param-key>
+    </param>
+  </params>
+  <pages>
+    <page common="false">
+      <page-name>Default Charge</page-name>
+      <page-title>Default Charge</page-title>
+      <forms>
+        <form id="0" param="8">
+          <form-title>Option</form-title>
+          <form-desc>Select the option of setting default charges.</form-desc>          
+        </form>
+        <form id="1" param="0">
+          <form-title>1</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="2" param="1">
+          <form-title>2</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="3" param="2">
+          <form-title>3</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="4" param="3">
+          <form-title>4</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="5" param="4">
+          <form-title>5</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="6" param="5">
+          <form-title>6</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="7" param="6">
+          <form-title>7</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+        <form id="8" param="7">
+          <form-title>8</form-title>
+          <form-desc>Select charges to set as a default.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

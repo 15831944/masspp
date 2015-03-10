@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsFunctions.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\01_TargetSpectra.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\02_ExportSettings.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\createRecordDialog.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\levenshtein.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\VenderInstrumentFunctions.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectrumCheckGridList.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\03_PeakDetection.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\AuxiliaryToolOfCreatingPanel.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\04_RecordSettings.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\getNowDate.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\05_ChemicalStructure.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\06_SampleInformation.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\07_Instrument.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\08_SpectrumInformation.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\09_ChromatographyInformation.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\10_PrecurosrMolecularIon.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\11_SoftwareInformation.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\12_PeakAnnotation.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\DataProcessing.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\StrFunc.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ErrorCheck.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElements.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectraGridList.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\15_FinalSequence.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\templ.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElementSport.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\AnnotationElement.cpp">
+      <Filter>Wizard\Ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\XPeakDetector.cpp">
+      <Filter>Wizard\Ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankPeaksHandler.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankRecordHandler.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankSearchResultHandler.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankInstrumentsHandler.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankJobStatusHandler.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\XMLMaker.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\IdentMgrAcc.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\CommonLicenseArray.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankSearchEngine.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ImageCanvas.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\PeaksCanvas.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\RecordPeaksDialog.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ResultListCtrl.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultDialog.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultPanel.cpp">
+      <Filter>SearchResuls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\RDKit\RDKitAccesser.cpp">
+      <Filter>RDKit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\settingParamsKeywords.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\constXMLTagName.cpp">
+      <Filter>XML_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentTypesMgr.cpp">
+      <Filter>MBMgrTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\NetWorkCtrl.cpp">
+      <Filter>MBMgrTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\SearchDialog.cpp">
+      <Filter>MBMgrTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentSelectDialog.cpp">
+      <Filter>MBMgrTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\SpecElmSetter.cpp">
+      <Filter>Wizard\Ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constHelp.cpp">
+      <Filter>Wizard\constHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constMaterial.cpp">
+      <Filter>Wizard\constHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SampleCheckList.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElemSubTags.cpp">
+      <Filter>Wizard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\OverlaySpectrumTool.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\CreatePanelTool.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\ExtendSettingsPanel.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\InstrumentAccessPanel.cpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\ExternalDbSearchDialog.cpp">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBAccessClass.cpp">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBSelectDialog.cpp">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\NameSelectToAccession.cpp">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsFunctions.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\01_TargetSpectra.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\02_ExportSettings.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\createRecordDialog.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\rel_stdafx.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\levenshtein.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectrumCheckGridList.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\VenderInstrument.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\03_PeakDetection.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\AuxiliaryToolOfCreatingPanel.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\04_RecordSettings.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\getNowDate.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\05_ChemicalStructure.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\06_SampleInformation.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\07_Instrument.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\08_SpectrumInformation.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\09_ChromatographyInformation.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\10_PrecurosrMolecularIon.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\11_SoftwareInformation.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\12_PeakAnnotation.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\InstrumentAccessPanel.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\DataProcessing.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\calcFunc\StrFunc.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ErrorCheck.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\templ.hpp">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElements.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SpectraGridList.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\15_FinalSequence.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\objectsName.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\AnnotationElement.h">
+      <Filter>Wizard\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\XPeakDetector.h">
+      <Filter>Wizard\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankJobStatusHandler.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankPeaksHandler.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankRecordHandler.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankSearchResultHandler.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\MassBankInstrumentsHandler.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\XMLMaker.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\settingParamsKeywords.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\IdentMgrAcc.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\CommonLicenseArray.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankSearchEngine.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ImageCanvas.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\PeaksCanvas.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\RecordPeaksDialog.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\ResultListCtrl.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultDialog.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\SearchResultPanel.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\stdafx.h">
+      <Filter>SearchResuls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\RDKit\RDKitAccesser.h">
+      <Filter>RDKit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\XMLHandler\constXMLTagName.h">
+      <Filter>XML_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentTypesMgr.h">
+      <Filter>MBMgrTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\NetWorkCtrl.h">
+      <Filter>MBMgrTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\SearchDialog.h">
+      <Filter>MBMgrTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MBMgrTool\InstrumentSelectDialog.h">
+      <Filter>MBMgrTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ext\SpecElmSetter.h">
+      <Filter>Wizard\Ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\WizardConstHeaders.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constMaterial.h">
+      <Filter>Wizard\constHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\constHeader\constHelp.h">
+      <Filter>Wizard\constHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\SampleCheckList.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\RecordElemSubTags.h">
+      <Filter>Wizard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\SearchResults\OverlaySpectrumTool.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\CreatePanelTool.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\Panels\ExtendSettingsPanel.h">
+      <Filter>Wizard\SpPanels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\ExternalDbSearchDialog.h">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBAccessClass.h">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\LinkDBSelectDialog.h">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\cWizard\ExtDB\NameSelectToAccession.h">
+      <Filter>Wizard\ExtDB</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\plugin.xml">
+      <Filter>99_xml_def</Filter>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings.xml">
+      <Filter>99_xml_def</Filter>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\MassBankToolsPlugin.def">
+      <Filter>99_xml_def</Filter>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings_batchsearch.xml">
+      <Filter>99_xml_def</Filter>
+    </None>
+    <None Include="..\..\..\..\..\src\common-plugin-analyze\MassBankToolsPlugin\settings_searchengine.xml">
+      <Filter>99_xml_def</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="XML_Handler">
+      <UniqueIdentifier>{fca2e8be-33a6-4f27-90f5-d7c2400677de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99_xml_def">
+      <UniqueIdentifier>{997f155c-f0c5-49a3-be71-d4a8990656ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wizard">
+      <UniqueIdentifier>{c2fd3306-ee29-4d6f-8cc2-e310ad322edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wizard\Ext">
+      <UniqueIdentifier>{3e8fb75d-d1b1-4358-ae1b-00f0710b2c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions">
+      <UniqueIdentifier>{beb19cd4-b3bc-48eb-a314-a308e3e81c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SearchResuls">
+      <UniqueIdentifier>{cc59fd8d-e333-4722-a4be-a7f51d7dab57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RDKit">
+      <UniqueIdentifier>{af20ccbc-a9c0-4407-82ab-41974ec578d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wizard\ExtDB">
+      <UniqueIdentifier>{f4b0a197-d766-46bd-904a-1843d4a8f562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MBMgrTool">
+      <UniqueIdentifier>{ce9053fe-5906-4cba-82d3-4eec20077eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wizard\constHeader">
+      <UniqueIdentifier>{1e44979e-fa8a-4f22-bea6-3608584fce1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wizard\SpPanels">
+      <UniqueIdentifier>{34d6cdfa-f14f-497f-a779-e0df890b712d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

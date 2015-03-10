@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peak Label Drawer</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>PeakLabelDrawerPlugin</link>
+  <function>
+    <call type="draw_spec_window_fg">
+      <call-name>drawSpecLabel</call-name>
+      <call-function>drawSpecPeaksLabel</call-function>
+      <call-description>draw peaks label</call-description>
+    </call>
+    <call type="prepare_spec_window">
+      <call-name>setSpecGraphMargin</call-name>
+      <call-function>setSpecGraphMargin</call-function>
+      <call-description>get space to draw label</call-description>
+    </call>
+    <call type="on_update_spec_peaks" ifloaded="true">
+      <call-name>on update spectrum peaks</call-name>
+      <call-function>deleteSpectrumPeakInfo</call-function>
+      <call-description>update spectrum peaks</call-description>
+    </call>
+    <call type="draw_chrom_window_fg">
+      <call-name>drawChromLabel</call-name>
+      <call-function>drawChromPeaksLabel</call-function>
+      <call-description>draw peaks label</call-description>
+    </call>
+    <call type="prepare_chrom_window">
+      <call-name>setChromGraphMargin</call-name>
+      <call-function>setChromGraphMargin</call-function>
+      <call-description>get space to draw label</call-description>
+    </call>
+    <call type="on_update_chrom_peaks" ifloaded="true">
+      <call-name>on update chromatogram peaks</call-name>
+      <call-function>deleteChromatogramPeakInfo</call-function>
+      <call-description>update chromatogram peaks</call-description>
+    </call>
+    <call type="draw_data_map_fg">
+      <call-name>draw2dPeaks</call-name>
+      <call-function>draw2dPeaks</call-function>
+      <call-description>draws 2D peaks</call-description>
+    </call>
+    <call type="draw_data_map_fg">
+      <call-name>draw2dClusters</call-name>
+      <call-function>draw2dClusters</call-function>
+      <call-description>draws 2D clusters</call-description>
+    </call>
+    <call type="on_settings">
+      <call-name>update settings</call-name>
+      <call-function>updateDrawingLabelSeetings</call-function>
+      <call-description>updates drawing label settings</call-description>
+    </call>
+    <call type="on_spec_button_down" order="5">
+      <call-name>on spectrum button down</call-name>
+      <call-function>onSpecButtonDown</call-function>
+      <call-description>on spectrum button down</call-description>
+    </call>
+    <call type="on_chrom_button_down" order="5">
+      <call-name>on chromatogram button down</call-name>
+      <call-function>onChromButtonDown</call-function>
+      <call-description>on chromatogram button down</call-description>
+    </call>
+
+    <call type="on_spec_mouse_move" >
+      <call-name>on spectrum mouse move</call-name>
+      <call-function>onSpecMouseMove</call-function>
+      <call-description>on spectrum mouse move</call-description>
+    </call>
+    <call type="on_chrom_mouse_move" >
+      <call-name>on chromatogaram mouse move</call-name>
+      <call-function>onChromMouseMove</call-function>
+      <call-description>on chromatogaram mouse move</call-description>
+    </call>
+
+    <call type="on_spec_button_up">
+      <call-name>on spectrum button up</call-name>
+      <call-function>onSpecButtonUp</call-function>
+      <call-description>on spectrum button up</call-description>
+    </call>
+    <call type="on_chrom_button_up">
+      <call-name>on chromatogaram button up</call-name>
+      <call-function>onChromButtonUp</call-function>
+      <call-description>on chromatogaram button up</call-description>
+    </call>
+
+    <call type="draw_spec_window_fg">
+      <call-name>draw spectrum foreground</call-name>
+      <call-function>onDrawSpecFg</call-function>
+      <call-description>draw spectrum foreground</call-description>
+    </call>
+    <call type="draw_chrom_window_fg">
+      <call-name>draw chromatogaram foreground</call-name>
+      <call-function>onDrawChromFg</call-function>
+      <call-description>draw chromatogaram foreground</call-description>
+    </call>
+
+    <call type="on_spec_dbl_clk" order="5">
+      <call-name>on spectrum double click</call-name>
+      <call-function>onSpecDblClick</call-function>
+      <call-description>on spectrum double click</call-description>
+    </call>
+    <call type="on_chrom_dbl_clk" order="5">
+      <call-name>on chromatogram double click</call-name>
+      <call-function>onChromDblClick</call-function>
+      <call-description>on chromatogram double click</call-description>
+    </call>
+    <!-- @date 2011.03.29 <Add> M.Izumi -->
+  </function>
+  <components>
+    <component>
+      <component-name>spectrum</component-name>
+      <component-desc>Spectrum Peak Label</component-desc>
+      <component-calls>
+        <component-call>drawSpecLabel</component-call>
+        <component-call>setSpecGraphMargin</component-call>
+        <component-call>on update spectrum peaks</component-call>
+        <component-call>updateDrawingLabelSeetings</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chromatogram</component-name>
+      <component-desc>Chromatogram Peak Label</component-desc>
+      <component-calls>
+        <component-call>drawChromLabel</component-call>
+        <component-call>setChromGraphMargin</component-call>
+        <component-call>on update chromatogram peaks</component-call>
+        <component-call>updateDrawingLabelSeetings</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>datamap</component-name>
+      <component-desc>Heatmap Peaks</component-desc>
+      <component-calls>
+        <component-call>draw2dPeaks</component-call>
+        <component-call>draw2dClusters</component-call>
+        <component-call>updateDrawingLabelSeetings</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>focused spectrum</component-name>
+      <component-desc>Focused Spectrum Peaks</component-desc>
+      <component-calls>
+        <component-call>on spectrum button down</component-call>
+        <component-call>on spectrum mouse move</component-call>
+        <component-call>on spectrum button up</component-call>
+        <component-call>draw spectrum foreground</component-call>
+        <component-call>on spectrum double click</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>focused chromatogram</component-name>
+      <component-desc>Focused Chromatogram Peaks</component-desc>
+      <component-calls>
+        <component-call>on chromatogram button down</component-call>
+        <component-call>on chromatogaram mouse move</component-call>
+        <component-call>on chromatogaram button up</component-call>
+        <component-call>draw chromatogaram foreground</component-call>
+        <component-call>on chromatogram double click</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>datamap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>datamap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>datamap</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>datamap</package-component>
+        <package-component>focused spectrum</package-component>
+        <package-component>focused chromatogram</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>datamap</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <settings>
+    <settings-file>settings.xml</settings-file>
+  </settings>
+</plugin>

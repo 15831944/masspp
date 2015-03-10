@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Simple Peak Detect</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>LocalMaximumLabelingPlugin</link>
+  <function>
+    <call type="spec_peak_picking">
+      <call-name>detectSpecPeaks</call-name>
+      <call-function>detectPeaks</call-function>
+      <params>
+        <params>
+          <param>
+            <param-name>long name</param-name>
+            <param-value>Local maximum</param-value>
+          </param>
+          <param>
+            <param-name>short name</param-name>
+            <param-value>local</param-value>
+          </param>
+          <param>
+            <param-name>desc</param-name>
+            <param-value>Very simple algorithm. It extracts all local maximum of waveform as peaks.</param-value>
+          </param>          
+        </params>
+      </params>
+      <call-description>detect spectrum peaks</call-description>
+    </call>
+    <call type="chrom_peak_picking">
+      <call-name>detectChromPeaks</call-name>
+      <call-function>detectPeaks</call-function>
+      <params>
+        <params>
+          <param>
+            <param-name>long name</param-name>
+            <param-value>Local maximum</param-value>
+          </param>
+          <param>
+            <param-name>short name</param-name>
+            <param-value>local</param-value>
+          </param>
+          <param>
+            <param-name>desc</param-name>
+            <param-value>Very simple algorithm. It extracts all local maximum of waveform as peaks.</param-value>            
+          </param>
+        </params>
+      </params>
+      <call-description>detect chromatogram peaks</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>peaks</component-name>
+      <component-desc>Local Maximum Peak Detector</component-desc>
+      <component-calls>
+        <component-call>detectSpecPeaks</component-call>
+        <component-call>detectChromPeaks</component-call>        
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>peaks</package-component>
+      </package-components>
+    </package>
+  </packages>    
+</plugin>

@@ -1,0 +1,609 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Peak Picking</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>PeakPickingPlugin</link>
+  <icons>
+    <icon id="2" type="png">
+      <icon-name>pkpick_peaks</icon-name>
+      <icon-file>images/pkpick_peaks32x32.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>pkpick_parent_peaks</icon-name>
+      <icon-file>images/pkpick_parent_peaks32x32.png</icon-file>
+    </icon>
+    <icon id="4" type="png">
+      <icon-name>pkpick_charge</icon-name>
+      <icon-file>images/pkpick_charge32x32.png</icon-file>
+    </icon>
+    <icon id="5" type="png">
+      <icon-name>peakDetection</icon-name>
+      <icon-file>images/PeakDetection_16x16.png</icon-file>
+    </icon>
+  </icons>
+  <menu>
+    <menu-item id="0" accelerator="T" order="6">
+      <menu-name>Tools</menu-name>
+    </menu-item>
+    <menu-item id="5">
+      <menu-name>Processing</menu-name>
+      <menu-description>Peak Detection</menu-description>
+    </menu-item>
+    <menu-item id="6" parent="5" accelerator="P" order="1">
+      <menu-name>Peaks</menu-name>
+      <menu-group order="0">peaks</menu-group>
+      <menu-description>Peak Detection</menu-description>
+    </menu-item>
+
+    <menu-item id="7" parent="6" accelerator="P" order="1" target="not_null">
+      <menu-name>Detect Peaks...</menu-name>
+      <toolbar>peaks</toolbar>
+      <menu-description>Detect peaks in the specified data traces</menu-description>
+    </menu-item>
+
+    <menu-item id="8" parent="6"  accelerator="C" order="7" target="not_null">
+      <menu-name>Clear Peaks</menu-name>
+      <menu-description>Clear all detected peaks in the active window</menu-description>
+    </menu-item>
+
+    <!-- Context Menu -->
+    <menu-item id="9">
+      <menu-name>Peak Detection...</menu-name>
+      <menu-group>Peaks</menu-group>
+      <popup type="chrom_view" order="2" />
+    </menu-item>
+    <menu-item id="10">
+      <menu-name>Peak Detection...</menu-name>
+      <menu-group>Peaks</menu-group>
+      <popup type="spec_view" order="2" />
+    </menu-item>
+    <menu-item id="11">
+      <menu-name>Peak Detection...</menu-name>
+      <menu-group>Peaks</menu-group>
+      <popup type="datamap_view" order="2" />
+    </menu-item>
+
+  </menu>
+
+  <function>
+    <call type="detect_spec_peaks">
+      <call-name>spectrum peaks</call-name>
+      <call-function>detectSpectrumPeaks</call-function>
+      <call-description>detect spectrum peaks</call-description>
+    </call>
+    <call type="detect_chrom_peaks">
+      <call-name>chromatogram peaks</call-name>
+      <call-function>detectChromatogrampeaks</call-function>
+      <call-description>detect chromatogram peaks</call-description>
+    </call>
+    <call type="detect_2d_peaks">
+      <call-name>2D peaks</call-name>
+      <call-function>detectGroup2DPeaks</call-function>
+      <call-description>detect 2D peaks</call-description>
+    </call>
+    <call type="execute">
+      <call-name>clearLabels</call-name>
+      <call-function>clearLabels</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>4</param-value>
+        </param>
+      </params>
+      <call-description>Clear All Detected Peaks in the Active Window</call-description>
+    </call>
+    <call type="on_open_spec">
+      <call-name>detectSpectrumPeaksOnOpen</call-name>
+      <call-function>detectSpectrumPeaksOnOpen</call-function>
+      <call-description>detect spectrum peaks on open</call-description>
+    </call>
+    <call type="on_open_chrom">
+      <call-name>detectChromatogramPeaksOnOpen</call-name>
+      <call-function>detectChromatogramPeaksOnOpen</call-function>
+      <call-description>detect chromatogram peaks on open</call-description>
+    </call>
+    <call type="batch" icon="2">
+      <call-name>labeling</call-name>
+      <call-function>pickPeaks</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Detect Spectrum Peaks</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>peaks</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>peaks</param-value>
+        </param>
+        <param>
+          <param-name>step</param-name>
+          <param-value>analyze</param-value>
+        </param>
+      </params>
+      <call-description>specify peak picking algorithm</call-description>
+    </call>
+    <call type="on_chromatogram_processing">
+      <call-name>on chromatogram processing</call-name>
+      <call-function>onChromatogramProcessing</call-function>
+      <call-description>detect chromatogram peaks</call-description>
+    </call>
+    <call type="exit_gui" ifloaded="true">
+      <call-name>exit GUI</call-name>
+      <call-function>exitGui</call-function>
+      <call-description>exit GUI</call-description>
+    </call>
+    <call type="on_activate" ifloaded="true">
+      <call-name>set active object</call-name>
+      <call-function>changeActiveObject</call-function>
+      <call-description>active object is changed</call-description>
+    </call>
+    <call type="on_update_2d_peaks">
+      <call-name>updatePeaksView</call-name>
+      <call-function>updatePeaksView</call-function>
+      <call-description>update peaks view</call-description>
+    </call>
+    <call type="execute" icon="5">
+      <call-name>Peak Detection</call-name>
+      <call-function>peakDetection</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>7</param-value>
+        </param>
+      </params>
+      <call-description>Detect peaks...</call-description>
+    </call>
+
+    <call type="execute">
+      <call-name>clearByDContext</call-name>
+      <call-function>clearLabels</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>8</param-value>
+        </param>
+      </params>
+      <call-description>Clear All Detected Peaks in the Active Window</call-description>
+    </call>
+    <call type="execute">
+      <call-name>Spec Peak Detection</call-name>
+      <call-function>peakDetection</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>9</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>Chrom Peak Detection</call-name>
+      <call-function>peakDetection</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>10</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="execute">
+      <call-name>2D Peak Detection</call-name>
+      <call-function>peakDetection</call-function>
+      <params>
+        <param>
+          <param-name>menu</param-name>
+          <param-value>11</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="save_file">
+      <call-name>save2dPeaksFile</call-name>
+      <call-function>save2dPeaksFile</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>2D Peaks List</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>2d_peaks</param-value>
+        </param>
+        <param>
+          <param-name>ext</param-name>
+          <param-value>txt</param-value>
+        </param>
+        <param>
+          <param-name>target</param-name>
+          <param-value>sample</param-value>
+        </param>
+      </params>
+      <call-description>save 2D Peaks List (2D peak detection is required.)</call-description>
+    </call>
+    <call type="operation">
+      <call-name>Spectrum Operation</call-name>
+      <call-function>getSpecPeakDetectOperation</call-function>
+      <call-description>Detect Spectra Peaks</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Peak Detection</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>spec_peak_detect</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>Chromatogram Operation</call-name>
+      <call-function>getChromPeakDetectOperation</call-function>
+      <call-description>Detect Chromatogram Peaks</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Peak Detection</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>chrom_peak_detect</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+        <param>
+          <!-- 2013/08/20 Test Add -->
+          <param-name>step</param-name>
+          <param-value>Analyze</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="operation">
+      <call-name>2D Operation</call-name>
+      <call-function>get2DPeakDetectOperation</call-function>
+      <call-description>Detect 2d Peaks</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Peak Detection</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>2d_peak_detect</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>true</param-value>
+        </param>
+      </params>
+    </call>
+
+    <call type="spec_peak_filter">
+      <call-name>int filter</call-name>
+      <call-function>SpecPeakFilterThreshold</call-function>
+      <call-description>Spec Peak Filtering Height Threshold.</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Height Threshold</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>height_threshold</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>HeightThroshold</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="spec_peak_filter">
+      <call-name>mz filter</call-name>
+      <call-function>SpecPeakFilterMzRange</call-function>
+      <call-description>Spec Peak Filtering m/z range.</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>m/z Range</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>mz_range</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>mzRange</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="spec_peak_filter">
+      <call-name>elimination list filter</call-name>
+      <call-function>SpecPeakFilterElimination</call-function>
+      <call-description>Spec Peak Filtering Elimination list</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Elimination List</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>elimination_list</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>EliminationList</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki from -->
+    <call type="spec_peak_filter">
+      <call-name>SpecPeakFiltering</call-name>
+      <call-function>SpecPeakFilterSn</call-function>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo from -->
+      <packages>
+        <package>Identification</package>
+        <package>Quantitation</package>
+        <package>Data Processing</package>
+        <package>Viewer</package>
+        <package>MassBank</package>
+      </packages>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo to -->
+      <call-description>Spec Peak Filtering S/N</call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>S/N</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>s/n</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>S/N</param-value>
+        </param>
+      </params>
+    </call>
+    <!-- S/N Filter @Date:2013/08/01 <Modify> A.Ozaki to -->
+    <call type="spec_peak_filter">
+      <call-name>SpecPeakFiltering</call-name>
+      <call-function>SpecPeakFilterDifference</call-function>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo from -->
+      <packages>
+        <package>Identification</package>
+        <package>Quantitation</package>
+        <package>Data Processing</package>
+        <package>Viewer</package>
+        <package>MassBank</package>
+      </packages>
+      <!-- add package tag @date 2013.02.06 <Add> S.Sugo to -->
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Difference Elimination</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>difference</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>difference</param-value>
+        </param>
+        
+      </params>
+    </call>
+
+    <!-- Normalization Peak Detect -->
+    <call type="normaliz_peak_detect">
+      <call-name>spectrum peak detector</call-name>
+      <call-function>normalizPeakDetectSpectra</call-function>
+      <call-description></call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Spectrum</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>peak_spec</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>normalizSpec</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="normaliz_peak_detect">
+      <call-name>2d peak detector</call-name>
+      <call-function>normalizPeakDetect2d</call-function>
+      <call-description></call-description>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>2D Peak</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>peak_2d</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>normaliz2D</param-value>
+        </param>
+      </params>
+    </call>
+
+  </function>
+  <components>
+    <component>
+      <component-name>spectrum</component-name>
+      <component-desc>Detect spectrum peaks</component-desc>
+      <component-calls>
+        <component-call>spectrum peaks</component-call>
+        <component-call>pickPeaks</component-call>
+        <component-call>Peak Detection</component-call>
+        <component-call>Spec Peak Detection</component-call>
+        <component-call>Spectrum Operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chromatogram</component-name>
+      <component-desc>Detect chromatogram peaks</component-desc>
+      <component-calls>
+        <component-call>chromatogram peaks</component-call>
+        <component-call>on chromatogram processing</component-call>
+        <component-call>Peak Detection</component-call>
+        <component-call>Chrom Peak Detection</component-call>
+        <component-call>Chromatogram Operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>2D</component-name>
+      <component-desc>Detect 2D peaks</component-desc>
+      <component-calls>
+        <component-call>2D peaks</component-call>
+        <component-call>exit GUI</component-call>
+        <component-call>set active object</component-call>
+        <component-call>updatePeaksView</component-call>
+        <component-call>Peak Detection</component-call>
+        <component-call>2D Peak Detection</component-call>
+        <component-call>2D Operation</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>operation</component-name>
+      <component-desc>Peak Operation</component-desc>
+      <component-calls>
+        <component-call>clearLabels</component-call>
+        <component-call>clearByDContext</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>automatic</component-name>
+      <component-desc>detect peaks automatically</component-desc>
+      <component-calls>
+        <component-call>detectSpectrumPeaksOnOpen</component-call>
+        <component-call>detectChromatogramPeaksOnOpen</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>IO</component-name>
+      <component-desc>Import/Export Peaks</component-desc>
+      <component-calls>
+        <component-call>save2dPeaksFile</component-call>
+        <component-call>detectChromatogramPeaksOnOpen</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>intensity filter</component-name>
+      <component-desc>Peak Filter (Intensity Threshold)</component-desc>
+      <component-calls>
+        <component-call>int filter</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>m/z filter</component-name>
+      <component-desc>Peak Filter (m/z Range)</component-desc>
+      <component-calls>
+        <component-call>mz filter</component-call>
+      </component-calls>
+    </component>
+    <component>
+      <component-name>elimination list filter</component-name>
+      <component-desc>Peak Filter (Elimination List)</component-desc>
+      <component-calls>
+        <component-call>elimination list filter</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>automatic</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>2D</package-component>
+        <package-component>operation</package-component>
+        <package-component>automatic</package-component>
+        <package-component>intensity filter</package-component>
+        <package-component>m/z filter</package-component>
+        <package-component>elimination list filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>2D</package-component>
+        <package-component>operation</package-component>
+        <package-component>automatic</package-component>
+        <package-component>intensity filter</package-component>
+        <package-component>m/z filter</package-component>
+        <package-component>elimination list filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>2D</package-component>
+        <package-component>operation</package-component>
+        <package-component>automatic</package-component>
+        <package-component>IO</package-component>
+        <package-component>intensity filter</package-component>
+        <package-component>m/z filter</package-component>
+        <package-component>elimination list filter</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>2D</package-component>
+        <package-component>automatic</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>spectrum</package-component>
+        <package-component>chromatogram</package-component>
+        <package-component>automatic</package-component>
+        <package-component>intensity filter</package-component>
+        <package-component>m/z filter</package-component>
+        <package-component>elimination list filter</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <settings>
+    <settings-file>settings-batch.xml</settings-file>
+  </settings>
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+  <help>
+    <help-file>help/htmlhelp.hhp</help-file>
+  </help>
+</plugin>

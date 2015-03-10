@@ -1,0 +1,13 @@
+EXPORTS
+	createDataMap
+	prepareDataMap
+	closeDataMapRange
+	onDataMapInfoButtonDown
+	onDataMapInfoMouseMove
+	onDataMapInfoButtonUp
+	onDrawDataMapFg
+	setRangeStatus
+	resetZoomDatamapFromContextMenu
+	openChangeDisplayedRangeDlg
+	onDataMapInfoDblClick
+	getDataMapRangeOperation

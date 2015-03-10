@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Magnifying View</name>
+  <version>1.00</version>
+  <provider>Shimadzu Co., Ltd.</provider>
+  <link>MagnifyingViewPlugin</link>
+  <function>
+    <call type="on_close_spec" ifloaded="true">
+      <call-name>close spectrum</call-name>
+      <call-function>onCloseSpec</call-function>
+      <call-description>close spectrum</call-description>
+    </call>
+    <call type="on_spec_button_down" order="9" ifloaded="true">
+      <call-name>on spectrum button down</call-name>
+      <call-function>onSpecButtonDown</call-function>
+      <call-description>on spectrum button down</call-description>
+    </call>
+    <call type="on_spec_dbl_clk" order="9" ifloaded="true">
+      <call-name>on spectrum dbl clk</call-name>
+      <call-function>onSpecButtonDblClick</call-function>
+      <call-description>on spectrum dbl clk</call-description>
+    </call>
+    <call type="spectrum_range_action">
+      <call-name>show Magnify</call-name>
+      <call-function>showMagnify</call-function>
+      <call-description>show Magnify</call-description>
+      <params>
+        <param>
+          <param-name>name</param-name>
+          <param-value>Magnify...</param-value>
+        </param>
+      </params>
+    </call>
+    <call type="draw_spec_window_fg" order="6" ifloaded="true">
+      <call-name>draw spec window fg</call-name>
+      <call-function>onDrawSpecWindowFg</call-function>
+      <call-description>draw spec window fg</call-description>
+    </call>
+    <!-- Operation -->
+    <call type="operation">
+      <call-name>operation</call-name>
+      <call-function>getMagnifyingViewOperation</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Magnifying View</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>magnify_view</param-value>
+        </param>
+        <param>
+          <param-name>batchexecutable</param-name>
+          <param-value>false</param-value>
+        </param>
+      </params>
+      <call-description>magnifying view operation</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>magnify</component-name>
+      <component-desc>Magnifying View</component-desc>
+      <component-calls>
+        <component-call>close spectrum</component-call>
+        <component-call>on spectrum button down</component-call>
+        <component-call>on spectrum dbl clk</component-call>
+        <component-call>show Magnify</component-call>
+        <component-call>draw spec window fg</component-call>
+        <component-call>operation</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>magnify</package-component>
+      </package-components>
+    </package>
+  </packages>
+  
+</plugin>

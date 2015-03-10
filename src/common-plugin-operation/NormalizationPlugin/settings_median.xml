@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="list" required="false" />
+    <value id="1" type="double-range" list="0" minInclusive="0.0" required="true">
+      <value-name>m/z</value-name>
+    </value>
+    
+  </values>
+  <params>
+    <!-- Distribution(Median)(Each Fraction) -->
+    <param id="0" value="0">
+      <param-name>fract_list</param-name>
+      <param-section>Normaliz Median(Each Fraction)</param-section>
+      <param-key>Settings</param-key>
+    </param>
+    
+    <!-- Distribution(Median)(Multi Sample) -->
+    <param id="1" value="0">
+      <param-name>sample_list</param-name>
+      <param-section>Normaliz Median(Multi Sample)</param-section>
+      <param-key>Settings</param-key>
+    </param>
+  </params>
+    
+  <pages>
+    <!-- Distribution(Median)(Each Fraction) -->
+    <page common="false">
+      <page-name>DistributMedianEachFract</page-name>
+      <page-title>Distribution(Median)(Each Fraction)</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Distribution(Median)(Each Fraction)</form-title>
+          <form-desc>Normalization setting list for normalization between fractions in each sample using peak intensity median.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- Distribution(Median)(Multi Sample) -->
+    <page common="false">
+      <page-name>DistributMedianMultiSample</page-name>
+      <page-title>Distribution(Median)(Multi Sample)</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Distribution(Median)(Multi Sample)</form-title>
+          <form-desc>Normalization setting list for multi sample normalization using peak intensity median.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double-range" minInclusive="0.0" list="true" required="true" />
+    <value id="1" type="int-range" minInclusive="0" list="true" required="true" />
+    <value id="2" type="string" required="true" />
+    <value id="3" type="string" required="true">
+      <enum>
+        <enum-name>is</enum-name>
+        <enum-value>is</enum-value>
+        <enum-desc>The value of (key) is (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>is not</enum-name>
+        <enum-value>is_not</enum-value>
+        <enum-desc>The value of (key) is not (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>contains</enum-name>
+        <enum-value>contains</enum-value>
+        <enum-desc>The value of (key) contains (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>does not contain</enum-name>
+        <enum-value>does_not_contain</enum-value>
+        <enum-desc>The value of (key) does not contain (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>is more than</enum-name>
+        <enum-value>is_more_than</enum-value>
+        <enum-desc>The value of (key) is more than (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>is not more than</enum-name>
+        <enum-value>is_not_more_than</enum-value>
+        <enum-desc>The value of (key) is not more than (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-name>is less than</enum-name>
+        <enum-value>is_less_than</enum-value>
+        <enum-desc>The value of (key) is less than (value).</enum-desc>
+      </enum>
+      <enum>
+        <enum-value>is not less than</enum-value>
+        <enum-value>is_not_less_than</enum-value>
+        <enum-desc>The value of (key) is not less than (value).</enum-desc>
+      </enum>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>rts</param-name>
+    </param>
+    <param id="1" value="0">
+      <param-name>precs</param-name>
+    </param>
+    <param id="2" value="1">
+      <param-name>scans</param-name>
+    </param>
+    <param id="3" value="1">
+      <param-name>stages</param-name>
+    </param>
+    <param id="4" value="2">
+      <param-name>key</param-name>
+    </param>
+    <param id="5" value="3">
+      <param-name>restriction</param-name>
+    </param>
+    <param id="6" value="2">
+      <param-name>value</param-name>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>rt</page-name>
+      <page-title>RT Range</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>RT Range</form-title>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>precursor</page-name>
+      <page-title>Precursor Range</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Precursor</form-title>
+          <form-desc>precursor range</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>scannum</page-name>
+      <page-title>Scan Number Range</page-title>
+      <forms>
+        <form id="2" param="2">
+          <form-title>Scan Number</form-title>
+          <form-desc>scan number range</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>msstage</page-name>
+      <page-title>MS Stage Range</page-title>
+      <forms>
+        <form id="3" param="3">
+          <form-title>MS Stage</form-title>
+          <form-desc>MS stage range</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>propfilter</page-name>
+      <page-title>Spectrum Property</page-title>
+      <forms>
+        <form id="4" param="4">
+          <form-title>Key</form-title>
+          <form-desc>property key</form-desc>
+        </form>
+        <form id="5" param="5">
+          <form-title>Restriction</form-title>
+          <form-desc>restriction type</form-desc>
+        </form>
+        <form id="6" param="6">
+          <form-title>Value</form-title>
+          <form-desc>property value</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

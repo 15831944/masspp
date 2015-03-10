@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="1" type="string" default="defaultcharge" required="true">
+      <item-type>CHARGE_DETECT</item-type>
+    </value>
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>peakDetector</param-name>
+      <param-section>Peak Detection</param-section>
+      <param-key>PEAK_DETECTOR</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>chargeDetector</param-name>
+      <param-section>Peak Detection</param-section>
+      <param-key>CHARGE_DETECTOR</param-key>
+    </param>
+  </params>
+  <pages>
+    <page>
+      <page-name>peaks</page-name>
+      <page-title>Detect Spectrum Peaks</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Peak Detector</form-title>
+          <form-desc>peak detector</form-desc>
+        </form>
+        <form id="1" param="1">
+          <form-title>Charge Detector</form-title>
+          <form-desc>charge detector</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>    
+</settings>

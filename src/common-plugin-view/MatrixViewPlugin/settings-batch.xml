@@ -1,0 +1,587 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" required="true" />
+    <value id="1" type="input" required="true" />
+    <value id="2" type="color" default="blue" required="true" />
+    <value id="3" type="string" required="true">
+      <item-type>QUANT_PEAK_POS</item-type>
+    </value>
+    <value id="4" type="string" required="true">
+      <item-type>QUANT_PEAK_VAL</item-type>
+    </value>
+    <value id="5" type="double" default="0.5" required="true" />
+    <value id="6" type="double" default="0.25" required="true"/>
+    <value id="7" type="output" required="true" />
+    <!--
+    <value id="8" type="double" default="0.1" minInclusive="0.0" required="true" />
+    -->
+
+    <value id="8" type="string" default="absolute" required="true">
+      <enum>
+        <enum-name>Absolute</enum-name>
+        <enum-value>absolute</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Relative (%)</enum-name>
+        <enum-value>relative</enum-value>
+      </enum>
+    </value>
+
+    <value id="9" type="int-range" required="true" />
+    <value id="10" type="double-range" required="true" />
+    <value id="11" type="int-range" required="true" />
+    <value id="12" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="13" type="string" required="true">
+      <item-type>2D_PEAK_PICKING</item-type>
+    </value>
+
+    <value id="14" type="list" required="true" />
+    <value id="15" type="string" list="14" required="true">
+      <item-type>NORMALIZATION_METHOD</item-type>
+    </value>
+
+    <value id="16" type="string" >
+      <item-type>spectrum_scaling_for_rt_alignment</item-type>
+    </value>
+    <value id="17" type="string" required="true">
+      <item-type>ALIGNMENT</item-type>
+    </value>
+    
+    <value id="18" type="string" required="true">
+      <item-type>QUANT_PEAK_POS</item-type>
+    </value>
+    <value id="19" type="string" required="true">
+      <item-type>QUANT_PEAK_VAL</item-type>
+    </value>
+    
+    <!-- 笘・､・焚謖・ｮ壻ｸ頑焔縺剰｡後▲縺ｦ縺・↑縺・・ -->
+    <value id="20" type="string" required="true">
+      <item-type>MATRIX_PEAK_SCALING</item-type>
+    </value>
+
+    <!-- 隍・焚謖・ｮ・-->
+    <value id="21" type="list" required="true" />
+    <value id="22" type="string" list="21" required="true">
+      <item-type>MATRIX_PEAK_SCALING</item-type>
+    </value>
+
+    <value id="23" type="list" required="true" />
+    <value id="24" type="string" list="23" required="true">
+      <item-type>MATRIX_PEAK_ANALYSIS</item-type>
+    </value>
+
+    <value id="25" type="string" required="true" />    <!-- dummy -->
+    <value id="26" type="string" required="true" />
+    <value id="27" type="string" required="false" />
+    <value id="28" type="string" required="true">
+      <item-type>IDENTIFICATION</item-type>
+    </value>
+    <value id="29" type="double" minInclusive="0.0" required="true" />
+    <value id="30" type="double" minInclusive="0.0" required="true" />
+    <value id="31" type="string" required="true">
+      <item-type>SPEC_PEAK_PICKING</item-type>
+    </value>
+    <value id="32" type="string" required="true">
+      <item-type>CHARGE_DETECT</item-type>
+    </value>
+
+    <value id="33" type="list" />
+    <value id="34" type="string" list="33" >
+      <item-type>SPEC_PEAK_FILTER</item-type>
+    </value>
+
+    <value id="35" type="double" minInclusive="0.0" required="true" />
+    <value id="36" type="double" minInclusive="0.0" required="true" />
+
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>name</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>MATRIX_DB</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>raw_data</param-name>
+    </param>
+    <param id="2" value="2">
+      <param-name>color</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>PROFILE_COLOR</param-key>
+    </param>
+    <param id="3" value="0">
+      <param-name>group</param-name>
+    </param>
+    <param id="4" value="1">
+      <param-name>path</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>SAMPLE_LIST_FILE</param-key>
+    </param>
+    <param id="5" value="1">
+      <param-name>path</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>STANDARD_FILE</param-key>
+    </param>
+    <param id="6" value="3">
+      <param-name>detector</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>POSITION_DETECTOR</param-key>
+    </param>
+    <param id="7" value="4">
+      <param-name>alg</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>FILLING_ALGORITHM</param-key>
+    </param>
+    <param id="8" value="5">
+      <param-name>rt_tol</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>RT_TOLERANCE</param-key>
+    </param>
+    <param id="9" value="6">
+      <param-name>mz_tol</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>MZ_TOLERANCE</param-key>
+    </param>
+    <param id="10" value="7">
+      <param-name>path</param-name>
+      <param-section>Peak Matrix</param-section>
+      <param-key>OUTPUT_FILE</param-key>
+    </param>
+
+    <param id="11" value="8">
+      <param-name>type</param-name>
+    </param>
+    <param id="12" value="10">
+      <param-name>threshold</param-name>
+    </param>
+    <param id="13" value="10">
+      <param-name>rt_range</param-name>
+    </param>
+    <param id="14" value="10">
+      <param-name>mz_range</param-name>
+    </param>
+    
+    <param id="15" value="12">
+      <param-name>peak_detector</param-name>
+    </param>
+    <param id="16" value="14">
+      <param-name>methods</param-name>
+    </param>
+    <param id="17" value="13">
+      <param-name>peak_detector</param-name>
+    </param>
+    <param id="18" value="14">
+      <param-name>methods</param-name>
+    </param>
+
+    <param id="19" value="16">
+      <param-name>scaling</param-name>
+    </param>
+    <param id="20" value="17">
+      <param-name>methods</param-name>
+    </param>
+    <param id="21" value="18">
+      <param-name>methods</param-name>
+    </param>
+    <param id="22" value="19">
+      <param-name>methods</param-name>
+    </param>
+    <param id="23" value="20">
+      <param-name>methods</param-name>
+    </param>
+
+    <param id="24" value="21">
+      <param-name>methods</param-name>
+    </param>
+
+    <param id="25" value="23">
+      <param-name>methods</param-name>
+    </param>
+
+    <param id="26" value="26">
+      <param-name>title</param-name>
+    </param>
+    <param id="27" value="27">
+      <param-name>comment</param-name>
+    </param>
+    <param id="28" value="28">
+      <param-name>engine</param-name>
+    </param>
+    <param id="29" value="29">
+      <param-name>rt_tol</param-name>
+    </param>
+    <param id="30" value="30">
+      <param-name>mz_tol</param-name>
+    </param>
+    <param id="31" value="31">
+      <param-name>peak_detector</param-name>
+    </param>
+    <param id="32" value="32">
+      <param-name>charge_calculator</param-name>
+    </param>
+    <param id="33" value="33">
+      <param-name>filters</param-name>
+    </param>
+
+    <param id="34" value="35">
+      <param-name>rt_tol </param-name>
+    </param>
+    <param id="35" value="36">
+      <param-name>mz_tol</param-name>
+    </param>
+
+
+  </params>
+  <pages>
+    <page>
+      <page-name>matrix_name</page-name>
+      <page-title>Peak Matrix</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Matrix Name</form-title>
+          <form-desc>Peak Matrix Name</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>matrix_sample</page-name>
+      <page-title>Matrix Sample</page-title>
+      <forms>
+        <form id="1" param="1">
+          <form-title>Sample Raw Data</form-title>
+          <form-desc>sample raw data file</form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>Color</form-title>
+          <form-desc>Profile Color</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>matrix_sample_group</page-name>
+      <page-title>Matrix Sample</page-title>
+      <forms>
+        <form id="3" param="1">
+          <form-title>Sample Raw Data</form-title>
+          <form-desc>sample raw data file</form-desc>
+        </form>
+        <form id="4" param="2">
+          <form-title>Color</form-title>
+          <form-desc>Profile Color</form-desc>
+        </form>
+        <form id="5" param="3">
+          <form-title>Group</form-title>
+          <form-desc>Sample Group</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>sample_list</page-name>
+      <page-title>Sample List File</page-title>
+      <forms>
+        <form id="6" param="4">
+          <form-title>File</form-title>
+          <form-desc>Sample List File</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>standard_file</page-name>
+      <page-title>Standard Sample</page-title>
+      <forms>
+        <form id="7" param="5">
+          <form-title>File</form-title>
+          <form-desc>Standard Sample</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>matrix_row</page-name>
+      <page-title>Matrix Peak Positions</page-title>
+      <forms>
+        <form id="8" param="6">
+          <form-title>Detector</form-title>
+          <form-desc>Matrix Peak Position Detector</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>matrix_fill</page-name>
+      <page-title>Fill Matrix</page-title>
+      <forms>
+        <form id="9" param="7">
+          <form-title>Algorithm</form-title>
+          <form-desc>Filling Algorithm</form-desc>
+        </form>
+        <form id="10" param="8">
+          <form-title>RT Tolerance</form-title>
+          <form-desc>RT Tolerance</form-desc>
+        </form>
+        <form id="11" param="9">
+          <form-title>m/z Tolerance</form-title>
+          <form-desc>m/z Tolerance</form-desc>
+        </form>
+      </forms>
+    </page>
+    <page>
+      <page-name>matrix_out</page-name>
+      <page-title>Matrix File Name</page-title>
+      <forms>
+        <form id="12" param="10">
+          <form-title>Output File</form-title>
+          <form-desc>Output File Path</form-desc>
+        </form>
+      </forms>
+    </page>
+
+
+    <!-- 2013/07/18 Add OKADA task:#22 (4)-matrix_group -->
+    <page>
+      <page-name>matrix_group</page-name>
+      <page-title>Matrix Group</page-title>
+      <forms>
+        <form id="13" param="3">
+          <form-title>Group</form-title>
+          <form-desc>group name</form-desc>
+        </form>
+        <form id="14" param="2">
+          <form-title>Color</form-title>
+          <form-desc>group color</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- 2013/07/18 Add OKADA task:#22 (5)-matrix_sample -->
+    <page>
+      <page-name>matrix_sample_add</page-name>
+      <page-title>Matrix Sample</page-title>
+      <forms>
+        <form id="15" param="3">
+          <form-title>Group</form-title>
+          <form-desc>group name</form-desc>
+        </form>
+        <form id="16" param="4">
+          <form-title>Path</form-title>
+          <form-desc>sample file path</form-desc>
+        </form>
+        <form id="17" param="2">
+          <form-title>Color</form-title>
+          <form-desc>sample color</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- 2013/07/18 Add OKADA task:#22 (6)-matrix_samples -->
+    <page>
+      <page-name>matrix_samples_add</page-name>
+      <page-title>Matrix Samples</page-title>
+      <forms>
+        <form id="18" param="4">
+          <form-title>Path</form-title>
+          <form-desc>sample information file. (tab separated values)</form-desc>
+        </form>
+      </forms>
+    </page>
+    <!-- 2013/07/18 Add OKADA task:#22 (7)-matrix_norm_filter_int -->
+    <page>
+      <page-name>matrix_norm_filter_int</page-name>
+      <page-title>Normalization Intensity Filter</page-title>
+      <forms>
+        <form id="19" param="11">
+          <form-title>Type</form-title>
+          <form-desc>intensity value type. (abs / rel)</form-desc>
+        </form>
+        <form id="20" param="12">
+          <form-title>Threshold</form-title>
+          <form-desc>intensity filter range.(rel)</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (8)-matrix_norm_filter_rt -->
+    <page>
+      <page-name>matrix_norm_filter_rt</page-name>
+      <page-title>Normalization RT Filter</page-title>
+      <forms>
+        <form id="21" param="13">
+          <form-title>RT Range</form-title>
+          <form-desc>RT filter range.(rel)</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (9)-matrix_norm_filter_mz -->
+    <page>
+      <page-name>matrix_norm_filter_mz</page-name>
+      <page-title>Normalization m/z Filter</page-title>
+      <forms>
+        <form id="22" param="14">
+          <form-title>m/z Range</form-title>
+          <form-desc>m/z filter range.(rel)</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (10)-matrix_norm_spec -->
+    <page>
+      <page-name>matrix_norm_spec</page-name>
+      <page-title>Normalize samples using spectrum peaks</page-title>
+      <forms>
+        <form id="23" param="15">
+          <form-title>Peak Detector</form-title>
+          <form-desc>spectrum peak detector.</form-desc>
+        </form>
+        <form id="24" param="16">
+          <form-title>Methods</form-title>
+          <form-desc>normalization methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (11)-matrix_norm_2d -->
+    <page>
+      <page-name>matrix_norm_2d</page-name>
+      <page-title>Normalize samples using 2D peaks</page-title>
+      <forms>
+        <form id="25" param="17">
+          <form-title>Peak Detector</form-title>
+          <form-desc>spectrum peak detector.</form-desc>
+        </form>
+        <form id="26" param="18">
+          <form-title>Methods</form-title>
+          <form-desc>normalization methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (12)-matrix_rt_alignment -->
+    <page>
+      <page-name>matrix_rt_alignment</page-name>
+      <page-title>Matrix RT Alignment</page-title>
+      <forms>
+        <form id="27" param="19">
+          <form-title>Scaling</form-title>
+          <form-desc>scaling method. (none / log / vast).</form-desc>
+        </form>
+        <form id="28" param="20">
+          <form-title>Methods</form-title>
+          <form-desc>alignment method.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (13)-matrix_peak_positions -->
+    <page>
+      <page-name>matrix_peak_positions</page-name>
+      <page-title>Matrix Peak Positions</page-title>
+      <forms>
+        <form id="29" param="21">
+          <form-title>Methods</form-title>
+          <form-desc>peak positions determination method.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+
+    <!-- 2013/07/18 Add OKADA task:#22 (14)-matrix_peak_values -->
+    <page>
+      <page-name>matrix_peak_values</page-name>
+      <page-title>Matrix Peak Positions</page-title>
+      <forms>
+        <form id="30" param="22">
+          <form-title>Methods</form-title>
+          <form-desc>peak positions determination method.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+
+    <!-- 2013/07/18 Add OKADA task:#22 (15)-matrix_peak_values -->
+    <page>
+      <page-name>matrix_peak_scaling</page-name>
+      <page-title>Matrix Peak Scaling</page-title>
+      <forms>
+        <form id="31" param="24">
+          <form-title>Peak Scaling</form-title>
+          <form-desc>peak scaling methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (16)-matrix_peak_analysis -->
+    <page>
+      <page-name>matrix_peak_analysis</page-name>
+      <page-title>Matrix Peak Analysis</page-title>
+      <forms>
+        <form id="32" param="25">
+          <form-title>Peak Analysis</form-title>
+          <form-desc>peak analysis methods.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+    <!-- 2013/07/18 Add OKADA task:#22 (17)-comparative_ident -->
+    <!-- 
+    <page>
+      <page-name>comparative_identX</page-name>
+      <page-title>Comparative Identification</page-title>
+      <forms>
+        <form id="33" param="26">
+          <form-title>Title</form-title>
+          <form-desc>The title of identification. (This title is registered in the internal database).</form-desc>
+        </form>
+        <form id="34" param="27">
+          <form-title>Comment</form-title>
+          <form-desc>The comment of identification. (This comment is registered in the internal database).</form-desc>
+        </form>
+        <form id="35" param="28">
+          <form-title>Engine</form-title>
+          <form-desc>search engine.</form-desc>
+        </form>
+        <form id="36" param="29">
+          <form-title>rt_tol</form-title>
+          <form-desc>RT tolerance.</form-desc>
+        </form>
+        <form id="37" param="30">
+          <form-title>mz_tol</form-title>
+          <form-desc>m/z tolerance.</form-desc>
+        </form>
+        <form id="38" param="31">
+          <form-title>peak_detector</form-title>
+          <form-desc>spectrum peak detector.</form-desc>
+        </form>
+        <form id="39" param="32">
+          <form-title>charge_calculator</form-title>
+          <form-desc>charge calculator.</form-desc>
+        </form>
+        <form id="40" param="33">
+          <form-title>filters</form-title>
+          <form-desc>spectrum peak filters.</form-desc>
+        </form>
+      </forms>
+    </page>
+    -->
+
+    <!-- 2013/07/18 Add OKADA task:#22 (18)-matrix_del_dup_peaks -->
+    <page>
+      <page-name>matrix_del_dup_peaks</page-name>
+      <page-title>Matrix Peak Analysis</page-title>
+      <forms>
+        <form id="41" param="34">
+          <form-title>RT Tolerance</form-title>
+          <form-desc>RT tolerance.</form-desc>
+        </form>
+        <form id="42" param="35">
+          <form-title>m/z Tolerance</form-title>
+          <form-desc>m/z tolerance.</form-desc>
+        </form>
+      </forms>
+    </page>
+
+  </pages>
+
+</settings>

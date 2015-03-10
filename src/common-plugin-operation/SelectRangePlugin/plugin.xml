@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>Select Range</name>
+  <version>1.00</version>
+  <provider>Eisai Co., Ltd.</provider>
+  <link>SelectRangePlugin</link>
+  <!-- @date 2011.06.16 <Add> M.Izumi -->
+  <icons>
+    <icon id="0" type="png">
+      <icon-name>move_selectRange</icon-name>
+      <icon-file>images/move_icon.png</icon-file>
+    </icon>
+    <icon id="1" type="png">
+      <icon-name>xrange_zoom</icon-name>
+      <icon-file>images/xRange_zoom_icon.png</icon-file>
+    </icon>
+    <icon id="2" type="png">
+      <icon-name>mc_bpc</icon-name>
+      <icon-file>images/mc_bpc_icon.png</icon-file>
+    </icon>
+    <icon id="3" type="png">
+      <icon-name>mod_selRange</icon-name>
+      <icon-file>images/mod_selRange_icon.png</icon-file>
+    </icon>
+  </icons>
+  <gui>
+    <status-bar target="spectrum"  order="6" width="170">
+      <status-bar-name>coordinate</status-bar-name>
+    </status-bar>
+    <status-bar target="chromatogram"  order="7" width="170">
+      <status-bar-name>coordinate</status-bar-name>
+    </status-bar>
+
+    <status-bar target="spectrum"  order="4" width="170">
+      <status-bar-name>range</status-bar-name>
+    </status-bar>
+    <status-bar target="chromatogram"  order="5" width="170">
+      <status-bar-name>range</status-bar-name>
+    </status-bar>
+  </gui>
+  <function>
+    <call type="on_close_spec" ifloaded="true">
+      <call-name>on close spectrum</call-name>
+      <call-function>onCloseSpec</call-function>
+      <call-description>on close spectrum</call-description>
+    </call>
+    <call type="on_close_chrom" ifloaded="true">
+      <call-name>on close chromatogram</call-name>
+      <call-function>onCloseChrom</call-function>
+      <call-description>on close chromatogram</call-description>
+    </call>
+    <call type="on_spec_button_down" order="9">
+      <call-name>on spectrum button down</call-name>
+      <call-function>onSpecButtonDown</call-function>
+    </call>
+    <call type="on_chrom_button_down" order="9">
+      <call-name>on chromatogram button down</call-name>
+      <call-function>onChromButtonDown</call-function>
+      <call-description>on chromatogram button down</call-description>
+    </call>
+    <call type="on_spec_mouse_move">
+      <call-name>on spectrum mouse move</call-name>
+      <call-function>onSpecMouseMove</call-function>
+      <call-description>on spectrum mouse move</call-description>
+    </call>
+    <call type="on_chrom_mouse_move">
+      <call-name>on chromatogram mouse move</call-name>
+      <call-function>onChromMouseMove</call-function>
+      <call-description>on chromatogram mouse move</call-description>
+    </call>
+    <call type="on_spec_mouse_move" order ="3">
+      <call-name>spec status</call-name>
+      <call-function>SetValStatusBarSpec</call-function>
+      <call-description>Set the value of status bar spectrum</call-description>
+    </call>
+    <call type="on_chrom_mouse_move" order ="3">
+      <call-name>chrom status</call-name>
+      <call-function>SetValStatusBarChrom</call-function>
+      <call-description>Set the value of status bar chromatogram</call-description>
+    </call>
+    <call type="on_spec_mouse_leave">
+      <call-name>on spectrum mouse leave</call-name>
+      <call-function>onMouseLeave</call-function>
+      <call-description>Set the value of status bar spectrum</call-description>
+    </call>
+    <call type="on_chrom_mouse_leave">
+      <call-name>on chromatogram mouse leave</call-name>
+      <call-function>onMouseLeave</call-function>
+      <call-description>Set the value of status bar chromatogram</call-description>
+    </call>
+    <call type="on_spec_button_up">
+      <call-name>on spectrum button up</call-name>
+      <call-function>onSpecButtonUp</call-function>
+      <call-description>on spectrum button up</call-description>
+    </call>
+    <call type="on_chrom_button_up">
+      <call-name>on chromatogram button up</call-name>
+      <call-function>onChromButtonUp</call-function>
+      <call-description>on chromatogram button up</call-description>
+    </call>
+
+    <call type="on_spec_dbl_clk" order="9">
+      <call-name>on spectrum double click</call-name>
+      <call-function>onSpecDblClick</call-function>
+      <call-description>on spectrum double click</call-description>
+    </call>
+    <call type="on_chrom_dbl_clk" order="9">
+      <call-name>on chromatogram double click</call-name>
+      <call-function>onChromDblClick</call-function>
+      <call-description>on chromatogram double click</call-description>
+    </call>
+ 
+    <call type="draw_spec_window_fg" order="9">
+      <call-name>draw spectrum foreground</call-name>
+      <call-function>onDrawSpecFg</call-function>
+      <call-description>draw spectrum foreground</call-description>
+    </call>
+    <call type="draw_chrom_window_fg" order="9">
+      <call-name>draw chromatogram foreground</call-name>
+      <call-function>onDrawChromFg</call-function>
+      <call-description>draw chromatogram foreground</call-description>
+    </call>
+    <call type="draw_spec_bg" order="1">
+      <call-name>draw spectrum background</call-name>
+      <call-function>onDrawSpecBg</call-function>
+      <call-description>draw spectrum background</call-description>
+    </call>
+    <call type="draw_chrom_bg" order="1">
+      <call-name>draw chromatogram background</call-name>
+      <call-function>onDrawChromBg</call-function>
+      <call-description>draw chromatogram background</call-description>
+    </call>   
+  </function>
+  <components>
+    <component>
+      <component-name>spectrum range</component-name>
+      <component-desc>Spectrum range action</component-desc>
+      <component-calls>
+        <component-call>on close spectrum</component-call>
+        <component-call>on spectrum button down</component-call>
+        <component-call>on spectrum mouse move</component-call>
+        <component-call>spec status</component-call>
+        <component-call>on spectrum mouse leave</component-call>
+        <component-call>on spectrum button up</component-call>
+        <component-call>on spectrum double click</component-call>
+        <component-call>draw spectrum foreground</component-call>        
+        <component-call>draw spectrum background</component-call>        
+      </component-calls>
+    </component>
+    <component>
+      <component-name>chromatogram range</component-name>
+      <component-desc>Chromatogram range action</component-desc>
+      <component-calls>
+        <component-call>on close chromatogram</component-call>
+        <component-call>on chromatogram button down</component-call>
+        <component-call>on chromatogram mouse move</component-call>
+        <component-call>chrom status</component-call>
+        <component-call>on chromatogram mouse leave</component-call>
+        <component-call>on chromatogram button up</component-call>
+        <component-call>on chromatogram double click</component-call>
+        <component-call>draw chromatogram foreground</component-call>
+        <component-call>draw chromatogram background</component-call>        
+      </component-calls>
+    </component>    
+  </components>
+  <packages>
+    <package>
+      <package-name>Compact</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>        
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>    
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>        
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>
+    <package>
+      <package-name>Viewer</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>        
+    <package>
+      <package-name>MassBank</package-name>
+      <package-components>
+        <package-component>spectrum range</package-component>
+        <package-component>chromatogram range</package-component>        
+      </package-components>
+    </package>            
+  </packages>
+  
+</plugin>
