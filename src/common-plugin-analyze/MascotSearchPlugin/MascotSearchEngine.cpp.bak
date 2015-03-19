@@ -1,0 +1,817 @@
+/**
+ * @file MascotSearchEngine.cpp
+ * @brief implementation of MascotSearchEngine class
+ *
+  * @author H.Parry
+ * @date 2012.01.25
+ * 
+ * Copyright(C) 2006-2014 Shimadzu Corporation. All rights reserved.
+ */
+
+#include "stdafx.h"
+#include "MascotSearchEngine.h"
+
+#include "MascotManager.h"
+
+using namespace kome::mascot;
+
+MascotSearchEngine::MascotSearchEngine(void)
+	: SearchEngine("Mascot", "", "dat", true)
+{
+}
+
+MascotSearchEngine::~MascotSearchEngine(void)
+{
+}
+
+bool MascotSearchEngine::onSearch(
+	kome::ident::SearchResult& result,
+	const char* mgfFilePath,
+	kome::objects::SettingParameterValues* paramSettings,
+	const char* dbName,
+	kome::core::Progress& prog)
+{
+	// Get the list of result files - this will only contain 1 specified file at this time.
+	std::vector<std::string> fileList;
+	getResultFiles(fileList);
+
+	// manager
+	MascotManager& mgr = MascotManager::getInstance();
+
+	std::string resultLocation;
+	// search
+	// Note: Set the requested file (only 1 in fileList) as the result file name for Mascot search.
+	if( !mgr.executeSearch( mgfFilePath, paramSettings, dbName, fileList, resultLocation, prog ) ) {
+		return false;
+	}
+
+	// After search has finished, need to get the list of result files, if there is more than one, clear and set up the result file array.
+	if (fileList.size() > 1)
+	{
+		clearResultFiles();
+		for (int i = 0; i < static_cast<int>(fileList.size()); i++)
+		{
+			addResultFile(fileList[i].c_str());
+		}
+	}
+
+	// Set the result location string for the Mascot Results.
+	result.setResultLocation(resultLocation.c_str());
+
+	return true;
+}
+
+// display the search result using the specified result location
+bool MascotSearchEngine::onOpenResult(const char* resultLocation)
+{
+	bool bSuccess = true;
+
+	if (strlen(resultLocation) > 0)
+	{
+		MascotManager& mgr = MascotManager::getInstance();
+		std::string baseUrl = mgr.getUrl();
+		baseUrl.append( "cgi/master_results" );
+
+		// Parse the resultLocation string, as it may contain multiple result substrings.
+		std::string strResultLocation = resultLocation;
+		std::vector<std::string> resultSubStringList;
+
+		unsigned int colonPos = 0;
+		while (colonPos != std::string::npos)
+		{
+			colonPos = strResultLocation.find(":");
+			if (colonPos != std::string::npos)
+			{
+				// Get the next result substring.
+				resultSubStringList.push_back(strResultLocation.substr(0, colonPos));
+				strResultLocation = strResultLocation.substr(colonPos + 1, strResultLocation.length() - 1 - colonPos);
+			}
+			else
+			{
+				resultSubStringList.push_back(strResultLocation);
+				strResultLocation = "";
+			}
+		}
+
+		// Open the Mascot results for each result substring in a browser
+		for (int i = 0; (i < static_cast<int>(resultSubStringList.size())) && bSuccess; i++)
+		{
+			std::string url = baseUrl + resultSubStringList[i];
+			HINSTANCE ret = ShellExecute(NULL, "open", url.c_str(), 0, 0, SW_SHOWNORMAL);
+			if ((int) ret <= 32)
+			{
+				bSuccess = false;
+				LOG_ERROR_CODE( FMT( "Failed to launch browser to display Mascot Search results." ), ERR_OTHER );
+			}
+			else if ( (i == 0) && (resultSubStringList.size() > 1) )
+			{// If we have just displayed the first result and there are multiple results, wait for 5 seconds to give the web browser time to open.
+				Sleep(5000);
+			}
+		}
+	}
+	else
+	{
+		bSuccess = false;
+		LOG_ERROR_CODE( FMT( "Cannot display Mascot Search results for imported results." ), ERR_OTHER );
+	}
+
+	return bSuccess;
+}
+
+bool MascotSearchEngine::GetStringValue(FILE* fp, const char* tag, std::string& strValue)
+{
+	bool bSuccess = false;
+	char line[ 2048 ];
+	std::string strLine;
+
+	if (fgets(line, 2048, fp) != NULL)
+	{
+		strLine = line;
+		unsigned int iColonPos = strLine.find(":");
+		if (iColonPos != std::string::npos)
+		{
+			std::string strTag = strLine.substr(0, iColonPos);
+			if (strTag.compare(tag) == 0)
+			{
+				strValue = strLine.substr(iColonPos + 2, strLine.length() - 2 - iColonPos);
+				// Trim the trailing newline character if there is one.
+				if ((strValue.size() > 0) && (strValue[strValue.size() - 1] == 10))
+				{
+					strValue = strValue.substr(0, strValue.size() - 1);
+				}
+				bSuccess = true;
+			}
+		}
+	}
+
+	return bSuccess;
+}
+
+bool MascotSearchEngine::GetDoubleValue(FILE* fp, const char* tag, double& dValue)
+{
+	std::string strValue;
+	bool bSuccess = GetStringValue(fp, tag, strValue);
+	if (bSuccess)
+	{
+		dValue = atof(strValue.c_str());
+	}
+
+	return bSuccess;
+}
+
+bool MascotSearchEngine::GetLongValue(FILE* fp, const char* tag, long& lValue)
+{
+	std::string strValue;
+	bool bSuccess = GetStringValue(fp, tag, strValue);
+	if (bSuccess)
+	{
+		lValue = atol(strValue.c_str());
+	}
+
+	return bSuccess;
+}
+
+bool MascotSearchEngine::GetIntValue(FILE* fp, const char* tag, int& nValue)
+{
+	std::string strValue;
+	bool bSuccess = GetStringValue(fp, tag, strValue);
+	if (bSuccess)
+	{
+		nValue = atoi(strValue.c_str());
+	}
+
+	return bSuccess;
+}
+
+bool MascotSearchEngine::GetBoolValue(FILE* fp, const char* tag, bool& bValue)
+{
+	std::string strValue;
+	bool bSuccess = GetStringValue(fp, tag, strValue);
+	if (bSuccess)
+	{
+		bValue = ((strValue.compare("TRUE") == 0) ? true : false);
+	}
+
+	return bSuccess;
+}
+
+// import the result files into a SearchResult object
+bool MascotSearchEngine::onImportResults( const std::vector<std::string>& fileList, kome::ident::SearchResult& result, kome::core::Progress& prog )
+{
+	// Specify all the result files, then parse the results and construct the SearchResult object.
+	bool bSuccess = true;
+
+	// Create 2 subprogresses
+	prog.createSubProgresses(2);
+	kome::core::Progress* subProgress = prog.getSubProgress( 0 );
+	subProgress->setStatus("Parsing Mascot Search Results DAT File(s)...");
+
+	// manager
+	MascotManager& mgr = MascotManager::getInstance();
+
+	// MascotParser is used to get the DAT results information, via the MascotHelper console application.
+	// manager
+    kome::core::MsppManager& msppMgr = kome::core::MsppManager::getInstance();
+	// tmp dir
+	std::string tmpDir = getpath( msppMgr.getTmpDir(), "mascot" );
+	if( !fileexists( tmpDir.c_str() ) ) {
+		if( !makedirectory( tmpDir.c_str() ) ) {
+			LOG_ERROR_CODE( FMT( "Failed to create the directory. [%s]", tmpDir.c_str() ), ERR_OTHER );
+			return false;
+		}
+	}
+	std::string sResultsFile = msppMgr.getTmpFileName( "mascot_results", ".txt" );
+	std::string sResultsPath = getpath( tmpDir.c_str(), sResultsFile.c_str() );
+
+	std::string strMsppDir = msppMgr.getMsppDir();
+	std::string strCmd = strMsppDir + "\\bin\\MascotHelper -parsedat -url ";
+	strCmd += mgr.getUrl();
+	strCmd += " -in";
+	char sLongPath[2048];
+	for (int i = 0; i < static_cast<int>(fileList.size()); i++)
+	{
+		strCmd += " \"";
+		// MascotParser (used in MascotHelper application) does not work with
+		// short pathnames, so we have to convert them all to long pathnames first.
+		if (!GetLongPathName(fileList[i].c_str(), sLongPath, sizeof(sLongPath)))
+		{
+			int err = GetLastError();
+
+			// error message
+			LPVOID errBuf;
+			FormatMessage(
+				FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+				NULL,
+				err,
+				MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+				(char*)( &errBuf ),
+				0,
+				NULL
+			);
+
+			// log
+			LOG_ERROR_CODE(
+				FMT(
+					"Failed to get long pathname. [%s]\nError(code=%x): %s",
+					fileList[i].c_str(),
+					err,
+					errBuf
+				),
+				ERR_FILE_OPEN_FAILED
+			);
+
+			// free buffer
+			LocalFree( errBuf );
+
+			return false;
+		}
+
+		strCmd += sLongPath;
+
+		strCmd += "\"";
+	}
+
+	strCmd += " -out \"";
+	strCmd += sResultsPath + "\"";
+
+	if (LaunchApplication(strCmd.c_str()))
+	{
+		subProgress->fill();
+
+		if (prog.isStopped())
+		{
+			return false;
+		}
+
+		subProgress = prog.getSubProgress( 1 );
+
+		FILE* fp = fileopen( sResultsPath.c_str(), "r" );
+
+		if (fp != NULL)
+		{
+			subProgress->setRange(0, 100);
+			// Get file size.
+			fseek(fp, 0, SEEK_END);
+			size_t fileSize = ftell(fp);
+			fseek(fp, 0, SEEK_SET);
+
+			// Read the results information and populate the SearchResult object.
+			char line[ 2048 ];
+			std::string strLine;
+
+			std::string strFileDate;
+			GetStringValue(fp, "FILE DATE", strFileDate);
+			struct tm fileDate;
+			if (sscanf(strFileDate.c_str(), "%d %d %d %d %d %d %d %d %d",
+				&fileDate.tm_sec, &fileDate.tm_min, &fileDate.tm_hour, &fileDate.tm_mday,
+				&fileDate.tm_mon, &fileDate.tm_year, &fileDate.tm_wday, &fileDate.tm_yday, &fileDate.tm_isdst) == 9)
+			{
+				result.setDate(&fileDate);
+
+				std::string strDatabase;
+				GetStringValue(fp, "DATABASE", strDatabase);
+				result.setDb(strDatabase.c_str());
+
+				kome::ident::IdentificationManager& identMgr = kome::ident::IdentificationManager::getInstance();
+
+				while ((fgets(line, 2048, fp) != NULL) && (!prog.isStopped() && bSuccess))
+				{
+					size_t filePos = ftell(fp);
+					int nPercentProgress = static_cast<int>(100.0 * (double)filePos/(double)fileSize);
+					prog.setPosition(nPercentProgress);
+					prog.setStatus( FMT( "Importing Mascot Search Results [%d%%] ... %d Hits, %d Substances", nPercentProgress, result.getNumberOfHits(), result.getNumberOfSubstances() ).c_str() );
+
+					if (strstr(line, "BEGIN PROTEIN") != NULL)
+					{
+						// Found a new protein.
+
+						bool bEndProtein = false;
+						std::string strAccession;
+						std::string strName;
+						double dMass;
+						std::string strScore;
+						std::string strCoverage;
+
+						GetStringValue(fp, "ACCESSION", strAccession);
+						GetStringValue(fp, "NAME", strName);
+						GetDoubleValue(fp, "MASS", dMass);
+						GetStringValue(fp, "SCORE", strScore);
+						GetStringValue(fp, "COVERAGE", strCoverage);
+
+						// For each found protein, create a substance object - this will NOT be set into a hit.
+						kome::ident::Substance* pProtein = result.addSubstance(strAccession.c_str(), strName.c_str(), kome::ident::TYPE_PROTEIN, NULL);
+
+						if (pProtein != NULL)
+						{
+							// Set protein substance properties.
+							pProtein->getProperties().setDoubleValue("Protein Mass", dMass);
+
+							// Get blank line
+							fgets(line, 2048, fp);
+
+							while ((!bEndProtein) && (bSuccess))
+							{
+								fgets(line, 2048, fp);
+								if (strstr(line, "BEGIN PEPTIDE") != NULL)
+								{
+									// Found a new peptide.
+
+									std::string strTitle;
+									std::string strRank;
+									std::string strMissedCleavages;
+									std::string strCalculatedMR;
+									std::string strDelta;
+									std::string strObserved;
+									std::string strSequence;
+									std::string strResidueBefore;
+									std::string strResidueAfter;
+									std::string strVariableMods;
+//									int nStart;
+//									int nEnd;
+									std::string strIsDuplicate;
+									std::string strIonsScore;
+									std::string strIdentityThreshold;
+									std::string strHomologyThreshold;
+//									std::string strExpectationValue;
+
+									GetStringValue(fp, "TITLE", strTitle);
+									GetStringValue(fp, "RANK", strRank);
+									GetStringValue(fp, "MISSED CLEAVAGES", strMissedCleavages);
+									GetStringValue(fp, "CALCULATED MR", strCalculatedMR);
+									GetStringValue(fp, "DELTA", strDelta);
+									GetStringValue(fp, "OBSERVED", strObserved);
+									GetStringValue(fp, "SEQUENCE", strSequence);
+									GetStringValue(fp, "RESIDUE BEFORE", strResidueBefore);
+									GetStringValue(fp, "RESIDUE AFTER", strResidueAfter);
+									GetStringValue(fp, "VARIABLE MODS", strVariableMods);
+//									GetIntValue(fp, "START", nStart);
+//									GetIntValue(fp, "END", nEnd);
+									GetStringValue(fp, "IS DUPLICATE", strIsDuplicate);
+									GetStringValue(fp, "IONS SCORE", strIonsScore);
+									GetStringValue(fp, "IDENTITY THRESHOLD", strIdentityThreshold);
+									GetStringValue(fp, "HOMOLOGY THRESHOLD", strHomologyThreshold);
+//									GetStringValue(fp, "EXPECTATION VALUE", strExpectationValue);
+
+									// For each found peptide, create a substance object - this WILL be set into a hit.
+									std::string strPeptideName;
+									if ((!strResidueBefore.empty()) && (!strResidueAfter.empty()))
+									{
+										strPeptideName = strResidueBefore + "." + strSequence + "." + strResidueAfter;
+									}
+									else
+									{
+										strPeptideName = strSequence;
+									}
+									if (!strVariableMods.empty())
+									{
+										strPeptideName += " + " + strVariableMods;
+									}
+									kome::ident::Substance* pPeptide = result.addSubstance("", strPeptideName.c_str(), kome::ident::TYPE_PEPTIDE, pProtein);
+
+									if (pPeptide != NULL)
+									{
+										// Create a hit for this peptide substance.
+										kome::ident::Hit* pHit = result.addHit(pPeptide);
+
+										if (pHit != NULL)
+										{
+											// Set peptide substance properties.
+											pPeptide->setSequence(strSequence.c_str());
+											pPeptide->setResidueBefore(strResidueBefore.c_str());
+											pPeptide->setResidueAfter(strResidueAfter.c_str());
+//											pPeptide->getProperties().setIntValue("Start", nStart);
+//											pPeptide->getProperties().setIntValue("End", nEnd);
+
+											int nRank = atol(strRank.c_str());
+											int nMissedCleavagesCount = atol(strMissedCleavages.c_str());
+											double dCalculatedMR = atof(strCalculatedMR.c_str());
+											double dDelta = atof(strDelta.c_str());
+											double dPeptideScore = atof(strIonsScore.c_str());
+											double dProteinScore = atof(strScore.c_str());
+
+											// Set peptide hit values.
+											kome::ident::SpecInfo spectrumInfo;
+											identMgr.ParseSpectrumTitle(strTitle.c_str(), spectrumInfo);
+											pHit->addSpectrum(spectrumInfo);
+											pHit->setRank(nRank);
+											pHit->setMissedCleavagesCount(nMissedCleavagesCount);
+											pHit->setCalculatedMR(dCalculatedMR);
+											pHit->setDelta(dDelta);
+											pHit->setPeptideScore(dPeptideScore);
+											pHit->addValue("Observed", strObserved.c_str(), kome::ident::TYPE_PROPERTY);
+											pHit->addValue("Duplicate", strIsDuplicate.c_str(), kome::ident::TYPE_PROPERTY);
+											pHit->addValue("Identity Threshold", strIdentityThreshold.c_str(), kome::ident::TYPE_PROPERTY);
+											pHit->addValue("Homology Threshold", strHomologyThreshold.c_str(), kome::ident::TYPE_PROPERTY);
+//											pHit->addValue("Expectation Value", strExpectationValue.c_str(), kome::ident::TYPE_EXPECTATION_VALUE);
+
+											// Set protein hit values (must be set as hit values in ALL this protein's child peptides).
+											pHit->setProteinScore(dProteinScore);
+											pHit->addValue("Percent Coverage", strCoverage.c_str(), kome::ident::TYPE_PROPERTY);
+
+											fgets(line, 2048, fp);
+											if (strstr(line, "END PEPTIDE") != NULL)
+											{
+												// Get blank line
+												fgets(line, 2048, fp);
+											}
+										}
+										else
+										{
+											LOG_ERROR_CODE( FMT( "Failed to create a peptide Hit object."), ERR_OTHER );
+											bSuccess = false;
+										}
+									}
+									else
+									{
+										LOG_ERROR_CODE( FMT( "Failed to create a peptide Substance object."), ERR_OTHER );
+										bSuccess = false;
+									}
+								}
+								else
+								{
+									if (strstr(line, "END PROTEIN") != NULL)
+									{
+										// Get blank line
+										fgets(line, 2048, fp);
+
+										bEndProtein = true;
+									}
+								}
+							}
+						}
+						else
+						{
+							LOG_ERROR_CODE( FMT( "Failed to create a protein Substance object."), ERR_OTHER );
+							bSuccess = false;
+						}
+					}
+				}
+			}
+			else
+			{
+				LOG_ERROR_CODE( FMT( "Failed to read Mascot result information. [FILE DATE not found]"), ERR_OTHER );
+				bSuccess = false;
+			}
+
+			fclose(fp);
+		}
+		else
+		{
+			LOG_ERROR_CODE( FMT( "Failed to read Mascot result information. [Cannot open result file]"), ERR_OTHER );
+			bSuccess = false;
+		}
+	}
+	else
+	{
+		LOG_ERROR_CODE( FMT( "Failed to read Mascot result information. [MascotHelper failure]"), ERR_OTHER );
+		bSuccess = false;
+	}
+
+	return (!prog.isStopped() && bSuccess);
+}
+
+// launch an external application
+bool MascotSearchEngine::LaunchApplication(const char* cmdLine)
+{
+	bool bSuccess = false;
+
+	STARTUPINFO info;
+	ZeroMemory(&info, sizeof(info));
+	PROCESS_INFORMATION processInfo;
+	ZeroMemory(&processInfo, sizeof(processInfo));
+
+	if (CreateProcess(NULL, const_cast<char *>(cmdLine), NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &info, &processInfo))
+	{
+		// Wait until child process exits.
+		if (WaitForSingleObject( processInfo.hProcess, INFINITE ) != WAIT_FAILED)
+		{
+			// Close process and thread handles. 
+			CloseHandle( processInfo.hProcess );
+			CloseHandle( processInfo.hThread );
+
+			bSuccess = true;
+		}
+	}
+
+	return bSuccess;
+}
+
+// get the Database, Taxonomy, Database Files information and setup the arrays.
+bool MascotSearchEngine::setupTargetLists(bool bShowProgressDialog)
+{
+	bool bSuccess = true;
+
+	// If the parameters have been read already, and if the INI file hasn't changed, no need to do anything.
+	if (!g_bMustLoadMascotParameters)
+	{
+		return true;
+	}
+
+	// This is the only function that adds databases / taxonomies, so it must first of all
+	// clear the database and taxonomy lists to remove any previously-existing information.
+	clearDatabases();
+	clearTaxonomies();
+
+	wxBeginBusyCursor();
+
+	kome::window::DialogProgress* pProgressDlg;
+	kome::core::Progress* subProgress = NULL;
+	if (bShowProgressDialog)
+	{
+		// Show a progress dialog
+		pProgressDlg = new kome::window::DialogProgress( kome::window::WindowTool::getMainWindow(), "Contacting the Mascot Server" );
+		pProgressDlg->setRange(0, 3);
+		pProgressDlg->setPosition(1);
+		pProgressDlg->setStatus("Getting Database and Taxonomy Information");
+	}
+
+	// In the case of Mascot, must connect to the internet to get this information.
+	// Http is used to get the databases and taxonomy information.
+	// manager
+	MascotManager& mgr = MascotManager::getInstance();
+	std::string tmpParamPath;
+	// parameters
+	if( !mgr.getMascotParameters(tmpParamPath) ) {
+		bSuccess = false;
+	}
+	else
+	{
+		bool bReadingDatabaseList = false;
+		bool bReadingTaxonomyList = false;
+		char line[ 2048 ];
+		FILE* fp = fileopen( tmpParamPath.c_str(), "r" );
+
+		if (fp != NULL)
+		{
+			// Find and read database list
+			while( (!bReadingDatabaseList) && (fgets( line, 2048, fp ) != NULL) ) {
+				char* database = NULL;			
+				if( ( database = strstr( line, "Database(s)" ) ) != NULL ) {
+					// Ignore 2 lines.
+					fgets( line, 2048, fp );
+					fgets( line, 2048, fp );
+					bReadingDatabaseList = true;
+				}
+
+			}
+			if (bReadingDatabaseList)
+			{
+				std::string strDatabase;
+				while( (bReadingDatabaseList) && (fgets( line, 2048, fp ) != NULL) ) {
+					char* database = NULL;			
+					if( ( database = strstr( line, "<OPTION" ) ) != NULL ) {
+						database = strstr( database, ">" );
+						if( database != NULL ) {
+							strDatabase = ( database + 1 );
+							unsigned int pos = strDatabase.find( "<" );
+							strDatabase = strDatabase.substr( 0, pos );
+							addDatabase(strDatabase.c_str());
+						}
+					}
+					else
+					{
+						bReadingDatabaseList = false;
+					}
+				}
+			}
+
+			// Find and read taxonomy list
+			while( (!bReadingTaxonomyList) && (fgets( line, 2048, fp ) != NULL) ) {
+				char* taxonomy = NULL;			
+				if( ( taxonomy = strstr( line, "Taxonomy" ) ) != NULL ) {
+					// Ignore 2 lines.
+					fgets( line, 2048, fp );
+					fgets( line, 2048, fp );
+					bReadingTaxonomyList = true;
+				}
+			}
+			if (bReadingTaxonomyList)
+			{
+				std::string strTaxonomy;
+				while( (bReadingTaxonomyList) && (fgets( line, 2048, fp ) != NULL) ) {
+					char* taxonomy = NULL;			
+					if( ( taxonomy = strstr( line, "<OPTION" ) ) != NULL ) {
+						taxonomy = strstr( taxonomy, ">" );
+						if( taxonomy != NULL ) {
+							strTaxonomy = ( taxonomy + 1 );
+							unsigned int pos = strTaxonomy.find( "<" );
+							strTaxonomy = strTaxonomy.substr( 0, pos );
+							addTaxonomy(strTaxonomy.c_str());
+						}
+					}
+					else
+					{
+						bReadingTaxonomyList = false;
+					}
+				}
+			}
+
+			fclose( fp );
+		}
+		else
+		{
+			LOG_ERROR_CODE( FMT( "Failed to open the response file. [%s]", tmpParamPath.c_str() ), ERR_OTHER );
+		}
+	}
+
+	// Only continue and try to get modifications if we have successfully got the database and taxonomy information.
+	if (bSuccess)
+	{
+		if (bShowProgressDialog)
+		{
+			pProgressDlg->setPosition(2);
+			pProgressDlg->setStatus("Getting Modifications");
+		}
+
+		// MascotParser is used to get the modifications information, via the MascotHelper console application.
+		// manager
+		kome::core::MsppManager& msppMgr = kome::core::MsppManager::getInstance();
+		// tmp dir
+		std::string tmpDir = getpath( msppMgr.getTmpDir(), "mascot" );
+		if( !fileexists( tmpDir.c_str() ) ) {
+			if( !makedirectory( tmpDir.c_str() ) ) {
+				LOG_ERROR_CODE( FMT( "Failed to create the directory. [%s]", tmpDir.c_str() ), ERR_OTHER );
+				return false;
+			}
+		}
+		std::string sModificationsFile = msppMgr.getTmpFileName( "mascot_modifications", ".txt" );
+		std::string sModificationsPath = getpath( tmpDir.c_str(), sModificationsFile.c_str() );
+
+		std::string strMsppDir = msppMgr.getMsppDir();
+
+		std::string strCmd = strMsppDir + "\\bin\\MascotHelper -readmods -url ";
+		strCmd += mgr.getUrl();
+		strCmd += " -out \"";
+		strCmd += sModificationsPath + "\"";
+
+		if (LaunchApplication(strCmd.c_str()))
+		{
+			if (bShowProgressDialog)
+			{
+				pProgressDlg->setPosition(3);
+			}
+
+			FILE* fp = fileopen( sModificationsPath.c_str(), "r" );
+
+			if (fp != NULL)
+			{
+				kome::ident::IdentificationManager& identMgr = kome::ident::IdentificationManager::getInstance();
+
+				// NOTE: clearModifications should ONLY be called if we successfully get modifications to replace those
+				// initally set up by Identification Manager.
+				identMgr.clearModifications();
+
+				char line[ 2048 ];
+				std::string strLine;
+
+				while (fgets(line, 2048, fp) != NULL)
+				{
+					std::string title;
+					std::string mass;
+					double dMass;
+					std::string residue;
+					unsigned int iStartBracketPos;
+					unsigned int iEndBracketPos;
+
+					strLine = line;
+					unsigned int iCommaPos = strLine.find(",");
+					if (iCommaPos != std::string::npos)
+					{
+						title = strLine.substr(0, iCommaPos);
+						mass = strLine.substr(iCommaPos + 1, strLine.length() - 1 - iCommaPos);
+						dMass = atof(mass.c_str());
+						iStartBracketPos = title.find("(");
+						iEndBracketPos = title.find(")");
+						if ((iStartBracketPos != std::string::npos) && (iEndBracketPos != std::string::npos))
+						{
+							residue = title.substr(iStartBracketPos + 1, iEndBracketPos - iStartBracketPos - 1);
+						}
+						identMgr.addModification(title.c_str(), dMass, residue.c_str());
+// This line causes execption in my environment. I don't know why. (S.Tanaka)
+//						LOG_INFO( FMT( "Modification %s: %.2f %s", title.c_str(), mass, residue.c_str() ) );
+					}
+				}
+
+				fclose(fp);
+
+				if (identMgr.getNumberOfModifications() == 0)
+				{
+					LOG_ERROR_CODE( FMT( "Failed to get Mascot modifications information.\nCheck your internet connection settings; confirm that you can view the Mascot website in your internet browser."), ERR_OTHER );
+					bSuccess = false;
+				}
+			}
+			else
+			{
+				LOG_ERROR_CODE( FMT( "Failed to get Mascot modifications information. [Cannot open modifications file]"), ERR_OTHER );
+				bSuccess = false;
+			}
+		}
+		else
+		{
+			LOG_ERROR_CODE( FMT( "Failed to get Mascot modifications information. [MascotHelper failure]"), ERR_OTHER );
+			bSuccess = false;
+		}
+	}
+
+	if (bShowProgressDialog)
+	{
+		// Close the progress dialog
+		delete pProgressDlg;
+		pProgressDlg = NULL;
+	}
+
+	wxEndBusyCursor();
+
+	// If, although the Mascot server was successfully connected to, but the database list is empty
+	// cannot allow the user to use the (Comparative) Identification dialogs.
+	if (bSuccess && (getNumberOfDatabases() == 0))
+	{
+		LOG_ERROR_CODE( FMT( "Failed to get Mascot databases information. [Unknown error]"), ERR_OTHER );
+	}
+
+	if (bSuccess)
+	{
+		// All Mascot parameters have been loaded successfully.
+		g_bMustLoadMascotParameters = false;
+	}
+
+	return bSuccess;
+}
+
+// validate the parameter settings
+std::string MascotSearchEngine::validateSettings( kome::objects::SettingParameterValues* paramSettings )
+{
+	std::string strValidationError = "";
+
+	// Validate that the same modification is not contained in both
+	// the Fixed Modifications and Variable Modifications lists.
+	// manager
+	MascotManager& mgr = MascotManager::getInstance();
+
+	bool bMatchFound = false;
+	std::vector<std::string> fixedModsArray;
+	mgr.parseModificationsString(paramSettings->getParameterValue(FIXEDMODS_PARAM_NAME), fixedModsArray);
+	std::vector<std::string> variableModsArray;
+	mgr.parseModificationsString(paramSettings->getParameterValue(VARIABLE_PARAM_NAME), variableModsArray);
+	for (int i = 0; (i < static_cast<int>(fixedModsArray.size())) && (!bMatchFound); i++)
+	{
+		std::string fixedMod = fixedModsArray[i];
+
+		for (int j = 0; (j < static_cast<int>(variableModsArray.size())) && (!bMatchFound); j++)
+		{
+			std::string varMod = variableModsArray[j];
+
+			if (fixedMod == varMod)
+			{
+				bMatchFound = true;
+			}
+		}
+	}
+
+	if (bMatchFound)
+	{
+		strValidationError = "Selecting the same modification in Fixed and Variable Modifications is not allowed.";
+	}
+
+	return strValidationError;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Search Engine</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" default="http://www.matrixscience.com/" required="true" />
+    <value id="2" type="string" default="" required="false"/>
+    <value id="3" type="passwd" default="" required="false" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>url</param-name>
+      <param-section>Mascot</param-section>
+      <param-key>MASCOT_URL</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>username</param-name>
+      <param-section>Mascot</param-section>
+      <param-key>USERNAME</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>password</param-name>
+      <param-section>Mascot</param-section>
+      <param-key>PASSWORD</param-key>
+    </param>
+  </params>
+  <pages>
+    <page chapter="0" common="true">
+      <page-name>common</page-name>
+      <page-title>Mascot</page-title>
+      <forms>
+        <form id="0" param="0">
+          <form-title>Mascot URL</form-title>
+          <form-desc>Set the mascot server url.</form-desc>
+        </form>
+        <form id="2" param="2">
+          <form-title>User Name</form-title>
+          <form-desc>If you use in-house mascot server which user accounts are managed, input the user account name.</form-desc>
+        </form>
+        <form id="3" param="3">
+          <form-title>Password</form-title>
+          <form-desc>If you use in-house mascot server which user accounts are managed, input the user password.</form-desc>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>
+

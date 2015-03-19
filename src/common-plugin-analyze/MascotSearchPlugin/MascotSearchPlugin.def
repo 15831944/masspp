@@ -1,0 +1,10 @@
+EXPORTS
+    getPmfSearchEngine
+    getMisSearchEngine
+    onUpdateSettings
+    logOutOfMascotServer
+	getPmfDbs
+	getPmfTaxonomies
+	getMisDbs
+	getMisTaxonomies
+	checkModifications

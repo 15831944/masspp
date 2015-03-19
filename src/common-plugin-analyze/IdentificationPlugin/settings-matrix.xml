@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="double" default="1.0" minInclusive="0.0" required="true" />
+    <value id="1" type="double" default="0.5" minInclusive="0.0"  required="true"/>
+    <value id="2" type="string" default="" required="true" />
+    <value id="3" type="string" default="" required="false" />
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>rt_tol</param-name>
+      <param-section>Identification</param-section>
+      <param-key>RT_TOLERANCE</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>mz_tol</param-name>
+      <param-section>Identification</param-section>
+      <param-key>MZ_TOLERANCE</param-key>
+    </param>
+    <param id="2" value="2">
+      <param-name>title</param-name>
+      <param-section>Identification</param-section>
+      <param-key>TITLE</param-key>
+    </param>
+    <param id="3" value="3">
+      <param-name>comment</param-name>
+      <param-section>Identification</param-section>
+      <param-key>COMMENT</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>Search</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>search</page-name>
+      <page-title>Search</page-title>
+      <forms>
+        <form id="2" param="2" group="0">
+          <form-title>Title</form-title>
+        </form>
+        <form id="3" param="3" group="0">
+          <form-title>Comment</form-title>
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

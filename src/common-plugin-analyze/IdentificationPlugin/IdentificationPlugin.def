@@ -1,0 +1,18 @@
+EXPORTS
+	identificationOnBatch
+	saveMisMgf
+	savePmfText
+	toggleSearchResultWindow
+	isVisibleSearchResult
+	openIdentificationDialog	
+	getDatabaseList
+	getDbFileList
+	getEnzymeList
+	getModificationList
+	getIdentificationPanel
+	showResultViewFromSearchEngine
+	showSubstances
+	showIdentSpectrum
+	openMgf
+	execComparativeIdent
+	exportPepXML

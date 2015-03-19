@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <chapters>
+    <chapter id="0">Input/Output</chapter>
+  </chapters>
+  <values>
+    <value id="0" type="string" default="" />
+    <value id="1" type="string" default="MACHINE_TYPE=%Machine Type%" />
+    <value id="2" type="string" default="RAW_FILE=%File Path%" />
+    <value id="3" type="string" default="SCAN_MS_MZ_RANGE=%Low Mass% - %High Mass%" />
+  </values>
+  <params>
+    <param id="0" value="1">
+      <param-name>file_comment0</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT0</param-key>
+    </param>
+    <param id="1" value="2">
+      <param-name>file_comment1</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT1</param-key>
+    </param>
+    <param id="2" value="0">
+      <param-name>file_comment2</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT2</param-key>
+    </param>
+    <param id="3" value="0">
+      <param-name>file_comment3</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT3</param-key>
+    </param>
+    <param id="4" value="0">
+      <param-name>file_comment4</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT4</param-key>
+    </param>
+    <param id="5" value="0">
+      <param-name>file_comment5</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT5</param-key>
+    </param>
+    <param id="6" value="0">
+      <param-name>file_comment6</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT6</param-key>
+    </param>
+    <param id="7" value="0">
+      <param-name>file_comment7</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT7</param-key>
+    </param>
+    <param id="8" value="0">
+      <param-name>file_comment8</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>FILE_COMMENT8</param-key>
+    </param>
+    <param id="9" value="3">
+      <param-name>spec_comment0</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT0</param-key>
+    </param>
+    <param id="10" value="0">
+      <param-name>spec_comment1</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT1</param-key>
+    </param>
+    <param id="11" value="0">
+      <param-name>spec_comment2</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT2</param-key>
+    </param>
+    <param id="12" value="0">
+      <param-name>spec_comment3</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT3</param-key>
+    </param>
+    <param id="13" value="0">
+      <param-name>spec_comment4</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT4</param-key>
+    </param>
+    <param id="14" value="0">
+      <param-name>spec_comment5</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT5</param-key>
+    </param>
+    <param id="15" value="0">
+      <param-name>spec_comment6</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT6</param-key>
+    </param>
+    <param id="16" value="0">
+      <param-name>spec_comment7</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_COMMENT7</param-key>
+    </param>
+    <param id="17" value="0">
+      <param-name>spec_title</param-name>
+      <param-section>Mascot Generic Format</param-section>
+      <param-key>SPECTRUM_TITLE</param-key>
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>File Comment</group-name>
+    </group>
+    <group id="1">
+      <group-name>Spectrum Comment</group-name>
+    </group>
+    <group id="2">
+      <group-name>Spectrum Appended Title</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page chapter="0" common="true">
+      <page-name>common</page-name>
+      <page-title>Mascot Generic Format</page-title>
+      <forms>
+        <form id="0" group="0" param="0">
+          <form-title />
+        </form>
+        <form id="1" group="0" param="1">
+          <form-title />
+        </form>
+        <form id="2" group="0" param="2">
+          <form-title />
+        </form>
+        <form id="3" group="0" param="3">
+          <form-title />
+        </form>
+        <form id="4" group="0" param="4">
+          <form-title />
+        </form>
+        <form id="5" group="0" param="5">
+          <form-title />
+        </form>
+        <form id="6" group="0" param="6">
+          <form-title />
+        </form>
+        <form id="7" group="0" param="7">
+          <form-title />
+        </form>
+        <form id="8" group="0" param="8">
+          <form-title />
+        </form>
+        <form id="9" group="1" param="9">
+          <form-title />
+        </form>
+        <form id="10" group="1" param="10">
+          <form-title />
+        </form>
+        <form id="11" group="1" param="11">
+          <form-title />
+        </form>
+        <form id="12" group="1" param="12">
+          <form-title />
+        </form>
+        <form id="13" group="1" param="13">
+          <form-title />
+        </form>
+        <form id="14" group="1" param="14">
+          <form-title />
+        </form>
+        <form id="15" group="1" param="15">
+          <form-title />
+        </form>
+        <form id="16" group="1" param="16">
+          <form-title />
+        </form>
+        <form id="17" group="2" param="17">
+          <form-title />
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>
+

@@ -1,0 +1,174 @@
+/**
+ * @file MascotMisSearchEngine.cpp
+ * @brief implements of MascotMisSearchEngine class
+ *
+ * @author S.Tanaka
+ * @date 2012.08.09
+ * 
+ * Copyright(C) 2006-2014 Shimadzu Corporation. All rights reserved.
+ */
+
+
+#include "stdafx.h"
+#include "MascotMisSearchEngine.h"                
+#include "MascotManager.h"
+
+
+using namespace kome::mascot;
+
+
+#include <crtdbg.h>
+#ifdef _DEBUG
+    #define new new( _NORMAL_BLOCK, __FILE__, __LINE__ )
+    #define malloc( s ) _malloc_dbg( s, _NORMAL_BLOCK, __FILE__, __LINE__ )
+#endif    // _DEBUG
+
+
+
+// constructor
+MascotMisSearchEngine::MascotMisSearchEngine() : MascotSearchEngineBase( "MASCOT", "MIS", true ) {
+	m_fp = NULL;
+	m_peaksCnt = 0;
+}
+
+// destructor
+MascotMisSearchEngine::~MascotMisSearchEngine() {
+}
+
+// judges the specified spectrum is valid or not
+bool MascotMisSearchEngine::isValidSpectrum( kome::objects::Spectrum* spec ) {
+	// check the parameter
+	if( spec == NULL ) {
+		return false;
+	}
+
+	// juedge
+	return ( spec->getMsStage() > 1 );
+}
+
+// on sepectrum peaks
+void MascotMisSearchEngine::onSpectrumPeaks(
+		kome::objects::Spectrum* spec,
+		kome::ident::SpecInfo* specInfo,
+		kome::objects::Peaks* peaks,
+		int* peakIds,
+		const unsigned int peakIdsSize
+) {
+	// managers
+	MascotManager& mgr = MascotManager::getInstance();
+	kome::ident::MgfManager& mgfMgr = kome::ident::MgfManager::getInstance();
+
+	// check the parameter
+	if( peaks == NULL ) {
+		return;
+	}
+
+	// file open
+	if( m_fp == NULL
+			|| ( mgr.splitPeakList() && m_peaksCnt + peaks->getNumberOfCharges() > 999 ) ) {
+		// close
+		if( m_fp != NULL ) {
+			fclose( m_fp );
+			m_fp = NULL;
+		}
+
+		// file name
+		std::string fileName = FMT( "peakList%d.mgf", m_peakFiles.size() );
+		std::string filePath = getpath( m_peaksDir.c_str(), fileName.c_str() );
+		m_peakFiles.push_back( filePath );
+
+		m_fp = fileopen( filePath.c_str(), "w" );
+
+		// initialize
+		mgfMgr.writeMisHeader( m_fp );
+		m_peaksCnt = 0;
+	}
+
+	// write the peak list
+	if( specInfo->stage > 1 && specInfo->precursor > 0.0 && peaks->getLength() > 0 ) {
+		mgfMgr.writeMisPeaks( m_fp, specInfo, peaks );
+		m_peaksCnt += peaks->getNumberOfCharges();
+		fflush( m_fp );
+	}
+}
+
+// on finish peak detection
+bool MascotMisSearchEngine::onFinishPeakDetection() {
+	// close the file
+	if( m_fp != NULL ) {
+		fclose( m_fp );
+		m_fp = NULL;
+	}
+
+	return true;
+}
+
+// on search
+std::string MascotMisSearchEngine::onSearch(
+		const char* title,
+		const char* comment,
+		kome::ident::SpecInfo** spectra,
+		const unsigned int specNum,
+		kome::objects::SettingParameterValues* settings,
+		kome::core::Progress& progress
+) {
+	// return value
+	std::string ret;
+
+	// manager
+	MascotManager& mgr = MascotManager::getInstance();
+
+	// progress
+	if( m_peakFiles.size() == 0 ) {
+		LOG_WARN( FMT( "There are no peak files." ) );
+		return ret;
+	}
+
+	// search
+	ret = performSearch( m_peakFiles, title, settings, progress );
+
+	return ret;
+}
+
+// preparation for peak detection
+bool MascotMisSearchEngine::onPreparePeakDetection(
+		kome::objects::SettingParameterValues* searchSettings,
+		const char* peakDetector,
+		kome::objects::SettingParameterValues* peakSettings,
+		const char* chargeDetector,
+		kome::objects::SettingParameterValues* chargeSettings,
+		const char* peakFilter
+) {
+	// manager
+	kome::core::MsppManager& msppMgr = kome::core::MsppManager::getInstance();
+
+	// initialize
+	onEndSearch();
+
+	// temporary directory
+	std::string tmpDir = msppMgr.getTmpDir();
+	std::string mascotDir = getpath( tmpDir.c_str(), "mascot" );
+	if( !fileexists( mascotDir.c_str() ) ) {
+		makedirectory( mascotDir.c_str() );
+	}
+	std::string misDir = getpath( mascotDir.c_str(), "mis" );
+	if( !fileexists( misDir.c_str() ) ) {
+		makedirectory( misDir.c_str() );
+	}
+
+	std::string peaksDir = getpath( misDir.c_str(), FMT( "%lld", getcurrenttime() ).c_str() );
+	if( !fileexists( peaksDir.c_str() ) ) {
+		makedirectory( peaksDir.c_str() );
+	}
+
+	m_peaksDir = peaksDir;
+	return true;
+}
+
+// on end search
+void MascotMisSearchEngine::onEndSearch() {
+	m_fp = NULL;
+	m_peaksCnt = 0;
+	m_peakFiles.clear();
+	m_peaksDir.clear();
+}
