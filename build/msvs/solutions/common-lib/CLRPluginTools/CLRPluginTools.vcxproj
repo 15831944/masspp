@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{22246895-E15A-4CA8-929D-F0D14F5A3E39}</ProjectGuid>
+    <RootNamespace>CLRPluginTools</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Parallel-Release|x64	'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectName)</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CLRManager\CLRManager.vcxproj">
+      <Project>{296b43fa-70f5-48ef-8688-6cee8d8a0b75}</Project>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreFunctions\CoreFunctions.vcxproj">
+      <Project>{193e7327-bb5f-4714-a53f-b834aacacbd5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreToolkits\CoreToolkits.vcxproj">
+      <Project>{291db9b7-35c1-48fd-9406-cb8d4ce296d7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\DataObjects.vcxproj">
+      <Project>{385be206-9123-4f54-a8e1-bf9b654154c0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManager\EventManager.vcxproj">
+      <Project>{1b5e0201-2136-4f84-9a61-f404def9e4dd}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageManager\ImageManager.vcxproj">
+      <Project>{7130dfe2-794d-4dd5-93d7-c6842bf86b02}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginTools\PluginTools.vcxproj">
+      <Project>{86c3e1f6-bd16-4403-b325-8c66e96ebca0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\AlignmentWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrAlignment.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrAlignmentBase.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrPluginCallTool.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrSearchEngine.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrSearchEngineBase.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\EnzymeWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\FileFactoryWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\HitWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\IdentificationManagerWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ModificationWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ParameterSettingsWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginCallWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginComponentWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginFunctionItemWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginIconWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginInfoWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginManagerWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginMenuWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SearchEngineWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SearchResultWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsChapterWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsFormWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsGroupWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsPageWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsParamWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsValueWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SubstanceWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\CLRPluginTools\WindowManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\AlignmentWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrAlignment.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrAlignmentBase.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrPluginCallTool.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrSearchEngine.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ClrSearchEngineBase.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\EnzymeWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\FileFactoryWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\HitWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\IdentificationManagerWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ModificationWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\ParameterSettingsWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginCallWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginComponentWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginFunctionItemWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginIconWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginInfoWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginManagerWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\PluginMenuWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SearchEngineWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SearchResultWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsChapterWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsFormWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsGroupWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsPageWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsParamWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SettingsValueWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\SubstanceWrapper.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\CLRPluginTools\WindowManager.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

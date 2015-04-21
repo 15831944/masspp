@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<enzymes>
+  <enz term="C">
+    <name>Trypsin</name>
+    <cleave>KR</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz term="C">
+    <name>Trypsin/P</name>
+    <cleave>KR</cleave>
+  </enz>
+  <enz term="C">
+    <name>Arg-C</name>
+    <cleave>R</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz term="N">
+    <name>ASP-N</name>
+    <cleave>BD</cleave>
+  </enz>
+  <enz term="N">
+    <name>ASP-N_ambic</name>
+    <cleave>DE</cleave>
+  </enz>
+  <enz term="C">
+    <name>CNBr</name>
+    <cleave>M</cleave>
+  </enz>
+  <enz term="C">
+    <name>Lys-C</name>
+    <cleave>K</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz term="C">
+    <name>Lys-C/P</name>
+    <cleave>K</cleave>
+  </enz>
+  <enz term="N">
+    <name>Lys-N</name>
+    <cleave>K</cleave>
+  </enz>
+  <enz term="C">
+    <name>PepsinA</name>
+    <cleave>FL</cleave>
+  </enz>
+  <enz term="C">
+    <name>TrypChymo</name>
+    <cleave>FYWLKR</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz term="C">
+    <name>V8-DE</name>
+    <cleave>BDEZ</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz term="C">
+    <name>V8-E</name>
+    <cleave>EZ</cleave>
+    <non-cleave>P</non-cleave>
+  </enz>
+  <enz>
+    <name>None</name>    
+  </enz>    
+</enzymes>

@@ -1,0 +1,93 @@
+# set
+PREFIX      = @prefix@
+prefix      = @prefix@
+EXEC_PREFIX = @exec_prefix@
+exec_prefix = @exec_prefix@
+BIN_DIR     = @bindir@
+SHARE_DIR   = @datadir@
+INCLUDE_DIR = @includedir@
+LIB_DIR     = @libdir@
+TMP_LIB_DIR = @top_srcdir@/lib/gtk
+TMP_PLG_DIR = @top_srcdir@/build/gtk/plugins
+TMP_INC_DIR = @top_srcdir@/include/kome
+MSPP_DIR    = $(SHARE_DIR)/masspp
+
+CXX   = @CXX@
+DEFS  = @DEFS@ -DMSPP_INSTALL_DIR=$(MSPP_DIR)
+FLAGS = @CXXFLAGS@ -fPIC
+LIBS  = @LIBS@
+
+
+all: GLTools NetworkTools QuantitationTools
+
+.PHONY: CoreFunctions
+CoreFunctions:
+	cd CoreFunctions; make all
+
+.PHONY: CoreToolkits
+CoreToolkits: CoreFunctions
+	cd CoreToolkits; make all
+
+.PHONY: NumericalTools
+NumericalTools: CoreToolkits
+	cd NumericalTools; make all
+
+.PHONY: DbTools
+DbTools: CoreToolkits
+	cd DbTools; make all
+
+.PHONY: DataObjects
+DataObjects: DbTools NumericalTools
+	cd DataObjects; make all
+
+.PHONY: EventManager
+EventManager: CoreToolkits
+	cd EventManager; make all
+
+.PHONY: ImageManager
+ImageManager: DataObjects
+	cd ImageManager; make all
+
+.PHONY: GLTools
+GLTools: ImageManager
+	cd GLTools; make all
+
+.PHONY: XMLTools
+XMLTools: CoreToolkits
+	cd XMLTools; make all
+
+.PHONY: PluginTools
+PluginTools: XMLTools ImageManager EventManager
+	cd PluginTools; make all
+
+.PHONY: DataOperation
+DataOperation: PluginTools
+	cd DataOperation; make all
+
+.PHONY: QuantitationTools
+QuantitationTools: PluginTools
+	cd QuantitationTools; make all
+
+.PHONY: WindowManager
+WindowManager: DataOperation
+	cd WindowManager; make all
+
+.PHONY: NetworkTools
+NetworkTools: WindowManager
+	cd NetworkTools; make all
+
+clean:
+	cd CoreFunctions; make clean
+	cd CoreToolkits; make clean
+	cd NumericalTools; make clean
+	cd DbTools; make clean
+	cd DataObjects; make clean
+	cd EventManager; make clean
+	cd ImageManager; make clean
+	cd GLTools; make clean
+	cd XMLTools; make clean
+	cd PluginTools; make clean
+	cd DataOperation; make clean
+	cd QuantitationTools; make clean
+	cd WindowManager; make clean
+	cd NetworkTools; make clean

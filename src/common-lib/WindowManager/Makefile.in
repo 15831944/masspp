@@ -1,0 +1,45 @@
+# set
+PREFIX       = @prefix@
+prefix       = @prefix@
+EXEC_PREFIX  = @exec_prefix@
+exec_prefix  = @exec_prefix@
+BIN_DIR      = @bindir@
+SHARE_DIR    = @datadir@
+INCLUDE_DIR  = @includedir@
+LIB_DIR      = @libdir@
+TMP_LIB_DIR  = @top_srcdir@/lib/gtk
+TMP_PLG_DIR  = @top_srcdir@/build/gtk/plugins
+TMP_CONF_DIR = @top_srcdir@/build/gtk/conf
+TMP_PLG_DIR  = @top_srcdir@/build/gtk/plugins
+TMP_INC_DIR  = @top_srcdir@/include/kome
+MSPP_DIR     = $(SHARE_DIR)/masspp
+
+CXX      = @CXX@
+DEFS     = @DEFS@ -DMSPP_INSTALL_DIR=$(MSPP_DIR)
+FLAGS    = @CXXFLAGS@ $(shell wx-config --cflags) $(shell pkg-config gtk+-2.0 --cflags)
+LIBS     = @LDFLAGS@ $(shell wx-config --libs) -L${TMP_LIB_DIR} -lMsppCoreFunctions -lMsppCoreToolkits -lMsppDataObjects -lMsppImageManager -lMsppEventManager -lMsppNumericalTools -lMsppPluginTools -lMsppDataOperation -lboost_filesystem
+INCLUDES = -I@top_srcdir@/include
+
+.SUFFIXES:
+.SUFFIXES: .cpp .o
+.cpp.o:
+	$(CXX) $(DEFS) $(FLAGS) $(INCLUDES) -fPIC -c -o $@ $<
+
+cppfiles := $(wildcard *.cpp)
+objfiles = $(cppfiles:.cpp=.o)
+
+
+.PHONY: all
+all: $(objfiles)
+	$(CXX) $(DEFS) $(FLAGS) $(INCLUDES) $(LIBS) -shared -o $(TMP_LIB_DIR)/libMsppWindowManager.so.1.0 $(objfiles)
+	ln -sf libMsppWindowManager.so.1.0 $(TMP_LIB_DIR)/libMsppWindowManager.so
+	mkdir -p $(TMP_INC_DIR)/WindowManager
+	cp *.h $(TMP_INC_DIR)/WindowManager
+	rm -f $(TMP_INC_DIR)/WindowManager/stdafx.h
+	mv -f $(TMP_INC_DIR)/WindowManager/WindowManager.h  $(TMP_INC_DIR)
+
+.PHONY: clean
+clean:
+	rm -f $(objfiles)
+	rm -Rf $(TMP_INC_DIR)/WindowManager
+	rm -f $(TMP_INC_DIR)/WindowManager.h

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{385BE206-9123-4F54-A8E1-BF9B654154C0}</ProjectGuid>
+    <RootNamespace>DataObjects</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)$(Platform)-$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)-$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Parallel-Release|x64	'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectName)</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DATAOBJECTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.h $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\stdafx.h
+copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(SolutionDir)..\..\..\..\include\kome\
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
+mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;DATAOBJECTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.h $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\stdafx.h
+copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(SolutionDir)..\..\..\..\include\kome\
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
+mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DATAOBJECTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.h $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\stdafx.h
+copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(SolutionDir)..\..\..\..\include\kome\
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
+mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\..\..\include;$(SolutionDir)..\..\contrib\common\$(Platform)\boost\include;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\include;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib\msw;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\include;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\include;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;DATAOBJECTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration);$(SolutionDir)..\..\contrib\common\$(Platform)\boost\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\cairo\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\wxWidgets\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\xerces-c\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\zlib\lib;$(SolutionDir)..\..\contrib\common\$(Platform)\Java\include;$(SolutionDir)..\..\contrib\common\$(Platform)\gtest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.h $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\stdafx.h
+copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(SolutionDir)..\..\..\..\include\kome\
+del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
+mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\ActiveObjectsManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\AveragedSpectrum.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Chromatogram.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DataGroupNode.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DataManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DataMapInfo.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DataMapManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DataSet.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\DefaultDataManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\MsDataVariant.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\OverlappingChromatogram.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\OverlappingSpectrum.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Parameters.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Peak2DElement.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\PeakElement.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks2D.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks2DArray.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\PeaksCluster2D.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\PeaksManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\PointsManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Sample.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\SampleReader.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\SampleSet.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Script.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\SettingParameterValues.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\SpectraChromatogram.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Spectrum.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\StatusManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\Variant.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\common-lib\DataObjects\XYDataOperation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\ActiveObjectsManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\AveragedSpectrum.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Chromatogram.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataGroupNode.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataMapInfo.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataMapManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataObjects.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataObjectsCommon.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DataSet.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\DefaultDataManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\MsDataVariant.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\OverlappingChromatogram.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\OverlappingSpectrum.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Parameters.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Peak2DElement.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\PeakElement.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks2D.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Peaks2DArray.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\PeaksCluster2D.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\PeaksManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\PointsManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Sample.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\SampleReader.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\SampleSet.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Script.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\SettingParameterValues.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\SpectraChromatogram.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Spectrum.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\StatusManager.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\stdafx.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\Variant.h" />
+    <ClInclude Include="..\..\..\..\..\src\common-lib\DataObjects\XYDataOperation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreFunctions\CoreFunctions.vcxproj">
+      <Project>{193e7327-bb5f-4714-a53f-b834aacacbd5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\CoreToolkits\CoreToolkits.vcxproj">
+      <Project>{291db9b7-35c1-48fd-9406-cb8d4ce296d7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\DbTools\DbTools.vcxproj">
+      <Project>{0d702ee8-0095-4263-8801-62973710082b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\NumericalTools\NumericalTools.vcxproj">
+      <Project>{2bf0e6a0-20bf-4ae9-9c3e-2847e8ec12be}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

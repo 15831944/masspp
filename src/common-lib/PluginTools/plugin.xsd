@@ -1,0 +1,991 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:dx="http://xml.first-ms3d.jp/masspp/plugin" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.first-ms3d.jp/masspp/plugin" version="1.2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>plug-in definition schema</xsd:documentation>
+  </xsd:annotation>
+
+  <!-- elements -->
+  <xsd:element name="plugin">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>plug-in name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="version" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>plug-in version</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="provider" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>plug-in provider</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="link" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              dynamic link library file name without extension
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="dx:icons" minOccurs="0" />
+        <xsd:element ref="dx:statuses" minOccurs="0" />
+        <xsd:element ref="dx:menu" minOccurs="0" />
+        <xsd:element ref="dx:gui" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the definition for user interfaces
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="dx:java" minOccurs="0" />
+        <xsd:element ref="dx:function" minOccurs="0" />
+        <xsd:element ref="dx:components" minOccurs="0" />
+        <xsd:element ref="dx:packages" minOccurs="0" />
+        <xsd:element ref="dx:settings" minOccurs="0" />
+        <xsd:element ref="dx:parameters" minOccurs="0" />
+        <xsd:element ref="dx:help" minOccurs="0" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="icons">
+    <xsd:annotation>
+      <xsd:documentation>the definition of icons</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:icon" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="statuses">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of statuses
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:status" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="menu">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of menus
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:menu-item" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="java">
+    <xsd:annotation>
+      <xsd:documentation>java environment</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="classpath" type="xsd:string" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="function">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of functions
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:call" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="components">
+    <xsd:annotation>
+      <xsd:documentation>component list</xsd:documentation>      
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="component" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>the definition of the component</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="component-name" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>the name of the component</xsd:documentation>                  
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="component-desc" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>the description of the component</xsd:documentation>                  
+                </xsd:annotation>                
+              </xsd:element>
+              <xsd:element name="component-calls">
+                <xsd:annotation>
+                  <xsd:documentation>functions belonging to the component</xsd:documentation>                  
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="camponent-call" type="xsd:string">
+                      <xsd:annotation>
+                        <xsd:documentation>the name of the function. (It's defined in a call-name tab.)</xsd:documentation>
+                      </xsd:annotation>                      
+                    </xsd:element>
+                  </xsd:sequence>                  
+                </xsd:complexType>                
+              </xsd:element>
+            </xsd:sequence>            
+          </xsd:complexType>          
+        </xsd:element>
+      </xsd:sequence>      
+    </xsd:complexType>    
+  </xsd:element>
+  <xsd:element name="packages">
+    <xsd:annotation>
+      <xsd:documentation>package list</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="package" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>the definition of the package</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="package-name" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>the name of the package</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="package-components" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation>components belonging to the package</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="package-component" type="xsd:string" maxOccurs="unbounded">
+                      <xsd:annotation>
+                        <xsd:documentation>package component name. (It's defined in a component-name tab.)</xsd:documentation>
+                      </xsd:annotation>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="plugin" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>
+                        If you want to make a component in another plug-in, you can specify it by this attribute.
+                      </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="package-call-types" minOccurs="0">
+                <xsd:annotation>
+                  <xsd:documentation>plug-in call types belonging to the package</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="package-call-type" type="xsd:string" maxOccurs="unbounded">
+                      <xsd:annotation>
+                        <xsd:documentation>package call types</xsd:documentation>
+                      </xsd:annotation>                      
+                    </xsd:element>
+                  </xsd:sequence>                  
+                </xsd:complexType>                
+              </xsd:element>
+            </xsd:sequence>            
+          </xsd:complexType>
+        </xsd:element>        
+      </xsd:sequence>      
+    </xsd:complexType>    
+  </xsd:element>
+  <xsd:element name="options">
+    <xsd:annotation>
+      <xsd:documentation>
+        option settings files.
+        option setting values are saved in kome.ini file.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="options-file"
+		     type="xsd:string"
+		     maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              option settings file name
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="settings">
+    <xsd:annotation>
+      <xsd:documentation>
+        settings files.
+        setting values are saved in kome.ini file.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="settings-file" type="xsd:string" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              settings file name
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="parameters">
+    <xsd:annotation>
+      <xsd:documentation>
+        parameter files.
+        parameter values are saved in parameters file.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="parameters-file" type="xsd:string" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              parameter settings file name
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="help">
+    <xsd:annotation>
+      <xsd:documentation>help files</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="help-file" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>the location of help file</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute name="order" type="dx:orderType" />
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="gui">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="status-bar" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="status-bar-name" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:attributeGroup ref="dx:statusbarAttributes" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="icon">
+    <xsd:annotation>
+      <xsd:documentation>the definition of icon</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="icon-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>icon name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="icon-file" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>icon file name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:iconAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="status">
+    <xsd:annotation>
+      <xsd:documentation>status definition</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="status-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>status variable name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="status-value" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>status variable value</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:statusAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="menu-item">
+    <xsd:annotation>
+      <xsd:documentation>the definition of menu</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="menu-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>menu name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="dx:menu-group" minOccurs="0" />
+        <xsd:element ref="dx:toolbar" minOccurs="0" />
+        <xsd:element ref="dx:shortcut" minOccurs="0" />
+        <xsd:element ref="dx:popup" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element name="menu-description" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>the description of menu</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:menuItemAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="call">
+    <xsd:annotation>
+      <xsd:documentation>the definition of function</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="call-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>function dx:idType</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:choice>
+          <xsd:element name="call-function" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                function name. Use this tag,
+                when the dynamic link library is created by C/C++.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ref="dx:call-method">
+            <xsd:annotation>
+              <xsd:documentation>
+                function method. Use this tag,
+                when the dynamic link library is created
+                by .NET framework language.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:element ref="dx:params" minOccurs="0" />
+        <xsd:element name="call-description"
+		                 type="xsd:string"
+		                 minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>description of function</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:callAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="help-file">
+    <xsd:annotation>
+      <xsd:documentation>
+        HTML Help project file. (*.hpp)
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute name="order" type="dx:orderType">
+            <xsd:annotation>
+              <xsd:documentation>
+                order number to sort helps
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="menu-group">
+    <xsd:annotation>
+      <xsd:documentation>menu group name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute name="order" type="dx:orderType">
+            <xsd:annotation>
+              <xsd:documentation>
+                the order number to sort menu groups
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="toolbar">
+    <xsd:annotation>
+      <xsd:documentation>tool bar name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute name="order" type="dx:orderType">
+            <xsd:annotation>
+              <xsd:documentation>
+                the order number to sort toolbars
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="shortcut">
+    <xsd:annotation>
+      <xsd:documentation>shortcut key</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:shortcut-key" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="shortcut-key">
+    <xsd:annotation>
+      <xsd:documentation>key for shortcut</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="key" type="dx:keyboardType" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="popup">
+    <xsd:annotation>
+      <xsd:documentation>popup menu information</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:attribute name="type" type="dx:popupType" use="required" />
+      <xsd:attribute name="order" type="dx:orderType" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="call-method">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of .NET framework class method
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="class-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>class name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="method-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>method name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="static" type="xsd:boolean">
+        <xsd:annotation>
+          <xsd:documentation>
+            If true, this method is static.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="params">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameters
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:param" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="param">
+    <xsd:annotation>
+      <xsd:documentation>the definition of parameter</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="param-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>parameter name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="param-value" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>parameter name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <!-- attribute group -->
+  <xsd:attributeGroup name="iconAttributes">
+    <xsd:attribute name="id" type="dx:idType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>icon dx:idType number</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="type" type="dx:iconType">
+      <xsd:annotation>
+        <xsd:documentation>image file type</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="menuItemAttributes">
+    <xsd:attribute name="id" type="dx:idType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>menu dx:idType number</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="accelerator" type="dx:acceleratorType">
+      <xsd:annotation>
+        <xsd:documentation>menu accelerator</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="parent" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>parent menu dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="order" type="dx:orderType">
+      <xsd:annotation>
+        <xsd:documentation>order number to sort menus</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="target" type="dx:targetType">
+      <xsd:annotation>
+        <xsd:documentation>target object of menu</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="checked" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>checked status dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="statusbarAttributes">
+    <xsd:attribute name="order" type="dx:orderType">
+      <xsd:annotation>
+        <xsd:documentation>order number to sort menus</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="target" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>target name of the status bar</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="width" type="xsd:unsignedInt">
+      <xsd:annotation>
+        <xsd:documentation>the width of the status bar</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="statusAttributes">
+    <xsd:attribute name="id" type="dx:idType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>status dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="default" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>
+          If true, specified status value is default value.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="callAttributes">
+    <xsd:attribute name="type" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>function type name</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="icon" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>icon dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="order" type="dx:orderType">
+      <xsd:annotation>
+        <xsd:documentation>function type name</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="status" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>
+          Just when status value is specified value,
+          this function is called.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="ifloaded"
+		   type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>
+          If true, the function is not called
+          if the dynamic link library file has never been called.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="fixed" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, this function is always available on Mass++.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+
+  <!-- type definition -->
+  <xsd:simpleType name="idType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="0|[1-9][0-9]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="idrefType">
+    <xsd:restriction base="dx:idType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="iconType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="png" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="acceleratorType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[a-zA-Z]" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="popupType">
+    <xsd:annotation>
+      <xsd:documentation>The definition of popup menu type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="spec_item">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a spectrum item. (in sample tree view)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chrom_item">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a chromatogram item. (in sample tree view)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="group_item">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a group item. (in sample tree view)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spec_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a spectrum view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chrom_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a chromatogram view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="datamap_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a datamap view. (heatmap or 3D view)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spec_sub_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a spectrum sub view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chrom_sub_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a chromatogram sub view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="datamap_sub_view">
+        <xsd:annotation>
+          <xsd:documentation>Popup menu of a datamap sub view. (heatmap or 3D view)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="keyboardType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9a-zA-Z]">
+        <xsd:annotation>
+          <xsd:documentation>alphabetic or numeric key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:pattern>
+      <xsd:enumeration value="up">
+        <xsd:annotation>
+          <xsd:documentation>arrow up key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="down">
+        <xsd:annotation>
+          <xsd:documentation>arrow down key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="left">
+        <xsd:annotation>
+          <xsd:documentation>arrow left key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="right">
+        <xsd:annotation>
+          <xsd:documentation>arrow right key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="space">
+        <xsd:annotation>
+          <xsd:documentation>space key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="enter">
+        <xsd:annotation>
+          <xsd:documentation>enter key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="tab">
+        <xsd:annotation>
+          <xsd:documentation>tab key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="esc">
+        <xsd:annotation>
+          <xsd:documentation>esc key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f1">
+        <xsd:annotation>
+          <xsd:documentation>f1 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f2">
+        <xsd:annotation>
+          <xsd:documentation>f2 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f3">
+        <xsd:annotation>
+          <xsd:documentation>f3 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f4">
+        <xsd:annotation>
+          <xsd:documentation>f4 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f5">
+        <xsd:annotation>
+          <xsd:documentation>f5 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f6">
+        <xsd:annotation>
+          <xsd:documentation>f6 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f7">
+        <xsd:annotation>
+          <xsd:documentation>f7 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f8">
+        <xsd:annotation>
+          <xsd:documentation>f8 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f9">
+        <xsd:annotation>
+          <xsd:documentation>f9 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f10">
+        <xsd:annotation>
+          <xsd:documentation>f10 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f11">
+        <xsd:annotation>
+          <xsd:documentation>f11 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="f12">
+        <xsd:annotation>
+          <xsd:documentation>f12 key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="shift">
+        <xsd:annotation>
+          <xsd:documentation>shift key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ctrl">
+        <xsd:annotation>
+          <xsd:documentation>ctrl key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="alt">
+        <xsd:annotation>
+          <xsd:documentation>alt key</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="targetType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="none">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is always available.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="sample">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a sample is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="samples">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a samples is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="group">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a group is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spectrum">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a spectrum is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spectra">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a spectrum is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chromatogram">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a chromatogram is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="datamap">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a data map is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="tab_samples">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a tab samples map is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="tab_sample">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while a tab sample map is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spec_chrom">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available,
+            while a spectrum or a chromatogram is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="not_null">
+        <xsd:annotation>
+          <xsd:documentation>
+            This menu is available, while any object is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="statusBarType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="none">
+        <xsd:annotation>
+          <xsd:documentation>
+            This status bar is always available.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="spectrum">
+        <xsd:annotation>
+          <xsd:documentation>
+            This status bar is available, while a spectrum is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chromatogram">
+        <xsd:annotation>
+          <xsd:documentation>
+            This status bar is available, while a chromatogram is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="datamap">
+        <xsd:annotation>
+          <xsd:documentation>
+            This status bar is available, while a data map is active.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

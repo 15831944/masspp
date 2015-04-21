@@ -1,0 +1,762 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:dx="http://xml.first-ms3d.jp/masspp/settings" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.first-ms3d.jp/masspp/settings" version="1.2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>
+      parameter settings pages definition schema
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <!-- elements -->
+  <xsd:element name="settings">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:chapters" minOccurs="0" />
+        <xsd:element ref="dx:values" minOccurs="0" />
+        <xsd:element ref="dx:params" minOccurs="0" />
+        <xsd:element ref="dx:groups" minOccurs="0" />
+        <xsd:element ref="dx:pages" minOccurs="0" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="chapters">
+    <xsd:annotation>
+      <xsd:documentation>the definition of chapters</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:chapter" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="values">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter values
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:value" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="params">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameters
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:param" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="groups">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter groups
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:group" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="pages">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter settings pages
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:page" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="chapter">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of chapter
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute name="id" type="dx:idType" use="required">
+            <xsd:annotation>
+              <xsd:documentation>chapter dx:idType</xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="parent" type="dx:idrefType">
+            <xsd:annotation>
+              <xsd:documentation>parent chapter</xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="order" type="dx:orderType">
+            <xsd:annotation>
+              <xsd:documentation>
+                the order number to sort chapters
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="value">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter value
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:choice minOccurs="0">
+          <xsd:element name="item-type" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                If the parameter value is plug-in item name,
+                specify plug-in type name.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="enum-key" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                If the enumeration list is saved in ini file,
+                specify section and key. The section and the key are
+                separated by colon. ex) Spectrum:MZ_RANGE
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="enum-call" type="xsd:string">
+            <xsd:annotation>
+              <xsd:documentation>
+                If the enumeration list is given by the plug-in function
+                whose call type is ENUMERATION, specify the
+                short name.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:element name="value-name" type="xsd:string" minOccurs="0" />
+        <xsd:element name="exclude"
+		     type="xsd:string"
+		     minOccurs="0"
+		     maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              If the parameter value is plug-in item name,
+              excluded values can be specified by this tag.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element ref="dx:enum" minOccurs="0" maxOccurs="unbounded" />
+        <xsd:element ref="dx:filter" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:valueAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="param">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="param-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>parameter name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="param-section"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the section of parameter in the ini file
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="param-key"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the key of parameter in the ini file
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="prefix"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the prefix used by subparameters
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:paramAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="group">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter group
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="group-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>group name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:groupAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="page">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of parameter settings page
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="page-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>page name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="page-title" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>page title</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="check-functinos" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>parameter check functions</xsd:documentation>            
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="check-fun" maxOccurs="unbounded" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>the name of function for parameter checking.</xsd:documentation>                  
+                </xsd:annotation>
+              </xsd:element>              
+            </xsd:sequence>            
+          </xsd:complexType>          
+        </xsd:element>
+        <xsd:element name="properties-page" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>page information opened from context-menu.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:attribute name="type" use="required" type="dx:propType" />
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ref="dx:forms" minOccurs="0">
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:pageAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="enum">
+    <xsd:annotation>
+      <xsd:documentation>
+        enumerated values are defined by this tag.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="enum-section" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              enumerated value section.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="enum-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              enumerated value name.
+              This character string is displayed in the combo box.
+              If the name is '###', this value allow any value
+              even if not included in the enumerated value list.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="enum-value"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              enumerated value
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="enum-desc"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the description of enumerated value
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="filter">
+    <xsd:annotation>
+      <xsd:documentation>
+        filter values are defined by this tag.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="filter-name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              filter value name.
+              This character string is displayed in the filters combo box. For example: Text Files
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="filter-extension" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              filter extension, for example: *.txt OR *.doc;*.docx
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="filter-desc"
+		     type="xsd:string"
+		     minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the description of filter value
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="forms">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of input forms
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="dx:form" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="form">
+    <xsd:annotation>
+      <xsd:documentation>
+        the definition of input form
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="form-title" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              the title of input form
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="form-desc">
+          <xsd:annotation>
+            <xsd:documentation>the description of input form</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base="xsd:string">
+                <xsd:attribute name="img" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:documentation>the location of image file path to explain the parameter</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="list-menu" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>context menu items</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:attributeGroup ref="dx:listMenuAttributes" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="dx:formAttributes" />
+    </xsd:complexType>
+  </xsd:element>
+
+  <!-- attribute group -->
+  <xsd:attributeGroup name="valueAttributes">
+    <xsd:attribute name="id" type="dx:idType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>the value dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="type" type="dx:typeValueType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>the value type</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="list" type="xsd:integer">
+      <xsd:annotation>
+        <xsd:documentation>
+          If list attribute is set, the value is a element of list specified dx:idType.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="parent" type="xsd:integer">
+      <xsd:annotation>
+        <xsd:documentation>
+          Parent value ID.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="hideAllChk" type="xsd:boolean" default="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          If hideAllChk attribute is set, for a checkbox list, the All checkbox is not displayed next to it.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="default" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>default value</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="minInclusive" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>
+          the minimum inclusive value
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="maxInclusive" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>
+          the maximum inclusive value
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="minExclusive" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>
+          the minimum exclusive value
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="maxExclusive" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>
+          the maximum exclusive value
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="required"
+		   type="xsd:boolean"
+		   default="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          If true, this parameter is required.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="paramAttributes">
+    <xsd:attribute name="id" type="dx:idType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>the parameter dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="value" type="dx:idrefType" use="required">
+      <xsd:annotation>
+        <xsd:documentation>
+          the value dx:idType of the parameter
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="pageAttributes">
+    <xsd:attribute name="chapter" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>
+          the chapter dx:idType of the page
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="order" type="dx:orderType">
+      <xsd:annotation>
+        <xsd:documentation>
+          the order number to sort page
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="common"
+		   type="xsd:boolean"
+		   default="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          If true, this page is common page.
+          So it is displayed in the options dialog
+          or the properties dialog.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="groupAttributes">
+    <xsd:attribute name="id"
+		   type="dx:idType"
+		   use="required">
+      <xsd:annotation>
+        <xsd:documentation>the group dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="formAttributes">
+    <xsd:attribute name="id"
+		   type="dx:idType"
+		   use="required">
+      <xsd:annotation>
+        <xsd:documentation>the form dx:idType</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="param"
+		   type="dx:idrefType"
+		   use="required">
+      <xsd:annotation>
+        <xsd:documentation>
+          the parameter dx:idType of the form
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="group" type="dx:idrefType">
+      <xsd:annotation>
+        <xsd:documentation>
+          the group dx:idType of the form
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name="listMenuAttributes">
+    <xsd:attribute name="edit" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Edit menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="add" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Add menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="updown" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Up and Down menu items are appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="delete" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Delete menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="copy" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Copy menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="save" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Save All menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="filter" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Filter menu item is appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>    
+    <xsd:attribute name="selectall" default="true" type="xsd:boolean">
+      <xsd:annotation>
+        <xsd:documentation>If true, Select All and Deselect All Copy menu items are appended in the context menu.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="editName" default="Edit" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The name of Edit menu.</xsd:documentation>        
+      </xsd:annotation>      
+    </xsd:attribute>
+    <xsd:attribute name="addName" default="Add" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The name of Add menu.</xsd:documentation>        
+      </xsd:annotation>      
+    </xsd:attribute>
+    <xsd:attribute name="deleteName" default="Delete" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The name of Delete menu.</xsd:documentation>        
+      </xsd:annotation>      
+    </xsd:attribute>    
+    <xsd:attribute name="filterName" default="Filter" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The name of Filter menu.</xsd:documentation>        
+      </xsd:annotation>      
+    </xsd:attribute>        
+  </xsd:attributeGroup>
+
+  <!-- type definition -->
+  <xsd:simpleType name="idType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="0|[1-9][0-9]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="idrefType">
+    <xsd:restriction base="dx:idType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="orderType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeValueType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="bool">
+        <xsd:annotation>
+          <xsd:documentation>
+            boolean value [true / false]
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="int">
+        <xsd:annotation>
+          <xsd:documentation>
+            integer number value
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="double">
+        <xsd:annotation>
+          <xsd:documentation>
+            real number value
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="string">
+        <xsd:annotation>
+          <xsd:documentation>
+            character string value
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="passwd">
+        <xsd:annotation>
+          <xsd:documentation>
+            password value
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="input">
+        <xsd:annotation>
+          <xsd:documentation>
+            input file path
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="output">
+        <xsd:annotation>
+          <xsd:documentation>
+            out file path
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="rawdata">
+        <xsd:annotation>
+          <xsd:documentation>
+            sample raw data file
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="dir">
+        <xsd:annotation>
+          <xsd:documentation>
+            directory path
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="color">
+        <xsd:annotation>
+          <xsd:documentation>
+            color value
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="int-range">
+        <xsd:annotation>
+          <xsd:documentation>
+            start and end value of integer number
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="double-range">
+        <xsd:annotation>
+          <xsd:documentation>
+            start and end value of real number
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="list">
+        <xsd:annotation>
+          <xsd:documentation>
+            value list
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="email">
+        <xsd:annotation>
+          <xsd:documentation>
+            value e mail
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="propType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="spec_view">
+        <xsd:annotation>
+          <xsd:documentation>Properties page of a spectrum view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="chrom_view">
+        <xsd:annotation>
+          <xsd:documentation>Properties page of a chromatogram view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="heatmap_view">
+        <xsd:annotation>
+          <xsd:documentation>Properties page of a heatmap view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="3d_view">
+        <xsd:annotation>
+          <xsd:documentation>Properties page of a 3D view.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>
