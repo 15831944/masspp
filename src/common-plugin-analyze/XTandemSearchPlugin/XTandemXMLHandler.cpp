@@ -284,8 +284,12 @@ void XTandemXMLHandler::onStartElement( const char* name, kome::core::Properties
 					}
 				}
 
-				if( m != NULL && !m_currHits.empty() ) {
-					m_currHits.back()->addModification( m, pos - m_currPeptide->getStart() + 1 );
+				if( m!= NULL ) {
+					const int acPos = pos - m_currPeptide->getStart();
+					m_currPeptide->addModification( m->getName().c_str(), acPos );
+					if( !m_currHits.empty() ) {
+						m_currHits.back()->addModification( m, pos - m_currPeptide->getStart() + 1 );
+					}
 				}
 			}
 		}

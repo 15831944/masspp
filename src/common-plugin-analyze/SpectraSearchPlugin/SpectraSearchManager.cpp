@@ -296,6 +296,7 @@ SpectraSearchManager::SearchType SpectraSearchManager::getSearchType( std::strin
 		type = SEARCH_NARROW;
 	}
 
+	m_type = type;
 	return m_type;
 }
 

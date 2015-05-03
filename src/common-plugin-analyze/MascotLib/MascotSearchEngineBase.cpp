@@ -241,6 +241,8 @@ bool MascotSearchEngineBase::onImportResults(
 							pepResidueAfter = '-';
 						}
 						std::string pepVarMods = results->getReadableVarMods( query, pep->getRank() );
+						int pepStart = prot->getPeptideStart(pepIdx);
+						int pepEnd = prot->getPeptideEnd(pepIdx);
 
 						// modifications
 						std::vector< kome::ident::PeptideSubstance::Modification > mods;
@@ -250,7 +252,7 @@ bool MascotSearchEngineBase::onImportResults(
 								mods.resize( mods.size() + 1 );
 								kome::ident::Modification* m = fixModMap[ aa ];
 								mods.back().mod = m->getName();
-								mods.back().pos = (int)i + 1;
+								mods.back().pos = (int)i;
 								modMap[ m->getName() ] = m;
 							}
 						}
@@ -263,7 +265,7 @@ bool MascotSearchEngineBase::onImportResults(
 								mods.resize( mods.size() + 1 );
 								kome::ident::Modification* m = varMods[ index ];
 								mods.back().mod = m->getName();
-								mods.back().pos = (int)i + 1;
+								mods.back().pos = (int)i - 1;
 								modMap[ m->getName() ] = m;
 							}
 						}
@@ -290,6 +292,8 @@ bool MascotSearchEngineBase::onImportResults(
 							peptide->setSequence( pepString.c_str() );
 							peptide->setResidueBefore( FMT( "%c", pepResidueBefore ).c_str() );
 							peptide->setResidueAfter( FMT( "%c", pepResidueAfter ).c_str() );
+							peptide->setStart( pepStart );
+							peptide->setEnd( pepEnd );
 							for( unsigned int i = 0; i < mods.size(); i++ ) {
 								peptide->addModification( mods[ i ].mod.c_str(), mods[ i ].pos );
 							}

@@ -50,6 +50,17 @@
         <enum-desc>The value of (key) is not less than (value).</enum-desc>
       </enum>
     </value>
+    <value id="4" type="string" required="true" default="and">
+      <enum>
+        <enum-name>AND</enum-name>
+        <enum-value>and</enum-value>        
+      </enum>      
+      <enum>
+        <enum-name>OR</enum-name>
+        <enum-value>or</enum-value>
+      </enum>            
+    </value>
+    <value id="5" type="string" required="false" />
   </values>
   <params>
     <param id="0" value="0">
@@ -70,8 +81,11 @@
     <param id="5" value="3">
       <param-name>restriction</param-name>
     </param>
-    <param id="6" value="2">
+    <param id="6" value="5">
       <param-name>value</param-name>
+    </param>
+    <param id="7" value="4">
+      <param-name>type</param-name>      
     </param>
   </params>
   <pages>
@@ -79,7 +93,10 @@
       <page-name>rt</page-name>
       <page-title>RT Range</page-title>
       <forms>
-        <form id="0" param="0">
+        <form id="0" param="7">
+          <form-title>Type</form-title>          
+        </form>
+        <form id="1" param="0">
           <form-title>RT Range</form-title>
         </form>
       </forms>
@@ -88,7 +105,10 @@
       <page-name>precursor</page-name>
       <page-title>Precursor Range</page-title>
       <forms>
-        <form id="1" param="1">
+        <form id="2" param="7">
+          <form-title>Type</form-title>          
+        </form>        
+        <form id="3" param="1">
           <form-title>Precursor</form-title>
           <form-desc>precursor range</form-desc>
         </form>
@@ -98,17 +118,23 @@
       <page-name>scannum</page-name>
       <page-title>Scan Number Range</page-title>
       <forms>
-        <form id="2" param="2">
+        <form id="4" param="7">
+          <form-title>Type</form-title>          
+        </form>        
+        <form id="5" param="2">
           <form-title>Scan Number</form-title>
           <form-desc>scan number range</form-desc>
         </form>
       </forms>
     </page>
     <page>
+      <form id="6" param="7">
+        <form-title>Type</form-title>
+      </form>
       <page-name>msstage</page-name>
       <page-title>MS Stage Range</page-title>
       <forms>
-        <form id="3" param="3">
+        <form id="7" param="3">
           <form-title>MS Stage</form-title>
           <form-desc>MS stage range</form-desc>
         </form>
@@ -118,15 +144,18 @@
       <page-name>propfilter</page-name>
       <page-title>Spectrum Property</page-title>
       <forms>
-        <form id="4" param="4">
+        <form id="8" param="7">
+          <form-title>Type</form-title>          
+        </form>        
+        <form id="9" param="4">
           <form-title>Key</form-title>
           <form-desc>property key</form-desc>
         </form>
-        <form id="5" param="5">
+        <form id="10" param="5">
           <form-title>Restriction</form-title>
           <form-desc>restriction type</form-desc>
         </form>
-        <form id="6" param="6">
+        <form id="11" param="6">
           <form-title>Value</form-title>
           <form-desc>property value</form-desc>
         </form>

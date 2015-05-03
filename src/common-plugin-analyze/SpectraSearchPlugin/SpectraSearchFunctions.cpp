@@ -33,6 +33,7 @@ using namespace kome::search;
 #define FILTER_KEY_PARAM_NAME			"key"
 #define FILTER_RESTRICTION_PARAM_NAME	"restriction"
 #define FILTER_STR_PARAM_NAME			"str"
+#define TYPE_PARAM_NAME                 "type"
 
 
 // search spectra
@@ -73,6 +74,16 @@ kome::objects::Variant setSpectrumRtRange( kome::objects::Parameters* params ) {
 		return ret;
 	}
 
+	const char* typeStr = settings->getParameterValue( TYPE_PARAM_NAME );
+	if( typeStr == NULL ) {
+		LOG_ERROR( FMT( "Failed to get the filter type." ) );
+		return ret;
+	}
+	SpectraSearchManager::SearchType type = SpectraSearchManager::SEARCH_NARROW;
+	if( strcmp( typeStr, "or" ) == 0 ) {
+		type = SpectraSearchManager::SEARCH_APPEND;
+	}
+
 	SpectraSearchFilter filter;
 	filter.setRtRange( rtStr );
 
@@ -83,13 +94,7 @@ kome::objects::Variant setSpectrumRtRange( kome::objects::Parameters* params ) {
 	// samples
 	for( unsigned int i = 0; i < aoMgr.getNumberOfOpenedSamples(); i++ ) {
 		kome::objects::Sample* sample = aoMgr.getOpenedSample( i );
-
-		// filter
-		kome::objects::DataSet* dataSet = aoMgr.getFilteredDataSet( sample );
-
-		std::set< kome::objects::Spectrum* > specSet;
-		mgr.executeFilter( filter, *dataSet, specSet );
-		mgr.updateSpectra( *dataSet, specSet );
+		mgr.searchSpectra( sample, type, filter );
 	}
 
 	ret.prim.boolVal = true;
@@ -116,6 +121,17 @@ kome::objects::Variant setSpectrumPrecursorRange( kome::objects::Parameters* par
 		return ret;
 	}
 
+	const char* typeStr = settings->getParameterValue( TYPE_PARAM_NAME );
+	if( typeStr == NULL ) {
+		LOG_ERROR( FMT( "Failed to get the filter type." ) );
+		return ret;
+	}
+
+	SpectraSearchManager::SearchType type = SpectraSearchManager::SEARCH_NARROW;
+	if( strcmp( typeStr, "or" ) == 0 ) {
+		type = SpectraSearchManager::SEARCH_APPEND;
+	}
+
 	SpectraSearchFilter filter;
 	filter.setPrecursorRange( precStr );
 
@@ -126,13 +142,7 @@ kome::objects::Variant setSpectrumPrecursorRange( kome::objects::Parameters* par
 	// samples
 	for( unsigned int i = 0; i < aoMgr.getNumberOfOpenedSamples(); i++ ) {
 		kome::objects::Sample* sample = aoMgr.getOpenedSample( i );
-		
-		// filter
-		kome::objects::DataSet* dataSet = aoMgr.getFilteredDataSet( sample );
-		
-		std::set< kome::objects::Spectrum* > specSet;
-		mgr.executeFilter( filter, *dataSet, specSet );
-		mgr.updateSpectra( *dataSet, specSet );
+		mgr.searchSpectra( sample, type, filter );
 	}
 
 	ret.prim.boolVal = true;
@@ -159,6 +169,17 @@ kome::objects::Variant setSpectrumScanNumRange( kome::objects::Parameters* param
 		return ret;
 	}
 
+	const char* typeStr = settings->getParameterValue( TYPE_PARAM_NAME );
+	if( typeStr == NULL ) {
+		LOG_ERROR( FMT( "Failed to get the filter type." ) );
+		return ret;
+	}
+
+	SpectraSearchManager::SearchType type = SpectraSearchManager::SEARCH_NARROW;
+	if( strcmp( typeStr, "or" ) == 0 ) {
+		type = SpectraSearchManager::SEARCH_APPEND;
+	}
+
 	SpectraSearchFilter filter;
 	filter.setScanRange( scanStr );
 
@@ -169,13 +190,7 @@ kome::objects::Variant setSpectrumScanNumRange( kome::objects::Parameters* param
 	// samples
 	for( unsigned int i = 0; i < aoMgr.getNumberOfOpenedSamples(); i++ ) {
 		kome::objects::Sample* sample = aoMgr.getOpenedSample( i );
-
-		// filter
-		kome::objects::DataSet* dataSet = aoMgr.getFilteredDataSet( sample );
-
-		std::set< kome::objects::Spectrum* > specSet;
-		mgr.executeFilter( filter, *dataSet, specSet );
-		mgr.updateSpectra( *dataSet, specSet );
+		mgr.searchSpectra( sample, type, filter );
 	}
 
 	ret.prim.boolVal = true;
@@ -202,6 +217,17 @@ kome::objects::Variant setSpectrumMsStageRange( kome::objects::Parameters* param
 		return ret;
 	}
 
+	const char* typeStr = settings->getParameterValue( TYPE_PARAM_NAME );
+	if( typeStr == NULL ) {
+		LOG_ERROR( FMT( "Failed to get the filter type." ) );
+		return ret;
+	}
+
+	SpectraSearchManager::SearchType type = SpectraSearchManager::SEARCH_NARROW;
+	if( strcmp( typeStr, "or" ) == 0 ) {
+		type = SpectraSearchManager::SEARCH_APPEND;
+	}
+
 	SpectraSearchFilter filter;
 	filter.setStageRange( stageStr );
 
@@ -212,13 +238,7 @@ kome::objects::Variant setSpectrumMsStageRange( kome::objects::Parameters* param
 	// samples
 	for( unsigned int i = 0; i < aoMgr.getNumberOfOpenedSamples(); i++ ) {
 		kome::objects::Sample* sample = aoMgr.getOpenedSample( i );
-
-		// filter
-		kome::objects::DataSet* dataSet = aoMgr.getFilteredDataSet( sample );
-
-		std::set< kome::objects::Spectrum* > specSet;
-		mgr.executeFilter( filter, *dataSet, specSet );
-		mgr.updateSpectra( *dataSet, specSet );
+		mgr.searchSpectra( sample, type, filter );
 	}
 
 	ret.prim.boolVal = true;
@@ -268,7 +288,17 @@ kome::objects::Variant setSpectrumPropFilter( kome::objects::Parameters* params 
 		return ret;
 	}
 
-	// filter
+	const char* typeStr = settings->getParameterValue( TYPE_PARAM_NAME );
+	if( typeStr == NULL ) {
+		LOG_ERROR( FMT( "Failed to get the filter type." ) );
+		return ret;
+	}
+
+	SpectraSearchManager::SearchType type = SpectraSearchManager::SEARCH_NARROW;
+	if( strcmp( typeStr, "or" ) == 0 ) {
+		type = SpectraSearchManager::SEARCH_APPEND;
+	}
+
 	SpectraSearchFilter filter;
 	filter.addPropertyFilter( key, str, restriction );
 
@@ -279,13 +309,7 @@ kome::objects::Variant setSpectrumPropFilter( kome::objects::Parameters* params 
 	// samples
 	for( unsigned int i = 0; i < aoMgr.getNumberOfOpenedSamples(); i++ ) {
 		kome::objects::Sample* sample = aoMgr.getOpenedSample( i );
-
-		// filter
-		kome::objects::DataSet* dataSet = aoMgr.getFilteredDataSet( sample );
-		
-		std::set< kome::objects::Spectrum* > specSet;
-		mgr.executeFilter( filter, *dataSet, specSet );
-		mgr.updateSpectra( *dataSet, specSet );
+		mgr.searchSpectra( sample, type, filter );
 	}
 
 	ret.prim.boolVal = true;
