@@ -28,9 +28,8 @@ Name: "programfiles"; Description: "Program Files"; Types: full custom; Flags: f
 Source: "build\msvs\stage\Win32-Release\bin\*"; DestDir: "{app}\bin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\conf\*"; DestDir: "{app}\conf"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\opt\jre7\*"; DestDir: "{app}\opt\jre7"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\jars\*"; DestDir: "{app}\jars"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "doc\release-doc\*"; DestDir: "{app}\docs"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "doc\installed-doc\users\*"; DestDir: "{app}\docs"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\jars\*"; DestDir: "{app}\jars"; Excludes: ".*"; Flags: recursesubdirs; Components: programfilesSource: "doc\release-doc\*"; DestDir: "{app}\docs"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "doc\installed-doc\users\*"; DestDir: "{app}\docs"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\FileIOPlugin\*"; DestDir: "{app}\plugins\FileIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\MzXmlIOPlugin\*"; DestDir: "{app}\plugins\MzXmlIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\MzmlIOPlugin\*"; DestDir: "{app}\plugins\MzmlIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
@@ -39,10 +38,10 @@ Source: "build\msvs\stage\Win32-Release\plugins\MsbIOPlugin\*"; DestDir: "{app}\
 Source: "build\msvs\stage\Win32-Release\plugins\TextIOPlugin\*"; DestDir: "{app}\plugins\TextIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\PngOutputPlugin\*"; DestDir: "{app}\plugins\PngOutputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\ShimadzuLcmsInputPlugin\*"; DestDir: "{app}\plugins\ShimadzuLcmsInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\AbQstarInputPlugin\*"; DestDir: "{app}\plugins\AbQstarInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\WatersInputPlugin\*"; DestDir: "{app}\plugins\WatersInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\ThermoIOPlugin\*"; DestDir: "{app}\plugins\ThermoIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\AgilentInputPlugin\*"; DestDir: "{app}\plugins\AgilentInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\AbQstarInputPlugin\*"; DestDir: "{app}\plugins\AbQstarInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\WatersInputPlugin\*"; DestDir: "{app}\plugins\WatersInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\ThermoIOPlugin\*"; DestDir: "{app}\plugins\ThermoIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\AgilentInputPlugin\*"; DestDir: "{app}\plugins\AgilentInputPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\DbManagerPlugin\*"; DestDir: "{app}\plugins\DbManagerPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\SQLiteDbPlugin\*"; DestDir: "{app}\plugins\SQLiteDbPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\PostgreSQLPlugin\*"; DestDir: "{app}\plugins\PostgreSQLPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
