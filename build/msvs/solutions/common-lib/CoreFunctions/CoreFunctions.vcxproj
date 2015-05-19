@@ -171,13 +171,22 @@ copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform
     </Link>
     <PostBuildEvent>
       <Command>mkdir $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+
 copy $(SolutionDir)..\..\..\..\src\$(SolutionName)\$(ProjectName)\*.h $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)
+
 del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\stdafx.h
+
 copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(SolutionDir)..\..\..\..\include\kome\
+
 del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
+
 mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+
 copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+
+mkdir $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)
 copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
+
 copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
 </Command>
     </PostBuildEvent>
