@@ -109,9 +109,9 @@ copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(So
 del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
 mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
 copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+mkdir $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)
 copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-</Command>
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,9 +141,9 @@ copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(So
 del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
 mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
 copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+mkdir $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)
 copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-</Command>
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -221,9 +221,9 @@ copy $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h $(So
 del $(SolutionDir)..\..\..\..\include\kome\$(ProjectName)\$(ProjectName).h
 mkdir $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
 copy $(TargetPath) $(SolutionDir)..\..\stage\$(Platform)-$(Configuration)\bin
+mkdir $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)
 copy $(TargetPath) $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\
-</Command>
+copy $(TargetDir)$(TargetName).lib $(SolutionDir)..\..\..\..\lib\msvs\$(Platform)-$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
