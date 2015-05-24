@@ -6,13 +6,11 @@
 @rem 
 @rem Caution: This batch file is just tested on Windows 7
 @rem 
-if {%2}=={} (set ARCH=x86) else (set ARCH=%2)
-if {%1}=={} (set Configuration=all) else (set Configuration=%1)
+if "%2"=="" (set ARCH=x86) else (set ARCH=%2)
+if "%1"=="" (set Configuration=all) else (set Configuration=%1)
 if %Configuration%==all (set CONFIG=Release Debug) else (set CONFIG=%Configuration%)
 @rem PLTFRM: Win32 or  x64 
-if {%2}=={x64} (set PLTFRM=x64) else (set PLTFRM=Win32)
-
-
+if "%2"=="x64" (set PLTFRM=x64) else (set PLTFRM=Win32)
 
 @echo on
 @echo Builiding Mass++ for %ARCH% at %time% on %date%. 
