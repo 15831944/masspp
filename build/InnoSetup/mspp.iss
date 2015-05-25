@@ -1,4 +1,4 @@
-#define Version    "2.7.4"
+#define Version    "2.7.5"
 
 [Setup]
 AppName=Mass++
@@ -7,7 +7,7 @@ DefaultDirName={code:GetDefaultDir}
 AppendDefaultDirName=No
 VersionInfoVersion={#Version}.0
 VersionInfoDescription=Mass++ ver. {#Version} (32-bit) Setup
-AppCopyright=Shimadzu Corporation
+AppCopyright=Mass++ Users Group
 
 OutputBaseFilename=MassppSetup-x86
 SourceDir=..\..
