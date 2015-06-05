@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"  
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>MsbackadjBaselineDetectionPlugin</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>MsbackadjBaselineDetectionPlugin</link>
+  <function>
+    <call type="xydata_baseline">
+      <call-name>detectBaseline</call-name>
+      <call-function>msbackadjBaselineDetection</call-function>
+      <packages>
+        <package>Data Processing</package>
+      </packages>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Msbackadj</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>msbackadj</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>Baseline</param-value>
+        </param>
+      </params>
+      <call-description>detect baseline</call-description>
+    </call>
+    <call type="exit" ifloaded="true">
+      <call-name>exit plugin</call-name>
+      <call-function>exitPlugin</call-function>
+      <call-description>exit plugin</call-description>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>MATLAB Function</component-name>
+      <component-desc>Baseline detection using MATLAB function(msbackadj)</component-desc>
+      <component-calls>
+        <component-call>detectBaseline</component-call>
+        <component-call>exit plugin</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Quantitation</package-name>
+      <package-components>
+        <package-component>MATLAB Function</package-component>
+      </package-components>
+    </package>
+    <package>
+      <package-name>Data Processing</package-name>
+      <package-components>
+        <package-component>MATLAB Function</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>
