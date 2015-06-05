@@ -86,8 +86,8 @@ Source: "build\msvs\stage\Win32-Release\plugins\IntensityRateChargeDetectPlugin\
 Source: "build\msvs\stage\Win32-Release\plugins\PeakSearchPlugin\*"; DestDir: "{app}\plugins\PeakSearchPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\PeaksIOPlugin\*"; DestDir: "{app}\plugins\PeaksIOPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\PeakEditPlugin\*"; DestDir: "{app}\plugins\PeakEditPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\MspeaksPlugin\*"; DestDir: "{app}\plugins\MspeaksPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
-Source: "build\msvs\stage\Win32-Release\plugins\MslowessPlugin\*"; DestDir: "{app}\plugins\MslowessPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\MspeaksPlugin\*"; DestDir: "{app}\plugins\MspeaksPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\MslowessPlugin\*"; DestDir: "{app}\plugins\MslowessPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\PeakLabelDrawerPlugin\*"; DestDir: "{app}\plugins\PeakLabelDrawerPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\MatrixViewPlugin\*"; DestDir: "{app}\plugins\MatrixViewPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\LabelingAndMergePeakPositionPlugin\*"; DestDir: "{app}\plugins\LabelingAndMergePeakPositionPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
@@ -114,6 +114,7 @@ Source: "build\msvs\stage\Win32-Release\plugins\FilterPlugin\*"; DestDir: "{app}
 Source: "build\msvs\stage\Win32-Release\plugins\LinearFilterPlugin\*"; DestDir: "{app}\plugins\LinearFilterPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\WindowFilterPlugin\*"; DestDir: "{app}\plugins\WindowFilterPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\MzRangeFilterPlugin\*"; DestDir: "{app}\plugins\MzRangeFilterPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+;Source: "build\msvs\stage\Win32-Release\plugins\MsbackadjBaselineDetectionPlugin\*"; DestDir: "{app}\plugins\MsbackadjBaselineDetectionPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\OperationManagerPlugin\*"; DestDir: "{app}\plugins\OperationManagerPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\NormalizationPlugin\*"; DestDir: "{app}\plugins\NormalizationPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\Win32-Release\plugins\AlignmentPlugin\*"; DestDir: "{app}\plugins\AlignmentPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
