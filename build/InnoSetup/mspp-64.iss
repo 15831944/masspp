@@ -103,7 +103,11 @@ Source: "build\msvs\stage\x64-Release\plugins\MatrixGroupPlotPlugin\*"; DestDir:
 Source: "build\msvs\stage\x64-Release\plugins\MatrixOverlappingViewPlugin\*"; DestDir: "{app}\plugins\MatrixOverlappingViewPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\BasicScalingPlugin\*"; DestDir: "{app}\plugins\BasicScalingPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\MatrixPeaksMergePlugin\*"; DestDir: "{app}\plugins\MatrixPeaksMergePlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+Source: "build\msvs\stage\x64-Release\plugins\IdentificationPlugin\*"; DestDir: "{app}\plugins\IdentificationPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+Source: "build\msvs\stage\x64-Release\plugins\MascotSearchPlugin\*"; DestDir: "{app}\plugins\MascotSearchPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+Source: "build\msvs\stage\x64-Release\plugins\MascotPMFForLCMSPlugin\*"; DestDir: "{app}\plugins\MascotPMFForLCMSPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\XTandemSearchPlugin\*"; DestDir: "{app}\plugins\XTandemSearchPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
+Source: "build\msvs\opt\tandem\*"; DestDir: "{app}\opt\tandem"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\MassBankToolsPlugin\*"; DestDir: "{app}\plugins\MassBankToolsPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\CompoundDbPlugin\*"; DestDir: "{app}\plugins\CompoundDbPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
 Source: "build\msvs\stage\x64-Release\plugins\TppPlugin\*"; DestDir: "{app}\plugins\TppPlugin"; Excludes: ".*"; Flags: recursesubdirs; Components: programfiles
@@ -279,22 +283,22 @@ var
 end;
 
 
-function InstallCpp2008(url: String): Boolean;
-var  
-  Rslt: boolean;
-  CHECK_KEY: String;
-
-  begin
-  Rslt := True;
-  CHECK_KEY := 'SOFTWARE\MOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{9A25302D-30C0-39D9-BD6F-21E6EC160475}';
-  if RegKeyExists(HKEY_LOCAL_MACHINE, CHECK_KEY) then
-      Rslt := False;
-  if Rslt then
-  begin
-      UrlDownloadToFile(0, PChar(url), PChar(ExpandConstant('{tmp}') + '\vc9-' + ExtractFileName(url)), 0, 0);
-  end;
-  Result := Rslt;
-end;
+//function InstallCpp2008(url: String): Boolean;
+//var  
+//  Rslt: boolean;
+//  CHECK_KEY: String;
+//
+//  begin
+//  Rslt := True;
+//  CHECK_KEY := 'SOFTWARE\MOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{9A25302D-30C0-39D9-BD6F-21E6EC160475}';
+//  if RegKeyExists(HKEY_LOCAL_MACHINE, CHECK_KEY) then
+//      Rslt := False;
+//  if Rslt then
+//  begin
+//      UrlDownloadToFile(0, PChar(url), PChar(ExpandConstant('{tmp}') + '\vc9-' + ExtractFileName(url)), 0, 0);
+//  end;
+//  Result := Rslt;
+//end;
 
 function InstallFramework4(url: String): Boolean;
 var  
@@ -478,6 +482,7 @@ end;
 
 
 [Run]
-Filename: "{tmp}\vcredist_x64.exe"; StatusMsg: "Installing Visual C++ 2010 runtime ..."; Check: InstallCpp('http://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe');
-Filename: "{tmp}\vc9-vcredist_x86.exe"; StatusMsg: "Installing Visual C++ 2008 runtime ..."; Check: InstallCpp2008('http://download.microsoft.com/download/d/d/9/dd9a82d0-52ef-40db-8dab-795376989c03/vcredist_x86.exe');
+;Filename: "{tmp}\vcredist_x64.exe"; StatusMsg: "Installing Visual C++ 2010 runtime ..."; Check: InstallCpp('http://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe');
+Filename: "{tmp}\vcredist_x64.exe"; StatusMsg: "Installing Visual C++ 2010 runtime ..."; Check: InstallCpp('http://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe');
+;Filename: "{tmp}\vc9-vcredist_x86.exe"; StatusMsg: "Installing Visual C++ 2008 runtime ..."; Check: InstallCpp2008('http://download.microsoft.com/download/d/d/9/dd9a82d0-52ef-40db-8dab-795376989c03/vcredist_x86.exe');
 Filename: "{tmp}\dotNetFx40_Full_x86_x64.exe"; StatusMsg: "Installing Framework4 runtime ..."; Check: InstallFramework4('http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe');
