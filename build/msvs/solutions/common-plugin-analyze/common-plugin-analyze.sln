@@ -65,6 +65,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MascotSearchPlugin", "Masco
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MsbackadjBaselineDetectionPlugin", "MsbackadjBaselineDetectionPlugin\MsbackadjBaselineDetectionPlugin.vcxproj", "{CE31E679-A06C-4F42-9D45-1FC9CE38ADC8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MascotPMFForLCMSPlugin", "MascotPMFForLCMSPlugin\MascotPMFForLCMSPlugin.vcxproj", "{84090F00-9281-4844-A1A8-B46C907F3684}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -583,6 +585,22 @@ Global
 		{CE31E679-A06C-4F42-9D45-1FC9CE38ADC8}.Release|Win32.ActiveCfg = Release|Win32
 		{CE31E679-A06C-4F42-9D45-1FC9CE38ADC8}.Release|Win32.Build.0 = Release|Win32
 		{CE31E679-A06C-4F42-9D45-1FC9CE38ADC8}.Release|x64.ActiveCfg = Release|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Debug|Win32.ActiveCfg = Debug|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Debug|Win32.Build.0 = Debug|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Debug|x64.ActiveCfg = Debug|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Debug|x64.Build.0 = Debug|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Debug|Win32.ActiveCfg = Debug|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Debug|Win32.Build.0 = Debug|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Debug|x64.ActiveCfg = Debug|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Debug|x64.Build.0 = Debug|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Release|Win32.ActiveCfg = Release|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Release|Win32.Build.0 = Release|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Release|x64.ActiveCfg = Release|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Parallel-Release|x64.Build.0 = Release|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Release|Win32.ActiveCfg = Release|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Release|Win32.Build.0 = Release|Win32
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Release|x64.ActiveCfg = Release|x64
+		{84090F00-9281-4844-A1A8-B46C907F3684}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

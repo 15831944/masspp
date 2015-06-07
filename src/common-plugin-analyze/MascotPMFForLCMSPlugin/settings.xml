@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+
+<settings
+    xmlns="http://xml.first-ms3d.jp/masspp/settings"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/settings http://first-ms3d.jp/development/masspp-settings110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <values>
+    <value id="0" type="string" default="" required="true" />
+    <value id="1" type="email" default="" required="true" />
+    <value id="2" type="string" default="1" required="true">
+      <enum>
+        <enum-name>1</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>2</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+      <enum>
+        <enum-name>3</enum-name>
+        <enum-value>3</enum-value>
+      </enum>
+      <enum>
+        <enum-name>4</enum-name>
+        <enum-value>4</enum-value>
+      </enum>
+      <enum>
+        <enum-name>5</enum-name>
+        <enum-value>5</enum-value>
+      </enum>
+      <enum>
+        <enum-name>6</enum-name>
+        <enum-value>6</enum-value>
+      </enum>
+      <enum>
+        <enum-name>7</enum-name>
+        <enum-value>7</enum-value>
+      </enum>
+      <enum>
+        <enum-name>8</enum-name>
+        <enum-value>8</enum-value>
+      </enum>
+      <enum>
+        <enum-name>9</enum-name>
+        <enum-value>9</enum-value>
+      </enum>
+    </value>
+    <value id="4" type="string" required="true">
+      <enum-call>enzymes</enum-call>
+    </value>
+    <value id="5" type="string" default="Monoisotopic" required="true">
+      <enum>
+        <enum-name>Monoisotopic</enum-name>
+        <enum-value>Monoisotopic</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Average</enum-name>
+        <enum-value>Average</enum-value>
+      </enum>
+    </value>
+    <value id="6" type="bool" default="false" />
+    <value id="7" type="list" hideAllChk="true" parent="6" required="false" />
+    <value id="8" type="bool" list="7">
+      <enum-call>modifications</enum-call>
+      <value-name>Modification Name</value-name>
+    </value>
+    <value id="9" type="list"  hideAllChk="true" parent="6" required="false" />
+    <value id="10" type="bool" list="9">
+      <enum-call>modifications</enum-call>
+      <value-name>Modification Name</value-name>
+    </value>
+    <value id="11" type="double" default="1.2" minExclusive="0.0" required="true" />
+    <value id="12" type="string" default="Da" required="true">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>Da</enum-value>
+      </enum>
+      <enum>
+        <enum-name>mmu</enum-name>
+        <enum-value>mmu</enum-value>
+      </enum>
+      <enum>
+        <enum-name>%</enum-name>
+        <enum-value>%</enum-value>
+      </enum>
+      <enum>
+        <enum-name>ppm</enum-name>
+        <enum-value>ppm</enum-value>
+      </enum>
+    </value>
+    <value id="13" type="string" default="0" required="true">
+      <enum>
+        <enum-name>0</enum-name>
+        <enum-value>0</enum-value>
+      </enum>
+      <enum>
+        <enum-name>1</enum-name>
+        <enum-value>1</enum-value>
+      </enum>
+      <enum>
+        <enum-name>2</enum-name>
+        <enum-value>2</enum-value>
+      </enum>
+    </value>
+    <value id="14" type="double" default="0.6" minExclusive="0.0" required="true" />
+    <value id="15" type="string" default="Da" required="true">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>Da</enum-value>
+      </enum>
+      <enum>
+        <enum-name>mmu</enum-name>
+        <enum-value>mmu</enum-value>
+      </enum>
+    </value>
+    <value id="18" type="string" default="(None)" required="false">
+      <enum>
+        <enum-name>Error Tolerant</enum-name>
+        <enum-value>Error Tolerant</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Decoy</enum-name>
+        <enum-value>Decoy</enum-value>
+      </enum>
+    </value>
+    <value id="19" type="string" default="AUTO" required="true">
+      <enum>
+        <enum-name>AUTO</enum-name>
+        <enum-value>AUTO</enum-value>
+      </enum>
+      <enum>
+        <enum-name>5</enum-name>
+        <enum-value>5</enum-value>
+      </enum>
+      <enum>
+        <enum-name>10</enum-name>
+        <enum-value>10</enum-value>
+      </enum>
+      <enum>
+        <enum-name>20</enum-name>
+        <enum-value>20</enum-value>
+      </enum>
+      <enum>
+        <enum-name>30</enum-name>
+        <enum-value>30</enum-value>
+      </enum>
+      <enum>
+        <enum-name>50</enum-name>
+        <enum-value>50</enum-value>
+      </enum>
+      <enum>
+        <enum-name>100</enum-name>
+        <enum-value>100</enum-value>
+      </enum>
+      <enum>
+        <enum-name>200</enum-name>
+        <enum-value>200</enum-value>
+      </enum>
+    </value>
+    <value id="20" type="string" required="true">
+      <enum-call>pmf_db</enum-call>
+    </value>
+    <value id="22" type="string" required="true">
+      <enum-call>pmf_taxonomy</enum-call>
+    </value>
+    <value id="24" type="bool" default="off" required="true" />
+    <value id="25" type="string" required="true">
+      <enum>
+        <enum-name>MH+</enum-name>
+        <enum-value>1+</enum-value>
+      </enum>
+      <enum>
+        <enum-name>Mr</enum-name>
+        <enum-value>Mr</enum-value>
+      </enum>
+      <enum>
+        <enum-name>MH-</enum-name>
+        <enum-value>1-</enum-value>
+      </enum>
+    </value>
+    <value id="26" type="double" required="false" minExclusive="0.0" />
+    <!-- @date 2013.06.20 <Mod> M.Izumi -->
+    <value id="27" type="double" required="true" default="0.25" minInclusive="0.0" />
+    <value id="28" type="int" required="true" default="999" minInclusive="1" maxInclusive="999" />
+    <value id="29" type="string" required="true" default="da">
+      <enum>
+        <enum-name>Da</enum-name>
+        <enum-value>da</enum-value>
+      </enum>
+      <enum>
+        <enum-name>ppm</enum-name>
+        <enum-value>ppm</enum-value>
+      </enum>
+    </value>
+    <value id="30" type="double" required="true" default="0.05" minInclusive="0.0" maxExclusive="1.0" />    
+  </values>
+  <params>
+    <param id="0" value="0">
+      <param-name>USERNAME</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>NAME</param-key>
+    </param>
+    <param id="1" value="1">
+      <param-name>USEREMAIL</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>EMAIL</param-key>
+    </param>
+    <param id="4" value="4">
+      <param-name>CLE</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>ENZYME</param-key>
+    </param>
+    <param id="5" value="2">
+      <param-name>PFA</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>ALLOWED_MISSED_CLEAVAGES</param-key>
+    </param>
+    <param id="7" value="7">
+      <param-name>MODS</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>FIXED_MODS</param-key>
+    </param>
+    <param id="8" value="9">
+      <param-name>IT_MODS</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>VARIABLE_MODS</param-key>
+    </param>
+    <param id="9" value="11">
+      <param-name>TOL</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PEPTIDE_TOL</param-key>
+    </param>
+    <param id="10" value="12">
+      <param-name>TOLU</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PEPTIDE_TOL_UNIT</param-key>
+    </param>
+    <param id="11" value="13">
+      <param-name>PEP_ISOTOPE_ERROR</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PEPTIDE_ISOTOPE_ERROR</param-key>
+    </param>
+    <param id="12" value="14">
+      <param-name>ITOL</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>MSMS_TOL</param-key>
+    </param>
+    <param id="13" value="15">
+      <param-name>ITOLU</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>MSMS_TOL_UNIT</param-key>
+    </param>
+    <param id="15" value="5">
+      <param-name>MASS</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>MASS</param-key>
+    </param>
+    <param id="17" value="18">
+      <param-name>ErrorTolerant/Decoy</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>ERROR_TOL_DECOY</param-key>
+    </param>
+    <param id="18" value="19">
+      <param-name>REPORT</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>REPORT_NUM</param-key>
+    </param>
+    <param id="19" value="20">
+      <param-name>DB</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PMF_DB</param-key>
+    </param>
+    <param id="20" value="22">
+      <param-name>TAXONOMY</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PMF_TAXONOMY</param-key>
+    </param>
+    <param id="21" value="24">
+      <param-name>DECOY</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>DECOY</param-key>
+    </param>
+    <param id="22" value="25">
+      <param-name>CHARGE</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>MASS_VALUES</param-key>
+    </param>
+    <param id="23" value="26">
+      <param-name>SEG</param-name>
+      <param-section>Mascot Search</param-section>
+      <param-key>PROTEIN_MASS</param-key>
+    </param>
+    <param id="24" value="6">
+      <param-name>allmod</param-name>
+      <param-section>Identification</param-section>
+      <param-key>SHOW_ALL_MODIFICATION</param-key>
+    </param>
+    <param id="25" value="27">
+      <param-name>peak_tol</param-name>
+      <param-section>Identification</param-section>
+      <param-key>PEAK_LIST_TOLERANCE</param-key>
+    </param>
+    <param id="26" value="28">
+      <param-name>peak_num</param-name>
+      <param-section>Identification</param-section>
+      <param-key>PEAK_LIST_NUM</param-key>
+    </param>
+    <param id="27" value="29">
+      <param-name>peak_tol_unit</param-name>
+      <param-section>Identification</param-section>
+      <param-key>PEAK_LIST_TOLERANCE_UNIT</param-key>
+    </param>
+    <param id="28" value="30">
+      <param-name>min_probability</param-name>
+      <param-section>Identification</param-section>
+      <param-key>MASCOT_MIN_PROBABILITY</param-key>      
+    </param>
+  </params>
+  <groups>
+    <group id="0">
+      <group-name>User</group-name>
+    </group>
+    <group id="1">
+      <group-name></group-name>
+    </group>
+    <group id="2">
+      <group-name></group-name>
+    </group>
+    <group id="3">
+      <group-name></group-name>
+    </group>
+    <group id="4">
+      <group-name>Peptide Tolerance</group-name>
+    </group>
+    <group id="5">
+      <group-name></group-name>
+    </group>
+    <group id="6">
+      <group-name>MS/MS Tolerance</group-name>
+    </group>
+    <group id="7">
+      <group-name></group-name>
+    </group>
+    <group id="8">
+      <group-name>Peak List</group-name>
+    </group>
+  </groups>
+  <pages>
+    <page common="false">
+      <page-name>pmf</page-name>
+      <page-title>Mascot Peptide Mass Fingerprint</page-title>
+      <check-functions>
+        <check-fun>pmf_lcms_mods</check-fun>
+      </check-functions>
+      <forms>
+        <form id="0" param="0" group="0">
+          <form-title>Name</form-title>
+          <form-desc>On the free, public Mascot server, your name and email address must be entered in these fields. This information will nobe be used by us, Matrix Science or anyone else to send you "spam" or junk mail.</form-desc>
+        </form>
+        <form id="1" param="1" group="0">
+          <form-title>Email</form-title>
+          <form-desc>On the free, public Mascot server, your name and email address must be entered in these fields. This information will nobe be used by us, Matrix Science or anyone else to send you "spam" or junk mail.</form-desc>
+        </form>
+        <form id="2" param="25" group="8">
+          <form-title>m/z Tol.</form-title>
+        </form>
+        <form id="3" param="27" group="8">
+          <form-title>m/z Tol. Unit</form-title>
+        </form>
+        <form id="4" param="26" group="8">
+          <form-title>Max Peak Num.</form-title>
+        </form>
+        <form id="5" param="19" group="1">
+          <form-title>Database</form-title>
+          <form-desc>Select the sequence database to be searched.</form-desc>
+        </form>
+        <form id="6" param="20" group="1">
+          <form-title>Taxonomy</form-title>
+          <form-desc>The Taxonomy parameter allows searches to bee limited to entries from particular specied or groups of species. This can spped up a search, and ensures that the hits list will only contain entries from the selected spcies.</form-desc>
+        </form>
+        <form id="7" param="4" group="2">
+          <form-title>Enzyme</form-title>
+          <form-desc>Select the enzyme used in sample prepatation.</form-desc>
+        </form>
+        <form id="8" param="5" group="2">
+          <form-title>Allowed Missed Cleavages</form-title>
+          <form-desc>Setting the number of allowed missed cleavage sites to zero similates a limit digest.</form-desc>
+        </form>
+        <form id="9" param="7" group="3">
+          <form-title>Fixed Modifications</form-title>
+          <form-desc>Select any known or suspected modifications. Fixed modifications are applied universally, to every instance of the spefified redidue(s) or terminus.</form-desc>
+        </form>
+        <form id="10" param="8" group="3">
+          <form-title>Variable Modifications</form-title>
+          <form-desc>Select any known or suspected modifications. Variable modifications are those which may or may not be present.</form-desc>
+        </form>
+        <form id="11" param="24" group="3">
+          <form-title>Display all modifications</form-title>
+        </form>
+        <form id="12" param="23" group="5">
+          <form-title>Protein Mass (kDa)</form-title>
+          <form-desc>The mass of the intact protein in Da applied as a sliding window.</form-desc>
+        </form>
+        <form id="13" param="9" group="4">
+          <form-title>Peptide Tol.</form-title>
+          <form-desc>The mass of the intact protein in Da applied as a sliding window.</form-desc>
+        </form>
+        <form id="14" param="10" group="4">
+          <form-title>Peptide Tol. Unit</form-title>
+          <form-desc>The error window on experimantal peptide mass values.</form-desc>
+        </form>
+        <form id="15" param="22" group="7">
+          <form-title>Mass Values</form-title>
+          <form-desc>Specifies whether experimental peptide mass values in a speptide mass fingerpring search include the mass of the charge carrier, MH+ or M-H-, or whether they correspond to neutral, Mr Values.</form-desc>
+        </form>
+        <form id="16" param="15" group="7">
+          <form-title>Mass</form-title>
+          <form-desc>Specify wheter the expeimental mass values area average of monoisotopic.</form-desc>
+        </form>
+        <form id="17" param="21" group="7">
+          <form-title>Decoy</form-title>
+          <form-desc>During the Decoy Search, every time a protein sequence from the target database in tested, a decoy sequence of the same length is automatically generated and tested.</form-desc>
+        </form>
+        <form id="18" param="18" group="7">
+          <form-title>Report Num.</form-title>
+          <form-desc>This parameter determines the maximum number of hits displayed in a search results report.</form-desc>
+        </form>
+        <form id="19" param="28">
+          <form-title>Min. Probalility</form-title>          
+        </form>
+      </forms>
+    </page>
+  </pages>
+</settings>

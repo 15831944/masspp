@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<plugin
+    xmlns="http://xml.first-ms3d.jp/masspp/plugin"
+    xsi:schemaLocation="http://xml.first-ms3d.jp/masspp/plugin http://first-ms3d.jp/development/masspp-plugin110.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <name>LCMS Mascot Search</name>
+  <version>1.00</version>
+  <provider>Shimadzu Corporation</provider>
+  <link>MascotPMFForLCMSPlugin</link>
+  <function>
+    <call type="identification">
+      <call-name>pmf</call-name>
+      <call-function>getPmfSearchEngine</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>Mascot (PMF) for LC/MS</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>mascot-pmf-lcms</param-value>
+        </param>
+        <param>
+          <param-name>page</param-name>
+          <param-value>pmf</param-value>
+        </param>
+      </params>
+      <call-description>Mascot Peptide Mass Fingerprint</call-description>
+    </call>
+    <call type="check_params">
+      <call-name>check_mods</call-name>
+      <call-function>checkModifications</call-function>
+      <params>
+        <param>
+          <param-name>long name</param-name>
+          <param-value>LC/MS PMF Modifications</param-value>
+        </param>
+        <param>
+          <param-name>short name</param-name>
+          <param-value>pmf_lcms_mods</param-value>
+        </param>
+      </params>
+    </call>
+  </function>
+  <components>
+    <component>
+      <component-name>pmf</component-name>
+      <component-desc>Mascot PMF Search for LC/MS Data</component-desc>
+      <component-calls>
+        <component-call>pmf</component-call>
+        <component-call>check_mods</component-call>
+      </component-calls>
+    </component>
+  </components>
+  <packages>
+    <package>
+      <package-name>Identification</package-name>
+      <package-components>
+        <package-component>pmf</package-component>
+      </package-components>
+    </package>
+  </packages>
+  <parameters>
+    <parameters-file>settings.xml</parameters-file>
+  </parameters>
+</plugin>
